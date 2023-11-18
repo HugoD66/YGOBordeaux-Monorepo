@@ -1,33 +1,46 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
 export class Bar {
-  @PrimaryGeneratedColumn('uuid')
-  public id!: string;
+  @PrimaryGeneratedColumn(`uuid`)
+  public id!: string
+
   @Column()
-  public name!: string;
+  public name!: string
+
   @Column()
-  public adresse!: string;
-@Column()
-public neighborhood!: string; //quartier
-@Column()
-public price?: number;
-@Column()
-  public nibble? : boolean;
-@Column()
-  public happyHour?: boolean;
-@Column()
-  public averageAge?: number;
-@Column()
-  public drinks?: string[]; //Faire une enum ?
-@Column()
-  public openTime: number; //date?
+  public adresse!: string
+
   @Column()
-  public closeTime: number; //Date ?
+  public neighborhood!: string // quartier
+
   @Column()
-  public card: string;
+  public price?: number
+
   @Column()
-  public pictures: string[];
+  public nibble?: boolean
+
   @Column()
-  public notes: number;
+  public happyHour?: boolean
+
+  @Column()
+  public averageAge?: number
+
+  @Column()
+  public drinks?: string[] // Faire une enum ?
+
+  @Column()
+  public openTime: number // date?
+
+  @Column()
+  public closeTime: number // Date ?
+
+  @Column()
+  public card: string
+
+  @Column()
+  public pictures: string[]
+
+  @Column()
+  public notes: number
 }

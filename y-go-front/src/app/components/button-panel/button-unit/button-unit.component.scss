@@ -2,7 +2,7 @@ img {
   width: 100%;
 }
 .parentElem {
-  transition: all .3s;
+  transition: all 0.3s;
   width: 2.2em;
   &:hover {
     transform: rotate(180deg);

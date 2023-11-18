@@ -1,25 +1,25 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  public id: number;
+  public id: number
 
   @Column({ length: 500 })
-  public name: string;
+  public name: string
 
   @Column()
-  public username: string;
+  public username: string
 
   @Column()
-  public adress: string;
+  public adress: string
 
   @Column()
-  public email: string;
+  public email: string
 
   @Column()
-  public phone: string;
+  public phone: string
 
   @Column()
-  public newsletters: boolean;
+  public newsletters: boolean
 }
