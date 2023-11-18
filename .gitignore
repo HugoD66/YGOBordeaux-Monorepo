@@ -1,0 +1,4 @@
+/node_modules
+y-go-front/node_modules
+y-go-back/node_modules
+y-go-front/.angular/**

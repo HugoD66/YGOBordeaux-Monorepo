@@ -1,0 +1,4 @@
+y-go-back/dist/**
+y-go-back/node_modules/**
+y-go-front/node_modules/**
+**/*.{js}

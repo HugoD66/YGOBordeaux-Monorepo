@@ -1,0 +1,24 @@
+.button-panel {
+  position: fixed;
+  z-index: 11;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  background-color: transparent;
+  height: auto;
+  .parent-button-panel {
+  }
+  .button-panel-drawer {
+    width: 300px;
+    background-color: transparent;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+  }
+}
+

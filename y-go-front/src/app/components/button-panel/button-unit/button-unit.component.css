@@ -1,0 +1,20 @@
+img {
+  width: 100%;
+  /*
+
+   */
+}
+
+.parentElem {
+  transition: all 0.3s;
+  width: 3em;
+}
+.parentElem:hover {
+  transform: rotate(180deg);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=button-unit.component.css.map */

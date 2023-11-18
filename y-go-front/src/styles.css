@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Design  */
+/* Typo */
+@font-face {
+  font-family: "Moontime";
+  src: url("assets/typo/FontsFree-Net-MoonTime-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/typo/MontserratAlternates-Regular.ttf");
+}
+@font-face {
+  font-family: "Titillium";
+  src: url("assets/typo/TitilliumWeb-Regular.ttf");
+}
+/* Colors */
+/* Buttons */
+.button-panel-unit {
+  background-color: rgb(245, 221, 194);
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 90%;
+  transition: background-color 0.1s;
+}
+.button-panel-unit:hover {
+  transition: background-color 0.1s;
+  background-color: rgb(255, 204, 170);
+}
+
+/*# sourceMappingURL=styles.css.map */

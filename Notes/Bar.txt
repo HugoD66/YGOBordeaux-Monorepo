@@ -1,0 +1,20 @@
+Bar:
+	Prix
+	Grignoter
+	Happy hour
+	Moyenne d'âge
+	Boissons (type genre bar à vin / bar a cocktail ... )
+	Horaires
+	Petite carte
+	Pictures []
+	Photo carte
+	Notes
+
+User:
+	Age
+	Nom
+	Username ?
+	Password
+	Newsletters ?
+
+S'abonner à la newsLetters ?
