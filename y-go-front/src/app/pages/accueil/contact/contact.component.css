@@ -1,9 +1,13 @@
 section {
-  background-color: #7A3E65;
   width: 100%;
   z-index: 3;
   height: 100vh;
   position: relative;
+}
+section .contact {
+  background-color: #5aa844;
+  width: 70%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=contact.component.css.map */
