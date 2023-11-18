@@ -1,14 +1,15 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import {DrinkEnum} from "./types/drinks.enum";
 
 @Entity()
 export class Bar {
   @PrimaryGeneratedColumn(`uuid`)
   public id!: string
 
-  @Column()
+  @Column({ unique: true })
   public name!: string
 
-  @Column()
+  @Column({ unique: true })
   public adresse!: string
 
   @Column()
@@ -18,7 +19,7 @@ export class Bar {
   public price?: number
 
   @Column()
-  public nibble?: boolean
+  public nibble?: boolean //Grignotter
 
   @Column()
   public happyHour?: boolean
@@ -26,8 +27,13 @@ export class Bar {
   @Column()
   public averageAge?: number
 
+  @Column({
+    type: 'enum',
+    enum: DrinkEnum,
+    default: DrinkEnum.Despe,
+  })
   @Column()
-  public drinks?: string[] // Faire une enum ?
+  drinks?: DrinkEnum // Faire une enum ?
 
   @Column()
   public openTime: number // date?
@@ -38,7 +44,7 @@ export class Bar {
   @Column()
   public card: string
 
-  @Column()
+  @Column("text", { array: true, nullable: true })
   public pictures: string[]
 
   @Column()

@@ -1,0 +1,94 @@
+section {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+section .formulaire {
+  width: 40%;
+  position: absolute;
+  right: 0;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+section .bordeaux {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50%;
+  object-fit: cover;
+}
+section .ygologo {
+  position: absolute;
+  width: 150px;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+section .backWithoutColor {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  height: 50%;
+  background-color: #1f1f1f;
+}
+section .linear {
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  width: 60%;
+  height: 15%;
+  background: linear-gradient(360deg, #1f1f1f 0%, rgba(255, 255, 255, 0) 100%);
+}
+section h1 {
+  z-index: 3;
+  position: fixed;
+  bottom: 28%;
+  left: 15%;
+  color: white;
+  font-size: 6vw;
+  line-height: 8vw;
+  font-weight: lighter;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 14px 13px #1f1f1f;
+}
+@media screen and (max-width: 1080px) {
+  section h1 {
+    font-size: 14vw;
+    left: 10%;
+  }
+}
+@media screen and (max-width: 680px) {
+  section h1 {
+    font-size: 24vw;
+  }
+}
+section h2 {
+  z-index: 3;
+  position: fixed;
+  bottom: 15%;
+  left: 27%;
+  color: white;
+  font-size: 7vw;
+  line-height: 5vw;
+  letter-spacing: 1.1vw;
+  text-shadow: 0 14px 13px black;
+  font-family: Moontime, sans serif;
+}
+@media screen and (max-width: 1080px) {
+  section h2 {
+    font-size: 12vw;
+    left: 18%;
+  }
+}
+@media screen and (max-width: 680px) {
+  section h2 {
+    font-size: 18vw;
+  }
+}
+
+/*# sourceMappingURL=login.component.css.map */

@@ -19,6 +19,7 @@ import { LoginComponent } from "./pages/login/login.component"
 import { BarComponent } from "./pages/bar/bar.component"
 import { UnitBarComponent } from "./pages/bar/unit-bar/unit-bar.component"
 import { UserListComponent } from "./pages/article/user-list/user-list.component"
+import {AccueilNavComponent} from "./pages/accueil/accueil-nav/accueil-nav.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,6 @@ import { UserListComponent } from "./pages/article/user-list/user-list.component
     CarouselComponent,
     ContactComponent,
     NotFoundComponent,
-    LoginComponent,
     BarComponent,
     UnitBarComponent,
     UserListComponent,
@@ -43,6 +43,7 @@ import { UserListComponent } from "./pages/article/user-list/user-list.component
     MatIconModule,
     ButtonPanelComponent,
     ButtonUnitComponent,
+    AccueilNavComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -16,14 +16,17 @@ video {
   height: 100vh;
 }
 .pres-content h1 {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 30%;
   left: 23%;
   color: white;
-  font-size: 12vw;
-  line-height: 5vw;
+  font-size: 11vw;
+  line-height: 8vw;
+  font-weight: lighter;
+  font-family: "Montserrat", sans-serif;
   text-shadow: 0 14px 13px #1f1f1f;
+  user-select: none;
 }
 @media screen and (max-width: 1080px) {
   .pres-content h1 {
@@ -36,7 +39,7 @@ video {
   }
 }
 .pres-content h2 {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 55%;
   left: 30%;
@@ -45,9 +48,8 @@ video {
   line-height: 5vw;
   letter-spacing: 1.1vw;
   text-shadow: 0 14px 13px black;
-  font-family:
-    Moontime,
-    sans serif;
+  font-family: Moontime, sans serif;
+  user-select: none;
 }
 @media screen and (max-width: 1080px) {
   .pres-content h2 {
@@ -60,7 +62,7 @@ video {
   }
 }
 .pres-content img {
-  z-index: 1;
+  z-index: 2;
   width: 30vw;
   position: fixed;
   top: 10%;
@@ -71,40 +73,6 @@ video {
     width: 45vw;
     top: 20%;
     left: 15%;
-  }
-}
-.pres-content .accueil-nav {
-  position: fixed;
-  bottom: 14%;
-  right: 12%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  padding-right: 2%;
-  padding-left: 2%;
-  border-radius: 35px;
-  background-color: rgba(245, 221, 194, 0.2);
-}
-.pres-content .accueil-nav button,
-.pres-content .accueil-nav a {
-  margin: 5%;
-}
-.pres-content .accueil-nav a {
-  font-family: "Titillium", sans-serif;
-  font-size: 1.4em;
-  color: black;
-  font-weight: bold;
-}
-.pres-content .accueil-nav button {
-  border: 2px solid black;
-}
-@media screen and (max-width: 700px) {
-  .pres-content .accueil-nav {
-    width: 100%;
-    left: 0;
-    right: 0;
-    border-radius: 0;
   }
 }
 

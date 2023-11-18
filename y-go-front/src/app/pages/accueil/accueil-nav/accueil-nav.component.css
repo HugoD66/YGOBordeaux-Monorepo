@@ -1,0 +1,36 @@
+.accueil-nav {
+  position: fixed;
+  bottom: 14%;
+  right: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-right: 2%;
+  padding-left: 2%;
+  border-radius: 35px;
+  background-color: rgba(245, 221, 194, 0.2);
+}
+.accueil-nav button,
+.accueil-nav a {
+  margin: 5%;
+}
+.accueil-nav a {
+  font-family: "Titillium", sans-serif;
+  font-size: 1.4em;
+  color: black;
+  font-weight: bold;
+}
+.accueil-nav button {
+  border: 2px solid black;
+}
+@media screen and (max-width: 700px) {
+  .accueil-nav {
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
+}
+
+/*# sourceMappingURL=accueil-nav.component.css.map */
