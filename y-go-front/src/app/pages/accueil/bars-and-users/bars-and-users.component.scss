@@ -1,0 +1,21 @@
+.usUsers {
+  width: 100%;
+  z-index: 3;
+  height: 100vh;
+  position: relative;
+  .usersBack {
+    background: #7A3E75;
+    border-radius: 610px 520px 610px 800px;
+    width: 70%;
+    margin: 10%;
+    height: 80%;
+    left: 0;
+    position: absolute;
+  }
+  .userContent {
+    position: absolute;
+    width: 70%;
+    margin: 10%;
+    height: 80%;
+  }
+}
