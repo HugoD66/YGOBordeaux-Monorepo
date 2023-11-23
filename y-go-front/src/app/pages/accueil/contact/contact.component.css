@@ -1,13 +1,61 @@
 section {
   width: 100%;
   z-index: 3;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
+  background-color: #faf0e4;
 }
-section .contact {
-  background-color: #5aa844;
+section .contact-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 70%;
+  height: 60vh;
+  margin: 10%;
+}
+section .contact-content .nous-retrouver {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
   height: 100%;
+}
+section .contact-content .nous-retrouver p {
+  width: 50%;
+  font-size: 1.7em;
+  margin-top: 40%;
+  margin-left: 28%;
+  text-align: end;
+}
+section .contact-content .nous-retrouver .ecole {
+  width: 500px;
+  height: 500px;
+  background-color: #1f1f1f;
+}
+section .contact-content .form-content {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+}
+section .reseaux-sociaux {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 20vh;
+}
+.liner {
+  width: 100%;
+  height: 5px;
+  background-color: black;
 }
 
 /*# sourceMappingURL=contact.component.css.map */

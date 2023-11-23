@@ -1,28 +1,28 @@
 .accueil-nav {
   position: fixed;
-  bottom: 14%;
-  right: 12%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  bottom: 10%;
+  right: 10%;
   padding-right: 2%;
-  padding-left: 2%;
-  border-radius: 35px;
-  background-color: rgba(245, 221, 194, 0.2);
-  button,
-  a {
-    margin: 5%;
+  border-radius: 10px;
+  background-color: #FAF0E4FF;
+  width: auto;
+  .list-item {
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15%;
+    width: auto;
+    p {
+      padding-left: 3%;
+      width: 100%;
+      font-family: "Titillium", sans-serif;
+      font-size: 1.4em;
+      color: black;
+      font-weight: bold;
+    }
   }
-  a {
-    font-family: "Titillium", sans-serif;
-    font-size: 1.4em;
-    color: black;
-    font-weight: bold;
-  }
-  button {
-    border: 2px solid black;
-  }
+
   @media screen and (max-width: 700px) {
     width: 100%;
     left: 0;

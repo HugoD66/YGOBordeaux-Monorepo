@@ -25,6 +25,7 @@ export class ButtonPanelComponent {
   contactPicture: string = `./assets/icons/contact-withoutB.png`
 
   routerLinkLogin: string = `login`
+  routerLinkBars: string = `bars`
 
   isDrawerOpen: boolean = false
 
