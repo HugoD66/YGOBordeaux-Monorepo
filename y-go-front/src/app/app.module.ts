@@ -29,7 +29,11 @@ import { AccueilNavComponent } from "./pages/accueil/accueil-nav/accueil-nav.com
 import { BarsAndUsersComponent } from "./pages/accueil/bars-and-users/bars-and-users.component"
 import { MapComponent } from "./pages/accueil/map/map/map.component";
 import { PageMapComponent } from './pages/accueil/map/page-map/page-map.component';
-import { PresComponent } from './pages/accueil/pres/pres.component'
+import { PresComponent } from './pages/accueil/pres/pres.component';
+import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component'
+import {MatInputModule} from "@angular/material/input";
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DetailBarComponent } from './pages/bars/detail-bar/detail-bar.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +41,13 @@ import { PresComponent } from './pages/accueil/pres/pres.component'
     AccueilComponent,
     NotFoundComponent,
     BarsComponent,
-    UnitBarComponent,
     UserListComponent,
     BarsAndUsersComponent,
     MapComponent,
     PageMapComponent,
     PresComponent,
+    SearchBarComponent,
+    DetailBarComponent,
   ],
   imports: [
     FormsModule,
@@ -63,6 +68,9 @@ import { PresComponent } from './pages/accueil/pres/pres.component'
     CarouselInnerComponent,
     CarouselItemComponent,
     ContactComponent,
+    LogoYGoComponent,
+    MatInputModule,
+    UnitBarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

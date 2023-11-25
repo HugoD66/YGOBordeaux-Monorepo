@@ -54,10 +54,10 @@ section {
     align-items: center;
     justify-content: space-around;
     height: 20vh;
-    }
-
-  .show-icons .reseaux-sociaux {
+    transition: opacity 0.8s ease-in-out; /* Ajoutez une transition pour une apparition en douceur */
   }
+
+
 }
 .liner {
   width: 100%;

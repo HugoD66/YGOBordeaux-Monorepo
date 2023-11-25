@@ -5,4 +5,6 @@ import { Component } from "@angular/core"
   templateUrl: `./bars.component.html`,
   styleUrls: [`./bars.component.scss`],
 })
-export class BarsComponent {}
+export class BarsComponent {
+
+}

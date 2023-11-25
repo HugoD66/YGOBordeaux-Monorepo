@@ -1,0 +1,37 @@
+h2 {
+  position: absolute;
+  bottom: 70px;
+  right: 130px;
+  cursor: pointer;
+  font-size: 3.5em;
+  z-index: 2;
+  line-height: 8vw;
+  font-weight: lighter;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 14px 13px #1f1f1f;
+  user-select: none;
+}
+
+h3 {
+  position: absolute;
+  bottom: 50px;
+  right: 80px;
+  cursor: pointer;
+  font-size: 3.2em;
+  z-index: 2;
+  font-weight: normal;
+  line-height: 5vw;
+  text-shadow: 0 14px 13px black;
+  font-family: Moontime, sans serif;
+  user-select: none;
+}
+
+.ygologo {
+  position: absolute;
+  width: 10vw;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=logo-ygo.component.css.map */

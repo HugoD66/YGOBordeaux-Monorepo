@@ -1,3 +1,62 @@
-
+.unit-bar-content {
+  max-width: 35vw;
+  margin: 5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(246, 225, 195, 0.32);
+}
+.unit-bar-content .header-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #7A3E65;
+}
+.unit-bar-content .header-card .title {
+  font-size: 2em;
+}
+.unit-bar-content .header-card .author-picture {
+  background-size: cover;
+  border-radius: 90%;
+}
+.unit-bar-content .card-content {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.unit-bar-content .card-content p {
+  width: 49%;
+  text-align: justify;
+  font-size: 1.2em;
+}
+.unit-bar-content .card-content ul {
+  width: 49%;
+  letter-spacing: 1px;
+  line-height: 2vh;
+}
+.unit-bar-content .card-content ul .list-data {
+  margin-left: 4%;
+  font-size: 1.2em;
+  line-height: 3vh;
+}
+.unit-bar-content .card-content ul .picture-star-list-data {
+  width: 20px;
+  height: 20px;
+  margin: 2%;
+}
+.unit-bar-content .button-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.unit-bar-content .button-list button {
+  margin-top: 5%;
+  background-color: #7A3E65;
+  color: #f1f1f1;
+  font-size: 1.2em;
+}
 
 /*# sourceMappingURL=unit-bar.component.css.map */

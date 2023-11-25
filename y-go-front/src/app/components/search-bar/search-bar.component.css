@@ -1,0 +1,13 @@
+.example-form-field {
+  width: 250px;
+  position: absolute;
+  margin-top: 4%;
+  margin-left: 5%;
+}
+
+button {
+  background-color: rgba(246, 225, 195, 0.32);
+  border-radius: 90%;
+}
+
+/*# sourceMappingURL=search-bar.component.css.map */

@@ -3,13 +3,14 @@ import { FormControl, Validators, FormsModule, ReactiveFormsModule, NgForm } fro
 import { MatInputModule } from "@angular/material/input"
 import { MatFormFieldModule } from "@angular/material/form-field"
 import {NgClass, NgIf} from "@angular/common"
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: `app-contact`,
   templateUrl: `./contact.component.html`,
   styleUrls: [`./contact.component.scss`],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgClass],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgClass, MatButtonModule],
 })
 export class ContactComponent {
   //reseaux
@@ -18,13 +19,23 @@ export class ContactComponent {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     this.handleScroll();
+
   }
   handleScroll() {
     const linerElement = document.querySelector(".liner");
     if (linerElement) {
+      const pageHeight = document.documentElement.scrollHeight;
       const rect = linerElement.getBoundingClientRect();
       const linerBot = rect.bottom;
       const windowHeight = window.innerHeight;
+      /*
+      console.log('rect' + rect)
+      console.log('linerBot' + linerBot)
+      console.log('windowHeight' + windowHeight)
+      console.log(`La hauteur du haut de la page au bas de l'élément est ${linerBot}px`);
+      console.log(`La hauteur de la fenêtre est ${windowHeight}px`);
+       */
+
       this.showIcons = linerBot <= windowHeight;
     }
   }
