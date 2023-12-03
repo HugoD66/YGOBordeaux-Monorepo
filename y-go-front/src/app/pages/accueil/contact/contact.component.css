@@ -23,17 +23,20 @@ section .contact-content .nous-retrouver {
   width: 50%;
   height: 100%;
 }
-section .contact-content .nous-retrouver p {
-  width: 50%;
-  font-size: 1.7em;
-  margin-top: 40%;
-  margin-left: 28%;
-  text-align: end;
-}
 section .contact-content .nous-retrouver .ecole {
-  width: 500px;
-  height: 500px;
-  background-color: #1f1f1f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border: 1px solid black;
+}
+section .contact-content .nous-retrouver .ecole .ynov-logo {
+  width: 120px;
+  height: 120px;
+}
+section .contact-content .nous-retrouver .ecole p {
+  width: 50%;
 }
 section .contact-content .form-content {
   margin-top: 10%;

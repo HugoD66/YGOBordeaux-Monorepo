@@ -8,7 +8,6 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -19,7 +18,12 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "docker:dev": "docker-compose up --force-recreate -V"
+    "start": "nest start",
+    "docker:dev": "docker-compose up --force-recreate -V -d",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
+    "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync",
+    "seed:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed -f src/fixtures/**/*.fixture.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -37,7 +41,8 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "swagger": "^0.7.5",
-    "typeorm": "^0.3.17"
+    "typeorm": "^0.3.17",
+    "typeorm-seeding": "^1.6.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

@@ -6,21 +6,21 @@
   .barUserContent {
     position: absolute;
     width: 100%;
-    height: 90vh;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     .barContent {
       margin-right: 2%;
-      width: 40%;
-      height: 70%;
+      width: 45%;
+      height: 90%;
       background-color: rgba(240, 248, 255, 0.32);
       z-index: 40;
     }
     .userContent {
       width: 40%;
-      height: 70%;
+      height: 90%;
       background-color: rgba(240, 248, 255, 0.32);
       z-index: 40;
       margin-left: 2%;

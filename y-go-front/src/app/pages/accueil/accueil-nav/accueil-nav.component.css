@@ -1,18 +1,19 @@
 .accueil-nav {
   position: absolute;
-  bottom: 10%;
-  right: 10%;
+  bottom: 20%;
+  right: 8%;
   padding-right: 2%;
   border-radius: 10px;
   background-color: #faf0e4;
   width: auto;
+  display: flex;
 }
 .accueil-nav .list-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 15%;
+  margin: 3%;
   width: auto;
 }
 .accueil-nav .list-item p {

@@ -2,15 +2,15 @@ import { Module } from "@nestjs/common"
 import { TypeOrmModule } from "@nestjs/typeorm"
 import { AppController } from "./app.controller"
 import { AppService } from "./app.service"
-import { UserModule } from "./user/user.module"
+import { UsersModule } from "./users/users.module"
 import { BarModule } from "./bar/bar.module"
-import {User} from "./user/entities/user.entity";
+import {User} from "./users/entities/user.entity";
 import {Bar} from "./bar/entities/bar.entity";
 import {ConfigModule, ConfigService} from "@nestjs/config";
 
 @Module({
   imports: [
-    UserModule,
+    UsersModule,
     BarModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
@@ -30,7 +30,8 @@ import {ConfigModule, ConfigService} from "@nestjs/config";
         return dbConfig;
       },
       inject: [ConfigService],
-    })
+    }),
+    //SeederModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [AppService],

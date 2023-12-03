@@ -1,0 +1,17 @@
+img {
+  width: 100%;
+}
+
+.parentElem {
+  transition: all 0.3s;
+  width: 2.2em;
+}
+.parentElem:hover {
+  transform: rotate(180deg);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=button-unit-horiz.component.css.map */

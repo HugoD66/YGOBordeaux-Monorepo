@@ -18,8 +18,8 @@ import { FormsModule } from "@angular/forms"
 import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from "./app.component"
 import { AccueilComponent } from "./pages/accueil/accueil.component"
-import { ButtonPanelComponent } from "./components/button-panel/button-panel.component"
-import { ButtonUnitComponent } from "./components/button-panel/button-unit/button-unit.component"
+import { ButtonPanelHorizComponent } from "./components/button-panel/button-panel-horiz/button-panel-horiz.component"
+import { ButtonUnitHorizComponent } from "./components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component"
 import { ContactComponent } from "./pages/accueil/contact/contact.component"
 import { NotFoundComponent } from "./pages/not-found/not-found.component"
 import { BarsComponent } from "./pages/bars/bars.component"
@@ -34,6 +34,10 @@ import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component'
 import {MatInputModule} from "@angular/material/input";
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DetailBarComponent } from './pages/bars/detail-bar/detail-bar.component';
+import { ButtonPanelVerComponent } from './components/button-panel/button-panel-ver/button-panel-ver.component';
+import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
+import { RegisterComponent } from './pages/register/register.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -48,8 +52,10 @@ import { DetailBarComponent } from './pages/bars/detail-bar/detail-bar.component
     PresComponent,
     SearchBarComponent,
     DetailBarComponent,
+    RegisterComponent,
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     CommonModule,
     BrowserModule,
@@ -58,8 +64,10 @@ import { DetailBarComponent } from './pages/bars/detail-bar/detail-bar.component
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    ButtonPanelComponent,
-    ButtonUnitComponent,
+    ButtonPanelHorizComponent,
+    ButtonUnitHorizComponent,
+    ButtonPanelVerComponent,
+    ButtonUnitVerComponent,
     AccueilNavComponent,
     CarouselComponent,
     CarouselCaptionComponent,

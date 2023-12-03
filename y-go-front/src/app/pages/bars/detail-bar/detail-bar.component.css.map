@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"detail-bar.component.css"}
+{"version":3,"sourceRoot":"","sources":["detail-bar.component.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;AAEE;EACE;EACA;EACA;EACA","file":"detail-bar.component.css"}

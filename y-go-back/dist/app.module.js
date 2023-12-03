@@ -11,9 +11,9 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const user_module_1 = require("./user/user.module");
+const users_module_1 = require("./users/users.module");
 const bar_module_1 = require("./bar/bar.module");
-const user_entity_1 = require("./user/entities/user.entity");
+const user_entity_1 = require("./users/entities/user.entity");
 const bar_entity_1 = require("./bar/entities/bar.entity");
 const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
@@ -21,7 +21,7 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            user_module_1.UserModule,
+            users_module_1.UsersModule,
             bar_module_1.BarModule,
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             typeorm_1.TypeOrmModule.forRootAsync({
@@ -41,7 +41,7 @@ AppModule = __decorate([
                     return dbConfig;
                 },
                 inject: [config_1.ConfigService],
-            })
+            }),
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

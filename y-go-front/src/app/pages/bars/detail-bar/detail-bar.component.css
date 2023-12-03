@@ -1,3 +1,29 @@
-
+.content-bar-unit {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 90vh;
+  width: 83vw;
+  margin-top: 3%;
+  margin-left: 3%;
+  position: absolute;
+  overflow-y: auto;
+  background-color: #a74347;
+}
+.content-bar-unit .pictures-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.content-bar-unit .pictures-content .pictures-content-galerie .pictures-content-galerie-unit {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 150px;
+}
 
 /*# sourceMappingURL=detail-bar.component.css.map */

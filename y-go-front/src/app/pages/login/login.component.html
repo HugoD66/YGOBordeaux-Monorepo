@@ -2,20 +2,24 @@
     <div class="formulaire">
         <p>
             <mat-form-field appearance="fill">
-                <mat-label>Fill form field</mat-label>
+                <mat-label>Username</mat-label>
                 <input matInput placeholder="Pseudo...">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
         </p>
+
+
         <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Outline form field</mat-label>
-                <input matInput placeholder="Mot de passe">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint>Hint</mat-hint>
-            </mat-form-field>
+          <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
         </p>
+      <span (click)="goRegister()">Nouveau sur le site ? </span>
     </div>
     <img class="bordeaux" src="../../../assets/pictures/login/creative-bordeaux-login.jpg">
     <img

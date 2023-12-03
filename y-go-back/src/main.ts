@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
   // Configuration CORS
-  /*
+
   const corsOptions: CorsOptions = {
     origin: "http://localhost:4200",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -15,7 +15,7 @@ async function bootstrap() {
     optionsSuccessStatus: 204,
   };
   app.enableCors(corsOptions);
-   */
+
 
   // Configuration Swagger
   const config = new DocumentBuilder()

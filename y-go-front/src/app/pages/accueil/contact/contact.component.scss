@@ -21,20 +21,21 @@ section {
       justify-content: space-around;
       width: 50%;
       height: 100%;
-      h2 {
-
-      }
-      p {
-        width: 50%;
-        font-size: 1.7em;
-        margin-top: 40%;
-        margin-left: 28%;
-        text-align: end;
-      }
       .ecole {
-        width: 500px;
-        height: 500px;
-        background-color: #1f1f1f;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        border: 1px solid black;
+        .ynov-logo {
+          width: 120px;
+          height: 120px;
+        }
+        p {
+          width: 50%;
+
+        }
       }
     }
     .form-content {
