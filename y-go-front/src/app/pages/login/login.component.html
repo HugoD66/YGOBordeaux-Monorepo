@@ -1,9 +1,14 @@
 <section>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="formulaire">
         <p>
             <mat-form-field appearance="fill">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Pseudo...">
+                <mat-label>Email</mat-label>
+                <input matInput
+                       name="email"
+                       placeholder="Email"
+                       required
+                       [(ngModel)]="email">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
@@ -13,14 +18,21 @@
         <p>
           <mat-form-field>
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input matInput
+                   name="password"
+                   placeholder="Password"
+                   [(ngModel)]="password"
+                   required
+                   [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
           </mat-form-field>
         </p>
       <span (click)="goRegister()">Nouveau sur le site ? </span>
+        <button type="submit" mat-raised-button color="primary">Envoyer</button>
     </div>
+    </form>
     <img class="bordeaux" src="../../../assets/pictures/login/creative-bordeaux-login.jpg">
     <img
             class="ygologo"

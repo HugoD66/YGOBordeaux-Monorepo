@@ -7,12 +7,24 @@ import { BarModule } from "./bar/bar.module"
 import {User} from "./users/entities/user.entity";
 import {Bar} from "./bar/entities/bar.entity";
 import {ConfigModule, ConfigService} from "@nestjs/config";
+import {jwtConstants} from "./users/auth/constant";
+import { PassportModule} from "@nestjs/passport";
+import { JwtModule } from '@nestjs/jwt';
+import {APP_GUARD} from "@nestjs/core";
+import { AuthGuard } from './users/auth/auth.guard';
+
 
 @Module({
   imports: [
     UsersModule,
     BarModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.register({
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '1h' },
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
@@ -34,6 +46,12 @@ import {ConfigModule, ConfigService} from "@nestjs/config";
     //SeederModule.forRoot(),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+    AppService,
+  ],
 })
 export class AppModule {}

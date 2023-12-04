@@ -1,6 +1,8 @@
+import { UserRoleEnum } from './types/user.roles.enum';
 export declare class User {
-    id: number;
+    id: string;
     name: string;
     email: string;
     password: string;
+    role: UserRoleEnum;
 }

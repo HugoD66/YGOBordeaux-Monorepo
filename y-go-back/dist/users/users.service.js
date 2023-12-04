@@ -16,38 +16,74 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
+const bcrypt = require("bcrypt");
 const user_entity_1 = require("./entities/user.entity");
+const jwt_1 = require("@nestjs/jwt");
+const user_roles_enum_1 = require("./entities/types/user.roles.enum");
 let UsersService = class UsersService {
-    constructor(userRepository) {
-        this.userRepository = userRepository;
-    }
-    async findAll() {
-        return this.userRepository.find();
-    }
-    async findOne(id) {
-        return this.userRepository.findOne({ where: { id } });
+    constructor(usersRepository, jwtService) {
+        this.usersRepository = usersRepository;
+        this.jwtService = jwtService;
     }
     async create(createUserDto) {
+        const salt = await bcrypt.genSalt();
+        const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
+        const user = this.usersRepository.create({
+            name: createUserDto.name,
+            email: createUserDto.email,
+            password: hashedPassword,
+            role: createUserDto.role ?? user_roles_enum_1.UserRoleEnum.Utilisateur,
+        });
+        const savedUser = await this.usersRepository.save(user);
+        return {
+            id: savedUser.id,
+            name: savedUser.name,
+            email: savedUser.email,
+            role: savedUser.role,
+        };
+    }
+    async login(loginDto) {
         try {
-            const user = this.userRepository.create(createUserDto);
-            return user;
+            const user = await this.usersRepository.findOne({
+                where: { email: loginDto.email },
+            });
+            if (!user) {
+                throw new common_1.NotFoundException('User not found');
+            }
+            console.log('before passwordMatch' + user);
+            const passwordMatch = await bcrypt.compare(loginDto.password, user.password);
+            if (!passwordMatch) {
+                throw new common_1.UnauthorizedException('Invalid password');
+            }
+            const payload = { sub: user.id, email: user.email };
+            return {
+                ...user,
+                access_token: await this.jwtService.signAsync(payload),
+            };
         }
         catch (error) {
             throw error;
         }
     }
+    async findAll() {
+        return this.usersRepository.find();
+    }
+    async findOne(id) {
+        return this.usersRepository.findOne({ where: { id } });
+    }
     async update(id, user) {
-        await this.userRepository.update(id, user);
-        return this.userRepository.findOne({ where: { id } });
+        await this.usersRepository.update(id, user);
+        return this.usersRepository.findOne({ where: { id } });
     }
     async remove(id) {
-        await this.userRepository.delete(id);
+        await this.usersRepository.delete(id);
     }
 };
 UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        jwt_1.JwtService])
 ], UsersService);
 exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

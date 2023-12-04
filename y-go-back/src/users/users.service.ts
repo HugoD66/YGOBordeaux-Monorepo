@@ -1,40 +1,80 @@
-import { Injectable } from "@nestjs/common"
+import {Injectable, NotFoundException, UnauthorizedException} from "@nestjs/common"
 import { InjectRepository } from "@nestjs/typeorm"
 import { Repository } from "typeorm"
+import * as bcrypt from 'bcrypt';
 import { User } from "./entities/user.entity"
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UserResponseDto} from "./dto/user-response.dto";
+import {JwtService} from "@nestjs/jwt";
+import {UserRoleEnum} from "./entities/types/user.roles.enum";
+import {LoginDto} from "./dto/login.dto";
+import {LoginResponseDto} from "./dto/login-response.dto";
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private userRepository: Repository<User>
+    private usersRepository: Repository<User>,
+    private readonly jwtService: JwtService,
   ) {}
 
-  async findAll(): Promise<User[]> {
-    return this.userRepository.find()
-  }
-
-  async findOne(id: number): Promise<User> {
-    return this.userRepository.findOne({ where: { id } })
-  }
-
   async create(createUserDto: CreateUserDto): Promise<UserResponseDto> {
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
+
+    const user: User = this.usersRepository.create({
+      name: createUserDto.name,
+      email: createUserDto.email,
+      password: hashedPassword,
+      role: createUserDto.role ?? UserRoleEnum.Utilisateur,
+    });
+    const savedUser: User = await this.usersRepository.save(user);
+    return {
+      id: savedUser.id,
+      name: savedUser.name,
+      email: savedUser.email,
+      role: savedUser.role,
+    };
+  }
+  async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     try {
-      const user: UserResponseDto = this.userRepository.create(createUserDto);
-      return user;
-    } catch(error) {
+      const user: User = await this.usersRepository.findOne({
+        where: { email: loginDto.email },
+      });
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+      console.log('before passwordMatch' + user)
+      const passwordMatch = await bcrypt.compare(
+        loginDto.password,
+        user.password,
+      );
+      if (!passwordMatch) {
+        throw new UnauthorizedException('Invalid password');
+      }
+      const payload = { sub: user.id, email: user.email };
+      return {
+        ...user,
+        access_token: await this.jwtService.signAsync(payload),
+      };
+    } catch (error) {
       throw error;
     }
   }
-
-  async update(id: number, user: Partial<User>): Promise<User> {
-    await this.userRepository.update(id, user)
-    return this.userRepository.findOne({ where: { id } })
+  async findAll(): Promise<User[]> {
+    return this.usersRepository.find()
   }
 
-  async remove(id: number): Promise<void> {
-    await this.userRepository.delete(id)
+  async findOne(id: string): Promise<User> {
+    return this.usersRepository.findOne({ where: { id } })
+  }
+
+  async update(id: string, user: Partial<User>): Promise<User> {
+    await this.usersRepository.update(id, user)
+    return this.usersRepository.findOne({ where: { id } })
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.usersRepository.delete(id)
   }
 }

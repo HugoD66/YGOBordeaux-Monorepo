@@ -37,7 +37,8 @@ import { DetailBarComponent } from './pages/bars/detail-bar/detail-bar.component
 import { ButtonPanelVerComponent } from './components/button-panel/button-panel-ver/button-panel-ver.component';
 import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
 import { RegisterComponent } from './pages/register/register.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -80,7 +81,10 @@ import {HttpClientModule} from "@angular/common/http";
     MatInputModule,
     UnitBarComponent,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent],
   exports: [],
 })

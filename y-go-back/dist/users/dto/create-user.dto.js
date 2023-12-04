@@ -11,22 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUserDto = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
+const user_roles_enum_1 = require("../entities/types/user.roles.enum");
 class CreateUserDto {
 }
 __decorate([
+    (0, class_validator_1.MinLength)(3),
     (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)({ example: 'Jean Moulin', description: 'Name' }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "name", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEmail)(),
+    (0, swagger_1.ApiProperty)({
+        example: 'exemple.email@example.com',
+        description: 'Email address',
+    }),
+    (0, class_validator_1.IsNotEmpty)({ message: "Email can't be empty" }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "email", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.MinLength)(3),
+    (0, class_validator_1.IsNotEmpty)({ message: "Password can't be empty" }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({
+        enum: user_roles_enum_1.UserRoleEnum,
+        enumName: 'UserRoleEnum',
+        example: 'Utilisateur',
+        description: 'User role',
+    }),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "role", void 0);
 exports.CreateUserDto = CreateUserDto;
 //# sourceMappingURL=create-user.dto.js.map

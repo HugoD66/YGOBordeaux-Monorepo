@@ -16,6 +16,11 @@ const bar_module_1 = require("./bar/bar.module");
 const user_entity_1 = require("./users/entities/user.entity");
 const bar_entity_1 = require("./bar/entities/bar.entity");
 const config_1 = require("@nestjs/config");
+const constant_1 = require("./users/auth/constant");
+const passport_1 = require("@nestjs/passport");
+const jwt_1 = require("@nestjs/jwt");
+const core_1 = require("@nestjs/core");
+const auth_guard_1 = require("./users/auth/auth.guard");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -24,6 +29,12 @@ AppModule = __decorate([
             users_module_1.UsersModule,
             bar_module_1.BarModule,
             config_1.ConfigModule.forRoot({ isGlobal: true }),
+            passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
+            jwt_1.JwtModule.register({
+                global: true,
+                secret: constant_1.jwtConstants.secret,
+                signOptions: { expiresIn: '1h' },
+            }),
             typeorm_1.TypeOrmModule.forRootAsync({
                 imports: [config_1.ConfigModule],
                 useFactory: (configService) => {
@@ -44,7 +55,13 @@ AppModule = __decorate([
             }),
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [
+            {
+                provide: core_1.APP_GUARD,
+                useClass: auth_guard_1.AuthGuard,
+            },
+            app_service_1.AppService,
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

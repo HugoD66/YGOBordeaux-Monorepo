@@ -12,7 +12,8 @@ export class RegisterComponent {
 
   name: string;
   email: string;
-  password: string
+  password: string;
+  hide = true;
 
 
   private apiUrl = environment.apiUrl;

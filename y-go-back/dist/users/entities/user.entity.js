@@ -11,14 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const typeorm_1 = require("typeorm");
+const class_transformer_1 = require("class-transformer");
+const user_roles_enum_1 = require("./types/user.roles.enum");
 let User = class User {
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
 ], User.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ length: 500 }),
+    (0, typeorm_1.Column)({ length: 500, unique: true }),
     __metadata("design:type", String)
 ], User.prototype, "name", void 0);
 __decorate([
@@ -26,9 +28,18 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
+    (0, class_transformer_1.Exclude)(),
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        type: 'enum',
+        enum: user_roles_enum_1.UserRoleEnum,
+        default: user_roles_enum_1.UserRoleEnum.Utilisateur,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "role", void 0);
 User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);

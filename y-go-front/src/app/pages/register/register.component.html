@@ -38,26 +38,15 @@
         required
         name="password"
         [(ngModel)]="password"
+        [type]="hide ? 'password' : 'text'"
       >
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Hint</mat-hint>
     </mat-form-field>
   </div>
- <!--
-  <div class="form-group">
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input
-        class="form-control"
-        matInput placeholder="Confirmer mot de passe"
-        required
-        name="password-confirm"
-      >
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </div>
- -->
   <button type="submit" mat-raised-button color="primary">Envoyer</button>
 
 </div>
