@@ -43,7 +43,7 @@ export class UsersController {
     }
   }
   @Public()
-  @Post('/auth/login')
+  @Post('/auth/login-register')
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Login user' })
   @ApiBody({ type: LoginDto })

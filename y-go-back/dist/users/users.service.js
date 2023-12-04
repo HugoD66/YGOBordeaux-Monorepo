@@ -20,27 +20,46 @@ const bcrypt = require("bcrypt");
 const user_entity_1 = require("./entities/user.entity");
 const jwt_1 = require("@nestjs/jwt");
 const user_roles_enum_1 = require("./entities/types/user.roles.enum");
+const errors_1 = require("./errorsRegister/errors");
 let UsersService = class UsersService {
     constructor(usersRepository, jwtService) {
         this.usersRepository = usersRepository;
         this.jwtService = jwtService;
     }
     async create(createUserDto) {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
-        const user = this.usersRepository.create({
-            name: createUserDto.name,
-            email: createUserDto.email,
-            password: hashedPassword,
-            role: createUserDto.role ?? user_roles_enum_1.UserRoleEnum.Utilisateur,
-        });
-        const savedUser = await this.usersRepository.save(user);
-        return {
-            id: savedUser.id,
-            name: savedUser.name,
-            email: savedUser.email,
-            role: savedUser.role,
-        };
+        try {
+            const existingUser = await this.usersRepository.findOne({
+                where: { email: createUserDto.email },
+            });
+            if (existingUser) {
+                throw new errors_1.EmailAlreadyExistsException();
+            }
+            const salt = await bcrypt.genSalt();
+            const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
+            const user = this.usersRepository.create({
+                name: createUserDto.name,
+                email: createUserDto.email,
+                password: hashedPassword,
+                role: createUserDto.role ?? user_roles_enum_1.UserRoleEnum.Utilisateur,
+            });
+            const savedUser = await this.usersRepository.save(user);
+            return {
+                id: savedUser.id,
+                name: savedUser.name,
+                email: savedUser.email,
+                role: savedUser.role,
+            };
+        }
+        catch (error) {
+            if (error instanceof errors_1.EmailAlreadyExistsException ||
+                error instanceof errors_1.InvalidEmailFormatException ||
+                error instanceof errors_1.NameTooShortException ||
+                error instanceof errors_1.ServerErrorException ||
+                error instanceof errors_1.InvalidPasswordFormatException) {
+                throw error;
+            }
+            throw new errors_1.ServerErrorException();
+        }
     }
     async login(loginDto) {
         try {

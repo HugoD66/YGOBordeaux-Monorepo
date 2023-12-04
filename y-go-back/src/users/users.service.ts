@@ -9,7 +9,12 @@ import {JwtService} from "@nestjs/jwt";
 import {UserRoleEnum} from "./entities/types/user.roles.enum";
 import {LoginDto} from "./dto/login.dto";
 import {LoginResponseDto} from "./dto/login-response.dto";
-
+import {
+  EmailAlreadyExistsException,
+  InvalidEmailFormatException, InvalidPasswordFormatException,
+  NameTooShortException,
+  ServerErrorException
+} from "./errorsRegister/errors";
 @Injectable()
 export class UsersService {
   constructor(
@@ -19,22 +24,39 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<UserResponseDto> {
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
+    try {
+      const existingUser: User = await this.usersRepository.findOne({
+        where: { email: createUserDto.email },
+      });
+      if (existingUser) {
+        throw new EmailAlreadyExistsException();
+      }
+      const salt = await bcrypt.genSalt();
+      const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
 
-    const user: User = this.usersRepository.create({
-      name: createUserDto.name,
-      email: createUserDto.email,
-      password: hashedPassword,
-      role: createUserDto.role ?? UserRoleEnum.Utilisateur,
-    });
-    const savedUser: User = await this.usersRepository.save(user);
-    return {
-      id: savedUser.id,
-      name: savedUser.name,
-      email: savedUser.email,
-      role: savedUser.role,
-    };
+      const user: User = this.usersRepository.create({
+        name: createUserDto.name,
+        email: createUserDto.email,
+        password: hashedPassword,
+        role: createUserDto.role ?? UserRoleEnum.Utilisateur,
+      });
+      const savedUser: User = await this.usersRepository.save(user);
+      return {
+        id: savedUser.id,
+        name: savedUser.name,
+        email: savedUser.email,
+        role: savedUser.role,
+      };
+    } catch (error) {
+      if ( error instanceof EmailAlreadyExistsException ||
+        error instanceof InvalidEmailFormatException ||
+        error instanceof NameTooShortException ||
+        error instanceof ServerErrorException ||
+        error instanceof InvalidPasswordFormatException) {
+        throw error;
+      }
+      throw new ServerErrorException();
+    }
   }
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     try {

@@ -80,7 +80,7 @@ __decorate([
 ], UsersController.prototype, "register", null);
 __decorate([
     (0, public_decorator_1.Public)(),
-    (0, common_1.Post)('/auth/login'),
+    (0, common_1.Post)('/auth/login-register'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
     (0, swagger_1.ApiOperation)({ summary: 'Login user' }),
     (0, swagger_1.ApiBody)({ type: login_dto_1.LoginDto }),

@@ -16,7 +16,7 @@ const user_roles_enum_1 = require("../entities/types/user.roles.enum");
 class CreateUserDto {
 }
 __decorate([
-    (0, class_validator_1.MinLength)(3),
+    (0, class_validator_1.MinLength)(2),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({ example: 'Jean Moulin', description: 'Name' }),
     __metadata("design:type", String)
@@ -27,12 +27,19 @@ __decorate([
         example: 'exemple.email@example.com',
         description: 'Email address',
     }),
-    (0, class_validator_1.IsNotEmpty)({ message: "Email can't be empty" }),
+    (0, class_validator_1.IsNotEmpty)({ message: "L'Email ne peut pas être vide" }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "email", void 0);
 __decorate([
     (0, class_validator_1.MinLength)(3),
-    (0, class_validator_1.IsNotEmpty)({ message: "Password can't be empty" }),
+    (0, class_validator_1.IsStrongPassword)({
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+    }),
+    (0, class_validator_1.IsNotEmpty)({ message: "Le mot de passe ne peut pas être vide" }),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
 __decorate([
