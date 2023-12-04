@@ -25,7 +25,7 @@ import { NotFoundComponent } from "./pages/not-found/not-found.component"
 import { BarsComponent } from "./pages/bars/bars.component"
 import { UnitBarComponent } from "./pages/bars/unit-bar/unit-bar.component"
 import { UserListComponent } from "./pages/article/user-list/user-list.component"
-import { AccueilNavComponent } from "./pages/accueil/accueil-nav/accueil-nav.component"
+import { AccueilNavComponent } from "./pages/accueil/pres/accueil-nav/accueil-nav.component"
 import { BarsAndUsersComponent } from "./pages/accueil/bars-and-users/bars-and-users.component"
 import { MapComponent } from "./pages/accueil/map/map/map.component";
 import { PageMapComponent } from './pages/accueil/map/page-map/page-map.component';
@@ -39,6 +39,8 @@ import { ButtonUnitVerComponent } from './components/button-panel/button-panel-v
 import { RegisterComponent } from './pages/register/register.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
+import { UsersComponent } from './pages/users/users.component';
+import { DetailUserComponent } from './pages/users/detail-user/detail-user.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import {AuthInterceptor} from "./auth.interceptor";
     SearchBarComponent,
     DetailBarComponent,
     RegisterComponent,
+    UsersComponent,
+    DetailUserComponent,
   ],
   imports: [
     HttpClientModule,

@@ -6,12 +6,25 @@ import { LoginComponent } from "./pages/login/login.component"
 import { BarsComponent } from "./pages/bars/bars.component"
 import {DetailBarComponent} from "./pages/bars/detail-bar/detail-bar.component";
 import {RegisterComponent} from "./pages/register/register.component";
+import {UsersComponent} from "./pages/users/users.component";
 
 const routes: Routes = [
   { path: `login`, component: LoginComponent },
   { path: `register`, component: RegisterComponent },
-  { path: `bars`, component: BarsComponent },
-  { path: `bars/detail`, component: DetailBarComponent }, //TODO: add id
+  {
+    path: 'bars',
+    children: [
+      { path: '', component: BarsComponent },
+      { path: 'detail/:id', component: DetailBarComponent },
+    ]
+  },
+  {
+    path: 'users',
+    children: [
+      { path: '', component: UsersComponent },
+      { path: 'detail/:id', component: DetailBarComponent },
+    ]
+  },
   { path: ``, component: AccueilComponent },
   { path: `**`, component: NotFoundComponent },
 ]
