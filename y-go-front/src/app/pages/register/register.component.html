@@ -1,53 +1,67 @@
-<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+<section>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="formulaire">
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Fill form field</mat-label>
+          <input
+            class="form-control"
+            matInput placeholder="Pseudo..."
+            name="name"
+            required
+            [(ngModel)]="name"
+          >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            class="form-control"
+            matInput placeholder="Email"
+            required
+            name="email"
+            [(ngModel)]="email"
+          >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field appearance="outline">
+          <mat-label>Outline form field</mat-label>
+          <input
+            class="form-control"
+            matInput placeholder="Mot de passe"
+            required
+            name="password"
+            [(ngModel)]="password"
+            [type]="hide ? 'password' : 'text'"
+          >
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button color="primary">Envoyer</button>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+  <img class="bordeaux" src="../../../assets/pictures/login-register/creative-bordeaux-register.png">
+  <img
+    class="ygologo"
+    src="../../../assets/pictures/simple-logo-removebg.png"
+    (click)="goHome()">
+  <div class="backWithoutColor"></div>
+  <div class="linear"></div>
+  <h1>YGO</h1>
+  <h2>Bordeaux</h2>
+  <app-logo-ygo></app-logo-ygo>
+</section>
 
-<div class="formulaire">
-  <div class="form-group">
-    <mat-form-field appearance="fill">
-      <mat-label>Fill form field</mat-label>
-      <input
-        class="form-control"
-        matInput placeholder="Pseudo..."
-        name="name"
-        required
-        [(ngModel)]="name"
-      >
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input
-        class="form-control"
-        matInput placeholder="Email"
-        required
-        name="email"
-        [(ngModel)]="email"
-      >
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-  <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input
-        class="form-control"
-        matInput placeholder="Mot de passe"
-        required
-        name="password"
-        [(ngModel)]="password"
-        [type]="hide ? 'password' : 'text'"
-      >
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </div>
-  <button type="submit" mat-raised-button color="primary">Envoyer</button>
-
-</div>
-</form>

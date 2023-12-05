@@ -1,12 +1,21 @@
-<div class="content" [ngStyle]="{
-'background-image': 'url(assets/pictures/not-found-back.png)',
-'background-size': 'cover',
-}">
+<h1>404</h1>
+
+<div class="content">
+    <div class="back-picture"
+         [ngStyle]="{
+          'background-image': 'url(assets/pictures/back-not-found.webp)',
+          'background-size': 'cover',
+          'background-repeat': 'no-repeat',
+          }"
+    >
+    </div>
+
     <div class="content-not-found">
-        <h1>404</h1>
-        <h2>Page not found</h2>
-        <p>Sorry, the page you are looking for does not exist.</p>
-        <a routerLink="/" routerLinkActive="active">Go to home</a>
+        <div class="content-text">
+          <h2>Page non trouvée</h2>
+          <p>Désolé, la page que vous recherchez n'existe pas.</p>
+          <a routerLink="/" routerLinkActive="active" class="return-homme">Retour accueil</a>
+        </div>
     </div>
     <app-logo-ygo></app-logo-ygo>
 </div>

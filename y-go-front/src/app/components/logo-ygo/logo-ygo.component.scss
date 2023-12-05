@@ -4,7 +4,7 @@ h2 {
   right: 130px;
   cursor: pointer;
   font-size: 3.5em;
-  z-index: 2;
+  z-index: 8;
   line-height: 8vw;
   font-weight: lighter;
   font-family: "Montserrat", sans-serif;
@@ -18,7 +18,7 @@ h3 {
   right: 80px;
   cursor: pointer;
   font-size: 3.2em;
-  z-index: 2;
+  z-index: 8;
   font-weight: normal;
   line-height: 5vw;
   text-shadow: 0 14px 13px black;
@@ -33,4 +33,5 @@ h3 {
   bottom: 50px;
   right: 50px;
   cursor: pointer;
+  z-index: 7;
 }
