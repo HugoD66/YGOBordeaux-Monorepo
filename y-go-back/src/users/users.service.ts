@@ -83,12 +83,13 @@ export class UsersService {
       throw error;
     }
   }
-  async findAll(): Promise<User[]> {
-    return this.usersRepository.find()
-  }
 
   async findOne(id: string): Promise<User> {
     return this.usersRepository.findOne({ where: { id } })
+  }
+
+  async findAll(): Promise<User[]> {
+    return this.usersRepository.find()
   }
 
   async update(id: string, user: Partial<User>): Promise<User> {

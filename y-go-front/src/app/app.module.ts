@@ -41,23 +41,18 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth.interceptor";
 import { UsersComponent } from './pages/users/users.component';
 import { DetailUserComponent } from './pages/users/detail-user/detail-user.component';
+import {UserModule} from "./pages/users/user.module";
+import {BarModule} from "./pages/bars/bar.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
     NotFoundComponent,
-    BarsComponent,
-    UserListComponent,
-    BarsAndUsersComponent,
     MapComponent,
     PageMapComponent,
     PresComponent,
-    SearchBarComponent,
-    DetailBarComponent,
     RegisterComponent,
-    UsersComponent,
-    DetailUserComponent,
   ],
   imports: [
     HttpClientModule,
@@ -74,16 +69,11 @@ import { DetailUserComponent } from './pages/users/detail-user/detail-user.compo
     ButtonPanelVerComponent,
     ButtonUnitVerComponent,
     AccueilNavComponent,
-    CarouselComponent,
-    CarouselCaptionComponent,
-    CarouselControlComponent,
-    CarouselIndicatorsComponent,
-    CarouselInnerComponent,
-    CarouselItemComponent,
     ContactComponent,
     LogoYGoComponent,
     MatInputModule,
-    UnitBarComponent,
+    UserModule,
+    BarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

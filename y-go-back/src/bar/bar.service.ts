@@ -1,26 +1,45 @@
 import { Injectable } from "@nestjs/common"
 import { CreateBarDto } from "./dto/create-bar.dto"
 import { UpdateBarDto } from "./dto/update-bar.dto"
+import {InjectRepository} from "@nestjs/typeorm";
+import {Repository} from "typeorm";
+import {Bar} from "./entities/bar.entity";
+import {ResponseBarDto} from "./dto/response-bar.dto";
 
 @Injectable()
 export class BarService {
-  create(createBarDto: CreateBarDto) {
-    return `This action adds a new bar`
+  constructor(
+    @InjectRepository(Bar)
+    private barRepository: Repository<Bar>,
+  ) {
+  }
+  async create(createBarDto: CreateBarDto): Promise<ResponseBarDto> {
+    try {
+      const bar: CreateBarDto = this.barRepository.create(createBarDto);
+      const savedBar: Bar = await this.barRepository.save(bar);
+      return savedBar;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  findAll() {
-    return `This action returns all bar`
+  async findOne(id: string): Promise<ResponseBarDto> {
+    const responseBar: ResponseBarDto = await this.barRepository.findOne({where: { id }});
+    return responseBar;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} bar`
+  async findAll(): Promise<ResponseBarDto[]> {
+    const barList: ResponseBarDto[] = await this.barRepository.find();
+    return barList;
   }
 
-  update(id: number, updateBarDto: UpdateBarDto) {
-    return `This action updates a #${id} bar`
+  async update(id: string, updateBarDto: UpdateBarDto) {
+    await this.barRepository.update(id, updateBarDto);
+    const updatedUser = await this.barRepository.findOne({ where: { id } })
+    return updatedUser;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} bar`
+  async remove(id: string): Promise<void> {
+    await this.barRepository.delete(id);
   }
 }

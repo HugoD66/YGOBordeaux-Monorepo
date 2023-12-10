@@ -43,7 +43,7 @@ export class UsersController {
     }
   }
   @Public()
-  @Post('/auth/login-register')
+  @Post('/auth/login')
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Login user' })
   @ApiBody({ type: LoginDto })
@@ -54,10 +54,6 @@ export class UsersController {
     } catch (error) {
       throw error;
     }
-  }
-  @Get()
-  async findAll(): Promise<User[]> {
-    return this.usersService.findAll()
   }
 
   @Get(`:id`)
@@ -70,6 +66,12 @@ export class UsersController {
     }
   }
 
+  @Public()
+  @Get()
+  async findAll(): Promise<User[]> {
+    return this.usersService.findAll()
+  }
+
   @Put(`:id`)
   async update(@Param(`id`) id: string, @Body() user: User): Promise<any> {
     return this.usersService.update(id, user)
@@ -77,7 +79,6 @@ export class UsersController {
 
   @Delete(`:id`)
   async remove(@Param(`id`) id: string): Promise<any> {
-    // handle error if users does not exist
     const user = await this.usersService.findOne(id)
     if (!user) {
       throw new NotFoundException(`User does not exist!`)

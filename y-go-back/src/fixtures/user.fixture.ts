@@ -1,10 +1,16 @@
-// src/fixtures/users.fixture.ts
-import { define, factory } from "typeorm-seeding";
-import { User } from "../users/entities/user.entity";
+import { InterfaceUser } from "./interface.user";
+import {faker} from "@faker-js/faker";
 
-define(User, (faker) => {
-  const user = new User();
-  user.name = faker.internet.userName();
-  user.email = faker.internet.email();
-  return user;
-});
+export function createRandomUser(): InterfaceUser {
+  return {
+    id: faker.string.uuid(),
+    name: faker.person.firstName(),
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+  };
+}
+
+const users: InterfaceUser[] = [];
+for (let i = 0; i < 10; i++) {
+  users.push(createRandomUser());
+}
