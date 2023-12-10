@@ -7,6 +7,7 @@ import { BarsComponent } from "./pages/bars/bars.component"
 import {DetailBarComponent} from "./pages/bars/detail-bar/detail-bar.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {UsersComponent} from "./pages/users/users.component";
+import {AddBarComponent} from "./pages/bars/add-bar/add-bar.component";
 
 const routes: Routes = [
   { path: `login`, component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     path: 'bars',
     children: [
       { path: '', component: BarsComponent },
+      { path: 'add-bar', component: AddBarComponent},
       { path: 'detail/:id', component: DetailBarComponent },
     ]
   },

@@ -20,6 +20,7 @@ const create_user_dto_1 = require("./dto/create-user.dto");
 const swagger_1 = require("@nestjs/swagger");
 const public_decorator_1 = require("./auth/public.decorator");
 const login_dto_1 = require("./dto/login.dto");
+const auth_guard_1 = require("./auth/auth.guard");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -43,8 +44,15 @@ let UsersController = class UsersController {
             throw error;
         }
     }
-    async findAll() {
-        return this.usersService.findAll();
+    async getProfile(req) {
+        console.log(req);
+        try {
+            const user = await this.usersService.findOne(req.user.id);
+            return user;
+        }
+        catch (error) {
+            throw error;
+        }
     }
     async findOne(id) {
         const user = await this.usersService.findOne(id);
@@ -54,6 +62,9 @@ let UsersController = class UsersController {
         else {
             return user;
         }
+    }
+    async findAll() {
+        return this.usersService.findAll();
     }
     async update(id, user) {
         return this.usersService.update(id, user);
@@ -90,18 +101,29 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "login", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, public_decorator_1.Public)(),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, common_1.Get)('me'),
+    __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], UsersController.prototype, "findAll", null);
+], UsersController.prototype, "getProfile", null);
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Get)(`:id`),
     __param(0, (0, common_1.Param)(`id`)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findOne", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Put)(`:id`),
     __param(0, (0, common_1.Param)(`id`)),

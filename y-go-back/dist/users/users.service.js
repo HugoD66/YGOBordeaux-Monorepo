@@ -84,11 +84,11 @@ let UsersService = class UsersService {
             throw error;
         }
     }
-    async findAll() {
-        return this.usersRepository.find();
-    }
     async findOne(id) {
         return this.usersRepository.findOne({ where: { id } });
+    }
+    async findAll() {
+        return this.usersRepository.find();
     }
     async update(id, user) {
         await this.usersRepository.update(id, user);

@@ -1,16 +1,49 @@
 <div class="content">
   <app-button-panel-ver></app-button-panel-ver>
   <div class="content-bar-unit">
-    <h1>Title bar</h1>
+    <h1>{{ (bar | async)?.name }}</h1>
+
     <div class="pictures-content">
-      <img src="assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
+      <img class="picture-center" src="assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
       <div class="pictures-content-galerie">
-        <img class="pictures-content-galerie-unit" src="assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
-        <img class="pictures-content-galerie-unit" src="assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
-        <img class="pictures-content-galerie-unit" src="assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
+        <img class="pictures-content-galerie-unit" src="assets/temp/1.jpg" alt="">
+        <img class="pictures-content-galerie-unit" src="assets/temp/2.jpg" alt="">
+        <img class="pictures-content-galerie-unit" src="assets/temp/3.jpg" alt="">
+      </div>
+    </div>
+    <div class="adress-note">
+      <div class="adress">
+        <h2>Adresse</h2>
+        <p>{{ (bar | async)?.adresse }}</p>
+      </div>
+      <div class="note">
+        <h2>Note</h2>
+        <p> ETOILE</p>
+      </div>
+    </div>
+    <div class="map-description">
+        <div class="map">
+          <h2>Map</h2>
+          <div class="map-content">
+          </div>
+        </div>
+
+        <div class="description">
+          <h2>Description</h2>
+          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et </p>
+          <div class="description-button">
+            <button class="description-button-unit">Horaires</button>
+          </div>
+          <ul>
+            <li>Grignotage</li>
+            <li>Happy Hour</li>
+            <li>Soirée à thème</li>
+          </ul>
+        </div>
       </div>
 
-    </div>
   </div>
   <app-logo-ygo></app-logo-ygo>
 </div>
+
+

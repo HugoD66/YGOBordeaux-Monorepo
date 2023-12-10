@@ -43,6 +43,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { DetailUserComponent } from './pages/users/detail-user/detail-user.component';
 import {UserModule} from "./pages/users/user.module";
 import {BarModule} from "./pages/bars/bar.module";
+import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {BarModule} from "./pages/bars/bar.module";
     PageMapComponent,
     PresComponent,
     RegisterComponent,
+    AddBarComponent,
   ],
   imports: [
     HttpClientModule,
@@ -80,6 +82,9 @@ import {BarModule} from "./pages/bars/bar.module";
 
   ],
   bootstrap: [AppComponent],
-  exports: [],
+  exports: [
+    MapComponent,
+    MapComponent
+  ],
 })
 export class AppModule {}

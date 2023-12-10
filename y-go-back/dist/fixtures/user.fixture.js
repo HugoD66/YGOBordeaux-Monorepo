@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createRandomUser = void 0;
+exports.createRandomUsers = exports.createRandomUser = void 0;
 const faker_1 = require("@faker-js/faker");
 function createRandomUser() {
     return {
@@ -11,8 +11,8 @@ function createRandomUser() {
     };
 }
 exports.createRandomUser = createRandomUser;
-const users = [];
-for (let i = 0; i < 10; i++) {
-    users.push(createRandomUser());
+function createRandomUsers(count) {
+    return Array.from({ length: count }, createRandomUser);
 }
+exports.createRandomUsers = createRandomUsers;
 //# sourceMappingURL=user.fixture.js.map

@@ -13,6 +13,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {ButtonPanelVerComponent} from "../../components/button-panel/button-panel-ver/button-panel-ver.component";
+import {LoaderComponent} from "../../loader/loader";
+import {AppModule} from "../../app.module";
 
 @NgModule({
     declarations: [
@@ -20,6 +22,7 @@ import {ButtonPanelVerComponent} from "../../components/button-panel/button-pane
       BarsAndUsersComponent,
       DetailBarComponent,
       SearchBarComponent,
+      LoaderComponent,
     ],
     providers: [BarService],
   imports: [

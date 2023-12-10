@@ -40,9 +40,6 @@ export class LoginComponent {
     this.http.post(url, userData).pipe(
       catchError(error => {
         console.error('Erreur HTTP :', error);
-        // Handle the error here
-        // For example, you can show a notification to the user
-        // Then, rethrow the error to stop the execution
         return throwError(error);
       })
     ).subscribe(

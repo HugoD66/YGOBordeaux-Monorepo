@@ -3,9 +3,9 @@ import { TypeOrmModule } from "@nestjs/typeorm"
 import { AppController } from "./app.controller"
 import { AppService } from "./app.service"
 import { UsersModule } from "./users/users.module"
-import { BarModule } from "./bar/bar.module"
+import { BarsModule } from "./bars/bars.module"
 import {User} from "./users/entities/user.entity";
-import {Bar} from "./bar/entities/bar.entity";
+import {Bar} from "./bars/entities/bar.entity";
 import {ConfigModule, ConfigService} from "@nestjs/config";
 import {jwtConstants} from "./users/auth/constant";
 import { PassportModule} from "@nestjs/passport";
@@ -17,7 +17,7 @@ import { AuthGuard } from './users/auth/auth.guard';
 @Module({
   imports: [
     UsersModule,
-    BarModule,
+    BarsModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({

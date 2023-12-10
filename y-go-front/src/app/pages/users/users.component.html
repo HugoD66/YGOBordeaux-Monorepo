@@ -1,1 +1,8 @@
-<p>users works!</p>
+<div class="content">
+  <app-button-panel-horiz></app-button-panel-horiz>
+  <div class="content-users">
+    <app-unit-user *ngFor="let user of userList" [user]="user"></app-unit-user>
+
+  </div>
+  <app-logo-ygo></app-logo-ygo>
+</div>

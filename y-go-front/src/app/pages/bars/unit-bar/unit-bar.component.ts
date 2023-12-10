@@ -1,7 +1,8 @@
-import { Component } from "@angular/core"
+import {Component, Input} from "@angular/core"
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {Router} from "@angular/router";
+import {BarModel} from "../../../models/bar.model";
 
 @Component({
   selector: `app-unit-bar`,
@@ -11,9 +12,11 @@ import {Router} from "@angular/router";
   imports: [MatCardModule, MatButtonModule],
 })
 export class UnitBarComponent {
+  @Input() bar: BarModel | undefined;
+
   constructor(private router: Router) { }
 
   goDetailBar() {
-    this.router.navigate(['/bars/detail']);
+    this.router.navigate([`/bars/detail/${this.bar?.id}`]);
   }
 }

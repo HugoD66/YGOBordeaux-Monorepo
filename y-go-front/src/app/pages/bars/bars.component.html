@@ -1,13 +1,9 @@
 <div class="content">
   <app-button-panel-horiz></app-button-panel-horiz>
-  <app-search-bar></app-search-bar>
+  <app-search-bars></app-search-bars>
   <div class="content-bars">
-    <app-unit-bar></app-unit-bar>
-    <app-unit-bar></app-unit-bar>
-    <app-unit-bar></app-unit-bar>
-    <app-unit-bar></app-unit-bar>
-    <app-unit-bar></app-unit-bar>
-    <app-unit-bar></app-unit-bar>
+    <app-unit-bar *ngFor="let bar of barList" [bar]="bar"></app-unit-bar>
+
   </div>
   <app-logo-ygo></app-logo-ygo>
 </div>

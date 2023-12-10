@@ -11,8 +11,8 @@ export declare class UsersService {
     constructor(usersRepository: Repository<User>, jwtService: JwtService);
     create(createUserDto: CreateUserDto): Promise<UserResponseDto>;
     login(loginDto: LoginDto): Promise<LoginResponseDto>;
-    findAll(): Promise<User[]>;
     findOne(id: string): Promise<User>;
+    findAll(): Promise<User[]>;
     update(id: string, user: Partial<User>): Promise<User>;
     remove(id: string): Promise<void>;
 }

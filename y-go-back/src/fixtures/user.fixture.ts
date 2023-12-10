@@ -10,7 +10,6 @@ export function createRandomUser(): InterfaceUser {
   };
 }
 
-const users: InterfaceUser[] = [];
-for (let i = 0; i < 10; i++) {
-  users.push(createRandomUser());
+export function createRandomUsers(count: number): InterfaceUser[] {
+  return Array.from({ length: count }, createRandomUser);
 }

@@ -8,7 +8,7 @@ import {
   Delete,
   NotFoundException,
   ValidationPipe,
-  UsePipes, HttpCode, HttpStatus
+  UsePipes, HttpCode, HttpStatus, Req, UseGuards
 } from "@nestjs/common"
 import { UsersService } from "./users.service"
 import { User } from "./entities/user.entity"
@@ -18,6 +18,7 @@ import {ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
 import { Public } from './auth/public.decorator';
 import {LoginDto} from "./dto/login.dto";
 import {LoginResponseDto} from "./dto/login-response.dto";
+import {AuthGuard} from "./auth/auth.guard";
 
 @Controller(`users`)
 @ApiTags(`Users`)
@@ -56,6 +57,22 @@ export class UsersController {
     }
   }
 
+  @Public()
+  @UseGuards(AuthGuard)
+  @Get('me')
+   async getProfile(@Req() req): Promise<UserResponseDto> {
+    console.log(req)
+
+    try {
+      const user: UserResponseDto = await this.usersService.findOne(
+        req.user.id,
+      );
+      return user;
+    } catch (error) {
+      throw error;
+    }
+  }
+  @Public()
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<User> {
     const user = await this.usersService.findOne(id)
