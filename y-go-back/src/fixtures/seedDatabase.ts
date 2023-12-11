@@ -1,11 +1,9 @@
 import { createRandomUser } from './user.fixture';
 import {createConnection, DataSource, getConnectionOptions} from 'typeorm';
 import { User } from '../users/entities/user.entity';
-import {Connection} from "mysql2";
 
-async function seedDatabase() {
+export async function seedDatabase() {
   let connection: DataSource;
-
   try {
     const connectionOptions = await getConnectionOptions();
     connection = await createConnection(connectionOptions);

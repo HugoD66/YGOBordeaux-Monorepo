@@ -44,8 +44,10 @@ let UsersController = class UsersController {
             throw error;
         }
     }
+    async logout(req) {
+        return;
+    }
     async getProfile(req) {
-        console.log(req);
         try {
             const user = await this.usersService.findOne(req.user.id);
             return user;
@@ -101,8 +103,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "login", null);
 __decorate([
-    (0, public_decorator_1.Public)(),
+    (0, common_1.Post)('/auth/logout'),
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "logout", null);
+__decorate([
     (0, common_1.Get)('me'),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),

@@ -18,43 +18,28 @@ import {catchError, Observable, tap} from "rxjs";
   standalone: true,
   imports: [MatSidenavModule, MatButtonModule, MatIconModule, ButtonUnitHorizComponent, NgClass, RouterLink],
 })
-export class ButtonPanelHorizComponent implements OnInit {
-  showFiller: boolean = false
+export class ButtonPanelHorizComponent {
+  showFiller: boolean = false;
   isUserAuthenticated: boolean = false;
-  result: unknown;
+  result: UserModel | undefined;
+  routerLinkProfile: string = '';
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private http: HttpClient
-  ) {
+  ) {}
 
-  }
-  async ngOnInit(): Promise<void> {
-    try {
-      this.userService.getUserId().subscribe(data => {
-        this.result = data;
-        console.log(this.result);
-        if (this.result !== undefined) {
-          this.isUserAuthenticated = true;
-          console.log(this.result);
-        }
-      });
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  }
-
- /*
-  generateProfileLink(): string {
-    if (this.result && this.result.id) {
-      return `users/detail/${this.result.id}`;
+  async fetchUserAndNavigate() {
+    const data = await this.userService.getUser().toPromise();
+    this.result = data;
+    if(this.result?.id) {
+      this.isUserAuthenticated = true;
+      this.routerLinkProfile = `users/detail/${this.result?.id}`;
+      this.router.navigate([this.routerLinkProfile]);
     } else {
-      return `login`;
+      this.router.navigate(['/login']);
     }
   }
-  */
-
 
   arrowLeftPicture: string = `./assets/icons/arrowLeft-withoutB.png`
   userPicture: string = `./assets/icons/user-withoutB.png`
@@ -63,7 +48,7 @@ export class ButtonPanelHorizComponent implements OnInit {
 
   routerLinkBars: string = `/bars`
   routerLinkUsers: string = `/users`
-  //routerLinkProfile: string = `detail/${this.result.id}`
+  routerLinkLogin: string = `/login`
 
   isDrawerOpen: boolean = false
 

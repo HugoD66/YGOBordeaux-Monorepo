@@ -57,12 +57,14 @@ export class UsersController {
     }
   }
 
-  @Public()
+  @Post('/auth/logout')
   @UseGuards(AuthGuard)
+  async logout(@Req() req): Promise<void> {
+   return;
+  }
+
   @Get('me')
    async getProfile(@Req() req): Promise<UserResponseDto> {
-    console.log(req)
-
     try {
       const user: UserResponseDto = await this.usersService.findOne(
         req.user.id,
@@ -72,6 +74,7 @@ export class UsersController {
       throw error;
     }
   }
+
   @Public()
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<User> {

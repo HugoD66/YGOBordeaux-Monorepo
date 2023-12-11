@@ -33,10 +33,7 @@ export class LoginComponent {
       email: form.value.email,
       password: form.value.password,
     };
-    console.log('userData :', userData);
     const url = `${this.apiUrl}/users/auth/login`;
-    console.log(url);
-    console.log('userData :', userData);
     this.http.post(url, userData).pipe(
       catchError(error => {
         console.error('Erreur HTTP :', error);
@@ -45,7 +42,7 @@ export class LoginComponent {
     ).subscribe(
       (response: any) => {
         localStorage.setItem('access_token', response.access_token);
-        console.log('Réponse du backend :', response);
+        this.router.navigate(['/']);
       }
     );
   }

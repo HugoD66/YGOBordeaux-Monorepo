@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.seedDatabase = void 0;
 const user_fixture_1 = require("./user.fixture");
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../users/entities/user.entity");
@@ -22,5 +23,6 @@ async function seedDatabase() {
         }
     }
 }
+exports.seedDatabase = seedDatabase;
 seedDatabase();
 //# sourceMappingURL=seedDatabase.js.map

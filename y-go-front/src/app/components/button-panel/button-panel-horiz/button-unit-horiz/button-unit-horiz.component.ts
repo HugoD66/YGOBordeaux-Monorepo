@@ -15,5 +15,6 @@ export class ButtonUnitHorizComponent {
 
   @Input({ required: true }) public isParentElement!: boolean
 
-  @Input({ required: true }) public routerLink: string | undefined
+  @Input() public routerLink: string | undefined
 }
+

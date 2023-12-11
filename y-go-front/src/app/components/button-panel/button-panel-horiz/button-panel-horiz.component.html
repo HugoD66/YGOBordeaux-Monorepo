@@ -1,10 +1,9 @@
 <mat-drawer-container class="button-panel" autosize>
   <mat-drawer #drawer mode="side" class="button-panel-drawer">
     <app-button-unit
-      (click)="drawer.toggle()"
+      (click)="fetchUserAndNavigate()"
       [src]="userPicture"
       [isParentElement]="false"
-      [routerLink]="  "
     />
     <app-button-unit
       (click)="drawer.toggle()"
