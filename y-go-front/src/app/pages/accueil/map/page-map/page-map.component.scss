@@ -26,6 +26,18 @@
       justify-content: space-around;
       align-items: self-end;
       flex-direction: column;
+      .guide-utilisation {
+        color: rgb(245, 221, 194);
+        font-size: 1.1rem;
+        width: 80%;
+        h4 {
+          color: rgb(245, 221, 194);
+          font-size: 1.5rem;
+          margin: 0;
+          padding: 8px;
+          position: relative;
+        }
+      }
       h1 {
         font-size: 2.5rem;
         color: rgb(245, 221, 194);
@@ -33,7 +45,6 @@
         margin: 0;
         padding: 8px;
         position: relative;
-
         &::after {
           content: "";
           position: absolute;
@@ -53,7 +64,7 @@
           background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
         }
       }
-      h3 {
+      p {
         color: rgb(245, 221, 194);
         font-size: 1.3rem;
         width: 80%;
@@ -65,9 +76,54 @@
         height: 30%;
         align-self: center;
         border-radius: 10px;
-        ul {
-          text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        img {
+          width: 50%;
+          height: 85%;
+          object-fit: cover;
+          border-radius: 10px;
         }
+        .map-clicked-details {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-direction: column;
+          height: 100%;
+          h5 {
+            width: 90%;
+            font-size: 1.5rem;
+            color: #A64246FF;
+            margin: 0;
+            padding: 8px;
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              width: 1px;
+              background: linear-gradient(to top, rgb(245, 221, 194), rgb(166, 66, 70));
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 1px;
+              background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
+            }
+          }
+          p {
+            width: 80%;
+            color: rgb(166, 66, 70);
+          }
+        }
+
       }
     }
   }

@@ -1,31 +1,33 @@
 <section> <!--  [ngClass]="{'show-icons': showIcons}" -->
-
-  <div class="contact-content">
-     <div class="nous-retrouver">
-       <h2>Contact</h2>
-       <p>Avez-vous des questions sur nos bars répertoriés ou besoin de recommandations spéciales ? Notre équipe est là pour vous aider ! Contactez-nous pour des informations personnalisées et rejoignez notre communauté de passionnés de la vie nocturne bordelaise.</p>
-       <div class="ecole">
-           <img class="ynov-logo" src="assets/icons/ynov-withoutB.webp" alt="">
-           <p>Projet réalisé dans le cadre de l'Ymatch de Ynov Bordeaux</p>
-       </div>
-     </div>
-
-    <div class="form-content">
-        <h2>Formulaire rapide</h2>
-        <mat-form-field>
-          <mat-label>Votre email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        </mat-form-field>
-        <mat-label>Votre message</mat-label>
-        <mat-form-field>
-          <textarea matInput placeholder="Message" [formControl]="message" required></textarea>
-        </mat-form-field>
-        <button mat-raised-button color="primary" (click)="sendEmail()">Envoyer</button>
-        <p>{{getErrorMessage()}}</p>
+  <div class="contact">
+    <div class="contact-content">
+      <div class="nous-retrouver">
+        <h1>Contact</h1>
+        <p>Avez-vous des questions sur nos bars répertoriés ou besoin de recommandations spéciales ? Notre équipe est là pour vous aider ! Contactez-nous pour des informations personnalisées et rejoignez notre communauté de passionnés de la vie nocturne bordelaise.</p>
+        <div class="ecole">
+          <a href="https://www.ynov.com/" class="access-ynov">
+            <img class="ynov-logo" src="assets/icons/ynov-withoutB.webp" alt="">
+          </a>
+          <p>Projet réalisé dans le cadre de l'Ymatch de Ynov Bordeaux</p>
+        </div>
+      </div>
+      <div class="form-content">
+        <div class="form">
+          <mat-form-field>
+            <mat-label>Votre email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          </mat-form-field>
+          <mat-label>Votre message</mat-label>
+          <mat-form-field>
+            <textarea matInput placeholder="Message" [formControl]="message" required></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="sendEmail()">Envoyer</button>
+          <p>{{getErrorMessage()}}</p>
+        </div>
+        <h1>Nous contacter</h1>
+      </div>
     </div>
   </div>
-
-
   <div class="reseaux-sociaux">
     <a href="https://www.facebook.com/" [style.display]="showIcons ? 'block' : 'none'"><img src="assets/icons/twitter.png" alt=""></a>
     <a href="https://www.instagram.com/" [style.display]="showIcons ? 'block' : 'none'"><img src="assets/icons/tiktok.png" alt=""></a>
@@ -33,6 +35,6 @@
     <a href="https://twitter.com/" [style.display]="showIcons ? 'block' : 'none'"><img src="assets/icons/insta.png" alt=""></a>
     <a href="https://twitter.com/" [style.display]="showIcons ? 'block' : 'none'"><img src="assets/icons/linkedin.png" alt=""></a>
   </div>
-  <div class="liner"></div>
-
+<!--   <div class="liner"></div>
+ -->
 </section>
