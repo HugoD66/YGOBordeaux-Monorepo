@@ -9,8 +9,8 @@
   flex-direction: row;
   background-color: transparent;
   height: auto;
-  transform: rotate(270deg);
-
+  //transform: rotate(270deg);
+  //transform: rotate(-90deg);
   .parent-button-panel {
 
   }
@@ -25,4 +25,10 @@
     //transform: rotate(90deg);
 
   }
+}
+.vertical-drawer {
+  //transform: rotate(-90deg);
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

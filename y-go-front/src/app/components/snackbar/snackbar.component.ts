@@ -12,6 +12,8 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   imports: [MatFormFieldModule, MatInputModule, MatButtonModule],
 })
 export class SnackbarComponent {
+  message = '';
+  action = '';
   constructor(private _snackBar: MatSnackBar) {}
 
   openSnackBar(message: string, action: string) {

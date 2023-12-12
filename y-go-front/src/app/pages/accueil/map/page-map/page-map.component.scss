@@ -7,17 +7,74 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   @media screen and (min-width: 980px) {
     flex-direction: row;
   }
   .explainMap {
     display: flex;
     justify-content: space-around;
-    align-items: self-start;
+    align-items: center;
     flex-direction: column;
-    height: 60%;
+    height: 100%;
+    width: 100%;
+    .explain {
+      text-align: end;
+      height: 80%;
+      width: 90%;
+      display: flex;
+      justify-content: space-around;
+      align-items: self-end;
+      flex-direction: column;
+      h1 {
+        font-size: 2.5rem;
+        color: rgb(245, 221, 194);
+        font-weight: 600;
+        margin: 0;
+        padding: 8px;
+        position: relative;
 
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 1px;
+          background: linear-gradient(to bottom, rgb(245, 221, 194), rgb(166, 66, 70));
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1px;
+          background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
+        }
+      }
+      h3 {
+        color: rgb(245, 221, 194);
+        font-size: 1.3rem;
+        width: 80%;
+      }
+      .map-clicked {
+        background-color: rgb(245, 221, 194);
+        color: #A64246FF;
+        width: 60%;
+        height: 30%;
+        align-self: center;
+        border-radius: 10px;
+        ul {
+          text-align: center;
+        }
+      }
+    }
+  }
+  .map {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(250, 240, 228);
   }
 }
 
@@ -41,6 +98,6 @@
     height: 100%;
     object-fit: cover;
     position: absolute;
-
+    background-color: black;
   }
 }

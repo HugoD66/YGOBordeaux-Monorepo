@@ -1,18 +1,20 @@
 <div class="liner"></div>
 <div class="mapContent">
   <div class="explainMap">
-    <h1>Map des bars</h1>
+    <div class="explain">
+      <h1>Map des bars</h1>
       <h3>Cette map vous permet de trouver les bars les plus proches de vous.</h3>
-      <p>
-        Vous pouvez également rechercher un bar en particulier. <br>
-      </p>
+      <p>Vous pouvez cliquer sur un bar pour avoir plus d'informations.</p>
       <div class="map-clicked">
-        <p>Vous pouvez cliquer sur un bar pour avoir plus d'informations.</p>
         <ul>
-          <li>Le nom du bar</li>
-          <li>Adresse du bar</li>
+          <ol>Nom:  Le nom du bar</ol>
+          <ol>Adresse: Adresse du bar</ol>
         </ul>
       </div>
+    </div>
+  </div>
+  <div class="map">
+    <app-map></app-map>
   </div>
 </div>
 <div class="background-image" [style.display]="showBackgroundImage ? 'block' : 'none'">
