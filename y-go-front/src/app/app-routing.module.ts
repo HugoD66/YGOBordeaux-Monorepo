@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core"
+  import { NgModule } from "@angular/core"
 import { RouterModule, type Routes } from "@angular/router"
 import { AccueilComponent } from "./pages/accueil/accueil.component"
 import { NotFoundComponent } from "./pages/not-found/not-found.component"

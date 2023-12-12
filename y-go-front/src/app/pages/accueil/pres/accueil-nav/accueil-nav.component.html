@@ -1,15 +1,9 @@
 <div class="accueil-nav">
-
-  <button mat-button routerLink="register">Nous rejoindre</button>
-
-
-    <!-- Si l'utilisateur n'est PAS authentifié, afficher ce bouton -->
     <button *ngIf="!isAuthenticated" mat-button routerLink="login">Se connecter</button>
+    <button *ngIf="!isAuthenticated" mat-button routerLink="register">Nous rejoindre</button>
 
-    <!-- Si l'utilisateur EST authentifié, afficher ce bouton -->
     <button *ngIf="isAuthenticated" mat-button (click)="onLogout()">Déconnexion</button>
-
-
+    <button *ngIf="isAuthenticated" mat-button (click)="fetchUserAndNavigate()">Votre compte</button>
     <!--
      <span class="list-item">
       <img src="../../../../../assets/icons/user-count.png" alt="Icône nombre d'utilisateurs">

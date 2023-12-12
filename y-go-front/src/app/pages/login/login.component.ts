@@ -8,6 +8,7 @@ import {FormsModule, NgForm} from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import {environment} from "../../../../env";
 import {catchError, throwError} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 @Component({
   selector: `app-login`,
   templateUrl: `./login.component.html`,
@@ -23,7 +24,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) {
     this.email = '';
     this.password = '';
@@ -37,14 +39,22 @@ export class LoginComponent {
     this.http.post(url, userData).pipe(
       catchError(error => {
         console.error('Erreur HTTP :', error);
+        this.openSnackBar(`Erreur lors de l'envoi`, 'Fermer');
         return throwError(error);
       })
     ).subscribe(
       (response: any) => {
         localStorage.setItem('access_token', response.access_token);
         this.router.navigate(['/']);
+        this.openSnackBar(`Bienvenu, ${this.email} !`, 'Fermer');
       }
     );
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 
   goHome() {

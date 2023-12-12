@@ -28,6 +28,8 @@ import {AuthInterceptor} from "./auth.interceptor";
 import {UserModule} from "./pages/users/user.module";
 import {BarModule} from "./pages/bars/bar.module";
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,6 @@ import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
     PresComponent,
     RegisterComponent,
     AddBarComponent,
-
   ],
   imports: [
     HttpClientModule,
@@ -59,8 +60,11 @@ import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
     ContactComponent,
     LogoYGoComponent,
     MatInputModule,
+    SnackbarComponent,
     UserModule,
     BarModule,
+    MatSnackBarModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
