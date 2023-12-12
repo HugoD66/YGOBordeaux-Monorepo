@@ -1,9 +1,0 @@
-entity: User
-items:
-  user1:
-    name: '{{name.firstName}}'
-    email: '{{internet.email}}'
-    __call:
-      setPassword:
-        - foo
-

@@ -1,0 +1,5 @@
+entity: Bar
+items:
+  bar:
+    name: 'BarName'
+    adresse: 'BarAdresse'
