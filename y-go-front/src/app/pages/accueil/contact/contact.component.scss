@@ -16,6 +16,7 @@ section {
       width: 100%;
       height: 80%;
       .nous-retrouver {
+
         margin-top: 10%;
         display: flex;
         flex-direction: column;
@@ -25,11 +26,12 @@ section {
         height: 100%;
         h1 {
           align-self: flex-end;
-          margin-right: 10%;
+          margin-right: 15%;
           font-size: 2.5rem;
           color: rgb(166, 66, 70);
           font-weight: 600;
           padding: 8px;
+          height: 10%;
           position: relative;
           &::after {
             content: "";
@@ -50,36 +52,45 @@ section {
             background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
           }
         }
-        p {
-          line-height: 1.5rem;
-          color: rgb(166, 66, 70);
-          font-size: 1.3rem;
-          width: 80%;
-          text-align: end;
-        }
-        .ecole {
-          width: 50%;
+        .contact-ecole {
+          width: 100%;
+          height: 90%;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
-          flex-direction: row;
-          border: 1px solid rgb(166, 66, 70);
-          border-radius: 90px;
-          .access-ynov {
-            margin: 0;
-            display: block;
-            .ynov-logo {
-              margin-top: 7px;
-              width: 120px;
-              height: 120px;
+          justify-content: space-around;
+          p {
+            line-height: 1.5rem;
+            color: rgb(166, 66, 70);
+            font-size: 1.3rem;
+            width: 75%;
+            text-align: justify;
+          }
+          .ecole {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            border: 1px solid rgb(166, 66, 70);
+            border-radius: 90px;
+            .access-ynov {
+              margin: 0;
+              display: block;
+              .ynov-logo {
+                margin-top: 7px;
+                width: 120px;
+                height: 120px;
+              }
+            }
+            p {
+              color: rgb(166, 66, 70);
+              width: 100%;
+              margin-right: 7%;
             }
           }
-          p {
-            color: rgb(166, 66, 70);
-            width: 100%;
-            margin-right: 7%;
-          }
         }
+
       }
       .form-content {
         margin-top: 10%;
@@ -87,23 +98,12 @@ section {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        width: 50%;
+        width: 40%;
         height: 100%;
-        .form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-around;
-          height: 100%;
-          input {
-            background-color: #FAF0E4FF; // Change the background color
-            color: #A64246FF; // Change the text color
-            // Add other styles as needed
-          }
-        }
         h1 {
+          height: 10%;
           align-self: flex-start;
-          margin-left: 10%;
+          margin-left: 15%;
           font-size: 2.5rem;
           color: rgb(166, 66, 70);
           font-weight: 600;
@@ -114,18 +114,70 @@ section {
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 0; // Change right to left
+            left: 0;
             width: 1px;
-            background: linear-gradient(to bottom, rgb(166, 66, 70), rgb(245, 221, 194));
+            background: linear-gradient(to top, rgb(166, 66, 70), rgb(245, 221, 194));
           }
           &::before {
             content: "";
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 0;
+            top: 0;
             height: 1px;
             background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
+          }
+        }
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+          height: 90%;
+          width: 80%;
+          .form-field {
+            width: 80%;
+            input {
+              font-size: 1.3rem;
+            }
+          }
+          .form-textarea {
+            width: 80%;
+            max-height: 500px;
+          }
+          .button-and-error {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .button-form {
+              width: 25%;
+              height: 50px;
+              border-radius: 25px;
+              font-size: 1.3em;
+              border: none;
+              font-weight: bold;
+              color: rgb(245, 221, 194);
+              background-color: rgb(166, 66, 70);
+              transition: background-color 0.4s, color 0.4s; /* Ajoutez cette ligne pour spécifier la transition */
+
+              &:focus {
+                cursor: pointer;
+                background-color: rgb(245, 221, 194);
+                color: rgb(166, 66, 70);
+              }
+            }
+            .error {
+              color: #d53333;
+              font-size: 1.3rem;
+              max-width: 60%;
+              text-align: end;
+            }
+          }
+
+          .button-and-error button {
+            margin-top: 10px;
           }
         }
       }

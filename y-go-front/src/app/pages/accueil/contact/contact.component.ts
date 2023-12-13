@@ -13,8 +13,8 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, NgClass, MatButtonModule],
 })
 export class ContactComponent {
-  //reseaux
   showIcons: boolean = false;
+
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -46,12 +46,10 @@ export class ContactComponent {
   submitted = false;
   sendEmail() {
     this.submitted = true;
-
     if (this.email.invalid || this.message.invalid) {
-      return; // Ne continuez pas si le formulaire est invalide.
-    }
 
-    // Envoyez l'e-mail ou effectuez toute autre action requise.
+      return;
+    }
     console.log(`email: ${this.email.value}`);
     console.log(`message: ${this.message.value}`);
   }

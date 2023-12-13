@@ -3,28 +3,33 @@
     <div class="contact-content">
       <div class="nous-retrouver">
         <h1>Contact</h1>
-        <p>Avez-vous des questions sur nos bars répertoriés ou besoin de recommandations spéciales ? Notre équipe est là pour vous aider ! Contactez-nous pour des informations personnalisées et rejoignez notre communauté de passionnés de la vie nocturne bordelaise.</p>
-        <div class="ecole">
-          <a href="https://www.ynov.com/" class="access-ynov">
-            <img class="ynov-logo" src="assets/icons/ynov-withoutB.webp" alt="">
-          </a>
-          <p>Projet réalisé dans le cadre de l'Ymatch de Ynov Bordeaux</p>
-        </div>
+         <div class="contact-ecole">
+           <p>Avez-vous des questions sur nos bars répertoriés ou besoin de recommandations spéciales ? Notre équipe est là pour vous aider ! Contactez-nous pour des informations personnalisées et rejoignez notre communauté de passionnés de la vie nocturne bordelaise.</p>
+           <div class="ecole">
+             <a href="https://www.ynov.com/" class="access-ynov">
+               <img class="ynov-logo" src="assets/icons/ynov-withoutB.webp" alt="">
+             </a>
+             <p>Projet réalisé dans le cadre de l'Ymatch de Ynov Bordeaux</p>
+           </div>
+         </div>
       </div>
       <div class="form-content">
+        <h1>Nous contacter</h1>
         <div class="form">
-          <mat-form-field>
+          <mat-form-field class="form-field">
             <mat-label>Votre email</mat-label>
             <input matInput placeholder="pat@example.com" [formControl]="email" required>
           </mat-form-field>
-          <mat-label>Votre message</mat-label>
-          <mat-form-field>
-            <textarea matInput placeholder="Message" [formControl]="message" required></textarea>
+          <mat-form-field  class="form-textarea">
+            <textarea matInput placeholder="Votre Message" [formControl]="message" required></textarea>
           </mat-form-field>
-          <button mat-raised-button color="primary" (click)="sendEmail()">Envoyer</button>
-          <p>{{getErrorMessage()}}</p>
+          <div class="button-and-error">
+            <button mat-raised-button class="button-form" (click)="sendEmail()">Envoyer</button>
+            <p class="error" *ngIf="submitted && (email.invalid || message.invalid)">
+              {{ getErrorMessage() }}
+            </p>
+          </div>
         </div>
-        <h1>Nous contacter</h1>
       </div>
     </div>
   </div>
