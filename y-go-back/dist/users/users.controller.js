@@ -21,7 +21,10 @@ const swagger_1 = require("@nestjs/swagger");
 const public_decorator_1 = require("./auth/public.decorator");
 const login_dto_1 = require("./dto/login.dto");
 const auth_guard_1 = require("./auth/auth.guard");
-let UsersController = class UsersController {
+const platform_express_1 = require("@nestjs/platform-express");
+const FileSizeValidationPipe_1 = require("../pipe/FileSizeValidationPipe");
+const multer_config_1 = require("../multer.config");
+let UsersController = exports.UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
     }
@@ -34,6 +37,10 @@ let UsersController = class UsersController {
         catch (error) {
             throw error;
         }
+    }
+    async uploadFile(userId, file) {
+        await this.usersService.update(userId, { picture: file.path });
+        return { message: 'File uploaded successfully', filePath: file.path };
     }
     async login(loginDto) {
         try {
@@ -92,6 +99,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "register", null);
 __decorate([
+    (0, common_1.Post)('upload-file/:userId'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', multer_config_1.multerConfig)),
+    __param(0, (0, common_1.Param)('userId')),
+    __param(1, (0, common_1.UploadedFile)(new FileSizeValidationPipe_1.FileSizeValidationPipe())),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "uploadFile", null);
+__decorate([
     (0, public_decorator_1.Public)(),
     (0, common_1.Post)('/auth/login'),
     (0, common_1.HttpCode)(common_1.HttpStatus.CREATED),
@@ -147,10 +163,9 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "remove", null);
-UsersController = __decorate([
+exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)(`users`),
     (0, swagger_1.ApiTags)(`Users`),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
-exports.UsersController = UsersController;
 //# sourceMappingURL=users.controller.js.map

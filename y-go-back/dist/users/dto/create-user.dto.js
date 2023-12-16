@@ -15,6 +15,7 @@ const swagger_1 = require("@nestjs/swagger");
 const user_roles_enum_1 = require("../entities/types/user.roles.enum");
 class CreateUserDto {
 }
+exports.CreateUserDto = CreateUserDto;
 __decorate([
     (0, class_validator_1.MinLength)(2),
     (0, class_validator_1.IsNotEmpty)(),
@@ -56,5 +57,4 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "picture", void 0);
-exports.CreateUserDto = CreateUserDto;
 //# sourceMappingURL=create-user.dto.js.map

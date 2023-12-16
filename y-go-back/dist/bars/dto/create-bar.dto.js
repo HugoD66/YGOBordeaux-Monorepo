@@ -14,6 +14,7 @@ const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 class CreateBarDto {
 }
+exports.CreateBarDto = CreateBarDto;
 __decorate([
     (0, class_validator_1.MinLength)(2),
     (0, class_validator_1.IsNotEmpty)(),
@@ -25,5 +26,4 @@ __decorate([
     (0, swagger_1.ApiProperty)({ example: 'Adresse', description: 'Adresse du bars' }),
     __metadata("design:type", String)
 ], CreateBarDto.prototype, "adresse", void 0);
-exports.CreateBarDto = CreateBarDto;
 //# sourceMappingURL=create-bar.dto.js.map

@@ -8,7 +8,7 @@ import {
   Delete,
   NotFoundException,
   ValidationPipe,
-  UsePipes, HttpCode, HttpStatus, Req, UseGuards
+  UsePipes, HttpCode, HttpStatus, Req, UseGuards, UseInterceptors, UploadedFile, ParseFilePipe
 } from "@nestjs/common"
 import { UsersService } from "./users.service"
 import { User } from "./entities/user.entity"
@@ -19,6 +19,9 @@ import { Public } from './auth/public.decorator';
 import {LoginDto} from "./dto/login.dto";
 import {LoginResponseDto} from "./dto/login-response.dto";
 import {AuthGuard} from "./auth/auth.guard";
+import {FileInterceptor} from "@nestjs/platform-express";
+import {FileSizeValidationPipe} from "../pipe/FileSizeValidationPipe";
+import {multerConfig} from "../multer.config";
 
 @Controller(`users`)
 @ApiTags(`Users`)
@@ -43,6 +46,18 @@ export class UsersController {
       throw error;
     }
   }
+
+  @Post('upload-file/:userId')
+  @UseInterceptors(FileInterceptor('file', multerConfig))
+  async uploadFile(
+    @Param('userId') userId: string,
+    @UploadedFile(new FileSizeValidationPipe()) file: Express.Multer.File
+  ) {
+    await this.usersService.update(userId, { picture: file.path });
+    return { message: 'File uploaded successfully', filePath: file.path };
+  }
+
+
   @Public()
   @Post('/auth/login')
   @HttpCode(HttpStatus.CREATED)
@@ -105,4 +120,5 @@ export class UsersController {
     }
     return this.usersService.remove(id)
   }
+
 }

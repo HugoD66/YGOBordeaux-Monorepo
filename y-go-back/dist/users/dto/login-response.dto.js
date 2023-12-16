@@ -13,6 +13,7 @@ exports.LoginResponseDto = void 0;
 const class_validator_1 = require("class-validator");
 class LoginResponseDto {
 }
+exports.LoginResponseDto = LoginResponseDto;
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
@@ -25,5 +26,4 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], LoginResponseDto.prototype, "access_token", void 0);
-exports.LoginResponseDto = LoginResponseDto;
 //# sourceMappingURL=login-response.dto.js.map

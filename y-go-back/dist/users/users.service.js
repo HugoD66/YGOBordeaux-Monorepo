@@ -21,7 +21,7 @@ const user_entity_1 = require("./entities/user.entity");
 const jwt_1 = require("@nestjs/jwt");
 const user_roles_enum_1 = require("./entities/types/user.roles.enum");
 const errors_1 = require("./errorsRegister/errors");
-let UsersService = class UsersService {
+let UsersService = exports.UsersService = class UsersService {
     constructor(usersRepository, jwtService) {
         this.usersRepository = usersRepository;
         this.jwtService = jwtService;
@@ -92,19 +92,32 @@ let UsersService = class UsersService {
     async findAll() {
         return this.usersRepository.find();
     }
-    async update(id, user) {
-        await this.usersRepository.update(id, user);
-        return this.usersRepository.findOne({ where: { id } });
+    async update(id, updateUserDto) {
+        const user = await this.usersRepository.findOne({ where: { id } });
+        if (!user) {
+            throw new common_1.NotFoundException(`User with ID ${id} not found`);
+        }
+        const updatedUser = {
+            ...user,
+            ...updateUserDto
+        };
+        await this.usersRepository.save(updatedUser);
+        return {
+            id: updatedUser.id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            picture: updatedUser.picture,
+            role: updatedUser.role,
+        };
     }
     async remove(id) {
         await this.usersRepository.delete(id);
     }
 };
-UsersService = __decorate([
+exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(user_entity_1.User)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         jwt_1.JwtService])
 ], UsersService);
-exports.UsersService = UsersService;
 //# sourceMappingURL=users.service.js.map

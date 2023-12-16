@@ -13,6 +13,6 @@ export declare class UsersService {
     login(loginDto: LoginDto): Promise<LoginResponseDto>;
     findOne(id: string): Promise<User>;
     findAll(): Promise<User[]>;
-    update(id: string, user: Partial<User>): Promise<User>;
+    update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto>;
     remove(id: string): Promise<void>;
 }

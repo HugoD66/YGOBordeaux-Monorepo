@@ -17,7 +17,7 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
-let BarsService = class BarsService {
+let BarsService = exports.BarsService = class BarsService {
     constructor(barRepository) {
         this.barRepository = barRepository;
     }
@@ -48,10 +48,9 @@ let BarsService = class BarsService {
         await this.barRepository.delete(id);
     }
 };
-BarsService = __decorate([
+exports.BarsService = BarsService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(bar_entity_1.Bar)),
     __metadata("design:paramtypes", [typeorm_2.Repository])
 ], BarsService);
-exports.BarsService = BarsService;
 //# sourceMappingURL=bars.service.js.map

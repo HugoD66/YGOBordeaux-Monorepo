@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bar = void 0;
 const typeorm_1 = require("typeorm");
-let Bar = class Bar {
+let Bar = exports.Bar = class Bar {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(`uuid`),
@@ -25,8 +25,7 @@ __decorate([
     (0, typeorm_1.Column)({ unique: true }),
     __metadata("design:type", String)
 ], Bar.prototype, "adresse", void 0);
-Bar = __decorate([
+exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);
-exports.Bar = Bar;
 //# sourceMappingURL=bar.entity.js.map

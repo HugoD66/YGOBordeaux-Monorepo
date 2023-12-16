@@ -6,5 +6,5 @@ var DrinkEnum;
     DrinkEnum["Despe"] = "Despe";
     DrinkEnum["Leffe"] = "Leffe";
     DrinkEnum["Grim"] = "Grim";
-})(DrinkEnum = exports.DrinkEnum || (exports.DrinkEnum = {}));
+})(DrinkEnum || (exports.DrinkEnum = DrinkEnum = {}));
 //# sourceMappingURL=drinks.enum.js.map

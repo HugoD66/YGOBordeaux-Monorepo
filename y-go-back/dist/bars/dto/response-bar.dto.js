@@ -13,6 +13,7 @@ exports.ResponseBarDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 class ResponseBarDto {
 }
+exports.ResponseBarDto = ResponseBarDto;
 __decorate([
     (0, swagger_1.ApiProperty)({ type: String }),
     __metadata("design:type", String)
@@ -25,5 +26,4 @@ __decorate([
     (0, swagger_1.ApiProperty)({ type: String }),
     __metadata("design:type", String)
 ], ResponseBarDto.prototype, "adresse", void 0);
-exports.ResponseBarDto = ResponseBarDto;
 //# sourceMappingURL=response-bar.dto.js.map

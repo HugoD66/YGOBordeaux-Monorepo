@@ -13,7 +13,7 @@ exports.User = void 0;
 const typeorm_1 = require("typeorm");
 const class_transformer_1 = require("class-transformer");
 const user_roles_enum_1 = require("./types/user.roles.enum");
-let User = class User {
+let User = exports.User = class User {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
@@ -44,8 +44,7 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
-User = __decorate([
+exports.User = User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);
-exports.User = User;
 //# sourceMappingURL=user.entity.js.map

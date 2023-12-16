@@ -12,9 +12,9 @@ const bars_service_1 = require("./bars.service");
 const bars_controller_1 = require("./bars.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
-let BarsModule = class BarsModule {
+let BarsModule = exports.BarsModule = class BarsModule {
 };
-BarsModule = __decorate([
+exports.BarsModule = BarsModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([bar_entity_1.Bar])],
         controllers: [bars_controller_1.BarsController],
@@ -22,5 +22,4 @@ BarsModule = __decorate([
         exports: [bars_service_1.BarsService],
     })
 ], BarsModule);
-exports.BarsModule = BarsModule;
 //# sourceMappingURL=bars.module.js.map

@@ -1,21 +1,16 @@
-<p>detail-user works!</p>
-
-<ng-container *ngIf="user.picture; else noPicture">
-  <img src="{{ user.picture }}" alt="user picture">
+<ng-container *ngIf="user?.picture; else noPicture">
+  <img [src]="'http://localhost:3000/' + user.picture + '?time=' + currentTime" alt="user picture">
 </ng-container>
-
 <ng-template #noPicture>
-  <img src="chemin/vers/votre/image/par/defaut.jpg" alt="default avatar">
+  <div class="no-picture">
+    <img src="assets/temp/3135715.png" alt="default avatar">
+    <span class="add-picture">
+      <form>
+        <label for="file-upload" class="custom-file-upload">
+          <img src="assets/icons/picture-add.png" alt="Add" />
+        </label>
+        <input id="file-upload" type="file" (change)="onFileSelect($event)" style="display:none;"/>
+      </form>
+    </span>
+  </div>
 </ng-template>
-
-
-
-
-
-
-<!--
-@if (user.picture != null) {
-    <img src="{{ user.picture }}" alt="user picture">
-@ else {
-}
--->

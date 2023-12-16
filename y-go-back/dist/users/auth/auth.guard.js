@@ -15,7 +15,7 @@ const jwt_1 = require("@nestjs/jwt");
 const constant_1 = require("./constant");
 const core_1 = require("@nestjs/core");
 const public_decorator_1 = require("./public.decorator");
-let AuthGuard = class AuthGuard {
+let AuthGuard = exports.AuthGuard = class AuthGuard {
     constructor(jwtService, reflector) {
         this.jwtService = jwtService;
         this.reflector = reflector;
@@ -50,10 +50,9 @@ let AuthGuard = class AuthGuard {
         return type === 'Bearer' ? token : undefined;
     }
 };
-AuthGuard = __decorate([
+exports.AuthGuard = AuthGuard = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [jwt_1.JwtService,
         core_1.Reflector])
 ], AuthGuard);
-exports.AuthGuard = AuthGuard;
 //# sourceMappingURL=auth.guard.js.map

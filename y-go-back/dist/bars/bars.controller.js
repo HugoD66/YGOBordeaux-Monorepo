@@ -18,7 +18,7 @@ const bars_service_1 = require("./bars.service");
 const create_bar_dto_1 = require("./dto/create-bar.dto");
 const update_bar_dto_1 = require("./dto/update-bar.dto");
 const public_decorator_1 = require("../users/auth/public.decorator");
-let BarsController = class BarsController {
+let BarsController = exports.BarsController = class BarsController {
     constructor(barService) {
         this.barService = barService;
     }
@@ -86,9 +86,8 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], BarsController.prototype, "remove", null);
-BarsController = __decorate([
+exports.BarsController = BarsController = __decorate([
     (0, common_1.Controller)(`bars`),
     __metadata("design:paramtypes", [bars_service_1.BarsService])
 ], BarsController);
-exports.BarsController = BarsController;
 //# sourceMappingURL=bars.controller.js.map

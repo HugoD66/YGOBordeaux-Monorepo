@@ -2,6 +2,8 @@ import { NestFactory } from "@nestjs/core";
 import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.interface";
 import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import * as express from 'express';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
@@ -13,8 +15,8 @@ async function bootstrap() {
     preflightContinue: false,
     optionsSuccessStatus: 204,
   };
-  app.enableCors(corsOptions);
 
+  app.enableCors(corsOptions);
 
   // Configuration Swagger
   const config = new DocumentBuilder()
@@ -26,8 +28,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api", app, document);
 
-
-  //await seedDatabase();
+  app.use('/uploads', express.static('uploads'));
 
   // Écoute sur un port
   await app.listen(3000);
