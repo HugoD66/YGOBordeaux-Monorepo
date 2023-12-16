@@ -1,35 +1,30 @@
 <section>
     <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="formulaire">
-        <p>
-            <mat-form-field appearance="fill">
-                <mat-label>Email</mat-label>
-                <input matInput
-                       name="email"
-                       required
-                       [(ngModel)]="email">
-                <mat-icon matSuffix></mat-icon>
-            </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field>
-            <mat-label>Mot de passe</mat-label>
+        <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Email</mat-label>
             <input matInput
-                   name="password"
-                   placeholder="Password"
-                   [(ngModel)]="password"
+                   name="email"
                    required
-                   [type]="hide ? 'password' : 'text'">
-            <button type="button"
-                    mat-icon-button
-                    matSuffix
-                    (click)="hide = !hide"
-                    [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </mat-form-field>
-        </p>
+                   [(ngModel)]="email">
+            <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput
+                 name="password"
+                 [(ngModel)]="password"
+                 required
+                 [type]="hide ? 'password' : 'text'">
+          <button type="button"
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
       <div class="sendForm-register">
         <span class="new-on-site" (click)="goRegister()">Nouveau sur le site ? </span>
         <button type="submit" mat-raised-button >Envoyer</button>

@@ -40,6 +40,7 @@ let UsersService = class UsersService {
                 name: createUserDto.name,
                 email: createUserDto.email,
                 password: hashedPassword,
+                picture: createUserDto.picture ?? null,
                 role: createUserDto.role ?? user_roles_enum_1.UserRoleEnum.Utilisateur,
             });
             const savedUser = await this.usersRepository.save(user);
@@ -47,6 +48,7 @@ let UsersService = class UsersService {
                 id: savedUser.id,
                 name: savedUser.name,
                 email: savedUser.email,
+                picture: savedUser.picture,
                 role: savedUser.role,
             };
         }

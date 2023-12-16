@@ -38,6 +38,7 @@ export class UsersService {
         name: createUserDto.name,
         email: createUserDto.email,
         password: hashedPassword,
+        picture: createUserDto.picture?? null,
         role: createUserDto.role ?? UserRoleEnum.Utilisateur,
       });
       const savedUser: User = await this.usersRepository.save(user);
@@ -45,6 +46,7 @@ export class UsersService {
         id: savedUser.id,
         name: savedUser.name,
         email: savedUser.email,
+        picture: savedUser.picture,
         role: savedUser.role,
       };
     } catch (error) {

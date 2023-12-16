@@ -17,6 +17,9 @@ export class User {
   @Column()
   public password!: string;
 
+  @Column({ nullable: true})
+  public picture: string | null;
+
   @Column({
     type: 'enum',
     enum: UserRoleEnum,
@@ -27,9 +30,6 @@ export class User {
   /*
   @Column()
   public adress: string
-
-  @Column()
-  public email: string
 
   @Column()
   public phone: string

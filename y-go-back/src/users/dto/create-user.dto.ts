@@ -1,4 +1,4 @@
-import {IsString, IsNotEmpty, MinLength, IsEmail, IsStrongPassword} from "class-validator"
+import {IsString, IsNotEmpty, MinLength, IsEmail, IsStrongPassword, IsOptional} from "class-validator"
 import {ApiProperty} from "@nestjs/swagger";
 import {UserRoleEnum} from "../entities/types/user.roles.enum";
 
@@ -36,6 +36,9 @@ export class CreateUserDto {
   public role: UserRoleEnum;
 
 
+  @IsOptional()
+  @IsString()
+  picture: string;
 
   /*
 
@@ -46,13 +49,6 @@ export class CreateUserDto {
     @Match('password')
     passwordConfirm: string;
   !!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-  @IsOptional()
-  @IsString()
-  username: string
 
 
   @IsOptional()

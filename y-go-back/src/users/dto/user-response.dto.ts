@@ -3,5 +3,6 @@ export class UserResponseDto {
   name: string;
   email: string;
   //password: string;
+  picture?: string;
   role: string;
 }

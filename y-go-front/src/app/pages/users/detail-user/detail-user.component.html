@@ -1,1 +1,21 @@
 <p>detail-user works!</p>
+
+<ng-container *ngIf="user.picture; else noPicture">
+  <img src="{{ user.picture }}" alt="user picture">
+</ng-container>
+
+<ng-template #noPicture>
+  <img src="chemin/vers/votre/image/par/defaut.jpg" alt="default avatar">
+</ng-template>
+
+
+
+
+
+
+<!--
+@if (user.picture != null) {
+    <img src="{{ user.picture }}" alt="user picture">
+@ else {
+}
+-->

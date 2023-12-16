@@ -11,6 +11,20 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .form-field {
+      margin: 2%;
+      width: 45%;
+      input {
+        font-size: 1.3rem;
+      }
+    }
+    .button-send {
+      font-size: 1.15em;
+      margin-left: 12%;
+      margin-top: 2%;
+      background-color:  rgb(122, 62, 101);
+      color: white;
+    }
   }
   .bordeaux {
     width: 60%;
@@ -24,7 +38,7 @@ section {
     position: absolute;
     width: 150px;
     bottom: 50px;
-    right: 50px;
+    left: 50px;
     cursor: pointer;
   }
   .backWithoutColor {
@@ -43,7 +57,6 @@ section {
     height: 15%;
     background: linear-gradient(360deg, rgb(122, 62, 101) 0%, rgba(255, 255, 255, 0) 100%);
   }
-
   h1 {
     z-index: 3;
     position: fixed;
@@ -57,7 +70,7 @@ section {
     text-shadow: 0 14px 13px #1f1f1f;
     @media screen and (max-width: 1080px) {
       font-size: 14vw;
-      left: 10%;
+      right: 10%;
     }
     @media screen and (max-width: 680px) {
       font-size: 24vw;
@@ -78,7 +91,7 @@ section {
       sans serif;
     @media screen and (max-width: 1080px) {
       font-size: 12vw;
-      left: 18%;
+      right: 18%;
 
     }
     @media screen and (max-width: 680px) {

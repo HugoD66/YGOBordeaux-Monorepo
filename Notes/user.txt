@@ -1,0 +1,19 @@
+Page mon profil :
+
+
+tous:
+photo
+nom,prenom etc ...
+adresse ?
+
+
+
+admin :
+ajouter bar
+supprimer bar
+modifier bar
+
+
+
+user  :
+bars likés

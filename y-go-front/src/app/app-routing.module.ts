@@ -8,6 +8,7 @@ import {DetailBarComponent} from "./pages/bars/detail-bar/detail-bar.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {UsersComponent} from "./pages/users/users.component";
 import {AddBarComponent} from "./pages/bars/add-bar/add-bar.component";
+  import {DetailUserComponent} from "./pages/users/detail-user/detail-user.component";
 
 const routes: Routes = [
   { path: `login`, component: LoginComponent },
@@ -24,7 +25,7 @@ const routes: Routes = [
     path: 'users',
     children: [
       { path: '', component: UsersComponent },
-      { path: 'detail/:id', component: DetailBarComponent },
+      { path: 'detail/:id', component: DetailUserComponent },
     ]
   },
   { path: ``, component: AccueilComponent },

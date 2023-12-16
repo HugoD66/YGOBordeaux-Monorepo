@@ -11,6 +11,34 @@ section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .sendForm-register {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      width: 40%;
+      .new-on-site {
+        margin-right: 4%;
+        font-size: 1.2em;
+        color:  rgb(122, 62, 101);
+        font-family: "Montserrat", sans-serif;
+        font-weight: lighter;
+        cursor: pointer;
+      }
+      button {
+        font-size: 1.15em;
+        margin-left: 2%;
+        background-color:  rgb(122, 62, 101);
+        color: white;
+      }
+    }
+    .form-field {
+      margin: 3%;
+      width: 45%;
+      input {
+        font-size: 1.3rem;
+      }
+    }
   }
   .bordeaux {
     width: 60%;
@@ -43,7 +71,6 @@ section {
     height: 15%;
     background: linear-gradient(360deg, #1f1f1f 0%, rgba(255, 255, 255, 0) 100%);
   }
-
   h1 {
     z-index: 3;
     position: fixed;
@@ -58,7 +85,6 @@ section {
     @media screen and (max-width: 1080px) {
       font-size: 14vw;
       left: 10%;
-
     }
     @media screen and (max-width: 680px) {
       font-size: 24vw;
@@ -84,24 +110,6 @@ section {
     }
     @media screen and (max-width: 680px) {
       font-size: 18vw;
-    }
-  }
-  .sendForm-register {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    .new-on-site {
-      margin-right: 4%;
-      font-size: 1.2vw;
-      color:  rgb(122, 62, 101);
-      font-family: "Montserrat", sans-serif;
-      font-weight: lighter;
-      cursor: pointer;
-    }
-    button {
-      margin-left: 2%;
-      background-color:  rgb(122, 62, 101);
     }
   }
 }
