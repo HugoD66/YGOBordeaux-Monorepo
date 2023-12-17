@@ -4,6 +4,7 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const express = require("express");
+const bar_fixtures_1 = require("./fixtures/bar.fixtures");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
     const corsOptions = {
@@ -22,6 +23,8 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup("api", app, document);
     app.use('/uploads', express.static('uploads'));
+    const barFixtures = app.get(bar_fixtures_1.BarFixtures);
+    await barFixtures.seedBars();
     await app.listen(3000);
 }
 bootstrap();

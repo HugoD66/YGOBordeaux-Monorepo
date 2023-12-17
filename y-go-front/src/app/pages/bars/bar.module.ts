@@ -14,7 +14,7 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {ButtonPanelVerComponent} from "../../components/button-panel/button-panel-ver/button-panel-ver.component";
 import {LoaderComponent} from "../../loader/loader";
-import {AppModule} from "../../app.module";
+import {StarRatingPipe} from "../../pipe/star-rating.pipe";
 
 @NgModule({
     declarations: [
@@ -35,6 +35,7 @@ import {AppModule} from "../../app.module";
     FormsModule,
     MatButtonModule,
     ButtonPanelVerComponent,
+    StarRatingPipe
   ],
     exports: [
       BarsAndUsersComponent

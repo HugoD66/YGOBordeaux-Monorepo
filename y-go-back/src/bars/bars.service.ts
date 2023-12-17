@@ -13,6 +13,7 @@ export class BarsService {
     private barRepository: Repository<Bar>,
   ) {
   }
+
   async create(createBarDto: CreateBarDto): Promise<ResponseBarDto> {
     try {
       const bar: CreateBarDto = this.barRepository.create(createBarDto);

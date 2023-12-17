@@ -12,6 +12,15 @@ export class Bar {
   @Column({ unique: true })
   public adresse!: string
 
+  @Column()
+  public description?: string;
+
+  @Column({unique: true})
+  public telephone: string;
+
+  @Column({ type: 'float', nullable: true })
+  public note?: number;
+
   /*
   @Column()
   public neighborhood?: string // quartier

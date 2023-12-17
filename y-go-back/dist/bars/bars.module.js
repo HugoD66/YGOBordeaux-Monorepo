@@ -12,13 +12,14 @@ const bars_service_1 = require("./bars.service");
 const bars_controller_1 = require("./bars.controller");
 const typeorm_1 = require("@nestjs/typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
+const bar_fixtures_1 = require("../fixtures/bar.fixtures");
 let BarsModule = exports.BarsModule = class BarsModule {
 };
 exports.BarsModule = BarsModule = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([bar_entity_1.Bar])],
         controllers: [bars_controller_1.BarsController],
-        providers: [bars_service_1.BarsService],
+        providers: [bar_fixtures_1.BarFixtures, bars_service_1.BarsService],
         exports: [bars_service_1.BarsService],
     })
 ], BarsModule);

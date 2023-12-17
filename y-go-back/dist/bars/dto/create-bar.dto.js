@@ -26,4 +26,18 @@ __decorate([
     (0, swagger_1.ApiProperty)({ example: 'Adresse', description: 'Adresse du bars' }),
     __metadata("design:type", String)
 ], CreateBarDto.prototype, "adresse", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, swagger_1.ApiProperty)({ example: 'Description', description: 'Description du bars' }),
+    __metadata("design:type", String)
+], CreateBarDto.prototype, "description", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, swagger_1.ApiProperty)({ example: 'Telephone', description: 'Telephone du bars' }),
+    __metadata("design:type", String)
+], CreateBarDto.prototype, "telephone", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], CreateBarDto.prototype, "note", void 0);
 //# sourceMappingURL=create-bar.dto.js.map

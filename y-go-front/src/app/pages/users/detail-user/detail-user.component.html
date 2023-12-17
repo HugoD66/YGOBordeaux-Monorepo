@@ -1,8 +1,10 @@
 <ng-container *ngIf="user?.picture; else noPicture">
-  <img [src]="'http://localhost:3000/' + user.picture + '?time=' + currentTime" alt="user picture">
+  <div class="picture">
+    <img [src]="'http://localhost:3000/' + user.picture + '?time=' + currentTime" alt="user picture">
+  </div>
 </ng-container>
 <ng-template #noPicture>
-  <div class="no-picture">
+  <div class="picture">
     <img src="assets/temp/3135715.png" alt="default avatar">
     <span class="add-picture">
       <form>
@@ -14,3 +16,37 @@
     </span>
   </div>
 </ng-template>
+
+
+<div class="profil">
+  <ul>
+    <li>{{user?.id}}</li>
+    <li>{{user?.name}}</li>
+    <li>{{user?.email}}</li>
+  </ul>
+</div>
+
+<!--
+<ng-container *ngIf="user?.picture; else noPicture">
+  <div class="picture">
+    <img [src]="'http://localhost:3000/' + user.picture + '?time=' + currentTime" alt="user picture">
+    <span class="change-picture">
+      <label for="file-upload" class="custom-file-upload">
+        <img src="assets/icons/picture-change.png" alt="Change" />
+      </label>
+    </span>
+  </div>
+</ng-container>
+
+<ng-template #noPicture>
+  <div class="no-picture">
+    <img src="assets/temp/3135715.png" alt="default avatar">
+    <span class="add-picture">
+      <label for="file-upload" class="custom-file-upload">
+        <img src="assets/icons/picture-add.png" alt="Add" />
+      </label>
+    </span>
+  </div>
+</ng-template>
+<input id="file-upload" type="file" (change)="onFileSelect($event)" style="display:none;"/>
+-->

@@ -64,7 +64,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UserModule,
     BarModule,
     MatSnackBarModule,
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

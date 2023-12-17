@@ -12,6 +12,16 @@ export class CreateBarDto {
   @ApiProperty({ example: 'Adresse', description: 'Adresse du bars' })
   public adresse: string;
 
+  @IsOptional()
+  @ApiProperty({ example: 'Description', description: 'Description du bars' })
+  public description?: string;
+
+  @IsOptional()
+  @ApiProperty({ example: 'Telephone', description: 'Telephone du bars' })
+  public telephone: string;
+
+  @IsOptional()
+  public note?: number;
   /*
   @IsOptional()
   public price?: number
