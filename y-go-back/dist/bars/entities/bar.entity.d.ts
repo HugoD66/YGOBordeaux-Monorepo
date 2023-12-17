@@ -5,4 +5,5 @@ export declare class Bar {
     description?: string;
     telephone: string;
     note?: number;
+    picture?: string;
 }

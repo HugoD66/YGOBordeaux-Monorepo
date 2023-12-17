@@ -37,6 +37,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'float', nullable: true }),
     __metadata("design:type", Number)
 ], Bar.prototype, "note", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Bar.prototype, "picture", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

@@ -5,6 +5,7 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import * as express from 'express';
 import {BarsService} from "./bars/bars.service";
 import {BarFixtures} from "./fixtures/bar.fixtures";
+import {UserFixtures} from "./fixtures/user.fixtures";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -30,12 +31,15 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api", app, document);
 
+  //Création des fixtures
+  const barFixtures: BarFixtures = app.get(BarFixtures);
+  const userFixtures: UserFixtures = app.get(UserFixtures);
+  await barFixtures.seedBars();
+  await userFixtures.seedUsers();
+
+
   //Renvoi des photos
   app.use('/uploads', express.static('uploads'));
-
-  //Création des fixtures
-  const barFixtures = app.get(BarFixtures);
-  await barFixtures.seedBars();
 
   //Écoute sur un port
   await app.listen(3000);

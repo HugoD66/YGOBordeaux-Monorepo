@@ -49,7 +49,7 @@ let UsersService = exports.UsersService = class UsersService {
                 name: savedUser.name,
                 email: savedUser.email,
                 picture: savedUser.picture,
-                role: savedUser.role,
+                role: savedUser.role
             };
         }
         catch (error) {

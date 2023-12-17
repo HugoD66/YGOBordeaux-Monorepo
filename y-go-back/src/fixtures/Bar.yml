@@ -1,9 +1,0 @@
-# src/fixtures/bar.yml
-entity: Bar
-items:
-  bar1:
-    name: "Bar 1YML"
-    adresse: "Adresse 11YML"
-  bar2:
-    name: "Bar 21YML"
-    adresse: "Adresse 21YML"

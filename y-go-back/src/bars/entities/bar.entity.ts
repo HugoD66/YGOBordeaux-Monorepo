@@ -21,7 +21,12 @@ export class Bar {
   @Column({ type: 'float', nullable: true })
   public note?: number;
 
+  @Column()
+  public picture?: string;
   /*
+  @Column("text", { array: true, nullable: true })
+  public pictureList?: string[]
+
   @Column()
   public neighborhood?: string // quartier
 
@@ -53,9 +58,6 @@ export class Bar {
 
   @Column()
   public card?: string
-
-  @Column("text", { array: true, nullable: true })
-  public pictures?: string[]
 
   @Column()
   public notes?: number

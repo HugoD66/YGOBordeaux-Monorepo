@@ -4,4 +4,5 @@ export declare class CreateBarDto {
     description?: string;
     telephone: string;
     note?: number;
+    picture?: string;
 }

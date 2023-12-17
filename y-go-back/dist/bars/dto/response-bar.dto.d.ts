@@ -5,4 +5,5 @@ export declare class ResponseBarDto {
     description?: string;
     telephone: string;
     note?: number;
+    picture?: string;
 }
