@@ -41,7 +41,7 @@ export class ButtonPanelHorizComponent {
     }
   }
 
-  arrowLeftPicture: string = `./assets/icons/arrowLeft-withoutB.png`
+  arrowLeftPicture: string = `./assets/icons/menu.png`
   userPicture: string = `./assets/icons/user-withoutB.png`
   winePicture: string = `./assets/icons/drinkWine-withoutB.png`
   contactPicture: string = `./assets/icons/contact-withoutB.png`

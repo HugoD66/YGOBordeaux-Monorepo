@@ -1,34 +1,72 @@
 <section>
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="formulaire">
+
       <div class="form-group">
         <mat-form-field appearance="fill">
-          <mat-label>Fill form field</mat-label>
+          <mat-label>Nom</mat-label>
           <input
             class="form-control"
-            matInput placeholder="Pseudo..."
+            matInput placeholder="Nom du bar..."
             name="name"
             required
             [(ngModel)]="name"
           >
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-hint>Hint</mat-hint>
+          <mat-icon matSuffix></mat-icon>
+          <mat-hint>Requis</mat-hint>
         </mat-form-field>
       </div>
+
       <div class="form-group">
         <mat-form-field appearance="fill">
-          <mat-label>Fill form field</mat-label>
+          <mat-label>Adresse </mat-label>
           <input
             class="form-control"
-            matInput placeholder="Adresse..."
+            matInput placeholder="Son adresse..."
             name="adresse"
             required
             [(ngModel)]="adresse"
           >
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-hint>Hint</mat-hint>
+          <mat-icon matSuffix></mat-icon>
+          <mat-hint>Requis</mat-hint>
         </mat-form-field>
       </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea
+            class="form-control"
+            matInput
+            name="description"
+            required
+            [(ngModel)]="description"
+          ></textarea>
+          <mat-icon matSuffix>description</mat-icon>
+          <mat-hint>Requis</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill">
+          <mat-label>Telephone</mat-label>
+          <input
+            class="form-control"
+            matInput placeholder="06.67 ..."
+            name="telephone"
+            required
+            [(ngModel)]="telephone"
+          >
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-hint>Requis</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="picture">Choisissez une image du bar:</label>
+        <input type="file" id="picture" name="picture" accept="image/png, image/jpeg" (change)="onFileChange($event)">
+      </div>
+
     </div>
     <div *ngIf="errorMessage" class="error-message">
       {{ errorMessage }}

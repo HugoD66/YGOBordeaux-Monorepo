@@ -4,4 +4,5 @@ export class UserModel {
   email: string | undefined;
   picture: string | undefined;
   password: string | undefined;
+  phone: string | undefined;
 }

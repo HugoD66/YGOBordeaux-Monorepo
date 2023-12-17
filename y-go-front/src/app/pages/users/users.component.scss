@@ -9,6 +9,10 @@
   margin-top: 10%;
   position: absolute;
   overflow-y: scroll;
+  .user {
+    width: 43%;
+    margin: 2%;
+  }
 }
 ::-webkit-scrollbar {
   width: 10px;

@@ -9,13 +9,28 @@ import {BarModel} from "../../models/bar.model";
 })
 export class BarsComponent implements OnInit{
   barList: BarModel[]|undefined;
+  filteredBarList: BarModel[] = [];
 
   constructor(
     private barService: BarService,
   ) {
   }
   ngOnInit() {
-    this.barService.getBarsList().subscribe(barList => this.barList = barList);
-    console.log(this.barList)
+    this.barService.getBarsList().subscribe(barList => {
+      this.barList = barList;
+      this.filteredBarList = barList;
+    });
+  }
+
+  onSearch(value: string) {
+    if (this.barList) {
+      if (value) {
+        this.filteredBarList = this.barList.filter(bar =>
+          bar?.name?.toLowerCase().includes(value.toLowerCase())
+        );
+      } else {
+        this.filteredBarList = this.barList;
+      }
+    }
   }
 }

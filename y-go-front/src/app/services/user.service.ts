@@ -27,7 +27,7 @@ export class UserService {
       'Authorization': `Bearer ${accessToken}`,
     });
     const options = { headers: headers };
-    console.log(options); //GOOD
+    console.log('OPTION' + options); //GOOD
     return this.http.get<UserModel>(`${this.apiUrl}/users/me`, options).pipe(
       tap((response: UserModel) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))

@@ -44,6 +44,7 @@ export class AccueilNavComponent implements OnInit{
   onLogout(): void {
     this.userService.logout();
     this.isAuthenticated = false;
+
   }
   async fetchUserAndNavigate() {
     const data = await this.userService.getUser().toPromise();

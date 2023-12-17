@@ -9,7 +9,6 @@ import {UserModel} from "../../models/user.model";
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  userSelected: UserModel|undefined;
   userList: UserModel[]|undefined;
 
   constructor(
