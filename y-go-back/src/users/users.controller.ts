@@ -26,7 +26,9 @@ import {multerConfig} from "../multer.config";
 @Controller(`users`)
 @ApiTags(`Users`)
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService
+  ) {}
 
   @Public()
   @UsePipes(new ValidationPipe())

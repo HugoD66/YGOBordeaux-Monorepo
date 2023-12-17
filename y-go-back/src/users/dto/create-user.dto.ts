@@ -1,4 +1,4 @@
-import {IsString, IsNotEmpty, MinLength, IsEmail, IsStrongPassword, IsOptional} from "class-validator"
+import {IsString, IsNotEmpty, MinLength, IsEmail, IsStrongPassword, IsOptional, IsPhoneNumber} from "class-validator"
 import {ApiProperty} from "@nestjs/swagger";
 import {UserRoleEnum} from "../entities/types/user.roles.enum";
 
@@ -35,6 +35,10 @@ export class CreateUserDto {
   })
   public role: UserRoleEnum;
 
+  //@IsNotEmpty({ message: "Vous devez rentrer un numéro de téléphone." })
+  @IsOptional()
+  @IsPhoneNumber() //Enlever ?
+  public phone: string;
 
   @IsOptional()
   @IsString()

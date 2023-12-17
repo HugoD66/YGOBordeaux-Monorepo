@@ -18,6 +18,9 @@ const bars_service_1 = require("./bars.service");
 const create_bar_dto_1 = require("./dto/create-bar.dto");
 const update_bar_dto_1 = require("./dto/update-bar.dto");
 const public_decorator_1 = require("../users/auth/public.decorator");
+const platform_express_1 = require("@nestjs/platform-express");
+const multer_config_1 = require("../multer.config");
+const FileSizeValidationPipe_1 = require("../pipe/FileSizeValidationPipe");
 let BarsController = exports.BarsController = class BarsController {
     constructor(barService) {
         this.barService = barService;
@@ -25,6 +28,10 @@ let BarsController = exports.BarsController = class BarsController {
     async create(createBarDto) {
         const bar = await this.barService.create(createBarDto);
         return bar;
+    }
+    async uploadFile(barId, file) {
+        await this.barService.update(barId, { picture: file.path });
+        return { message: 'File uploaded successfully', filePath: file.path };
     }
     async findOne(id) {
         const barSelected = await this.barService.findOne(id);
@@ -56,6 +63,15 @@ __decorate([
     __metadata("design:paramtypes", [create_bar_dto_1.CreateBarDto]),
     __metadata("design:returntype", Promise)
 ], BarsController.prototype, "create", null);
+__decorate([
+    (0, common_1.Post)('upload-file/:barId'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', multer_config_1.multerConfig)),
+    __param(0, (0, common_1.Param)('barId')),
+    __param(1, (0, common_1.UploadedFile)(new FileSizeValidationPipe_1.FileSizeValidationPipe())),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], BarsController.prototype, "uploadFile", null);
 __decorate([
     (0, public_decorator_1.Public)(),
     (0, common_1.Get)(`:id`),

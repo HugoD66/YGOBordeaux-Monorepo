@@ -4,11 +4,7 @@ export class UserResponseDto {
   id: string;
   name: string;
   email: string;
-  /*
-
-  @Exclude()
-  password: string;
-   */
+  phone?: string | null;
   picture?: string | null;
   role: string;
 }

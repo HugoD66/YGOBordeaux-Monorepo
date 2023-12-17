@@ -25,8 +25,10 @@ export class User {
     enum: UserRoleEnum,
     default: UserRoleEnum.Utilisateur,
   })
-  role: UserRoleEnum;
+  public role: UserRoleEnum;
 
+  @Column({ nullable: true})
+  public phone!: string | null;
   /*
   @Column()
   public adress: string

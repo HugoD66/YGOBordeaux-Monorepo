@@ -1,3 +1,4 @@
+/// <reference types="multer" />
 import { BarsService } from "./bars.service";
 import { CreateBarDto } from "./dto/create-bar.dto";
 import { UpdateBarDto } from "./dto/update-bar.dto";
@@ -6,6 +7,10 @@ export declare class BarsController {
     private readonly barService;
     constructor(barService: BarsService);
     create(createBarDto: CreateBarDto): Promise<CreateBarDto>;
+    uploadFile(barId: string, file: Express.Multer.File): Promise<{
+        message: string;
+        filePath: string;
+    }>;
     findOne(id: string): Promise<ResponseBarDto>;
     findAll(): Promise<ResponseBarDto[]>;
     update(id: string, updateBarDto: UpdateBarDto): Promise<ResponseBarDto>;

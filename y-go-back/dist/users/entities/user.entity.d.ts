@@ -6,4 +6,5 @@ export declare class User {
     password: string;
     picture: string | null;
     role: UserRoleEnum;
+    phone: string | null;
 }

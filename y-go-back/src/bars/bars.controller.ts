@@ -1,9 +1,23 @@
-import {Controller, Get, Post, Body, Patch, Param, Delete, NotFoundException} from "@nestjs/common"
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  NotFoundException,
+  UseInterceptors,
+  UploadedFile
+} from "@nestjs/common"
 import { BarsService } from "./bars.service"
 import { CreateBarDto } from "./dto/create-bar.dto"
 import { UpdateBarDto } from "./dto/update-bar.dto"
 import {ResponseBarDto} from "./dto/response-bar.dto";
 import {Public} from "../users/auth/public.decorator";
+import {FileInterceptor} from "@nestjs/platform-express";
+import {multerConfig} from "../multer.config";
+import {FileSizeValidationPipe} from "../pipe/FileSizeValidationPipe";
 
 @Controller(`bars`)
 export class BarsController {
@@ -15,6 +29,17 @@ export class BarsController {
     const bar: ResponseBarDto = await this.barService.create(createBarDto);
     return bar;
   }
+
+  @Post('upload-file/:barId')
+  @UseInterceptors(FileInterceptor('file', multerConfig))
+  async uploadFile(
+    @Param('barId') barId: string,
+    @UploadedFile(new FileSizeValidationPipe()) file: Express.Multer.File
+  ) {
+    await this.barService.update(barId, { picture: file.path });
+    return { message: 'File uploaded successfully', filePath: file.path };
+  }
+
   @Public() //TEMP
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<ResponseBarDto> {
@@ -31,6 +56,7 @@ export class BarsController {
     const barList: ResponseBarDto[] = await this.barService.findAll()
     return barList;
   }
+
   @Patch(`:id`)
   async update(@Param(`id`) id: string, @Body() updateBarDto: UpdateBarDto): Promise<ResponseBarDto> {
     return this.barService.update(id, updateBarDto)
