@@ -30,6 +30,7 @@ export class BarsController {
     return bar;
   }
 
+  @Public() //TEMP
   @Post('upload-file/:barId')
   @UseInterceptors(FileInterceptor('file', multerConfig))
   async uploadFile(

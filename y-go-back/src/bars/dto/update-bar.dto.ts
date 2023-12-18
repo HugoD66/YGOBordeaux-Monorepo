@@ -19,6 +19,9 @@ export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsString()
   telephone: string;
 
+  @IsOptional()
+  @IsString()
+  picture: string;
   /*
   @IsOptional()
   note?: number;

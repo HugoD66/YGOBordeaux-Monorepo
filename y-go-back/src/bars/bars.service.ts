@@ -34,7 +34,7 @@ export class BarsService {
     return barList;
   }
 
-  async update(id: string, updateBarDto: UpdateBarDto) {
+  async update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto> {
     await this.barRepository.update(id, updateBarDto);
     const updatedUser = await this.barRepository.findOne({ where: { id } })
     return updatedUser;

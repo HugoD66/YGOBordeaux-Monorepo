@@ -36,6 +36,15 @@
           margin: 0;
           padding: 8px;
           position: relative;
+          @media screen and (max-width: 1300px) {
+            font-size: 1.3rem;
+          }
+        }
+        ol {
+          @media screen and (max-width: 1300px) {
+            font-size: .9rem;
+            text-align: center;
+          }
         }
       }
       h1 {
@@ -45,6 +54,9 @@
         margin: 0;
         padding: 8px;
         position: relative;
+        @media screen and (max-width: 1300px) {
+          font-size: 2rem;
+        }
         &::after {
           content: "";
           position: absolute;
@@ -68,6 +80,9 @@
         color: rgb(245, 221, 194);
         font-size: 1.3rem;
         width: 80%;
+        @media screen and (max-width: 1300px) {
+          font-size: 1.1rem;
+        }
       }
       .map-clicked {
         background-color: rgb(245, 221, 194);
@@ -99,6 +114,9 @@
             margin: 0;
             padding: 8px;
             position: relative;
+            @media screen and (max-width: 1300px) {
+              font-size: 1.2rem;
+            }
             &::after {
               content: "";
               position: absolute;
@@ -121,6 +139,9 @@
           p {
             width: 80%;
             color: rgb(166, 66, 70);
+            @media screen and (max-width: 1300px) {
+              font-size: .8rem;
+            }
           }
         }
 

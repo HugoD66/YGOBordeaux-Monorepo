@@ -67,6 +67,19 @@
         <input type="file" id="picture" name="picture" accept="image/png, image/jpeg" (change)="onFileChange($event)">
       </div>
 
+      <div class="content-list-pictures">
+        <div class="picture-one">
+          <!--
+          <input type="file" id="picture1" name="picture1" accept="image/png, image/jpeg" (change)="onFileChange($event, 'picture1')">
+          <img *ngIf="picture1Src" [src]="picture1Src" />
+          <mat-icon *ngIf="picture1Validated">check_circle</mat-icon>
+          -->
+        </div>
+        <div class="picture-two">
+        </div>
+        <div class="picture-three">
+        </div>
+      </div>
     </div>
     <div *ngIf="errorMessage" class="error-message">
       {{ errorMessage }}

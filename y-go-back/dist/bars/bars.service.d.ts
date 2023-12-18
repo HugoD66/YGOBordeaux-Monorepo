@@ -9,6 +9,6 @@ export declare class BarsService {
     create(createBarDto: CreateBarDto): Promise<ResponseBarDto>;
     findOne(id: string): Promise<ResponseBarDto>;
     findAll(): Promise<ResponseBarDto[]>;
-    update(id: string, updateBarDto: UpdateBarDto): Promise<Bar>;
+    update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto>;
     remove(id: string): Promise<void>;
 }

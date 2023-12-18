@@ -10,7 +10,11 @@ h2 {
   font-family: "Montserrat", sans-serif;
   text-shadow: 0 14px 13px #1f1f1f;
   user-select: none;
-
+  @media screen and (max-width: 1300px) {
+    font-size: 3em;
+    right: 80px;
+    bottom: 50px;
+  }
 }
 h3 {
   position: absolute;
@@ -26,7 +30,12 @@ h3 {
     Moontime,
     sans serif;
   user-select: none;
-}
+  @media screen and (max-width: 1300px) {
+    bottom: 30px;
+    right: 55px;
+    font-size: 2.8em;
+    }
+  }
 .ygologo {
   position: absolute;
   width: 10vw;
@@ -34,4 +43,9 @@ h3 {
   right: 50px;
   cursor: pointer;
   z-index: 7;
+  @media screen and (max-width: 1300px) {
+    width: 7vw;
+    bottom: 30px;
+    right: 30px;
+  }
 }

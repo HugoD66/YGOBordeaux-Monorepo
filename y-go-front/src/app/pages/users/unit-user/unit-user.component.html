@@ -3,19 +3,24 @@
        [src]="user?.picture ? 'http://localhost:3000/' + user?.picture : 'assets/pictures/avatar-user.png'"
        alt="Photo du bar">
   <div class="content-title-accorderon">
-    <h2>{{ user?.name ?? 'Pas de nom !   }}</h2>
+    <h2>{{ user?.name }}</h2>
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{ user?.phone ?? 'Pas de numéro de téléphone' }}
+            <p>Bars likés</p>
           </mat-panel-title>
           <mat-panel-description>
             Plus d'infos
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <p>{{ user?.email ?? 'rien' }}</p>
+        <ul>
+          <ol>Bar Mystere </ol>
+          <ol>Bar Mystere </ol>
+          <ol>Bar Mystere </ol>
+          <ol>Bar Mystere </ol>
+        </ul>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

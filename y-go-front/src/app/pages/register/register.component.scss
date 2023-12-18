@@ -40,6 +40,11 @@ section {
     bottom: 50px;
     left: 50px;
     cursor: pointer;
+    @media screen and (max-width: 1300px) {
+      width: 100px;
+      bottom: 30px;
+      left: 30px;
+    }
   }
   .backWithoutColor {
     position: absolute;
