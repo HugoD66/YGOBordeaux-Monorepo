@@ -62,22 +62,27 @@
         </mat-form-field>
       </div>
 
-      <div class="form-group">
-        <label for="picture">Choisissez une image du bar:</label>
-        <input type="file" id="picture" name="picture" accept="image/png, image/jpeg" (change)="onFileChange($event)">
-      </div>
+
 
       <div class="content-list-pictures">
-        <div class="picture-one">
-          <!--
-          <input type="file" id="picture1" name="picture1" accept="image/png, image/jpeg" (change)="onFileChange($event, 'picture1')">
-          <img *ngIf="picture1Src" [src]="picture1Src" />
-          <mat-icon *ngIf="picture1Validated">check_circle</mat-icon>
-          -->
+        <div class="form-group">
+          <label for="pictureOne">Image 1 du bar:</label>
+          <input type="file" id="pictureOne" name="pictureOne" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureOne')">
         </div>
-        <div class="picture-two">
+
+        <div class="form-group">
+          <label for="pictureTwo">Image 2 du bar:</label>
+          <input type="file" id="pictureTwo" name="pictureTwo" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureTwo')">
         </div>
-        <div class="picture-three">
+
+        <div class="form-group">
+          <label for="pictureThree">Image 3 du bar:</label>
+          <input type="file" id="pictureThree" name="pictureThree" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureThree')">
+        </div>
+
+        <div class="form-group">
+          <label for="pictureFour">Image 4 du bar:</label>
+          <input type="file" id="pictureFour" name="pictureFour" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureFour')">
         </div>
       </div>
     </div>

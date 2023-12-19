@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../env";
 import {BarModel} from "../models/bar.model";
 import {catchError, Observable, of, tap} from "rxjs";
@@ -12,10 +12,18 @@ export class BarService {
   constructor(
     private http: HttpClient,
   ) {}
-
-  addBar(barData: any) {
+  /*
+  addBar(barData: BarModel): Observable<BarModel> {
     const url = `${this.apiUrl}/bars`;
     return this.http.post(url, barData);
+  }
+   */
+  addBar(barData: any): Observable<BarModel> {
+    const url = `${this.apiUrl}/bars`;
+    return this.http.post<BarModel>(url, barData).pipe(
+      tap((response: BarModel) => this.log(response)),
+      catchError((error) => this.handleError(error, {} as BarModel))
+    );
   }
 
   getBarsList (): Observable<BarModel[]> {

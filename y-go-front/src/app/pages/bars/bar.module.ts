@@ -15,6 +15,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {ButtonPanelVerComponent} from "../../components/button-panel/button-panel-ver/button-panel-ver.component";
 import {LoaderComponent} from "../../loader/loader";
 import {StarRatingPipe} from "../../pipe/star-rating.pipe";
+import {PictureListService} from "../../services/picture-list.service";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import {StarRatingPipe} from "../../pipe/star-rating.pipe";
       SearchBarComponent,
       LoaderComponent,
     ],
-    providers: [BarService],
+    providers: [BarService, PictureListService],
   imports: [
     CommonModule,
     ButtonPanelHorizComponent,

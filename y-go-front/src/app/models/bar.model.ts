@@ -5,5 +5,5 @@ export class BarModel {
   description: string | undefined;
   telephone: string | undefined;
   note: number | undefined;
-  picture: string | undefined;
+  //picture: string | undefined;
 }
