@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {environment} from "../../../../../env";
 import {NgForm} from "@angular/forms";
 import {BarService} from "../../../services/bar.service";
 import {PictureListService} from "../../../services/picture-list.service";
 import {PictureListModel} from "../../../models/picture-list.model";
 import {BarModel} from "../../../models/bar.model";
+import {config, Map, MapStyle, Marker} from "@maptiler/sdk";
 
 @Component({
   selector: 'app-add-bars',
   templateUrl: './add-bar.component.html',
   styleUrls: ['./add-bar.component.scss']
 })
-export class AddBarComponent {
+export class AddBarComponent implements AfterViewInit{
   errorMessage: any
   name: string;
   adresse: string;
@@ -37,6 +38,17 @@ export class AddBarComponent {
     this.pictureThree = '';
     this.pictureFour = '';
   }
+  map: Map | undefined;
+
+  @ViewChild('map')
+  private mapContainer!: ElementRef<HTMLElement>;
+
+  ngOnInit(): void {
+    config.apiKey = '1bYmKrc8pg0FSu8GXalV';
+  }
+
+  private apiUrl = environment.apiUrl;
+
 
   onFileChange(event: any, pictureId?: string) {
     if (event.target.files && event.target.files.length > 0) {
@@ -96,4 +108,29 @@ export class AddBarComponent {
       }
     });
   }
+
+  ngAfterViewInit() {
+    const initialState = { lng: -0.57918, lat: 44.83779, zoom: 12 };
+
+    this.map = new Map({
+      container: this.mapContainer.nativeElement,
+      style: MapStyle.STREETS,
+      center: [initialState.lng, initialState.lat],
+      zoom: initialState.zoom
+    });
+
+    this.map.on('click', (event) => {
+      const coordinates = event.lngLat;
+      this.addMarker(coordinates.lng, coordinates.lat, "#00FF00");
+    });
+  }
+
+  addMarker(lng: number, lat: number, color: string = "#0080ff") {
+    console.log(`Ajout d'un marqueur à la position : ${lng}, ${lat}`);
+    new Marker({ color: color })
+      .setLngLat([lng, lat])
+      .addTo(this.map!);
+  }
+
+
 }

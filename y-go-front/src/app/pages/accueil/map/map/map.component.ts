@@ -1,11 +1,10 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from "@angular/core"
-import {Map, MapStyle, config, Marker} from '@maptiler/sdk';
-//import '@maptiler/sdk/dist/maptiler-sdk.css';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { Map, MapStyle, config, Marker } from '@maptiler/sdk';
 
 @Component({
-  selector: `app-map`,
-  templateUrl: `./map.component.html`,
-  styleUrls: [`./map.component.scss`],
+  selector: 'app-map',
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
@@ -27,9 +26,25 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom
     });
-    new Marker({color: "#FF0000"})
+
+    new Marker({ color: "#0080ff" })
+      .setLngLat([-0.55, 44.9])
+      .addTo(this.map);
+    new Marker({ color: "#FF0000" })
       .setLngLat([initialState.lng, initialState.lat])
       .addTo(this.map);
+
+    this.map.on('click', (event) => {
+      const coordinates = event.lngLat;
+      this.addMarker(coordinates.lng, coordinates.lat, "#00FF00");
+    });
+  }
+
+  addMarker(lng: number, lat: number, color: string = "#0080ff") {
+    console.log(`Ajout d'un marqueur à la position : ${lng}, ${lat}`);
+    new Marker({ color: color })
+      .setLngLat([lng, lat])
+      .addTo(this.map!);
   }
 
   ngOnDestroy() {

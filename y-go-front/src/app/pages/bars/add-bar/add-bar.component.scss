@@ -20,3 +20,26 @@ section {
     }
   }
 }
+
+.mapEmplacement {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .map-wrap {
+    position: relative;
+    width: 80%;
+    height: calc(100% - 77px);
+    //height: 80%;
+
+  }
+  .map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
