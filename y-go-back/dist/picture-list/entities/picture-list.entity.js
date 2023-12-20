@@ -19,17 +19,21 @@ __decorate([
     __metadata("design:type", String)
 ], PictureList.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], PictureList.prototype, "pictureOne", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], PictureList.prototype, "pictureTwo", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], PictureList.prototype, "pictureThree", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], PictureList.prototype, "pictureFour", void 0);
 __decorate([
     (0, typeorm_1.OneToOne)(() => bar_entity_1.Bar, bar => bar.pictureList),
     __metadata("design:type", bar_entity_1.Bar)

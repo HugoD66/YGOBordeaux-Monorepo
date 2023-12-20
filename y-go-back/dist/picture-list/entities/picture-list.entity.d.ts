@@ -4,5 +4,6 @@ export declare class PictureList {
     pictureOne?: string;
     pictureTwo?: string;
     pictureThree?: string;
+    pictureFour?: string;
     bar: Bar;
 }

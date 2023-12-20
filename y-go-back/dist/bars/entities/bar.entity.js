@@ -42,7 +42,6 @@ __decorate([
     (0, typeorm_1.OneToOne)(() => picture_list_entity_1.PictureList, pictureList => pictureList.bar, {
         cascade: ['insert', 'update', 'remove'],
         onDelete: 'CASCADE',
-        nullable: true
     }),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", picture_list_entity_1.PictureList)

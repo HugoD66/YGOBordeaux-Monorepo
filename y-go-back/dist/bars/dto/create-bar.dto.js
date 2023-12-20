@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateBarDto = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
+const response_picture_list_dto_1 = require("../../picture-list/dto/response-picture-list.dto");
 class CreateBarDto {
 }
 exports.CreateBarDto = CreateBarDto;
@@ -40,4 +41,8 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateBarDto.prototype, "note", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", response_picture_list_dto_1.ResponsePictureListDto)
+], CreateBarDto.prototype, "pictureList", void 0);
 //# sourceMappingURL=create-bar.dto.js.map

@@ -6,5 +6,5 @@ export declare class Bar {
     description?: string;
     telephone: string;
     note?: number;
-    pictureList?: PictureList;
+    pictureList: PictureList | null;
 }

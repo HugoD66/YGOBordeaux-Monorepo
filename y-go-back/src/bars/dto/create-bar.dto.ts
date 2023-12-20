@@ -1,6 +1,8 @@
 import {IsNotEmpty, IsOptional, MinLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
 import {Column} from "typeorm";
+import {PictureList} from "../../picture-list/entities/picture-list.entity";
+import {ResponsePictureListDto} from "../../picture-list/dto/response-picture-list.dto";
 
 export class CreateBarDto {
   @MinLength(2)
@@ -22,6 +24,10 @@ export class CreateBarDto {
 
   @IsOptional()
   public note?: number;
+
+  @IsOptional()
+  public pictureList?: ResponsePictureListDto;
+
 
   //@IsOptional()
   //public picture?: string;

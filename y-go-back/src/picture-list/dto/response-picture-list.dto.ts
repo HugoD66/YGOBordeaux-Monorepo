@@ -6,4 +6,5 @@ export class ResponsePictureListDto {
   pictureOne?: string;
   pictureTwo?: string;
   pictureThree?: string;
+  pictureFour?: string;
 }

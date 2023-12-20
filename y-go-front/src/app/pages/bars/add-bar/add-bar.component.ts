@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {environment} from "../../../../../env";
 import {NgForm} from "@angular/forms";
 import {BarService} from "../../../services/bar.service";
@@ -12,13 +12,12 @@ import {config, Map, MapStyle, Marker} from "@maptiler/sdk";
   templateUrl: './add-bar.component.html',
   styleUrls: ['./add-bar.component.scss']
 })
-export class AddBarComponent implements AfterViewInit{
+export class AddBarComponent implements OnInit, AfterViewInit{
   errorMessage: any
   name: string;
   adresse: string;
   description: string;
   telephone: string;
-  //picture: string;
   pictureOne: string | null = null;
   pictureTwo: string | null = null;
   pictureThree: string | null = null;
@@ -32,7 +31,6 @@ export class AddBarComponent implements AfterViewInit{
     this.adresse = '';
     this.description = '';
     this.telephone = '';
-    //this.picture = '';
     this.pictureOne = '';
     this.pictureTwo = '';
     this.pictureThree = '';
@@ -46,9 +44,6 @@ export class AddBarComponent implements AfterViewInit{
   ngOnInit(): void {
     config.apiKey = '1bYmKrc8pg0FSu8GXalV';
   }
-
-  private apiUrl = environment.apiUrl;
-
 
   onFileChange(event: any, pictureId?: string) {
     if (event.target.files && event.target.files.length > 0) {
@@ -73,21 +68,25 @@ export class AddBarComponent implements AfterViewInit{
       };
     }
   }
-
-  onSubmit(form: NgForm) {
-    console.table(form.value)
-    const barData = {
+  /*
+  const barData = {
       name: form.value.name,
       adresse: form.value.adresse,
       description: form.value.description,
       telephone: form.value.telephone,
-      //picture: form.value.picture,
+    };
+   */
+  onSubmit(form: NgForm) {
+    const barData = {
+      name: this.name,
+      adresse: this.adresse,
+      description: this.description,
+      telephone: this.telephone,
     };
     this.barService.addBar(barData).subscribe({
       next: (barResponse: BarModel) => {
         console.log('Bar enregistré avec succès:', barResponse);
         const pictureListData = {
-          barId: barResponse.id,
           pictureOne: this.pictureOne,
           pictureTwo: this.pictureTwo,
           pictureThree: this.pictureThree,
@@ -95,11 +94,9 @@ export class AddBarComponent implements AfterViewInit{
         };
         this.pictureListService.addPictureList(pictureListData).subscribe({
           next: (pictureListResponse: PictureListModel | null) => {
-            console.log('Galerie d\'images enregistrée avec succès:', pictureListResponse);
+            console.log('PictureList enregistrée avec succès:', pictureListResponse);
           },
-          error: (error) => {
-            console.error("Erreur lors de l'envoi de la galerie d'images :", error);
-          }
+          error: (error) => console.error("Erreur lors de l'enregistrement de PictureList:", error)
         });
       },
       error: (error) => {

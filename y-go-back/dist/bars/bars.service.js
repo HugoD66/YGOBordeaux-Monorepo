@@ -17,26 +17,42 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
+const picture_list_entity_1 = require("../picture-list/entities/picture-list.entity");
+const picture_list_service_1 = require("../picture-list/picture-list.service");
 let BarsService = exports.BarsService = class BarsService {
-    constructor(barRepository) {
+    constructor(barRepository, pictureListService) {
         this.barRepository = barRepository;
+        this.pictureListService = pictureListService;
     }
     async create(createBarDto) {
         try {
             const bar = this.barRepository.create(createBarDto);
-            const savedBar = await this.barRepository.save(bar);
-            return savedBar;
+            if (createBarDto.pictureList) {
+                const pictureList = new picture_list_entity_1.PictureList();
+                bar.pictureList = await this.pictureListService.create(pictureList);
+            }
+            return await this.barRepository.save(bar);
         }
         catch (error) {
             throw error;
         }
     }
     async findOne(id) {
-        const responseBar = await this.barRepository.findOne({ where: { id } });
-        return responseBar;
+        const bar = await this.barRepository
+            .createQueryBuilder('bar')
+            .leftJoinAndSelect('bar.pictureList', 'pictureList')
+            .where('bar.id = :id', { id })
+            .getOne();
+        if (!bar) {
+            throw new common_1.NotFoundException(`Bar with id ${id} not found`);
+        }
+        return bar;
     }
     async findAll() {
-        const barList = await this.barRepository.find();
+        const barList = await this.barRepository
+            .createQueryBuilder('bar')
+            .leftJoinAndSelect('bar.pictureList', 'pictureList')
+            .getMany();
         return barList;
     }
     async update(id, updateBarDto) {
@@ -51,6 +67,7 @@ let BarsService = exports.BarsService = class BarsService {
 exports.BarsService = BarsService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(bar_entity_1.Bar)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        picture_list_service_1.PictureListService])
 ], BarsService);
 //# sourceMappingURL=bars.service.js.map

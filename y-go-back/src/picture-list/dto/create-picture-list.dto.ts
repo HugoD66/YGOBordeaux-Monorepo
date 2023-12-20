@@ -10,4 +10,7 @@ export class CreatePictureListDto {
   @IsOptional()
   public pictureThree?: string;
 
+  @IsOptional()
+  public pictureFour?: string;
+
 }

@@ -61,19 +61,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], BarsController.prototype, "create", null);
 __decorate([
-<<<<<<< HEAD
-=======
-    (0, public_decorator_1.Public)(),
-    (0, common_1.Post)('upload-file/:barId'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', multer_config_1.multerConfig)),
-    __param(0, (0, common_1.Param)('barId')),
-    __param(1, (0, common_1.UploadedFile)(new FileSizeValidationPipe_1.FileSizeValidationPipe())),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", Promise)
-], BarsController.prototype, "uploadFile", null);
-__decorate([
->>>>>>> db626dd (Commit before rebase)
     (0, public_decorator_1.Public)(),
     (0, common_1.Get)(`:id`),
     __param(0, (0, common_1.Param)(`id`)),

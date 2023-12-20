@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../env";
 import { catchError, Observable, of, tap } from "rxjs";
 import { PictureListModel } from "../models/picture-list.model";
-import {BarModel} from "../models/bar.model";
 
 @Injectable()
 export class PictureListService {

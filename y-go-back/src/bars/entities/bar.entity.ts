@@ -21,16 +21,13 @@ export class Bar {
   @Column({ type: 'float', nullable: true })
   public note?: number;
 
-  //@Column()
-  //public picture?: string;
-
   @OneToOne(() => PictureList, pictureList => pictureList.bar, {
     cascade: ['insert', 'update', 'remove'],
     onDelete: 'CASCADE',
-    nullable: true
+    //nullable: true
   })
   @JoinColumn()
-  public pictureList?: PictureList;
+  public pictureList: PictureList | null;
 }
   /*
   @Column()

@@ -3,7 +3,7 @@ import {PipeTransform, Injectable, ArgumentMetadata, BadRequestException} from '
 @Injectable()
 export class FileSizeValidationPipe implements PipeTransform {
   transform(value: any, metadata: ArgumentMetadata) {
-    const maxSize = 1000 * 1000; // Taille maximale en octets (1MB)
+    const maxSize = 50000;
     if (value.size > maxSize) {
       throw new BadRequestException('File is too large');
     }

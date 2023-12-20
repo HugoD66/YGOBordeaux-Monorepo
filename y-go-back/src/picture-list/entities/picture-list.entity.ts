@@ -6,14 +6,17 @@ export class PictureList {
   @PrimaryGeneratedColumn(`uuid`)
   public id!: string
 
-  @Column()
+  @Column({ nullable: true })
   public pictureOne?: string;
 
-  @Column()
+  @Column({ nullable: true })
   public pictureTwo?: string;
 
-  @Column()
+  @Column({ nullable: true })
   public pictureThree?: string;
+
+  @Column({ nullable: true })
+  public pictureFour?: string;
 
   @OneToOne(() => Bar, bar => bar.pictureList)
   public bar!: Bar;

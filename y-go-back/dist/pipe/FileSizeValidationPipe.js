@@ -10,7 +10,7 @@ exports.FileSizeValidationPipe = void 0;
 const common_1 = require("@nestjs/common");
 let FileSizeValidationPipe = exports.FileSizeValidationPipe = class FileSizeValidationPipe {
     transform(value, metadata) {
-        const maxSize = 1000 * 1000;
+        const maxSize = 50000;
         if (value.size > maxSize) {
             throw new common_1.BadRequestException('File is too large');
         }

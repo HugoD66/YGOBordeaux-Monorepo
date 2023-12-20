@@ -26,4 +26,8 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreatePictureListDto.prototype, "pictureThree", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], CreatePictureListDto.prototype, "pictureFour", void 0);
 //# sourceMappingURL=create-picture-list.dto.js.map
