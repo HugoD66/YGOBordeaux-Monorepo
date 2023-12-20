@@ -12,12 +12,7 @@ export class BarService {
   constructor(
     private http: HttpClient,
   ) {}
-  /*
-  addBar(barData: BarModel): Observable<BarModel> {
-    const url = `${this.apiUrl}/bars`;
-    return this.http.post(url, barData);
-  }
-   */
+
   addBar(barData: any): Observable<BarModel> {
     const url = `${this.apiUrl}/bars`;
     return this.http.post<BarModel>(url, barData).pipe(
@@ -41,7 +36,7 @@ export class BarService {
   }
 
   private log(response: UserModel[]|UserModel|undefined|Object) {
-    console.table(response);
+    console.log(response);
   }
   private handleError(error: Error, errorValue: any) {
     console.error(error)

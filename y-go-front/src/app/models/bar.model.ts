@@ -1,3 +1,5 @@
+import {PictureListModel} from "./picture-list.model";
+
 export class BarModel {
   id: string | undefined;
   name: string | undefined;
@@ -6,4 +8,12 @@ export class BarModel {
   telephone: string | undefined;
   note: number | undefined;
   //picture: string | undefined;
+  pictureList: PictureListModel | undefined |
+    {
+      pictureOne: string | undefined;
+      pictureTwo: string | undefined;
+      pictureThree: string | undefined;
+      pictureFour: string | undefined;
+    }
+  //pictureList: PictureListModel | undefined;
 }

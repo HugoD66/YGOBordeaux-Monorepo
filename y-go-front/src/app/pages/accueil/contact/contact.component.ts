@@ -15,7 +15,6 @@ import {MatButtonModule} from "@angular/material/button";
 export class ContactComponent {
   showIcons: boolean = false;
 
-
   @HostListener("window:scroll", [])
   onWindowScroll() {
     this.handleScroll();
@@ -69,7 +68,6 @@ export class ContactComponent {
     if (this.message.hasError('minlength')) {
       return 'Le message doit contenir au moins 20 caractères';
     }
-
     return '';
   }
 }

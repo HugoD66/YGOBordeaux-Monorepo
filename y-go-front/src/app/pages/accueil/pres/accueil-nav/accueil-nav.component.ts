@@ -37,7 +37,6 @@ export class AccueilNavComponent implements OnInit{
         }
       });
     } catch (error) {
-      console.error("Error fetching user data:", error);
     }
   }
 

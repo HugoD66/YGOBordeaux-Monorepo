@@ -3,10 +3,13 @@
     <mat-card-title class="title">{{ bar?.name }}</mat-card-title>
     <img mat-card-avatar class="author-picture" src="../../../../assets/pictures/avatar-user.png"/>
   </mat-card-header>
-  <!-- <img mat-card-image
-       [src]="bar?.picture ? 'http://localhost:3000/' + bar?.picture : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'"
-       alt="Photo du bar">
-  -->
+  <img
+    mat-card-image
+    [src]="bar?.pictureList
+    ? 'http://localhost:3000/' + bar?.pictureList?.pictureOne
+    : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'"
+    alt="Photo du bar"
+  >
   <mat-card-content class="card-content">
     <p>
       {{bar?.description}}

@@ -7,9 +7,6 @@ import {Router, RouterLink} from "@angular/router"
 import { ButtonUnitHorizComponent } from "./button-unit-horiz/button-unit-horiz.component"
 import {UserService} from "../../../services/user.service";
 import {UserModel} from "../../../models/user.model";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../../../../env";
-import {catchError, Observable, tap} from "rxjs";
 
 @Component({
   selector: `app-button-panel-horiz`,
@@ -52,7 +49,4 @@ export class ButtonPanelHorizComponent {
 
   isDrawerOpen: boolean = false
 
-  toogleDrawer() {
-    this.isDrawerOpen = !this.isDrawerOpen
-  }
 }

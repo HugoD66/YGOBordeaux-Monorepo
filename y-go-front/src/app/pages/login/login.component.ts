@@ -21,7 +21,6 @@ export class LoginComponent {
   password: string;
   hide = true;
   private apiUrl = environment.apiUrl;
-
   constructor(
     private router: Router,
     private http: HttpClient,

@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core"
 import {BarService} from "../../services/bar.service";
 import {BarModel} from "../../models/bar.model";
+import {PictureListService} from "../../services/picture-list.service";
+import {PictureListModel} from "../../models/picture-list.model";
 
 @Component({
   selector: `app-bars`,
@@ -15,6 +17,7 @@ export class BarsComponent implements OnInit{
     private barService: BarService,
   ) {
   }
+
   ngOnInit() {
     this.barService.getBarsList().subscribe(barList => {
       this.barList = barList;

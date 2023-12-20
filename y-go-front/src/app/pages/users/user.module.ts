@@ -1,7 +1,6 @@
 import {NgModule} from "@angular/core";
 import {UserService} from "../../services/user.service";
 import {CommonModule} from "@angular/common";
-import {UserListComponent} from "../article/user-list/user-list.component";
 import {UsersComponent} from "./users.component";
 import {DetailUserComponent} from "./detail-user/detail-user.component";
 import {UnitBarComponent} from "../bars/unit-bar/unit-bar.component";
@@ -13,7 +12,6 @@ import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     UsersComponent,
-    UserListComponent,
     DetailUserComponent,
   ],
   providers: [UserService],

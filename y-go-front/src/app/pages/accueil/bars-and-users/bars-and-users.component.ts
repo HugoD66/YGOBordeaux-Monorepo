@@ -34,21 +34,17 @@ export class BarsAndUsersComponent implements OnInit, OnDestroy {
       }, 2000);
     }
   }
-
   addInitialSlides() {
     const carouselContainer = document.getElementById('carouselContainer');
     for (let i = 0; i < 10; i++) {  // Adjust the number based on the desired number of initial slides
       this.addRandomSlide(carouselContainer);
     }
   }
-
   addRandomSlide(carouselContainer?) {
     const randomIndex = Math.floor(Math.random() * this.barList!.length);
     const bar = this.barList![randomIndex];
-
     const slide = document.createElement('div');
     slide.className = 'carousel-slide';
-
     const img = document.createElement('img');
     img.className = 'picture-carousel';
     img.src = '../../assets/temp/1.jpg';  // Use bar.picture or a placeholder

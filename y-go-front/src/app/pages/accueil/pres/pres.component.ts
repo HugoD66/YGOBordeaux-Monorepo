@@ -15,20 +15,7 @@ export class PresComponent {
   onWindowScroll() {
     this.handleScroll();
   }
-
-
-
   handleScroll() {
-    /*
-      showBackgroundImage = false;
-
-    const linerElement = document.querySelector(".liner");
-    if (linerElement) {
-      const rect = linerElement.getBoundingClientRect();
-      const linerTop = rect.top;
-      const windowHeight = window.innerHeight;
-    }
-     */
     const ygoPicture: HTMLElement | null = this.el.nativeElement.querySelector(`#ygo-picture`);
     const scrollTop: number = window.scrollY;
     const maxScroll: number = 500;

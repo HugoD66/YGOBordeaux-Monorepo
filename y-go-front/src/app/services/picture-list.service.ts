@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../env";
 import { catchError, Observable, of, tap } from "rxjs";
 import { PictureListModel } from "../models/picture-list.model";
+import {BarModel} from "../models/bar.model";
 
 @Injectable()
 export class PictureListService {
@@ -16,15 +17,28 @@ export class PictureListService {
     const url = `${this.apiUrl}/picture-list`;
     return this.http.post<PictureListModel>(url, pictureListData).pipe(
       tap((response: PictureListModel) => this.log(response)),
-      catchError((error) => this.handleError(error))
+      catchError((error) => this.handleError(error, {} as PictureListModel))
     );
   }
 
-  private log(response: PictureListModel) {
+  getBarsList (): Observable<PictureListModel[] | null> {
+    return this.http.get<PictureListModel[]>(`${this.apiUrl}/picture-list`).pipe(
+      tap((response: PictureListModel[]) => this.log(response)),
+      catchError((error) => this.handleError(error, []))
+    )
+  }
+
+  getPictureList(pictureListId: string | null): Observable<PictureListModel[] | null> {
+    return this.http.get<PictureListModel[]>(`${this.apiUrl}/picture-list/${pictureListId}`).pipe(
+      tap((response: PictureListModel[]) => this.log(response)),
+      catchError((error) => this.handleError(error, undefined))
+    );
+  }
+  private log(response: PictureListModel[] | PictureListModel) {
     console.table(response);
   }
-  private handleError(error: Error) {
-    console.error("Erreur lors de l'envoi de la galerie d'images :", error);
-    return of(null);
+  private handleError(error: Error, errorValue: any) {
+    console.error(error)
+    return of (errorValue)
   }
 }

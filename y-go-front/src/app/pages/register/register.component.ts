@@ -49,7 +49,6 @@ export class RegisterComponent {
         console.error('Erreur HTTP :', error);
         this.errorMessage = error.error.message;
         this.openSnackBar(`${error.error.message}`, 'Fermer');
-
       }
     );
   }
@@ -59,7 +58,6 @@ export class RegisterComponent {
       duration: 3000,
     });
   }
-
 
   goHome() {
     this.router.navigate(['/']);
