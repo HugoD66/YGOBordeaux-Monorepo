@@ -23,8 +23,8 @@ export class CreateBarDto {
   @IsOptional()
   public note?: number;
 
-  @IsOptional()
-  public picture?: string;
+  //@IsOptional()
+  //public picture?: string;
   /*
   @IsOptional()
   public price?: number

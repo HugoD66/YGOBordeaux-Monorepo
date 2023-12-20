@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bar = void 0;
 const typeorm_1 = require("typeorm");
+const picture_list_entity_1 = require("../../picture-list/entities/picture-list.entity");
 let Bar = exports.Bar = class Bar {
 };
 __decorate([
@@ -38,9 +39,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Bar.prototype, "note", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Bar.prototype, "picture", void 0);
+    (0, typeorm_1.OneToOne)(() => picture_list_entity_1.PictureList, pictureList => pictureList.bar, {
+        cascade: ['insert', 'update', 'remove'],
+        onDelete: 'CASCADE',
+        nullable: true
+    }),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", picture_list_entity_1.PictureList)
+], Bar.prototype, "pictureList", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

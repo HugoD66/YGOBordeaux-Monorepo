@@ -36,9 +36,4 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateBarDto.prototype, "telephone", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], UpdateBarDto.prototype, "picture", void 0);
 //# sourceMappingURL=update-bar.dto.js.map

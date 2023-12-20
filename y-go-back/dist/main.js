@@ -27,6 +27,8 @@ async function bootstrap() {
     const userFixtures = app.get(user_fixtures_1.UserFixtures);
     await barFixtures.seedBars();
     await userFixtures.seedUsers();
+    app.use(express.json({ limit: '50mb' }));
+    app.use(express.urlencoded({ limit: '50mb', extended: true }));
     app.use('/uploads', express.static('uploads'));
     await app.listen(3000);
 }

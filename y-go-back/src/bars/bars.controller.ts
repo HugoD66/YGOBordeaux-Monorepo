@@ -31,22 +31,11 @@ export class BarsController {
   }
 
   @Public() //TEMP
-  @Post('upload-file/:barId')
-  @UseInterceptors(FileInterceptor('file', multerConfig))
-  async uploadFile(
-    @Param('barId') barId: string,
-    @UploadedFile(new FileSizeValidationPipe()) file: Express.Multer.File
-  ) {
-    await this.barService.update(barId, { picture: file.path });
-    return { message: 'File uploaded successfully', filePath: file.path };
-  }
-
-  @Public() //TEMP
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<ResponseBarDto> {
-    const barSelected = await this.barService.findOne(id)
+    const barSelected: ResponseBarDto = await this.barService.findOne(id);
     if(!barSelected){
-      throw new Error(`Bar with id ${id} not found`)
+      throw new NotFoundException(`Bar with id ${id} not found`);
     }
     return barSelected;
   }
@@ -54,13 +43,17 @@ export class BarsController {
   @Public()
   @Get()
   async findAll(): Promise<ResponseBarDto[]> {
-    const barList: ResponseBarDto[] = await this.barService.findAll()
+    const barList: ResponseBarDto[] = await this.barService.findAll();
+    if(!barList){
+      throw new NotFoundException(`BarList not found`);
+    }
     return barList;
   }
 
   @Patch(`:id`)
   async update(@Param(`id`) id: string, @Body() updateBarDto: UpdateBarDto): Promise<ResponseBarDto> {
-    return this.barService.update(id, updateBarDto)
+    const barUpdated: ResponseBarDto = await this.barService.update(id, updateBarDto);
+    return barUpdated;
   }
 
   @Delete(`:id`)
@@ -69,6 +62,6 @@ export class BarsController {
     if (!bar) {
       throw new NotFoundException(`Bar does not exist!`)
     }
-    return this.barService.remove(id)
+    await this.barService.remove(id)
   }
 }

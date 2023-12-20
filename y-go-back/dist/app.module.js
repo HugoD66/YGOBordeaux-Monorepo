@@ -21,6 +21,8 @@ const passport_1 = require("@nestjs/passport");
 const jwt_1 = require("@nestjs/jwt");
 const core_1 = require("@nestjs/core");
 const auth_guard_1 = require("./users/auth/auth.guard");
+const picture_list_entity_1 = require("./picture-list/entities/picture-list.entity");
+const picture_list_module_1 = require("./picture-list/picture-list.module");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
@@ -28,6 +30,7 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             users_module_1.UsersModule,
             bars_module_1.BarsModule,
+            picture_list_module_1.PictureListModule,
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
             jwt_1.JwtModule.register({
@@ -45,7 +48,7 @@ exports.AppModule = AppModule = __decorate([
                         username: configService.get('DB_USERNAME'),
                         password: configService.get('DB_PASSWORD'),
                         database: configService.get('DB_NAME'),
-                        entities: [user_entity_1.User, bar_entity_1.Bar],
+                        entities: [user_entity_1.User, bar_entity_1.Bar, picture_list_entity_1.PictureList],
                         synchronize: true,
                     };
                     console.log(dbConfig);

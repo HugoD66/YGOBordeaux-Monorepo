@@ -40,8 +40,4 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateBarDto.prototype, "note", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", String)
-], CreateBarDto.prototype, "picture", void 0);
 //# sourceMappingURL=create-bar.dto.js.map

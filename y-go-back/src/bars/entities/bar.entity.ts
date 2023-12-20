@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
-import {DrinkEnum} from "./types/drinks.enum";
+import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm"
+import { PictureList } from "../../picture-list/entities/picture-list.entity";
 
 @Entity()
 export class Bar {
@@ -21,12 +21,18 @@ export class Bar {
   @Column({ type: 'float', nullable: true })
   public note?: number;
 
-  @Column()
-  public picture?: string;
-  /*
-  @Column("text", { array: true, nullable: true })
-  public pictureList?: string[]
+  //@Column()
+  //public picture?: string;
 
+  @OneToOne(() => PictureList, pictureList => pictureList.bar, {
+    cascade: ['insert', 'update', 'remove'],
+    onDelete: 'CASCADE',
+    nullable: true
+  })
+  @JoinColumn()
+  public pictureList?: PictureList;
+}
+  /*
   @Column()
   public neighborhood?: string // quartier
 
@@ -62,4 +68,4 @@ export class Bar {
   @Column()
   public notes?: number
    */
-}
+

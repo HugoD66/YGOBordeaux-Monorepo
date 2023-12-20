@@ -10,7 +10,7 @@ export class ResponseBarDto {
   description?: string;
   telephone: string;
   note?: number;
-  picture?: string;
+  //picture?: string;
   /*
   @ApiProperty({ type: Number })
   price?: number

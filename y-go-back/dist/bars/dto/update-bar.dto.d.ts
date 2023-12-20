@@ -5,6 +5,5 @@ export declare class UpdateBarDto extends UpdateBarDto_base {
     adresse: string;
     description?: string;
     telephone: string;
-    picture: string;
 }
 export {};

@@ -1,3 +1,4 @@
+import { PictureList } from "../../picture-list/entities/picture-list.entity";
 export declare class Bar {
     id: string;
     name: string;
@@ -5,5 +6,5 @@ export declare class Bar {
     description?: string;
     telephone: string;
     note?: number;
-    picture?: string;
+    pictureList?: PictureList;
 }

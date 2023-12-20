@@ -12,12 +12,15 @@ import { PassportModule} from "@nestjs/passport";
 import { JwtModule } from '@nestjs/jwt';
 import {APP_GUARD} from "@nestjs/core";
 import { AuthGuard } from './users/auth/auth.guard';
+import {PictureList} from "./picture-list/entities/picture-list.entity";
+import {PictureListModule} from "./picture-list/picture-list.module";
 
 
 @Module({
   imports: [
     UsersModule,
     BarsModule,
+    PictureListModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
@@ -35,7 +38,7 @@ import { AuthGuard } from './users/auth/auth.guard';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_NAME'),
-          entities: [User, Bar],
+          entities: [User, Bar, PictureList],
           synchronize: true,
         };
         console.log(dbConfig);
