@@ -6,6 +6,7 @@ import {PictureListService} from "../../../services/picture-list.service";
 import {PictureListModel} from "../../../models/picture-list.model";
 import {BarModel} from "../../../models/bar.model";
 import {config, Map, MapStyle, Marker} from "@maptiler/sdk";
+import {GeocodingService} from "../../../services/geocoding.service";
 
 @Component({
   selector: 'app-add-bars',
@@ -23,9 +24,12 @@ export class AddBarComponent implements OnInit, AfterViewInit{
   pictureThree: string | null = null;
   pictureFour: string | null = null;
 
+  currentMarker: Marker | null = null;
+
   constructor(
     private barService: BarService,
-    private pictureListService: PictureListService
+    private pictureListService: PictureListService,
+    private geocodingService: GeocodingService
     ) {
     this.name = '';
     this.adresse = '';
@@ -105,20 +109,38 @@ export class AddBarComponent implements OnInit, AfterViewInit{
       }
     });
   }
+  onAddressChange(): void {
+    if (this.adresse.length > 5) { // Pour éviter les requêtes trop fréquentes
+      this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
+        if (data && data.features && data.features.length > 0) {
+          const coordinates = data.features[0].geometry.coordinates;
+          this.updateMapMarker(coordinates[0], coordinates[1]);
+        }
+      }, error => {
+        console.error('Erreur de géocodage:', error);
+      });
+    }
+  }
+
+  updateMapMarker(lng: number, lat: number): void {
+    // Supprimer l'ancien marqueur
+    if (this.currentMarker) {
+      this.currentMarker.remove();
+    }
+
+    // Ajouter un nouveau marqueur
+    this.currentMarker = new Marker({ color: "#00FF00" })
+      .setLngLat([lng, lat])
+      .addTo(this.map!);
+  }
 
   ngAfterViewInit() {
     const initialState = { lng: -0.57918, lat: 44.83779, zoom: 12 };
-
     this.map = new Map({
       container: this.mapContainer.nativeElement,
       style: MapStyle.STREETS,
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom
-    });
-
-    this.map.on('click', (event) => {
-      const coordinates = event.lngLat;
-      this.addMarker(coordinates.lng, coordinates.lat, "#00FF00");
     });
   }
 
