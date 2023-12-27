@@ -10,7 +10,9 @@ export class GeocodingService {
   constructor(private http: HttpClient) {}
 
   getCoordinates(address: string): Observable<any> {
+    console.log(address);
     const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
+    console.log(url);
     return this.http.get(url);
   }
 }

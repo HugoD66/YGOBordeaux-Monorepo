@@ -8,14 +8,14 @@ import {
   Delete,
   NotFoundException,
   UseInterceptors,
-  UploadedFile, UploadedFiles
+  UploadedFiles
 } from '@nestjs/common';
 import { PictureListService } from './picture-list.service';
 import { CreatePictureListDto } from './dto/create-picture-list.dto';
 import { UpdatePictureListDto } from './dto/update-picture-list.dto';
 import {Public} from "../users/auth/public.decorator";
 import {ResponsePictureListDto} from "./dto/response-picture-list.dto";
-import {FileInterceptor, FilesInterceptor} from "@nestjs/platform-express";
+import { FilesInterceptor} from "@nestjs/platform-express";
 import {multerConfig} from "../multer.config";
 import {FileSizeValidationPipe} from "../pipe/FileSizeValidationPipe";
 
@@ -32,7 +32,7 @@ export class PictureListController {
 
   @Public()
   @Post('upload-files/:pictureListId')
-  @UseInterceptors(FilesInterceptor('files', 3, multerConfig))
+  @UseInterceptors(FilesInterceptor('files', 4, multerConfig))
   async uploadFiles(
     @Param('pictureListId') pictureListId: string,
     @UploadedFiles(new FileSizeValidationPipe()) files: Array<Express.Multer.File>

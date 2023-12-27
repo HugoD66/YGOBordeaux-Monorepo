@@ -110,16 +110,23 @@ export class AddBarComponent implements OnInit, AfterViewInit{
     });
   }
   onAddressChange(): void {
-    if (this.adresse.length > 5) { // Pour éviter les requêtes trop fréquentes
-      this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
-        if (data && data.features && data.features.length > 0) {
-          const coordinates = data.features[0].geometry.coordinates;
-          this.updateMapMarker(coordinates[0], coordinates[1]);
-        }
-      }, error => {
-        console.error('Erreur de géocodage:', error);
-      });
-    }
+    this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
+      console.log(data);
+    })
+      /*
+       if (this.adresse.length > 5) { // Pour éviter les requêtes trop fréquentes
+        this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
+          console.log(this.adresse);
+
+          if (data && data.features && data.features.length > 0) {
+            const coordinates = data.features[0].geometry.coordinates;
+            this.updateMapMarker(coordinates[0], coordinates[1]);
+          }
+        }, error => {
+          console.error('Erreur de géocodage:', error);
+        });
+      }
+       */
   }
 
   updateMapMarker(lng: number, lat: number): void {
