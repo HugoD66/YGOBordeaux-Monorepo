@@ -8,18 +8,15 @@
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            <p>Bars likés</p>
-          </mat-panel-title>
           <mat-panel-description>
             Plus d'infos
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <ul>
-          <ol>Bar Mystere </ol>
-          <ol>Bar Mystere </ol>
-          <ol>Bar Mystere </ol>
-          <ol>Bar Mystere </ol>
+        <p *ngIf="getBarsCreatedByUser().length === 0">Aucuns bars créé</p>
+        <p *ngIf="getBarsCreatedByUser().length === 1">Bar créé :</p>
+        <p *ngIf="getBarsCreatedByUser().length > 1">Bars créés :</p>
+        <ul *ngIf="getBarsCreatedByUser().length > 0">
+          <li *ngFor="let bar of getBarsCreatedByUser()"> {{ bar.name }} </li>
         </ul>
       </mat-expansion-panel>
     </mat-accordion>

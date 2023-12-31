@@ -20,7 +20,6 @@ import { PageMapComponent } from './pages/accueil/map/page-map/page-map.componen
 import { PresComponent } from './pages/accueil/pres/pres.component';
 import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component'
 import {MatInputModule} from "@angular/material/input";
-import { ButtonPanelVerComponent } from './components/button-panel/button-panel-ver/button-panel-ver.component';
 import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -55,7 +54,6 @@ import {StarRatingPipe} from "./pipe/star-rating.pipe";
     MatIconModule,
     ButtonPanelHorizComponent,
     ButtonUnitHorizComponent,
-    ButtonPanelVerComponent,
     ButtonUnitVerComponent,
     AccueilNavComponent,
     ContactComponent,

@@ -2,12 +2,15 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: red;
-
   .picture-card {
-    width: 200px;
-    height: 200px;
+    margin: 3%;
+    width: 180px;
+    height: 180px;
     border-radius: 90%;
+    @media(max-width: 1300px) {
+      width: 120px;
+      height: 120px;
+    }
   }
   .content-title-accorderon {
     h2 {

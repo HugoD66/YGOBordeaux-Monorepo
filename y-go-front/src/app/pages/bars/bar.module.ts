@@ -12,7 +12,6 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {ButtonPanelVerComponent} from "../../components/button-panel/button-panel-ver/button-panel-ver.component";
 import {LoaderComponent} from "../../loader/loader";
 import {StarRatingPipe} from "../../pipe/star-rating.pipe";
 import {PictureListService} from "../../services/picture-list.service";
@@ -36,7 +35,6 @@ import {GeocodingService} from "../../services/geocoding.service";
     MatIconModule,
     FormsModule,
     MatButtonModule,
-    ButtonPanelVerComponent,
     StarRatingPipe,
     ReactiveFormsModule,
   ],

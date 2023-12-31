@@ -12,6 +12,9 @@
   .user {
     width: 43%;
     margin: 2%;
+    @media(max-width: 950px) {
+      width: 80%;
+    }
   }
 }
 ::-webkit-scrollbar {
