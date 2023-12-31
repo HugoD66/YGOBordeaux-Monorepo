@@ -19,10 +19,13 @@ const typeorm_2 = require("typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
 const picture_list_entity_1 = require("../picture-list/entities/picture-list.entity");
 const picture_list_service_1 = require("../picture-list/picture-list.service");
+const geo_entity_1 = require("../geo/entities/geo.entity");
+const geo_service_1 = require("../geo/geo.service");
 let BarsService = exports.BarsService = class BarsService {
-    constructor(barRepository, pictureListService) {
+    constructor(barRepository, pictureListService, geoService) {
         this.barRepository = barRepository;
         this.pictureListService = pictureListService;
+        this.geoService = geoService;
     }
     async create(createBarDto) {
         try {
@@ -30,6 +33,10 @@ let BarsService = exports.BarsService = class BarsService {
             if (createBarDto.pictureList) {
                 const pictureList = new picture_list_entity_1.PictureList();
                 bar.pictureList = await this.pictureListService.create(pictureList);
+            }
+            if (createBarDto.geo) {
+                const geo = new geo_entity_1.Geo();
+                bar.geo = await this.geoService.create(geo);
             }
             return await this.barRepository.save(bar);
         }
@@ -41,6 +48,7 @@ let BarsService = exports.BarsService = class BarsService {
         const bar = await this.barRepository
             .createQueryBuilder('bar')
             .leftJoinAndSelect('bar.pictureList', 'pictureList')
+            .leftJoinAndSelect('bar.geo', 'geo')
             .where('bar.id = :id', { id })
             .getOne();
         if (!bar) {
@@ -52,6 +60,7 @@ let BarsService = exports.BarsService = class BarsService {
         const barList = await this.barRepository
             .createQueryBuilder('bar')
             .leftJoinAndSelect('bar.pictureList', 'pictureList')
+            .leftJoinAndSelect('bar.geo', 'geo')
             .getMany();
         return barList;
     }
@@ -68,6 +77,7 @@ exports.BarsService = BarsService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, typeorm_1.InjectRepository)(bar_entity_1.Bar)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        picture_list_service_1.PictureListService])
+        picture_list_service_1.PictureListService,
+        geo_service_1.GeoService])
 ], BarsService);
 //# sourceMappingURL=bars.service.js.map

@@ -74,7 +74,7 @@ __decorate([
 __decorate([
     (0, public_decorator_1.Public)(),
     (0, common_1.Post)('upload-files/:pictureListId'),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)('files', 3, multer_config_1.multerConfig)),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)('files', 4, multer_config_1.multerConfig)),
     __param(0, (0, common_1.Param)('pictureListId')),
     __param(1, (0, common_1.UploadedFiles)(new FileSizeValidationPipe_1.FileSizeValidationPipe())),
     __metadata("design:type", Function),

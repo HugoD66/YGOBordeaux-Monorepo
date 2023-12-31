@@ -14,19 +14,41 @@
           <ol>Utilisez la fonction de zoom pour explorer davantage la carte et localiser les bars qui vous intéressent.</ol>
         </ul>
       </div>
-      <div class="map-clicked">
-        <img src="./assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
+
+      <div *ngIf="selectedBar; else defaultContent" class="map-clicked">
+        <img [src]="selectedBar?.pictureList
+            ? 'http://localhost:3000/' + selectedBar?.pictureList?.pictureOne
+            : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'" alt="{{ selectedBar.name }}">
         <div class="map-clicked-details">
-          <h5>NOM DU BAR</h5>
-          <p>Adresse: Adresse du bar</p>
-          <p>Note : ★★★★★</p>
-          <button mat-raised-button>En savoir plus</button>
+          <h5>{{ selectedBar.name }}</h5>
+          <p>Adresse: {{ selectedBar.adresse }}</p>
+          <span *ngFor="let star of selectedBar?.note | starRating">
+            <img class="picture-star-list-data" [src]="star.color === 'yellow' ? '../../../../assets/icons/star-colored.png' : '../../../../assets/icons/star.png'" alt="">
+          </span>
+          <button mat-raised-button (click)="goDetailBar()">En savoir plus</button>
         </div>
       </div>
+
+      <ng-template #defaultContent>
+        <div class="map-clicked">
+          <!-- Contenu par défaut -->
+          <img src="./assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg" alt="">
+          <div class="map-clicked-details">
+            <h5>NOM DU BAR</h5>
+            <p>Adresse: Adresse du bar</p>
+            <p>Note : ★★★★★</p>
+            <button mat-raised-button>En savoir plus</button>
+          </div>
+        </div>
+      </ng-template>
+
+
+
+
     </div>
   </div>
   <div class="map">
-    <app-map></app-map>
+    <app-map [bars]="barList"  (barSelected)="onBarSelected($event)"></app-map>
   </div>
 </div>
 <div class="background-image" [style.display]="showBackgroundImage ? 'block' : 'none'">

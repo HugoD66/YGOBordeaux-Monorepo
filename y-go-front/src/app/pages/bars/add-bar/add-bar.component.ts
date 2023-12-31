@@ -105,7 +105,7 @@ export class AddBarComponent implements OnInit, AfterViewInit{
       },
       error: (error) => {
         console.error('Erreur lors de l\'enregistrement du bar:', error);
-        this.errorMessage = error.error.message;
+        this.errorMessage = error.error.message || 'Une erreur s\'est produite lors de l\'enregistrement du bar.';
       }
     });
   }

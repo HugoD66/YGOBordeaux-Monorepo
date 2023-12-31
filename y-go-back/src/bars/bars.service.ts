@@ -7,7 +7,8 @@ import {Bar} from "./entities/bar.entity";
 import {ResponseBarDto} from "./dto/response-bar.dto";
 import {PictureList} from "../picture-list/entities/picture-list.entity";
 import {PictureListService} from "../picture-list/picture-list.service";
-
+import {Geo} from "../geo/entities/geo.entity";
+import {GeoService} from "../geo/geo.service";
 @Injectable()
 export class BarsService {
   constructor(
@@ -15,6 +16,8 @@ export class BarsService {
     private barRepository: Repository<Bar>,
 
     private pictureListService: PictureListService,
+
+    private geoService: GeoService,
   ) {
   }
 
@@ -24,6 +27,10 @@ export class BarsService {
       if (createBarDto.pictureList) {
         const pictureList = new PictureList();
         bar.pictureList = await this.pictureListService.create(pictureList);
+      }
+      if (createBarDto.geo) {
+        const geo = new Geo();
+        bar.geo = await this.geoService.create(geo);
       }
       return await this.barRepository.save(bar);
     } catch (error) {
@@ -35,6 +42,7 @@ export class BarsService {
     const bar = await this.barRepository
       .createQueryBuilder('bar')
       .leftJoinAndSelect('bar.pictureList', 'pictureList')
+      .leftJoinAndSelect('bar.geo', 'geo')
       .where('bar.id = :id', { id })
       .getOne();
     if (!bar) {
@@ -49,6 +57,7 @@ export class BarsService {
     const barList: ResponseBarDto[] = await this.barRepository
       .createQueryBuilder('bar')
       .leftJoinAndSelect('bar.pictureList', 'pictureList')
+      .leftJoinAndSelect('bar.geo', 'geo')
       .getMany();
 
     return barList;

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bar = void 0;
 const typeorm_1 = require("typeorm");
 const picture_list_entity_1 = require("../../picture-list/entities/picture-list.entity");
+const geo_entity_1 = require("../../geo/entities/geo.entity");
 let Bar = exports.Bar = class Bar {
 };
 __decorate([
@@ -46,6 +47,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", picture_list_entity_1.PictureList)
 ], Bar.prototype, "pictureList", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => geo_entity_1.Geo, geo => geo.bar, {
+        cascade: ['insert', 'update', 'remove'],
+        onDelete: 'CASCADE',
+    }),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", geo_entity_1.Geo)
+], Bar.prototype, "geo", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

@@ -1,6 +1,8 @@
 import {IsNotEmpty, IsOptional, MinLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
 import {Column} from "typeorm";
+import {ResponseGeoDto} from "../../geo/dto/response-geo.dto";
+
 import {PictureList} from "../../picture-list/entities/picture-list.entity";
 import {ResponsePictureListDto} from "../../picture-list/dto/response-picture-list.dto";
 
@@ -28,7 +30,8 @@ export class CreateBarDto {
   @IsOptional()
   public pictureList?: ResponsePictureListDto;
 
-
+  @IsOptional()
+  public geo?: ResponseGeoDto;
   //@IsOptional()
   //public picture?: string;
   /*

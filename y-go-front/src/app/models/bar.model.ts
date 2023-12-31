@@ -1,4 +1,5 @@
 import {PictureListModel} from "./picture-list.model";
+import {GeoModel} from "./geo.model";
 
 export class BarModel {
   id: string | undefined;
@@ -14,6 +15,11 @@ export class BarModel {
       pictureTwo: string | undefined;
       pictureThree: string | undefined;
       pictureFour: string | undefined;
-    }
-  //pictureList: PictureListModel | undefined;
+    };
+  geo: GeoModel | undefined |
+    {
+      id: string | undefined;
+      x: string | undefined;
+      y: string | undefined;
+    };
 }

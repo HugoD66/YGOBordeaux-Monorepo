@@ -10,7 +10,7 @@ import {UnitBarComponent} from "./unit-bar/unit-bar.component";
 import {LogoYGoComponent} from "../../components/logo-ygo/logo-ygo.component";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {ButtonPanelVerComponent} from "../../components/button-panel/button-panel-ver/button-panel-ver.component";
 import {LoaderComponent} from "../../loader/loader";
@@ -37,7 +37,8 @@ import {GeocodingService} from "../../services/geocoding.service";
     FormsModule,
     MatButtonModule,
     ButtonPanelVerComponent,
-    StarRatingPipe
+    StarRatingPipe,
+    ReactiveFormsModule,
   ],
     exports: [
       BarsAndUsersComponent

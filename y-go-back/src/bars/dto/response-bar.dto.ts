@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {PictureList} from "../../picture-list/entities/picture-list.entity";
 import {ResponsePictureListDto} from "../../picture-list/dto/response-picture-list.dto";
+import {ResponseGeoDto} from "../../geo/dto/response-geo.dto";
 
 export class ResponseBarDto {
   @ApiProperty({ type: String })
@@ -13,4 +13,5 @@ export class ResponseBarDto {
   telephone: string;
   note?: number;
   pictureList?: ResponsePictureListDto;
+  geo?: ResponseGeoDto;
 }

@@ -1,5 +1,6 @@
 import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm"
 import { PictureList } from "../../picture-list/entities/picture-list.entity";
+import {Geo} from "../../geo/entities/geo.entity";
 
 @Entity()
 export class Bar {
@@ -28,7 +29,16 @@ export class Bar {
   })
   @JoinColumn()
   public pictureList: PictureList | null;
+
+  @OneToOne(() => Geo, geo => geo.bar, {
+    cascade: ['insert', 'update', 'remove'],
+    onDelete: 'CASCADE',
+    //nullable: true
+  })
+  @JoinColumn()
+  public geo: Geo | null;
 }
+
   /*
   @Column()
   public neighborhood?: string // quartier

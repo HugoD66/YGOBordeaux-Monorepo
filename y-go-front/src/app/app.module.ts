@@ -30,6 +30,7 @@ import {BarModule} from "./pages/bars/bar.module";
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {StarRatingPipe} from "./pipe/star-rating.pipe";
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UserModule,
     BarModule,
     MatSnackBarModule,
+    StarRatingPipe,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
