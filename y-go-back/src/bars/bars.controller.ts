@@ -25,8 +25,8 @@ export class BarsController {
 
   @Public() //TEMP
   @Post()
-  async create(@Body() createBarDto: CreateBarDto): Promise<ResponseBarDto> {
-    const bar: ResponseBarDto = await this.barService.create(createBarDto);
+  async create(@Body() createBarDto: CreateBarDto, userId: string): Promise<ResponseBarDto> {
+    const bar: ResponseBarDto = await this.barService.create(createBarDto, userId);
     return bar;
   }
 

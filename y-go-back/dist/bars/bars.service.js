@@ -17,27 +17,27 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const bar_entity_1 = require("./entities/bar.entity");
-const picture_list_entity_1 = require("../picture-list/entities/picture-list.entity");
 const picture_list_service_1 = require("../picture-list/picture-list.service");
-const geo_entity_1 = require("../geo/entities/geo.entity");
 const geo_service_1 = require("../geo/geo.service");
+const users_service_1 = require("../users/users.service");
 let BarsService = exports.BarsService = class BarsService {
-    constructor(barRepository, pictureListService, geoService) {
+    constructor(barRepository, pictureListService, geoService, usersService) {
         this.barRepository = barRepository;
         this.pictureListService = pictureListService;
         this.geoService = geoService;
+        this.usersService = usersService;
     }
-    async create(createBarDto) {
+    async create(createBarDto, userId) {
         try {
-            const bar = this.barRepository.create(createBarDto);
-            if (createBarDto.pictureList) {
-                const pictureList = new picture_list_entity_1.PictureList();
-                bar.pictureList = await this.pictureListService.create(pictureList);
-            }
-            if (createBarDto.geo) {
-                const geo = new geo_entity_1.Geo();
-                bar.geo = await this.geoService.create(geo);
-            }
+            const user = await this.usersService.findOne(userId);
+            let pictureListEntity = await this.pictureListService.create(createBarDto.pictureList);
+            let geoEntity = await this.geoService.create(createBarDto.geo);
+            const bar = this.barRepository.create({
+                ...createBarDto,
+                createdBy: user,
+                pictureList: pictureListEntity,
+                geo: geoEntity
+            });
             return await this.barRepository.save(bar);
         }
         catch (error) {
@@ -49,6 +49,7 @@ let BarsService = exports.BarsService = class BarsService {
             .createQueryBuilder('bar')
             .leftJoinAndSelect('bar.pictureList', 'pictureList')
             .leftJoinAndSelect('bar.geo', 'geo')
+            .leftJoinAndSelect('bar.createdBy', 'createdBy')
             .where('bar.id = :id', { id })
             .getOne();
         if (!bar) {
@@ -61,6 +62,7 @@ let BarsService = exports.BarsService = class BarsService {
             .createQueryBuilder('bar')
             .leftJoinAndSelect('bar.pictureList', 'pictureList')
             .leftJoinAndSelect('bar.geo', 'geo')
+            .leftJoinAndSelect('bar.createdBy', 'createdBy')
             .getMany();
         return barList;
     }
@@ -78,6 +80,7 @@ exports.BarsService = BarsService = __decorate([
     __param(0, (0, typeorm_1.InjectRepository)(bar_entity_1.Bar)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         picture_list_service_1.PictureListService,
-        geo_service_1.GeoService])
+        geo_service_1.GeoService,
+        users_service_1.UsersService])
 ], BarsService);
 //# sourceMappingURL=bars.service.js.map

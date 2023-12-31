@@ -17,10 +17,6 @@ exports.ResponseBarDto = ResponseBarDto;
 __decorate([
     (0, swagger_1.ApiProperty)({ type: String }),
     __metadata("design:type", String)
-], ResponseBarDto.prototype, "id", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({ type: String }),
-    __metadata("design:type", String)
 ], ResponseBarDto.prototype, "name", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({ type: String }),

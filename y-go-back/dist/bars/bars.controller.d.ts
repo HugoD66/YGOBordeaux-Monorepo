@@ -5,7 +5,7 @@ import { ResponseBarDto } from "./dto/response-bar.dto";
 export declare class BarsController {
     private readonly barService;
     constructor(barService: BarsService);
-    create(createBarDto: CreateBarDto): Promise<ResponseBarDto>;
+    create(createBarDto: CreateBarDto, userId: string): Promise<ResponseBarDto>;
     findOne(id: string): Promise<ResponseBarDto>;
     findAll(): Promise<ResponseBarDto[]>;
     update(id: string, updateBarDto: UpdateBarDto): Promise<ResponseBarDto>;

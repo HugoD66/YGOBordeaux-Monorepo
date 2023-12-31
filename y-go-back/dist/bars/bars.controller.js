@@ -22,8 +22,8 @@ let BarsController = exports.BarsController = class BarsController {
     constructor(barService) {
         this.barService = barService;
     }
-    async create(createBarDto) {
-        const bar = await this.barService.create(createBarDto);
+    async create(createBarDto, userId) {
+        const bar = await this.barService.create(createBarDto, userId);
         return bar;
     }
     async findOne(id) {
@@ -57,7 +57,7 @@ __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_bar_dto_1.CreateBarDto]),
+    __metadata("design:paramtypes", [create_bar_dto_1.CreateBarDto, String]),
     __metadata("design:returntype", Promise)
 ], BarsController.prototype, "create", null);
 __decorate([

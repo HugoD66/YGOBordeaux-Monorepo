@@ -1,10 +1,12 @@
-import {IsNotEmpty, IsOptional, MinLength} from "class-validator";
+import {IsEmpty, IsNotEmpty, IsOptional, MinLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
 import {Column} from "typeorm";
 import {ResponseGeoDto} from "../../geo/dto/response-geo.dto";
 
 import {PictureList} from "../../picture-list/entities/picture-list.entity";
 import {ResponsePictureListDto} from "../../picture-list/dto/response-picture-list.dto";
+import {User} from "../../users/entities/user.entity";
+import {UserResponseDto} from "../../users/dto/user-response.dto";
 
 export class CreateBarDto {
   @MinLength(2)
@@ -21,6 +23,9 @@ export class CreateBarDto {
   public description?: string;
 
   @IsOptional()
+  public createdAt: Date;
+
+  @IsOptional()
   @ApiProperty({ example: 'Telephone', description: 'Telephone du bars' })
   public telephone: string;
 
@@ -32,10 +37,7 @@ export class CreateBarDto {
 
   @IsOptional()
   public geo?: ResponseGeoDto;
-  //@IsOptional()
-  //public picture?: string;
-  /*
-  @IsOptional()
-  public price?: number
-   */
+
+  @IsNotEmpty()
+  public createdBy: UserResponseDto;
 }

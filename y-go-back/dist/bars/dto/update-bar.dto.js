@@ -13,7 +13,12 @@ exports.UpdateBarDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const create_bar_dto_1 = require("./create-bar.dto");
 const class_validator_1 = require("class-validator");
+const user_response_dto_1 = require("../../users/dto/user-response.dto");
 class UpdateBarDto extends (0, mapped_types_1.PartialType)(create_bar_dto_1.CreateBarDto) {
+    constructor() {
+        super(...arguments);
+        this.updatedAt = new Date();
+    }
 }
 exports.UpdateBarDto = UpdateBarDto;
 __decorate([
@@ -36,6 +41,14 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateBarDto.prototype, "telephone", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", user_response_dto_1.UserResponseDto)
+], UpdateBarDto.prototype, "createdBy", void 0);
+__decorate([
+    (0, class_validator_1.IsEmpty)(),
+    __metadata("design:type", Date)
+], UpdateBarDto.prototype, "updatedAt", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),

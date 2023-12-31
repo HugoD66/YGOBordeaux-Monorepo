@@ -1,5 +1,6 @@
 import {PictureListModel} from "./picture-list.model";
 import {GeoModel} from "./geo.model";
+import {UserModel} from "./user.model";
 
 export class BarModel {
   id: string | undefined;
@@ -8,7 +9,8 @@ export class BarModel {
   description: string | undefined;
   telephone: string | undefined;
   note: number | undefined;
-  //picture: string | undefined;
+  createdAt: Date | undefined;
+  updatedAt: Date | undefined;
   pictureList: PictureListModel | undefined |
     {
       pictureOne: string | undefined;
@@ -22,4 +24,17 @@ export class BarModel {
       x: string | undefined;
       y: string | undefined;
     };
+
+  createdBy: UserModel | undefined;
+  /*
+  createdBy: UserModel | undefined |
+    {
+      id: string | undefined;
+      email: string | undefined;
+      username: string | undefined;
+      password: string | undefined;
+      createdAt: Date | undefined;
+      updatedAt: Date | undefined;
+    };
+   */
 }

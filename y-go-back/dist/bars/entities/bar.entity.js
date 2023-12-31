@@ -13,6 +13,7 @@ exports.Bar = void 0;
 const typeorm_1 = require("typeorm");
 const picture_list_entity_1 = require("../../picture-list/entities/picture-list.entity");
 const geo_entity_1 = require("../../geo/entities/geo.entity");
+const user_entity_1 = require("../../users/entities/user.entity");
 let Bar = exports.Bar = class Bar {
 };
 __decorate([
@@ -40,6 +41,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Bar.prototype, "note", void 0);
 __decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Bar.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Bar.prototype, "updatedAt", void 0);
+__decorate([
     (0, typeorm_1.OneToOne)(() => picture_list_entity_1.PictureList, pictureList => pictureList.bar, {
         cascade: ['insert', 'update', 'remove'],
         onDelete: 'CASCADE',
@@ -55,6 +64,11 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", geo_entity_1.Geo)
 ], Bar.prototype, "geo", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, user => user.createBars),
+    (0, typeorm_1.JoinColumn)({ name: 'createdById' }),
+    __metadata("design:type", user_entity_1.User)
+], Bar.prototype, "createdBy", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

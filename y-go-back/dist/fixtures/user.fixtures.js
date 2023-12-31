@@ -26,6 +26,7 @@ let UserFixtures = exports.UserFixtures = class UserFixtures {
     }
     async seedUsers() {
         const users = [
+            { name: 'Administrateur', email: 'admin@email.com', password: 'Azeaze.66', role: user_roles_enum_1.UserRoleEnum.Admin, picture: "./uploads/user/admin.png", phone: '0606060616' },
             { name: 'John Doe', email: 'john1@example.com', password: 'Azeaze.66', role: user_roles_enum_1.UserRoleEnum.Utilisateur, picture: "./uploads/user/userHFixture1.png", phone: '0606060606' },
             { name: 'Jane Doe', email: 'jane1@example.com', password: 'Azeaze.66', role: user_roles_enum_1.UserRoleEnum.Utilisateur, picture: "./uploads/user/userFFixture1.png", phone: '0606060606' },
             { name: 'Alice Johnson', email: 'alice@example.com', password: 'Azeaze.66', role: user_roles_enum_1.UserRoleEnum.Utilisateur, picture: "./uploads/user/userFFixture2.png", phone: '0606060606' },

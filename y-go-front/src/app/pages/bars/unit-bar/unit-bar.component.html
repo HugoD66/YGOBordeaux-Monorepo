@@ -25,6 +25,7 @@
             <img class="picture-star-list-data" [src]="star.color === 'yellow' ? '../../../../assets/icons/star-colored.png' : '../../../../assets/icons/star.png'" alt="">
           </span>
       </ol>
+      <ol class="list-data">Créé le  {{ bar?.createdAt | date:"dd/MM/yyyy" }} par  {{bar?.createdBy?.email}}</ol>
     </ul>
   </mat-card-content>
   <mat-card-actions class="button-list">

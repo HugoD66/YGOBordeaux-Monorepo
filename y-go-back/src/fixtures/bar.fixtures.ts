@@ -8,6 +8,8 @@ import {ResponsePictureListDto} from "../picture-list/dto/response-picture-list.
 import {ResponseBarDto} from "../bars/dto/response-bar.dto";
 import {ResponseGeoDto} from "../geo/dto/response-geo.dto";
 import {GeoService} from "../geo/geo.service";
+import {UsersService} from "../users/users.service";
+import {User} from "../users/entities/user.entity";
 
 @Injectable()
 export class BarFixtures {
@@ -19,6 +21,8 @@ export class BarFixtures {
 
     private readonly pictureListService: PictureListService,
     private readonly geoService: GeoService,
+
+    private readonly usersService: UsersService,
   ) {}
 
   async seedBars(): Promise<void> {
@@ -28,6 +32,8 @@ export class BarFixtures {
         description: 'Un bar mystérieux avec une ambiance unique, parfaite pour les soirées mystérieuses et des rencontres inoubliables. Lieu idéal pour les amateurs d\'énigmes et de cocktails étonnants.',
         telephone: '0123456789',
         note: 4,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar10.png',
           pictureTwo: './uploads/bar/bar11.png',
@@ -44,6 +50,8 @@ export class BarFixtures {
         description: 'Bar lumineux et animé, idéal pour les soirées animées et vibrantes. Avec son ambiance chaleureuse et accueillante, c\'est le lieu parfait pour se détendre après une longue journée.',
         telephone: '0123456790',
         note: 2,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar20.png',
           pictureTwo: './uploads/bar/bar21.png',
@@ -60,6 +68,8 @@ export class BarFixtures {
         description: 'Bar en bord de mer avec une vue magnifique sur l\'océan, offrant une expérience inégalée. Savourez des cocktails rafraîchissants au son des vagues et admirez le coucher de soleil.',
         telephone: '0123456791',
         note: 4,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar30.png',
           pictureTwo: './uploads/bar/bar31.png',
@@ -76,6 +86,8 @@ export class BarFixtures {
         description: 'Bar avec une décoration historique et élégante, transportant les visiteurs dans une autre époque. Parfait pour ceux qui apprécient l\'histoire et une atmosphère classique, avec une sélection de boissons vintage.',
         telephone: '0123456792',
         note: 1,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar40.png',
           pictureTwo: './uploads/bar/bar41.png',
@@ -92,6 +104,8 @@ export class BarFixtures {
         description: 'Un bar élégant pour des soirées sophistiquées, où le luxe et le raffinement se rencontrent. Idéal pour les occasions spéciales, avec un service exceptionnel et une liste de vins et de champagnes impressionnante.',
         telephone: '0123456793',
         note: 3,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar50.png',
           pictureTwo: './uploads/bar/bar51.png',
@@ -108,6 +122,8 @@ export class BarFixtures {
         description: 'Bar convivial au cœur de la ville, où vous pouvez rencontrer des gens de tous horizons. Avec son ambiance décontractée et sa grande variété de boissons, c\'est l\'endroit idéal pour se relaxer en bonne compagnie.',
         telephone: '0123456794',
         note: 2,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar60.png',
           pictureTwo: './uploads/bar/bar61.png',
@@ -124,6 +140,8 @@ export class BarFixtures {
         description: 'Bar décoré par des artistes locaux, très inspirant pour ceux qui cherchent la créativité. Chaque coin du bar est une œuvre d\'art, offrant une expérience unique aux amateurs d\'art et de culture.',
         telephone: '0123456795',
         note: 5,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar70.png',
           pictureTwo: './uploads/bar/bar71.png',
@@ -140,6 +158,8 @@ export class BarFixtures {
         description: 'Bar paisible à côté d\'un parc, parfait pour se détendre dans un cadre naturel. Profitez d\'un moment de tranquillité loin de l\'agitation de la ville, avec des boissons fraîches et des snacks sains.',
         telephone: '0123456796',
         note: 5,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar80.png',
           pictureTwo: './uploads/bar/bar81.png',
@@ -156,6 +176,8 @@ export class BarFixtures {
         description: 'Bar idéal pour regarder les événements sportifs dans une ambiance électrique. Équipé de grands écrans et d\'un système sonore de qualité, c\'est le lieu de rendez-vous des fans de sport pour partager leur passion.',
         telephone: '0123456797',
         note: 3,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar90.png',
           pictureTwo: './uploads/bar/bar91.png',
@@ -172,6 +194,8 @@ export class BarFixtures {
         description: 'Bar avec une excellente sélection de plats et boissons, idéal pour les gourmets. Découvrez des saveurs uniques et des associations audacieuses dans un cadre élégant et confortable.',
         telephone: '0123456798',
         note: 0,
+        createdAt: new Date(),
+        updateAt: null,
         pictureList: {
           pictureOne: './uploads/bar/bar100.png',
           pictureTwo: './uploads/bar/bar101.png',
@@ -184,32 +208,35 @@ export class BarFixtures {
         },
       },
     ];
-
+    const users: User[] = await this.usersService.findAll();
     for (const bar of bars) {
       try {
         const existingBar: Bar = await this.barRepository.findOne({ where: { name: bar.name } });
         if (!existingBar) {
-          const { pictureList, geo,  ...barInfo } = bar;
+          const randomUser = users[Math.floor(Math.random() * users.length)];
+          const { pictureList, geo, ...barInfo } = bar;
+          const barData = { ...barInfo, createdBy: randomUser };
 
-          const createdBar: ResponseBarDto = await this.barsService.create(barInfo);
+          const createdBar = await this.barsService.create(barData, randomUser.id);
+
           if (pictureList) {
             const pictureListData = { ...pictureList, bar: createdBar };
-            const createdPictureList: ResponsePictureListDto = await this.pictureListService.create(pictureListData);
-            createdBar.pictureList = createdPictureList;
-            await this.barRepository.save(createdBar);
+            await this.pictureListService.create(pictureListData);
           }
-          if(geo) {
+
+          if (geo) {
             const geoData = { ...geo, bar: createdBar };
-            const createdGeo: ResponseGeoDto = await this.geoService.create(geoData);
-            createdBar.geo = createdGeo;
-            await this.barRepository.save(createdBar);
+            await this.geoService.create(geoData);
           }
+
           console.log(`${createdBar.name} created.`);
         }
       } catch (error) {
         console.error(`Error creating bar ${bar.name}:`, error);
       }
     }
+
+
     console.log('Seeding bars complete!');
   }
 }

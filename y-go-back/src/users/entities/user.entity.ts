@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm"
 import { Exclude } from 'class-transformer';
 import { UserRoleEnum } from './types/user.roles.enum';
+import {Bar} from "../../bars/entities/bar.entity";
 
 @Entity()
 export class User {
@@ -29,6 +30,10 @@ export class User {
 
   @Column({ nullable: true})
   public phone!: string | null;
+
+
+  @OneToMany(() => Bar, bar => bar.createdBy)
+  public createBars?: Bar[] | null;
   /*
   @Column()
   public adress: string

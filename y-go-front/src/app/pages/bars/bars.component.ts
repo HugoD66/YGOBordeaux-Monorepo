@@ -20,6 +20,7 @@ export class BarsComponent implements OnInit{
 
   ngOnInit() {
     this.barService.getBarsList().subscribe(barList => {
+      console.log(barList)
       this.barList = barList;
       this.filteredBarList = barList;
     });

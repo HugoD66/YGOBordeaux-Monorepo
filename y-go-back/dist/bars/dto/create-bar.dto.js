@@ -14,6 +14,7 @@ const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 const response_geo_dto_1 = require("../../geo/dto/response-geo.dto");
 const response_picture_list_dto_1 = require("../../picture-list/dto/response-picture-list.dto");
+const user_response_dto_1 = require("../../users/dto/user-response.dto");
 class CreateBarDto {
 }
 exports.CreateBarDto = CreateBarDto;
@@ -35,6 +36,10 @@ __decorate([
 ], CreateBarDto.prototype, "description", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Date)
+], CreateBarDto.prototype, "createdAt", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({ example: 'Telephone', description: 'Telephone du bars' }),
     __metadata("design:type", String)
 ], CreateBarDto.prototype, "telephone", void 0);
@@ -50,4 +55,8 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", response_geo_dto_1.ResponseGeoDto)
 ], CreateBarDto.prototype, "geo", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", user_response_dto_1.UserResponseDto)
+], CreateBarDto.prototype, "createdBy", void 0);
 //# sourceMappingURL=create-bar.dto.js.map

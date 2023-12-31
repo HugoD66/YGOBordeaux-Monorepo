@@ -1,6 +1,16 @@
-import {Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm"
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from "typeorm"
 import { PictureList } from "../../picture-list/entities/picture-list.entity";
 import {Geo} from "../../geo/entities/geo.entity";
+import {User} from "../../users/entities/user.entity";
 
 @Entity()
 export class Bar {
@@ -22,10 +32,15 @@ export class Bar {
   @Column({ type: 'float', nullable: true })
   public note?: number;
 
+  @CreateDateColumn()
+  public createdAt!: Date;
+
+  @UpdateDateColumn()
+  public updatedAt?: Date | null;
+
   @OneToOne(() => PictureList, pictureList => pictureList.bar, {
     cascade: ['insert', 'update', 'remove'],
     onDelete: 'CASCADE',
-    //nullable: true
   })
   @JoinColumn()
   public pictureList: PictureList | null;
@@ -33,10 +48,13 @@ export class Bar {
   @OneToOne(() => Geo, geo => geo.bar, {
     cascade: ['insert', 'update', 'remove'],
     onDelete: 'CASCADE',
-    //nullable: true
   })
   @JoinColumn()
   public geo: Geo | null;
+
+  @ManyToOne(() => User, user => user.createBars)
+  @JoinColumn({ name: 'createdById' })
+  public createdBy!: User;
 }
 
   /*

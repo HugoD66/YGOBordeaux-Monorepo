@@ -32,10 +32,10 @@ async function bootstrap() {
   SwaggerModule.setup("api", app, document);
 
   //Création des fixtures
-  const barFixtures: BarFixtures = app.get(BarFixtures);
   const userFixtures: UserFixtures = app.get(UserFixtures);
-  await barFixtures.seedBars();
+  const barFixtures: BarFixtures = app.get(BarFixtures);
   await userFixtures.seedUsers();
+  await barFixtures.seedBars();
 
   //Augmentation taille requetes JSON (pictures)
   app.use(express.json({ limit: '50mb' }));

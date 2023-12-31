@@ -23,10 +23,10 @@ async function bootstrap() {
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup("api", app, document);
-    const barFixtures = app.get(bar_fixtures_1.BarFixtures);
     const userFixtures = app.get(user_fixtures_1.UserFixtures);
-    await barFixtures.seedBars();
+    const barFixtures = app.get(bar_fixtures_1.BarFixtures);
     await userFixtures.seedUsers();
+    await barFixtures.seedBars();
     app.use(express.json({ limit: '50mb' }));
     app.use('/uploads', express.static('uploads'));
     await app.listen(3000);

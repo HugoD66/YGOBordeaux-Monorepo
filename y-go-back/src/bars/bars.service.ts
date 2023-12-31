@@ -9,6 +9,9 @@ import {PictureList} from "../picture-list/entities/picture-list.entity";
 import {PictureListService} from "../picture-list/picture-list.service";
 import {Geo} from "../geo/entities/geo.entity";
 import {GeoService} from "../geo/geo.service";
+import {User} from "../users/entities/user.entity";
+import {UserResponseDto} from "../users/dto/user-response.dto";
+import {UsersService} from "../users/users.service";
 @Injectable()
 export class BarsService {
   constructor(
@@ -18,12 +21,40 @@ export class BarsService {
     private pictureListService: PictureListService,
 
     private geoService: GeoService,
+
+    private usersService: UsersService,
   ) {
   }
 
-  async create(createBarDto: CreateBarDto): Promise<ResponseBarDto> {
+  async create(createBarDto: CreateBarDto, userId: string): Promise<Bar> {
     try {
-      const bar: CreateBarDto = this.barRepository.create(createBarDto);
+      const user = await this.usersService.findOne(userId);
+      let pictureListEntity = await this.pictureListService.create(createBarDto.pictureList);
+      let geoEntity = await this.geoService.create(createBarDto.geo);
+      const bar = this.barRepository.create({
+        ...createBarDto,
+        createdBy: user,
+        pictureList: pictureListEntity,
+        geo: geoEntity
+      });
+
+      return await this.barRepository.save(bar);
+
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  /*
+  async create(createBarDto: CreateBarDto, userId: string): Promise<Bar> {
+    try {
+      // Ajoutez la propriété createdBy à createBarDto
+      const barData = { ...createBarDto, createdBy: userId };
+
+      // Créez l'instance de Bar avec les données complètes
+      const bar = this.barRepository.create(barData);
+
+      // Gestion de pictureList et geo
       if (createBarDto.pictureList) {
         const pictureList = new PictureList();
         bar.pictureList = await this.pictureListService.create(pictureList);
@@ -32,17 +63,21 @@ export class BarsService {
         const geo = new Geo();
         bar.geo = await this.geoService.create(geo);
       }
+
+      // Sauvegardez le bar dans la base de données
       return await this.barRepository.save(bar);
     } catch (error) {
       throw error;
     }
   }
+  */
 
   async findOne(id: string): Promise<Bar> {
     const bar = await this.barRepository
       .createQueryBuilder('bar')
       .leftJoinAndSelect('bar.pictureList', 'pictureList')
       .leftJoinAndSelect('bar.geo', 'geo')
+      .leftJoinAndSelect('bar.createdBy', 'createdBy')
       .where('bar.id = :id', { id })
       .getOne();
     if (!bar) {
@@ -58,6 +93,7 @@ export class BarsService {
       .createQueryBuilder('bar')
       .leftJoinAndSelect('bar.pictureList', 'pictureList')
       .leftJoinAndSelect('bar.geo', 'geo')
+      .leftJoinAndSelect('bar.createdBy', 'createdBy')
       .getMany();
 
     return barList;
@@ -71,6 +107,7 @@ export class BarsService {
    */
 
   async update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto> {
+    // @ts-ignore
     await this.barRepository.update(id, updateBarDto);
     const updatedUser: Bar = await this.barRepository.findOne({ where: { id } })
     return updatedUser;
