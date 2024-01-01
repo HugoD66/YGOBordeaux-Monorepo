@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  ManyToOne,
+  ManyToOne, OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn
@@ -11,6 +11,7 @@ import {
 import { PictureList } from "../../picture-list/entities/picture-list.entity";
 import {Geo} from "../../geo/entities/geo.entity";
 import {User} from "../../users/entities/user.entity";
+import {UserBarRating} from "../../user-bar-rating/entities/user-bar-rating.entity";
 
 @Entity()
 export class Bar {
@@ -55,6 +56,9 @@ export class Bar {
   @ManyToOne(() => User, user => user.createBars)
   @JoinColumn({ name: 'createdById' })
   public createdBy!: User;
+
+  @OneToMany(() => UserBarRating, userBarRating => userBarRating.bar)
+  userBarRatings?: UserBarRating[] | null;
 }
 
   /*

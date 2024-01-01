@@ -1,0 +1,1 @@
+{"version":3,"file":"user-bar-rating.module.js","sourceRoot":"","sources":["../../src/user-bar-rating/user-bar-rating.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,uEAAiE;AACjE,6EAAuE;AAMhE,IAAM,mBAAmB,iCAAzB,MAAM,mBAAmB;CAAG,CAAA;8BAAtB,mBAAmB;IAJ/B,IAAA,eAAM,EAAC;QACN,WAAW,EAAE,CAAC,oDAAuB,CAAC;QACtC,SAAS,EAAE,CAAC,8CAAoB,CAAC;KAClC,CAAC;GACW,mBAAmB,CAAG"}

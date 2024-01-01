@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const picture_list_entity_1 = require("../../picture-list/entities/picture-list.entity");
 const geo_entity_1 = require("../../geo/entities/geo.entity");
 const user_entity_1 = require("../../users/entities/user.entity");
+const user_bar_rating_entity_1 = require("../../user-bar-rating/entities/user-bar-rating.entity");
 let Bar = exports.Bar = class Bar {
 };
 __decorate([
@@ -69,6 +70,10 @@ __decorate([
     (0, typeorm_1.JoinColumn)({ name: 'createdById' }),
     __metadata("design:type", user_entity_1.User)
 ], Bar.prototype, "createdBy", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => user_bar_rating_entity_1.UserBarRating, userBarRating => userBarRating.bar),
+    __metadata("design:type", Array)
+], Bar.prototype, "userBarRatings", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

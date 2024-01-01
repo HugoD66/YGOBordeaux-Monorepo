@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const class_transformer_1 = require("class-transformer");
 const user_roles_enum_1 = require("./types/user.roles.enum");
 const bar_entity_1 = require("../../bars/entities/bar.entity");
+const user_bar_rating_entity_1 = require("../../user-bar-rating/entities/user-bar-rating.entity");
 let User = exports.User = class User {
 };
 __decorate([
@@ -53,6 +54,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => bar_entity_1.Bar, bar => bar.createdBy),
     __metadata("design:type", Array)
 ], User.prototype, "createBars", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => user_bar_rating_entity_1.UserBarRating, userBarRating => userBarRating.user),
+    __metadata("design:type", Array)
+], User.prototype, "userBarRatings", void 0);
 exports.User = User = __decorate([
     (0, typeorm_1.Entity)()
 ], User);

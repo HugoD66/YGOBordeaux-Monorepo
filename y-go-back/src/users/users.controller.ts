@@ -14,7 +14,7 @@ import { UsersService } from "./users.service"
 import { User } from "./entities/user.entity"
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UserResponseDto} from "./dto/user-response.dto";
-import {ApiBody, ApiOperation, ApiTags} from "@nestjs/swagger";
+import {ApiBody, ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import { Public } from './auth/public.decorator';
 import {LoginDto} from "./dto/login.dto";
 import {LoginResponseDto} from "./dto/login-response.dto";
@@ -59,7 +59,6 @@ export class UsersController {
     return { message: 'File uploaded successfully', filePath: file.path };
   }
 
-
   @Public()
   @Post('/auth/login')
   @HttpCode(HttpStatus.CREATED)
@@ -68,6 +67,7 @@ export class UsersController {
   async login(@Body() loginDto: LoginDto): Promise<LoginResponseDto> {
     try {
       const user = await this.usersService.login(loginDto);
+      console.log(user)
       return user;
     } catch (error) {
       throw error;
@@ -84,7 +84,7 @@ export class UsersController {
    async getProfile(@Req() req): Promise<UserResponseDto> {
     try {
       const user: UserResponseDto = await this.usersService.findOne(
-        req.user.id,
+        req.user.sub,
       );
       return user;
     } catch (error) {
@@ -92,7 +92,6 @@ export class UsersController {
     }
   }
 
-  @Public()
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<User> {
     const user = await this.usersService.findOne(id)
@@ -103,7 +102,6 @@ export class UsersController {
     }
   }
 
-  @Public()
   @Get()
   async findAll(): Promise<User[]> {
     return this.usersService.findAll()

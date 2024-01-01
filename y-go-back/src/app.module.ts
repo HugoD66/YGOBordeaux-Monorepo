@@ -16,6 +16,7 @@ import {APP_GUARD} from "@nestjs/core";
 import { AuthGuard } from './users/auth/auth.guard';
 import {PictureList} from "./picture-list/entities/picture-list.entity";
 import {PictureListModule} from "./picture-list/picture-list.module";
+import {UserBarRating} from "./user-bar-rating/entities/user-bar-rating.entity";
 
 
 @Module({
@@ -41,7 +42,7 @@ import {PictureListModule} from "./picture-list/picture-list.module";
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_NAME'),
-          entities: [User, Bar, PictureList, Geo],
+          entities: [User, Bar, PictureList, Geo, UserBarRating],
           synchronize: true,
         };
         console.log(dbConfig);
@@ -49,7 +50,6 @@ import {PictureListModule} from "./picture-list/picture-list.module";
       },
       inject: [ConfigService],
     }),
-    //SeederModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [

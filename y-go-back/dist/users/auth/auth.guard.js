@@ -30,7 +30,6 @@ let AuthGuard = exports.AuthGuard = class AuthGuard {
         }
         const request = context.switchToHttp().getRequest();
         const token = this.extractTokenFromHeader(request);
-        console.log(token);
         if (!token) {
             throw new common_1.UnauthorizedException();
         }
@@ -46,6 +45,7 @@ let AuthGuard = exports.AuthGuard = class AuthGuard {
         return true;
     }
     extractTokenFromHeader(request) {
+        console.log('ACCESS TOKEN : ' + request.headers.authorization);
         const [type, token] = request.headers.authorization?.split(' ') ?? [];
         return type === 'Bearer' ? token : undefined;
     }

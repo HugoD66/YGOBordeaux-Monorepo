@@ -68,7 +68,6 @@ export class UsersService {
       if (!user) {
         throw new NotFoundException('User not found');
       }
-      console.log('before passwordMatch' + user)
       const passwordMatch = await bcrypt.compare(
         loginDto.password,
         user.password,
@@ -87,6 +86,8 @@ export class UsersService {
   }
 
   async findOne(id: string): Promise<User> {
+    console.log('REQ USER ID : ')
+
     return this.usersRepository.findOne({ where: { id } })
   }
 

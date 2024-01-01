@@ -71,7 +71,6 @@ let UsersService = exports.UsersService = class UsersService {
             if (!user) {
                 throw new common_1.NotFoundException('User not found');
             }
-            console.log('before passwordMatch' + user);
             const passwordMatch = await bcrypt.compare(loginDto.password, user.password);
             if (!passwordMatch) {
                 throw new common_1.UnauthorizedException('Invalid password');
@@ -87,6 +86,7 @@ let UsersService = exports.UsersService = class UsersService {
         }
     }
     async findOne(id) {
+        console.log('REQ USER ID : ');
         return this.usersRepository.findOne({ where: { id } });
     }
     async findAll() {
