@@ -2,6 +2,7 @@ import { ResponsePictureListDto } from "../../picture-list/dto/response-picture-
 import { ResponseGeoDto } from "../../geo/dto/response-geo.dto";
 import { UserResponseDto } from "../../users/dto/user-response.dto";
 export declare class ResponseBarDto {
+    id?: string;
     name: string;
     adresse: string;
     description?: string;

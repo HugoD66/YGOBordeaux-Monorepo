@@ -4,6 +4,7 @@ import {ResponseGeoDto} from "../../geo/dto/response-geo.dto";
 import {UserResponseDto} from "../../users/dto/user-response.dto";
 
 export class ResponseBarDto {
+  id?: string;
   @ApiProperty({ type: String })
   name: string;
   @ApiProperty({ type: String })

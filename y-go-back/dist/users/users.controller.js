@@ -57,7 +57,6 @@ let UsersController = exports.UsersController = class UsersController {
     }
     async getProfile(req) {
         try {
-            console.log('req.user.id' + req.user.sub);
             const user = await this.usersService.findOne(req.user.sub);
             return user;
         }

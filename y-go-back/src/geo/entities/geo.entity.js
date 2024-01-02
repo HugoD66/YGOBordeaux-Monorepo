@@ -38,23 +38,44 @@ var __setFunctionName = (this && this.__setFunctionName) || function (f, name, p
     return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppService = void 0;
-const common_1 = require("@nestjs/common");
-let AppService = exports.AppService = (() => {
-    let _classDecorators = [(0, common_1.Injectable)()];
+exports.Geo = void 0;
+const typeorm_1 = require("typeorm");
+const bar_entity_1 = require("../../bars/entities/bar.entity");
+let Geo = exports.Geo = (() => {
+    let _classDecorators = [(0, typeorm_1.Entity)()];
     let _classDescriptor;
     let _classExtraInitializers = [];
     let _classThis;
-    var AppService = _classThis = class {
-        getHello() {
-            return `Hello World!`;
+    let _instanceExtraInitializers = [];
+    let _id_decorators;
+    let _id_initializers = [];
+    let _x_decorators;
+    let _x_initializers = [];
+    let _y_decorators;
+    let _y_initializers = [];
+    let _bar_decorators;
+    let _bar_initializers = [];
+    var Geo = _classThis = class {
+        constructor() {
+            this.id = (__runInitializers(this, _instanceExtraInitializers), __runInitializers(this, _id_initializers, void 0));
+            this.x = __runInitializers(this, _x_initializers, void 0);
+            this.y = __runInitializers(this, _y_initializers, void 0);
+            this.bar = __runInitializers(this, _bar_initializers, void 0);
         }
     };
-    __setFunctionName(_classThis, "AppService");
+    __setFunctionName(_classThis, "Geo");
     (() => {
+        _id_decorators = [(0, typeorm_1.PrimaryGeneratedColumn)('uuid')];
+        _x_decorators = [(0, typeorm_1.Column)({ nullable: true })];
+        _y_decorators = [(0, typeorm_1.Column)({ nullable: true })];
+        _bar_decorators = [(0, typeorm_1.OneToOne)(() => bar_entity_1.Bar, bar => bar.geo)];
+        __esDecorate(null, null, _id_decorators, { kind: "field", name: "id", static: false, private: false, access: { has: obj => "id" in obj, get: obj => obj.id, set: (obj, value) => { obj.id = value; } } }, _id_initializers, _instanceExtraInitializers);
+        __esDecorate(null, null, _x_decorators, { kind: "field", name: "x", static: false, private: false, access: { has: obj => "x" in obj, get: obj => obj.x, set: (obj, value) => { obj.x = value; } } }, _x_initializers, _instanceExtraInitializers);
+        __esDecorate(null, null, _y_decorators, { kind: "field", name: "y", static: false, private: false, access: { has: obj => "y" in obj, get: obj => obj.y, set: (obj, value) => { obj.y = value; } } }, _y_initializers, _instanceExtraInitializers);
+        __esDecorate(null, null, _bar_decorators, { kind: "field", name: "bar", static: false, private: false, access: { has: obj => "bar" in obj, get: obj => obj.bar, set: (obj, value) => { obj.bar = value; } } }, _bar_initializers, _instanceExtraInitializers);
         __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name }, null, _classExtraInitializers);
-        AppService = _classThis = _classDescriptor.value;
+        Geo = _classThis = _classDescriptor.value;
         __runInitializers(_classThis, _classExtraInitializers);
     })();
-    return AppService = _classThis;
+    return Geo = _classThis;
 })();

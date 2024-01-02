@@ -17,60 +17,68 @@ const common_1 = require("@nestjs/common");
 const user_bar_rating_service_1 = require("./user-bar-rating.service");
 const create_user_bar_rating_dto_1 = require("./dto/create-user-bar-rating.dto");
 const update_user_bar_rating_dto_1 = require("./dto/update-user-bar-rating.dto");
+const public_decorator_1 = require("../users/auth/public.decorator");
 let UserBarRatingController = exports.UserBarRatingController = class UserBarRatingController {
     constructor(userBarRatingService) {
         this.userBarRatingService = userBarRatingService;
     }
-    create(createUserBarRatingDto) {
-        return this.userBarRatingService.create(createUserBarRatingDto);
+    async create(createUserBarRatingDto) {
+        const rate = await this.userBarRatingService.create(createUserBarRatingDto);
+        return rate;
     }
-    findAll() {
-        return this.userBarRatingService.findAll();
+    async findOne(id) {
+        const rate = await this.userBarRatingService.findOne(id);
+        return rate;
     }
-    findOne(id) {
-        return this.userBarRatingService.findOne(+id);
+    async findAll() {
+        const rateList = await this.userBarRatingService.findAll();
+        return rateList;
     }
-    update(id, updateUserBarRatingDto) {
-        return this.userBarRatingService.update(+id, updateUserBarRatingDto);
+    async update(id, updateUserBarRatingDto) {
+        return await this.userBarRatingService.update(id, updateUserBarRatingDto);
     }
-    remove(id) {
-        return this.userBarRatingService.remove(+id);
+    async remove(id) {
+        const rate = await this.userBarRatingService.findOne(id);
+        return this.userBarRatingService.remove(id);
     }
 };
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_bar_rating_dto_1.CreateUserBarRatingDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], UserBarRatingController.prototype, "findAll", null);
-__decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "findOne", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UserBarRatingController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_user_bar_rating_dto_1.UpdateUserBarRatingDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "remove", null);
 exports.UserBarRatingController = UserBarRatingController = __decorate([
     (0, common_1.Controller)('user-bar-rating'),

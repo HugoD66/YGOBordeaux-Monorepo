@@ -7,17 +7,12 @@ import {
   Param,
   Delete,
   NotFoundException,
-  UseInterceptors,
-  UploadedFile
 } from "@nestjs/common"
 import { BarsService } from "./bars.service"
 import { CreateBarDto } from "./dto/create-bar.dto"
 import { UpdateBarDto } from "./dto/update-bar.dto"
 import {ResponseBarDto} from "./dto/response-bar.dto";
 import {Public} from "../users/auth/public.decorator";
-import {FileInterceptor} from "@nestjs/platform-express";
-import {multerConfig} from "../multer.config";
-import {FileSizeValidationPipe} from "../pipe/FileSizeValidationPipe";
 
 @Controller(`bars`)
 export class BarsController {

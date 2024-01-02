@@ -5,13 +5,10 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {Repository} from "typeorm";
 import {Bar} from "./entities/bar.entity";
 import {ResponseBarDto} from "./dto/response-bar.dto";
-import {PictureList} from "../picture-list/entities/picture-list.entity";
 import {PictureListService} from "../picture-list/picture-list.service";
-import {Geo} from "../geo/entities/geo.entity";
 import {GeoService} from "../geo/geo.service";
-import {User} from "../users/entities/user.entity";
-import {UserResponseDto} from "../users/dto/user-response.dto";
 import {UsersService} from "../users/users.service";
+import {User} from "../users/entities/user.entity";
 @Injectable()
 export class BarsService {
   constructor(
@@ -86,6 +83,10 @@ export class BarsService {
     return bar;
     //const responseBar: ResponseBarDto = await this.barRepository.findOne({where: { id }});
     //return responseBar;
+  }
+
+  async findOnePartial(id: string): Promise<Bar> {
+    return this.barRepository.findOne({ where: { id } })
   }
 
   async findAll(): Promise<ResponseBarDto[]> {

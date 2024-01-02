@@ -86,7 +86,6 @@ let UsersService = exports.UsersService = class UsersService {
         }
     }
     async findOne(id) {
-        console.log('REQ USER ID : ');
         return this.usersRepository.findOne({ where: { id } });
     }
     async findAll() {

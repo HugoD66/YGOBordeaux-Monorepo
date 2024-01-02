@@ -14,6 +14,7 @@ export declare class BarsService {
     constructor(barRepository: Repository<Bar>, pictureListService: PictureListService, geoService: GeoService, usersService: UsersService);
     create(createBarDto: CreateBarDto, userId: string): Promise<Bar>;
     findOne(id: string): Promise<Bar>;
+    findOnePartial(id: string): Promise<Bar>;
     findAll(): Promise<ResponseBarDto[]>;
     update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto>;
     remove(id: string): Promise<void>;

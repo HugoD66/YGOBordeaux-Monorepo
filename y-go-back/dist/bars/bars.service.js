@@ -57,6 +57,9 @@ let BarsService = exports.BarsService = class BarsService {
         }
         return bar;
     }
+    async findOnePartial(id) {
+        return this.barRepository.findOne({ where: { id } });
+    }
     async findAll() {
         const barList = await this.barRepository
             .createQueryBuilder('bar')

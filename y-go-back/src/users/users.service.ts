@@ -86,8 +86,6 @@ export class UsersService {
   }
 
   async findOne(id: string): Promise<User> {
-    console.log('REQ USER ID : ')
-
     return this.usersRepository.findOne({ where: { id } })
   }
 

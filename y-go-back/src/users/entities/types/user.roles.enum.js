@@ -5,4 +5,4 @@ var UserRoleEnum;
 (function (UserRoleEnum) {
     UserRoleEnum["Admin"] = "Admin";
     UserRoleEnum["Utilisateur"] = "Utilisateur";
-})(UserRoleEnum = exports.UserRoleEnum || (exports.UserRoleEnum = {}));
+})(UserRoleEnum || (exports.UserRoleEnum = UserRoleEnum = {}));

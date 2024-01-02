@@ -17,6 +17,7 @@ import { AuthGuard } from './users/auth/auth.guard';
 import {PictureList} from "./picture-list/entities/picture-list.entity";
 import {PictureListModule} from "./picture-list/picture-list.module";
 import {UserBarRating} from "./user-bar-rating/entities/user-bar-rating.entity";
+import {UserBarRatingModule} from "./user-bar-rating/user-bar-rating.module";
 
 
 @Module({
@@ -25,6 +26,7 @@ import {UserBarRating} from "./user-bar-rating/entities/user-bar-rating.entity";
     BarsModule,
     PictureListModule,
     GeoModule,
+    UserBarRatingModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
@@ -42,7 +44,7 @@ import {UserBarRating} from "./user-bar-rating/entities/user-bar-rating.entity";
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_NAME'),
-          entities: [User, Bar, PictureList, Geo, UserBarRating],
+          entities: [User, Bar, PictureList, Geo, UserBarRating, UserBarRating],
           synchronize: true,
         };
         console.log(dbConfig);
