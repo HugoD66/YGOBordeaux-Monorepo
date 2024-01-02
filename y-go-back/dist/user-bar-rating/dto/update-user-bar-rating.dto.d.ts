@@ -5,6 +5,7 @@ declare const UpdateUserBarRatingDto_base: import("@nestjs/common").Type<Partial
 export declare class UpdateUserBarRatingDto extends UpdateUserBarRatingDto_base {
     rate: number;
     ratedAt: Date;
+    updatedAt: Date;
     user: UserResponseDto;
     bar: ResponseBarDto;
 }

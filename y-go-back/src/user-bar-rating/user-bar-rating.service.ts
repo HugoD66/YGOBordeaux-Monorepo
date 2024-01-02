@@ -52,11 +52,11 @@ export class UserBarRatingService {
   }
 
   async findOne(id: string): Promise<ResponseRateDto> {
-    return this.rateRepository.findOne({ where: { id } });
+    return await this.rateRepository.findOne({ where: { id } });
   }
 
-  findAll(): Promise<ResponseRateDto[]> {
-    return this.rateRepository.find();
+  async findAll(): Promise<ResponseRateDto[]> {
+    return await this.rateRepository.find();
   }
 
   async update(id: string, updateUserBarRatingDto: Partial<UpdateUserBarRatingDto>): Promise<ResponseRateDto> {

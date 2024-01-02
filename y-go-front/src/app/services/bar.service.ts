@@ -36,7 +36,7 @@ export class BarService {
   }
 
   private log(response: UserModel[]|UserModel|undefined|Object) {
-    //console.log(response);
+    console.log(response);
   }
 
   private handleError(error: Error, errorValue: any) {

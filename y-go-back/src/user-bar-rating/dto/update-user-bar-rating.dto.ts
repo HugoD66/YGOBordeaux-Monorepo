@@ -9,6 +9,8 @@ export class UpdateUserBarRatingDto extends PartialType(CreateUserBarRatingDto) 
 
   public ratedAt!: Date;
 
+  public updatedAt!: Date;
+
   public user: UserResponseDto;
 
   public bar: ResponseBarDto;

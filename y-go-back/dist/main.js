@@ -5,6 +5,7 @@ const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 const express = require("express");
 const bar_fixtures_1 = require("./fixtures/bar.fixtures");
+const rate_fixtures_1 = require("./fixtures/rate.fixtures");
 const user_fixtures_1 = require("./fixtures/user.fixtures");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
@@ -25,8 +26,10 @@ async function bootstrap() {
     swagger_1.SwaggerModule.setup("api", app, document);
     const userFixtures = app.get(user_fixtures_1.UserFixtures);
     const barFixtures = app.get(bar_fixtures_1.BarFixtures);
+    const rateFixtures = app.get(rate_fixtures_1.RateFixtures);
     await userFixtures.seedUsers();
     await barFixtures.seedBars();
+    await rateFixtures.seedRates();
     app.use(express.json({ limit: '50mb' }));
     app.use('/uploads', express.static('uploads'));
     await app.listen(3000);

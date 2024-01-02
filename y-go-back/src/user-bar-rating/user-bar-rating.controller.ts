@@ -10,8 +10,8 @@ export class UserBarRatingController {
   constructor(
     private readonly userBarRatingService: UserBarRatingService
   ) {}
-
   @Public()
+
   @Post()
   async create(@Body() createUserBarRatingDto: CreateUserBarRatingDto): Promise<ResponseRateDto> {
     const rate: ResponseRateDto = await this.userBarRatingService.create(createUserBarRatingDto);
@@ -31,8 +31,7 @@ export class UserBarRatingController {
     const rateList: ResponseRateDto[] = await this.userBarRatingService.findAll();
     return rateList
   }
-
-
+  @Public()
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserBarRatingDto: UpdateUserBarRatingDto): Promise<ResponseRateDto> {

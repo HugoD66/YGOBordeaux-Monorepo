@@ -32,6 +32,10 @@ __decorate([
     __metadata("design:type", Date)
 ], UserBarRating.prototype, "ratedAt", void 0);
 __decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], UserBarRating.prototype, "updatedAt", void 0);
+__decorate([
     (0, typeorm_1.ManyToOne)(() => user_entity_1.User, user => user.userBarRatings),
     __metadata("design:type", user_entity_1.User)
 ], UserBarRating.prototype, "user", void 0);

@@ -29,9 +29,6 @@ let UserBarRatingService = exports.UserBarRatingService = class UserBarRatingSer
         try {
             const user = await this.usersServices.findOne(createUserBarRatingDto.user.id);
             const bar = await this.barsService.findOnePartial(createUserBarRatingDto.bar.id);
-            console.log(createUserBarRatingDto);
-            console.log(user);
-            console.log(bar);
             if (!user) {
                 throw new common_1.NotFoundException(`User with ID ${createUserBarRatingDto.user.id} not found`);
             }
@@ -60,10 +57,10 @@ let UserBarRatingService = exports.UserBarRatingService = class UserBarRatingSer
         }
     }
     async findOne(id) {
-        return this.rateRepository.findOne({ where: { id } });
+        return await this.rateRepository.findOne({ where: { id } });
     }
-    findAll() {
-        return this.rateRepository.find();
+    async findAll() {
+        return await this.rateRepository.find();
     }
     async update(id, updateUserBarRatingDto) {
         await this.rateRepository.update(id, updateUserBarRatingDto);

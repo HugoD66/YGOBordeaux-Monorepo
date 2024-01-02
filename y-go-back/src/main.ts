@@ -3,8 +3,8 @@ import { CorsOptions } from "@nestjs/common/interfaces/external/cors-options.int
 import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import * as express from 'express';
-import {BarsService} from "./bars/bars.service";
 import {BarFixtures} from "./fixtures/bar.fixtures";
+import {RateFixtures} from "./fixtures/rate.fixtures";
 import {UserFixtures} from "./fixtures/user.fixtures";
 
 async function bootstrap() {
@@ -34,8 +34,10 @@ async function bootstrap() {
   //Création des fixtures
   const userFixtures: UserFixtures = app.get(UserFixtures);
   const barFixtures: BarFixtures = app.get(BarFixtures);
+  const rateFixtures: RateFixtures = app.get(RateFixtures);
   await userFixtures.seedUsers();
   await barFixtures.seedBars();
+  await rateFixtures.seedRates();
 
   //Augmentation taille requetes JSON (pictures)
   app.use(express.json({ limit: '50mb' }));

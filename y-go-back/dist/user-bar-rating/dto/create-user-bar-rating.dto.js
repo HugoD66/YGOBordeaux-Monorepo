@@ -24,9 +24,13 @@ __decorate([
     __metadata("design:type", Number)
 ], CreateUserBarRatingDto.prototype, "rate", void 0);
 __decorate([
-    (0, class_validator_1.IsEmpty)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Date)
 ], CreateUserBarRatingDto.prototype, "ratedAt", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Date)
+], CreateUserBarRatingDto.prototype, "updatedAt", void 0);
 __decorate([
     (0, class_validator_1.IsEmpty)(),
     __metadata("design:type", user_response_dto_1.UserResponseDto)

@@ -42,7 +42,6 @@ export class UserFixtures {
         console.error(`Error creating user ${userData.email}:`, error);
       }
     }
-
     console.log('Seeding users complete!');
   }
 }

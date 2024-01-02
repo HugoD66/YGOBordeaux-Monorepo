@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn} from "typeorm";
 import { User } from "../../users/entities/user.entity";
 import { Bar } from "../../bars/entities/bar.entity";
 import {IsInt, Max, Min} from "class-validator";
@@ -15,7 +15,10 @@ export class UserBarRating {
   rate: number;
 
   @CreateDateColumn()
-  public ratedAt!: Date;
+  public ratedAt: Date;
+
+  @UpdateDateColumn()
+  public updatedAt: Date;
 
   @ManyToOne(() => User, user => user.userBarRatings)
   user: User;

@@ -66,6 +66,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "findAll", null);
 __decorate([
+    (0, public_decorator_1.Public)(),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
