@@ -28,16 +28,6 @@ let GeoService = exports.GeoService = class GeoService {
         this.apiKey = this.configService.get('MAPTILER_API_KEY', '1bYmKrc8pg0FSu8GXalV');
         this.geocodingUrl = this.configService.get('MAPTILER_GEOCODING_URL', 'https://api.maptiler.com/geocoding/');
     }
-    async getCoordinates(address) {
-        const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
-        console.log(url);
-        const response = await (0, rxjs_1.lastValueFrom)(this.httpService.get(url));
-        const coordinates = response.data.features[0]?.geometry.coordinates;
-        if (!coordinates) {
-            throw new Error('No coordinates found for the provided address');
-        }
-        return { x: coordinates[0], y: coordinates[1] };
-    }
     async create(createGeoDto) {
         try {
             const geo = this.geoRepository.create(createGeoDto);
@@ -55,6 +45,24 @@ let GeoService = exports.GeoService = class GeoService {
     async findAll() {
         const geo = await this.geoRepository.find();
         return geo;
+    }
+    async getCoordinates(address) {
+        const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
+        console.log(url);
+        const response = await (0, rxjs_1.lastValueFrom)(this.httpService.get(url));
+        const coordinates = response.data.features[0]?.geometry.coordinates;
+        if (!coordinates) {
+            throw new Error('No coordinates found for the provided address');
+        }
+        return { x: coordinates[0], y: coordinates[1] };
+    }
+    async getAdress(lat, lng) {
+        const url = `${this.geocodingUrl}${lat},${lng}.json?key=${this.apiKey}`;
+        const response = await (0, rxjs_1.lastValueFrom)(this.httpService.get(url));
+        if (!response.data.features[0].place_name) {
+            return `Localisation inconnue`;
+        }
+        return response.data.features[0].place_name;
     }
     async update(id, updateGeoDto) {
         await this.geoRepository.update(id, updateGeoDto);

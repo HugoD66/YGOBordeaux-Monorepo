@@ -54,7 +54,7 @@ exports.AppModule = AppModule = __decorate([
                         username: configService.get('DB_USERNAME'),
                         password: configService.get('DB_PASSWORD'),
                         database: configService.get('DB_NAME'),
-                        entities: [user_entity_1.User, bar_entity_1.Bar, picture_list_entity_1.PictureList, geo_entity_1.Geo, user_bar_rating_entity_1.UserBarRating, user_bar_rating_entity_1.UserBarRating],
+                        entities: [user_entity_1.User, bar_entity_1.Bar, picture_list_entity_1.PictureList, geo_entity_1.Geo, user_bar_rating_entity_1.UserBarRating],
                         synchronize: true,
                     };
                     console.log(dbConfig);

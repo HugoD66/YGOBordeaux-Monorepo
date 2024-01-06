@@ -12,13 +12,14 @@ export declare class GeoService {
     private apiKey;
     private geocodingUrl;
     constructor(httpService: HttpService, configService: ConfigService, geoRepository: Repository<Geo>);
+    create(createGeoDto: CreateGeoDto): Promise<ResponseGeoDto>;
+    findOne(id: string): Promise<ResponseGeoDto>;
+    findAll(): Promise<ResponseGeoDto[]>;
     getCoordinates(address: string): Promise<{
         x: number;
         y: number;
     }>;
-    create(createGeoDto: CreateGeoDto): Promise<ResponseGeoDto>;
-    findOne(id: string): Promise<ResponseGeoDto>;
-    findAll(): Promise<ResponseGeoDto[]>;
+    getAdress(lat: number, lng: number): Promise<string>;
     update(id: string, updateGeoDto: Partial<UpdateGeoDto>): Promise<ResponseGeoDto>;
     remove(id: string): Promise<void>;
 }

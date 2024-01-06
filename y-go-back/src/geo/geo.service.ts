@@ -28,32 +28,6 @@ export class GeoService {
     this.geocodingUrl = this.configService.get('MAPTILER_GEOCODING_URL', 'https://api.maptiler.com/geocoding/');
   }
 
-
-    async getCoordinates(address: string): Promise<{ x: number; y: number }> {
-      const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
-      console.log(url)
-      const response = await lastValueFrom(this.httpService.get(url));
-      const coordinates = response.data.features[0]?.geometry.coordinates;
-      if (!coordinates) {
-        throw new Error('No coordinates found for the provided address');
-      }
-      return { x: coordinates[0], y: coordinates[1] };
-    }
-
-  /*
-    async getCoordinates(address: string){
-      try {
-        const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
-        const response = this.httpService.get(JSON.stringify(url));
-        console.log('Response from Maptiler:', response);
-        return response
-      } catch (error) {
-        console.error('Error in getCoordinates:', error);
-        throw new Error('Error fetching coordinates');
-      }
-    }
-   */
-
   async create(createGeoDto: CreateGeoDto): Promise<ResponseGeoDto> {
     try {
       const geo: CreateGeoDto = this.geoRepository.create(createGeoDto);
@@ -72,6 +46,26 @@ export class GeoService {
   async findAll(): Promise<ResponseGeoDto[]> {
     const geo: ResponseGeoDto[] = await this.geoRepository.find();
     return geo;
+  }
+
+  async getCoordinates(address: string): Promise<{ x: number; y: number }> {
+    const url = `${this.geocodingUrl}${encodeURIComponent(address)}.json?key=${this.apiKey}`;
+    console.log(url)
+    const response = await lastValueFrom(this.httpService.get(url));
+    const coordinates = response.data.features[0]?.geometry.coordinates;
+    if (!coordinates) {
+      throw new Error('No coordinates found for the provided address');
+    }
+    return { x: coordinates[0], y: coordinates[1] };
+  }
+
+  async getAdress(lat: number, lng: number): Promise<string> {
+    const url = `${this.geocodingUrl}${lat},${lng}.json?key=${this.apiKey}`;
+    const response = await lastValueFrom(this.httpService.get(url));
+    if(!response.data.features[0].place_name) {
+      return `Localisation inconnue`;
+    }
+    return response.data.features[0].place_name;
   }
 
   async update(id: string, updateGeoDto: Partial<UpdateGeoDto>): Promise<ResponseGeoDto> {

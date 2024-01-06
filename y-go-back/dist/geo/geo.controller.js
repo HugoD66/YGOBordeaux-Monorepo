@@ -39,6 +39,9 @@ let GeoController = exports.GeoController = class GeoController {
             throw new Error('Error fetching coordinates');
         }
     }
+    async findOneByGeo(lat, lng) {
+        return this.geoService.getAdress(lat, lng);
+    }
     update(id, updateGeoDto) {
         return this.geoService.update(id, updateGeoDto);
     }
@@ -73,6 +76,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], GeoController.prototype, "findOneByAdress", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)('reverse-geocoding'),
+    __param(0, (0, common_1.Query)('lat')),
+    __param(1, (0, common_1.Query)('lng')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
+], GeoController.prototype, "findOneByGeo", null);
 __decorate([
     (0, public_decorator_1.Public)(),
     (0, common_1.Patch)(':id'),

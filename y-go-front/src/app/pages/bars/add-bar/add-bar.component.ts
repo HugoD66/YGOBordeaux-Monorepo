@@ -7,6 +7,7 @@ import {PictureListModel} from "../../../models/picture-list.model";
 import {BarModel} from "../../../models/bar.model";
 import {config, Map, MapStyle, Marker} from "@maptiler/sdk";
 import {GeocodingService} from "../../../services/geocoding.service";
+import {MapService} from "../../../services/map.service";
 
 @Component({
   selector: 'app-add-bars',
@@ -29,7 +30,8 @@ export class AddBarComponent implements OnInit, AfterViewInit{
   constructor(
     private barService: BarService,
     private pictureListService: PictureListService,
-    private geocodingService: GeocodingService
+    private geocodingService: GeocodingService,
+    private mapService: MapService
     ) {
     this.name = '';
     this.adresse = '';
@@ -47,6 +49,15 @@ export class AddBarComponent implements OnInit, AfterViewInit{
 
   ngOnInit(): void {
     config.apiKey = '1bYmKrc8pg0FSu8GXalV';
+    this.mapService.addressSelected.subscribe(address => {
+      this.adresse = address;
+    });
+  }
+
+  ngAfterViewInit() {
+    this.mapService.initializeMap(this.mapContainer.nativeElement);
+    this.map = this.mapService.getMap();
+    this.mapService.addMarkerOnClic();
   }
 
   onFileChange(event: any, pictureId?: string) {
@@ -72,14 +83,7 @@ export class AddBarComponent implements OnInit, AfterViewInit{
       };
     }
   }
-  /*
-  const barData = {
-      name: form.value.name,
-      adresse: form.value.adresse,
-      description: form.value.description,
-      telephone: form.value.telephone,
-    };
-   */
+
   onSubmit(form: NgForm) {
     const barData = {
       name: this.name,
@@ -109,9 +113,13 @@ export class AddBarComponent implements OnInit, AfterViewInit{
       }
     });
   }
+
   onAddressChange(): void {
     this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
       console.log(data);
+      if (this.adresse.length > 5) {
+        this.mapService.setMarkerByCoordinates(data.x, data.y);
+      }
     })
       /*
        if (this.adresse.length > 5) { // Pour éviter les requêtes trop fréquentes
@@ -129,34 +137,17 @@ export class AddBarComponent implements OnInit, AfterViewInit{
        */
   }
 
-  updateMapMarker(lng: number, lat: number): void {
-    // Supprimer l'ancien marqueur
-    if (this.currentMarker) {
-      this.currentMarker.remove();
-    }
+  //updateMapMarker(lng: number, lat: number): void {
+  //  // Supprimer l'ancien marqueur
+  //  if (this.currentMarker) {
+  //    this.currentMarker.remove();
+  //  }
 
-    // Ajouter un nouveau marqueur
-    this.currentMarker = new Marker({ color: "#00FF00" })
-      .setLngLat([lng, lat])
-      .addTo(this.map!);
-  }
-
-  ngAfterViewInit() {
-    const initialState = { lng: -0.57918, lat: 44.83779, zoom: 12 };
-    this.map = new Map({
-      container: this.mapContainer.nativeElement,
-      style: MapStyle.STREETS,
-      center: [initialState.lng, initialState.lat],
-      zoom: initialState.zoom
-    });
-  }
-
-  addMarker(lng: number, lat: number, color: string = "#0080ff") {
-    console.log(`Ajout d'un marqueur à la position : ${lng}, ${lat}`);
-    new Marker({ color: color })
-      .setLngLat([lng, lat])
-      .addTo(this.map!);
-  }
+  //  // Ajouter un nouveau marqueur
+  //  this.currentMarker = new Marker({ color: "#00FF00" })
+  //    .setLngLat([lng, lat])
+  //    .addTo(this.map!);
+  //}
 
 
 }

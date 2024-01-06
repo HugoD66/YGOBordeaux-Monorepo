@@ -13,6 +13,9 @@ import { CreateGeoDto } from './dto/create-geo.dto';
 import { UpdateGeoDto } from './dto/update-geo.dto';
 import {Public} from "../users/auth/public.decorator";
 import {ResponseGeoDto} from "./dto/response-geo.dto";
+import {environment} from "y-go-front/env";
+import {GeoModel} from "y-go-front/src/app/models/geo.model";
+import {catchError, tap} from "rxjs";
 
 @Controller('geo')
 export class GeoController {
@@ -41,6 +44,15 @@ export class GeoController {
     } catch (error) {
       throw new Error('Error fetching coordinates');
     }
+  }
+
+  @Public()
+  @Get('reverse-geocoding')
+  async findOneByGeo(
+    @Query('lat') lat: number,
+    @Query('lng') lng: number
+  ){
+    return this.geoService.getAdress(lat, lng);
   }
 
   @Public()

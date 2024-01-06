@@ -41,6 +41,17 @@ section {
         .submit-error {
           height: 15%;
           width: 80%;
+          display: flex;
+          @media screen and (max-width: 1080px) {
+            align-self: center;
+          }
+          button {
+            @media screen and (max-width: 1080px) {
+              margin: auto;
+              align-self: center;
+
+            }
+          }
         }
       }
       .adresse-pictures-map {

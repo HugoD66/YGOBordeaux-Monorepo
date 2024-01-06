@@ -50,24 +50,7 @@ export class MapComponent implements OnChanges, OnInit, AfterViewInit, OnDestroy
     }
   }
 
-
   ngOnDestroy() {
     this.map?.remove();
   }
-  /*
-  addMarker(lng: number, lat: number, color: string, bar: BarModel) {
-    const marker = new Marker({ color: color })
-      .setLngLat([lng, lat])
-      .addTo(this.map!);
-
-    marker.getElement().addEventListener('click', () => {
-      console.log(`Bar sélectionné : ${bar.name}, Adresse : ${bar.adresse}`);
-      this.barSelected.emit(bar);
-    });
-  }
-   */
-
-
-
-
 }

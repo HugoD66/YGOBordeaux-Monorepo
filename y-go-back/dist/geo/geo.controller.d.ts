@@ -11,6 +11,7 @@ export declare class GeoController {
         x: number;
         y: number;
     }>;
+    findOneByGeo(lat: number, lng: number): Promise<string>;
     update(id: string, updateGeoDto: UpdateGeoDto): Promise<ResponseGeoDto>;
     remove(id: string): Promise<void>;
 }
