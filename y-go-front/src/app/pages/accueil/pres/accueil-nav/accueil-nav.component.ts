@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core"
+import {Component, Input, OnChanges, OnInit} from "@angular/core"
 import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
@@ -17,40 +17,36 @@ import {
   standalone: true,
   imports: [NgIf, MatListModule, MatDividerModule, MatButtonModule, RouterLinkActive, RouterLink, ButtonUnitHorizComponent],
 })
-export class AccueilNavComponent implements OnInit{
+export class AccueilNavComponent implements OnChanges{
   isAuthenticated = false;
-  result: UserModel | undefined;
   routerLinkProfile: string = '';
+  @Input() user!: UserModel | undefined;
 
   constructor(
     private userService: UserService,
     private router: Router
+
   ) {}
 
-  ngOnInit(): void{
-    try {
-      this.userService.getUser().subscribe(data => {
-        this.result = data;
-        if (this.result) {
-          this.isAuthenticated = true;
-          console.log(this.result);
-        }
-      });
-    } catch (error) {
+  ngOnChanges(): void {
+    if (this.user) {
+      console.log(this.user);
+      this.isAuthenticated = true;
+      this.routerLinkProfile = `users/detail/${this.user.id}`;
+    } else {
+      this.isAuthenticated = false;
     }
   }
 
   onLogout(): void {
     this.userService.logout();
     this.isAuthenticated = false;
-
+    this.router.navigateByUrl('/'); // Redirection après déconnexion
   }
-  async fetchUserAndNavigate() {
-    const data = await this.userService.getUser().toPromise();
-    this.result = data;
-    if(this.result?.id) {
-      this.isAuthenticated = true;
-      this.routerLinkProfile = `users/detail/${this.result?.id}`;
+
+  navigateToProfile(): void {
+    if(this.user?.id) {
+      this.routerLinkProfile = `users/detail/${this.user.id}`;
       this.router.navigate([this.routerLinkProfile]);
     }
   }

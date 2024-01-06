@@ -6,10 +6,20 @@
   <img
     mat-card-image
     [src]="bar?.pictureList
+    ? apiUrl + '/' + bar?.pictureList?.pictureOne
+    : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'"
+    alt="Photo du bar"
+  >
+  <!-- Probleme lors de l'enregistremment image, il faut , je pense, la recréer avec l'encodage dans le dossier upload -->
+  <!--
+  <img
+    mat-card-image
+    [src]="bar?.pictureList
     ? 'http://localhost:3000/' + bar?.pictureList?.pictureOne
     : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'"
     alt="Photo du bar"
   >
+  -->
   <mat-card-content class="card-content">
     <p>
       {{bar?.description}}

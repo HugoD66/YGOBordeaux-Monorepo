@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {BarModel} from "../../../../models/bar.model";
 import {BarService} from "../../../../services/bar.service";
 import {Router} from "@angular/router";
@@ -8,21 +8,14 @@ import {Router} from "@angular/router";
   templateUrl: './page-map.component.html',
   styleUrls: ['./page-map.component.scss']
 })
-export class PageMapComponent implements OnInit {
+export class PageMapComponent {
+  @Input() barList: BarModel[] | undefined;
   showBackgroundImage: boolean = false;
-  barList: BarModel[]|undefined;
   selectedBar: BarModel | null = null;
 
   constructor(
-    private barService: BarService,
     private router: Router
   ) {
-  }
-
-  ngOnInit(): void {
-    this.barService.getBarsList().subscribe(barList => {
-      this.barList = barList;
-    });
   }
 
   onBarSelected(bar: BarModel) {

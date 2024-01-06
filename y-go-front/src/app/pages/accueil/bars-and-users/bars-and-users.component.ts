@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { BarModel } from '../../../models/bar.model';
 import { BarService } from '../../../services/bar.service';
+import {UserModel} from "../../../models/user.model";
 
 @Component({
   selector: 'app-bars-and-users',
@@ -8,16 +9,13 @@ import { BarService } from '../../../services/bar.service';
   styleUrls: ['./bars-and-users.component.scss'],
 })
 export class BarsAndUsersComponent implements OnInit, OnDestroy {
-  barList: BarModel[] | undefined;
+  @Input() barList: BarModel[] | undefined;
   private carouselInterval: any;
 
-  constructor(private barService: BarService) {}
 
   ngOnInit() {
-    this.barService.getBarsList().subscribe((barList) => {
-      this.barList = barList;
-      this.startCarousel();
-    });
+    this.startCarousel();
+    console.log(this.barList)
   }
 
   ngOnDestroy() {

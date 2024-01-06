@@ -32,7 +32,6 @@ export class UserBarRatingController {
     return rateList
   }
   @Public()
-
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserBarRatingDto: UpdateUserBarRatingDto): Promise<ResponseRateDto> {
     return await this.userBarRatingService.update(id, updateUserBarRatingDto);
@@ -40,7 +39,7 @@ export class UserBarRatingController {
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    const rate = await this.userBarRatingService.findOne(id);
+    //const rate = await this.userBarRatingService.findOne(id);
     return this.userBarRatingService.remove(id);
   }
 }

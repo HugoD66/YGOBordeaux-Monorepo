@@ -38,7 +38,7 @@ __decorate([
     __metadata("design:type", String)
 ], Bar.prototype, "telephone", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'float', nullable: true }),
+    (0, typeorm_1.Column)({ type: 'float', nullable: true, default: 0 }),
     __metadata("design:type", Number)
 ], Bar.prototype, "note", void 0);
 __decorate([

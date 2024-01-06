@@ -92,6 +92,7 @@ export class UsersController {
     }
   }
 
+  @Public()
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<User> {
     const user = await this.usersService.findOne(id)
@@ -102,6 +103,7 @@ export class UsersController {
     }
   }
 
+  @Public()
   @Get()
   async findAll(): Promise<User[]> {
     return this.usersService.findAll()

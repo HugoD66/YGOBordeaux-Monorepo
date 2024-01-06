@@ -4,7 +4,6 @@ import {catchError, Observable, of, tap} from "rxjs";
 import {RateModel} from "../models/rate.model";
 import {environment} from "../../../env";
 import {UserModel} from "../models/user.model";
-import {BarModel} from "../models/bar.model";
 
 @Injectable()
 export class RateService {

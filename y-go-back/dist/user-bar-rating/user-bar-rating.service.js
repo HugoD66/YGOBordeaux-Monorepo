@@ -50,6 +50,7 @@ let UserBarRatingService = exports.UserBarRatingService = class UserBarRatingSer
                 bar,
             });
             const savedRate = await this.rateRepository.save(rate);
+            await this.updateBarAverageRating(createUserBarRatingDto.bar.id);
             return savedRate;
         }
         catch (error) {
@@ -65,7 +66,13 @@ let UserBarRatingService = exports.UserBarRatingService = class UserBarRatingSer
     async update(id, updateUserBarRatingDto) {
         await this.rateRepository.update(id, updateUserBarRatingDto);
         const updatedRate = await this.rateRepository.findOne({ where: { id } });
+        await this.updateBarAverageRating(updateUserBarRatingDto.bar.id);
         return updatedRate;
+    }
+    async updateBarAverageRating(barId) {
+        const ratings = await this.rateRepository.find({ where: { bar: { id: barId } } });
+        const averageRating = ratings.reduce((acc, rating) => acc + rating.rate, 0) / ratings.length;
+        await this.barsService.updateAverageRating(barId, averageRating);
     }
     async remove(id) {
         await this.rateRepository.delete(id);

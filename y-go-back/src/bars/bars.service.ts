@@ -81,8 +81,6 @@ export class BarsService {
       throw new NotFoundException(`Bar with id ${id} not found`);
     }
     return bar;
-    //const responseBar: ResponseBarDto = await this.barRepository.findOne({where: { id }});
-    //return responseBar;
   }
 
   async findOnePartial(id: string): Promise<Bar> {
@@ -116,5 +114,9 @@ export class BarsService {
 
   async remove(id: string): Promise<void> {
     await this.barRepository.delete(id);
+  }
+
+  async updateAverageRating(barId: string, note: number): Promise<void> {
+    await this.barRepository.update(barId, { note });
   }
 }

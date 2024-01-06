@@ -77,6 +77,9 @@ let BarsService = exports.BarsService = class BarsService {
     async remove(id) {
         await this.barRepository.delete(id);
     }
+    async updateAverageRating(barId, note) {
+        await this.barRepository.update(barId, { note });
+    }
 };
 exports.BarsService = BarsService = __decorate([
     (0, common_1.Injectable)(),

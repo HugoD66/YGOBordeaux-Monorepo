@@ -24,17 +24,5 @@ export class BarModel {
       x: string | undefined;
       y: string | undefined;
     };
-
   createdBy: UserModel | undefined;
-  /*
-  createdBy: UserModel | undefined |
-    {
-      id: string | undefined;
-      email: string | undefined;
-      username: string | undefined;
-      password: string | undefined;
-      createdAt: Date | undefined;
-      updatedAt: Date | undefined;
-    };
-   */
 }

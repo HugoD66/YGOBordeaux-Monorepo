@@ -18,6 +18,13 @@
         <ul *ngIf="getBarsCreatedByUser().length > 0">
           <li *ngFor="let bar of getBarsCreatedByUser()"> {{ bar.name }} </li>
         </ul>
+
+        <p *ngIf="getBarsCreatedByUser().length === 0">Aucuns bars notés</p>
+        <p *ngIf="getBarsRatesByUser().length === 1">Bar noté :</p>
+        <p *ngIf="getBarsRatesByUser().length > 1">Bars notés :</p>
+        <ul *ngIf="getBarsRatesByUser().length > 0">
+          <li *ngFor="let rate of getBarsRatesByUser()"> {{ rate.rate }} </li>
+        </ul>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

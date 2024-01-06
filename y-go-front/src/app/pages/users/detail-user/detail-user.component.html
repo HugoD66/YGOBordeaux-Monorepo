@@ -1,6 +1,6 @@
 <ng-container *ngIf="user?.picture; else noPicture">
   <div class="picture">
-    <img [src]="'http://localhost:3000/' + user.picture + '?time=' + currentTime" alt="user picture">
+    <img [src]=" apiUrl + '/' + user.picture + '?time=' + currentTime" alt="user picture">
   </div>
 </ng-container>
 <ng-template #noPicture>

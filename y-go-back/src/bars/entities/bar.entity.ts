@@ -30,7 +30,7 @@ export class Bar {
   @Column({unique: true})
   public telephone: string;
 
-  @Column({ type: 'float', nullable: true })
+  @Column({ type: 'float', nullable: true, default: 0 })
   public note?: number;
 
   @CreateDateColumn()

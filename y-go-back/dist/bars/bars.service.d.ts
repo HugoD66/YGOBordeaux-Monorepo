@@ -18,4 +18,5 @@ export declare class BarsService {
     findAll(): Promise<ResponseBarDto[]>;
     update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto>;
     remove(id: string): Promise<void>;
+    updateAverageRating(barId: string, note: number): Promise<void>;
 }

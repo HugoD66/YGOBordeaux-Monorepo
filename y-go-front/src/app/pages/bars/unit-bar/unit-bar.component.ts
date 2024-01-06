@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {BarModel} from "../../../models/bar.model";
 import {StarRatingPipe} from "../../../pipe/star-rating.pipe";
 import {CommonModule} from "@angular/common";
+import {environment} from "../../../../../env";
 
 @Component({
   selector: `app-unit-bar`,
@@ -15,6 +16,8 @@ import {CommonModule} from "@angular/common";
 })
 export class UnitBarComponent {
   @Input() bar: BarModel | undefined;
+  public  apiUrl = environment.apiUrl;
+
   constructor(
     private router: Router
   ) {}
@@ -22,4 +25,14 @@ export class UnitBarComponent {
   goDetailBar() {
     this.router.navigate([`/bars/detail/${this.bar?.id}`]);
   }
+  //getBarImageUrl(): string {
+  //  if (this.bar?.pictureList?.pictureOne) {
+  //    if (this.bar.pictureList.pictureOne.startsWith('data:image')) {
+  //      return this.bar.pictureList.pictureOne;
+  //    } else {
+  //      return 'http://localhost:3000/' + this.bar.pictureList.pictureOne;
+  //    }
+  //  }
+  //  return 'assets/path-to-default-image.jpg'; // Chemin de votre image par défaut
+  //}
 }

@@ -1,4 +1,5 @@
-import {Component, ElementRef, HostListener, Renderer2} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+import {UserModel} from "../../../models/user.model";
 
 @Component({
   selector: 'app-pres',
@@ -6,6 +7,8 @@ import {Component, ElementRef, HostListener, Renderer2} from '@angular/core';
   styleUrls: ['./pres.component.scss']
 })
 export class PresComponent {
+  @Input() user: UserModel | undefined;
+
   constructor(
     private renderer: Renderer2,
     private el: ElementRef

@@ -38,7 +38,6 @@ let UserBarRatingController = exports.UserBarRatingController = class UserBarRat
         return await this.userBarRatingService.update(id, updateUserBarRatingDto);
     }
     async remove(id) {
-        const rate = await this.userBarRatingService.findOne(id);
         return this.userBarRatingService.remove(id);
     }
 };

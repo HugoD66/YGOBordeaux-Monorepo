@@ -4,7 +4,7 @@
     <button *ngIf="!isAuthenticated" mat-button routerLink="register">Nous rejoindre</button>
 
     <button *ngIf="isAuthenticated" mat-button (click)="onLogout()">Déconnexion</button>
-    <button *ngIf="isAuthenticated" mat-button (click)="fetchUserAndNavigate()">Votre compte</button>
+    <button *ngIf="isAuthenticated" mat-button (click)="navigateToProfile()">Votre compte</button>
     <!--
      <span class="list-item">
       <img src="../../../../../assets/icons/user-count.png" alt="Icône nombre d'utilisateurs">

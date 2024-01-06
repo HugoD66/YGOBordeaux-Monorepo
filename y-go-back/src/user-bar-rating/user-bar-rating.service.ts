@@ -45,6 +45,7 @@ export class UserBarRatingService {
         bar,
       });
       const savedRate = await this.rateRepository.save(rate);
+      await this.updateBarAverageRating(createUserBarRatingDto.bar.id);
       return savedRate;
     } catch (error) {
       throw error;
@@ -63,9 +64,16 @@ export class UserBarRatingService {
     // @ts-ignore
     await this.rateRepository.update(id, updateUserBarRatingDto);
     const updatedRate: UserBarRating = await this.rateRepository.findOne( { where: { id } });
+    await this.updateBarAverageRating(updateUserBarRatingDto.bar.id);
     return updatedRate
   }
 
+  private async updateBarAverageRating(barId: string): Promise<void> {
+    const ratings = await this.rateRepository.find({ where: { bar: { id: barId } } });
+    const averageRating = ratings.reduce((acc, rating) => acc + rating.rate, 0) / ratings.length;
+
+    await this.barsService.updateAverageRating(barId, averageRating);
+  }
   async remove(id: string): Promise<void> {
     await this.rateRepository.delete(id);
   }

@@ -11,10 +11,7 @@ import {UserResponseDto} from "../users/dto/user-response.dto";
 @Injectable()
 export class RateFixtures {
   constructor(
-    @InjectRepository(UserBarRating)
-    private userBarRatingRepository: UserBarRating,
-
-    private userBarRatingService: UserBarRatingService ,
+    private userBarRatingService: UserBarRatingService,
 
     private usersService: UsersService,
 

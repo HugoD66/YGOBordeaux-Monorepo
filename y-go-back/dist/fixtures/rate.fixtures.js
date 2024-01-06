@@ -8,20 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RateFixtures = void 0;
 const common_1 = require("@nestjs/common");
-const user_bar_rating_entity_1 = require("../user-bar-rating/entities/user-bar-rating.entity");
-const typeorm_1 = require("@nestjs/typeorm");
 const user_bar_rating_service_1 = require("../user-bar-rating/user-bar-rating.service");
 const bars_service_1 = require("../bars/bars.service");
 const users_service_1 = require("../users/users.service");
 let RateFixtures = exports.RateFixtures = class RateFixtures {
-    constructor(userBarRatingRepository, userBarRatingService, usersService, barsService) {
-        this.userBarRatingRepository = userBarRatingRepository;
+    constructor(userBarRatingService, usersService, barsService) {
         this.userBarRatingService = userBarRatingService;
         this.usersService = usersService;
         this.barsService = barsService;
@@ -53,9 +47,7 @@ let RateFixtures = exports.RateFixtures = class RateFixtures {
 };
 exports.RateFixtures = RateFixtures = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, typeorm_1.InjectRepository)(user_bar_rating_entity_1.UserBarRating)),
-    __metadata("design:paramtypes", [user_bar_rating_entity_1.UserBarRating,
-        user_bar_rating_service_1.UserBarRatingService,
+    __metadata("design:paramtypes", [user_bar_rating_service_1.UserBarRatingService,
         users_service_1.UsersService,
         bars_service_1.BarsService])
 ], RateFixtures);

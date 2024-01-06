@@ -92,12 +92,7 @@ export class UsersService {
   async findAll(): Promise<User[]> {
     return this.usersRepository.find()
   }
-  /*
-  async update(id: string, user: Partial<User>): Promise<User> {
-    await this.usersRepository.update(id, user)
-    return this.usersRepository.findOne({ where: { id } })
-  }
-  */
+
   async update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto> {
     const user: User = await this.usersRepository.findOne({ where: { id } });
     if (!user) {

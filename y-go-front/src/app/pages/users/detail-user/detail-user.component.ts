@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../../services/user.service";
 import { UserModel } from "../../../models/user.model";
+import {environment} from "../../../../../env";
 
 @Component({
   selector: 'app-detail-user',
@@ -10,6 +11,8 @@ import { UserModel } from "../../../models/user.model";
 export class DetailUserComponent implements OnInit {
   user!: UserModel;
   currentTime = new Date().getTime();
+  public  apiUrl = environment.apiUrl;
+
 
   constructor(private userService: UserService) {}
 

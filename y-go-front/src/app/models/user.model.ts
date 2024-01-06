@@ -5,5 +5,4 @@ export class UserModel {
   picture: string | undefined;
   password: string | undefined;
   phone: string | undefined;
-
 }

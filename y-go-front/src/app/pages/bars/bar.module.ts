@@ -16,6 +16,7 @@ import {LoaderComponent} from "../../loader/loader";
 import {StarRatingPipe} from "../../pipe/star-rating.pipe";
 import {PictureListService} from "../../services/picture-list.service";
 import {GeocodingService} from "../../services/geocoding.service";
+import {RateService} from "../../services/rate.service";
 
 @NgModule({
     declarations: [
@@ -25,7 +26,7 @@ import {GeocodingService} from "../../services/geocoding.service";
       SearchBarComponent,
       LoaderComponent,
     ],
-    providers: [BarService, PictureListService, GeocodingService],
+    providers: [BarService, PictureListService, GeocodingService, RateService],
   imports: [
     CommonModule,
     ButtonPanelHorizComponent,

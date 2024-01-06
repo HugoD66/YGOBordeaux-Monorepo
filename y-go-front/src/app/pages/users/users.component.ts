@@ -11,6 +11,7 @@ import {UserModel} from "../../models/user.model";
 export class UsersComponent implements OnInit {
   userList: UserModel[]|undefined;
 
+
   constructor(
     private router: Router,
     private userService: UserService,

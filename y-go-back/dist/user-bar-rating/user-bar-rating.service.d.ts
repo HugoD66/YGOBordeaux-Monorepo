@@ -14,5 +14,6 @@ export declare class UserBarRatingService {
     findOne(id: string): Promise<ResponseRateDto>;
     findAll(): Promise<ResponseRateDto[]>;
     update(id: string, updateUserBarRatingDto: Partial<UpdateUserBarRatingDto>): Promise<ResponseRateDto>;
+    private updateBarAverageRating;
     remove(id: string): Promise<void>;
 }
