@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GeoService } from './geo.service';
 
-describe('GeoService', () => {
+describe(`GeoService`, () => {
   let service: GeoService;
 
   beforeEach(async () => {
@@ -12,7 +12,7 @@ describe('GeoService', () => {
     service = module.get<GeoService>(GeoService);
   });
 
-  it('should be defined', () => {
+  it(`should be defined`, () => {
     expect(service).toBeDefined();
   });
 });

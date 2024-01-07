@@ -1,5 +1,5 @@
-import {UserModel} from "./user.model";
-import {BarModel} from "./bar.model";
+import { UserModel } from './user.model';
+import { BarModel } from './bar.model';
 
 export class RateModel {
   id: string | undefined;

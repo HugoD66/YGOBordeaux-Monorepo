@@ -1,15 +1,25 @@
 <mat-card class="unit-bar-content">
   <mat-card-header class="header-card">
     <mat-card-title class="title">{{ bar?.name }}</mat-card-title>
-    <img mat-card-avatar class="author-picture" src="../../../../assets/pictures/avatar-user.png"/>
+    <img
+      mat-card-avatar
+      class="author-picture"
+      [src]="
+        bar?.createdBy?.picture
+          ? apiUrl + '/' + bar?.createdBy?.picture
+          : '../../../../assets/pictures/avatar-user.png'
+      "
+    />
   </mat-card-header>
   <img
     mat-card-image
-    [src]="bar?.pictureList
-    ? apiUrl + '/' + bar?.pictureList?.pictureOne
-    : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'"
+    [src]="
+      bar?.pictureList
+        ? apiUrl + '/' + bar?.pictureList?.pictureOne
+        : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'
+    "
     alt="Photo du bar"
-  >
+  />
   <!-- Probleme lors de l'enregistremment image, il faut , je pense, la recréer avec l'encodage dans le dossier upload -->
   <!--
   <img
@@ -22,24 +32,40 @@
   -->
   <mat-card-content class="card-content">
     <p>
-      {{bar?.description}}
+      {{ bar?.description }}
     </p>
-    <ul>
-      <ol>Téléphone : </ol>
-      <ol class="list-data">{{ bar?.telephone }}</ol>
-      <ol>Adresse : </ol>
-      <ol class="list-data">{{ bar?.adresse }}</ol>
-      <ol>Note : </ol>
-      <ol class="list-data">
-          <span *ngFor="let star of bar?.note | starRating">
-            <img class="picture-star-list-data" [src]="star.color === 'yellow' ? '../../../../assets/icons/star-colored.png' : '../../../../assets/icons/star.png'" alt="">
-          </span>
-      </ol>
-      <ol class="list-data">Créé le  {{ bar?.createdAt | date:"dd/MM/yyyy" }} par  {{bar?.createdBy?.email}}</ol>
-    </ul>
+
+    <div class="list">
+      <p class="list-data">
+        {{ bar?.adresse }}
+      </p>
+      <p class="list-data">
+        {{ bar?.telephone }}
+      </p>
+      <div class="list-data rate">
+        <span class="rate-list" *ngFor="let star of bar?.note | starRating">
+          <img
+            class="picture-star-list-data"
+            [src]="
+              star.color === 'yellow'
+                ? '../../../../assets/icons/star-colored.png'
+                : '../../../../assets/icons/star.png'
+            "
+            alt=""
+          />
+        </span>
+      </div>
+      <p class="list-data createdby-at">
+        Créé le
+        {{ bar?.createdAt | date: "dd/MM/yyyy" }}
+        par
+        {{ bar?.createdBy?.email }}
+      </p>
+    </div>
   </mat-card-content>
+  <mat-divider class="divider-horizontal"></mat-divider>
   <mat-card-actions class="button-list">
-    <button mat-button  (click)="goDetailBar()">En savoir plus ...</button>
+    <button mat-button (click)="goDetailBar()">En savoir plus ...</button>
     <button mat-button>Horaires</button>
   </mat-card-actions>
 </mat-card>

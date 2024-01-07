@@ -8,25 +8,23 @@ import { DetailUserComponent } from "./detail-user/detail-user.component";
 import { UnitBarComponent } from "../bars/unit-bar/unit-bar.component";
 import { ButtonPanelHorizComponent } from "../../components/button-panel/button-panel-horiz/button-panel-horiz.component";
 import { LogoYGoComponent } from "../../components/logo-ygo/logo-ygo.component";
-import { UnitUserComponent } from './unit-user/unit-user.component';
-let UserModule = class UserModule {
-};
-UserModule = __decorate([
+import { UnitUserComponent } from "./unit-user/unit-user.component";
+let UserModule = class UserModule {};
+UserModule = __decorate(
+  [
     NgModule({
-        declarations: [
-            UsersComponent,
-            UserListComponent,
-            DetailUserComponent,
-        ],
-        providers: [UserService],
-        imports: [
-            CommonModule,
-            UnitBarComponent,
-            ButtonPanelHorizComponent,
-            LogoYGoComponent,
-            UnitUserComponent,
-        ],
-    })
-], UserModule);
+      declarations: [UsersComponent, UserListComponent, DetailUserComponent],
+      providers: [UserService],
+      imports: [
+        CommonModule,
+        UnitBarComponent,
+        ButtonPanelHorizComponent,
+        LogoYGoComponent,
+        UnitUserComponent,
+      ],
+    }),
+  ],
+  UserModule,
+);
 export { UserModule };
 //# sourceMappingURL=user.module.js.map

@@ -1,4 +1,4 @@
 export declare class CreateGeoDto {
-    x: string;
-    y: string;
+  x: string;
+  y: string;
 }

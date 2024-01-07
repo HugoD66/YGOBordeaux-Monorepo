@@ -1,16 +1,19 @@
 import { __decorate } from "tslib";
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 let SearchBarComponent = class SearchBarComponent {
-    constructor() {
-        this.value = 'Search...';
-    }
+  constructor() {
+    this.value = "Search...";
+  }
 };
-SearchBarComponent = __decorate([
+SearchBarComponent = __decorate(
+  [
     Component({
-        selector: 'app-search-bars',
-        templateUrl: './search-bar.component.html',
-        styleUrls: ['./search-bar.component.scss']
-    })
-], SearchBarComponent);
+      selector: "app-search-bars",
+      templateUrl: "./search-bar.component.html",
+      styleUrls: ["./search-bar.component.scss"],
+    }),
+  ],
+  SearchBarComponent,
+);
 export { SearchBarComponent };
 //# sourceMappingURL=search-bar.component.js.map

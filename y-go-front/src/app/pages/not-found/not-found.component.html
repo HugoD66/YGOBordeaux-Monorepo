@@ -1,19 +1,21 @@
 <h1>404</h1>
 <div class="content">
-    <div class="back-picture"
-         [ngStyle]="{
-          'background-image': 'url(assets/pictures/back-not-found.webp)',
-          'background-size': 'cover',
-          'background-repeat': 'no-repeat',
-          }"
-    >
+  <div
+    class="back-picture"
+    [ngStyle]="{
+      'background-image': 'url(assets/pictures/back-not-found.webp)',
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat'
+    }"
+  ></div>
+  <div class="content-not-found">
+    <div class="content-text">
+      <h2>Page non trouvée</h2>
+      <p>Désolé, la page que vous recherchez n'existe pas.</p>
+      <a routerLink="/" routerLinkActive="active" class="return-homme"
+        >Retour accueil</a
+      >
     </div>
-    <div class="content-not-found">
-        <div class="content-text">
-          <h2>Page non trouvée</h2>
-          <p>Désolé, la page que vous recherchez n'existe pas.</p>
-          <a routerLink="/" routerLinkActive="active" class="return-homme">Retour accueil</a>
-        </div>
-    </div>
-    <app-logo-ygo></app-logo-ygo>
+  </div>
+  <app-logo-ygo></app-logo-ygo>
 </div>

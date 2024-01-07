@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from "../../../services/user.service";
-import { UserModel } from "../../../models/user.model";
-import {environment} from "../../../../../env";
+import { UserService } from '../../../services/user.service';
+import { UserModel } from '../../../models/user.model';
+import { environment } from '../../../../../env';
 
 @Component({
-  selector: 'app-detail-user',
-  templateUrl: './detail-user.component.html',
-  styleUrls: ['./detail-user.component.scss']
+  selector: `app-detail-user`,
+  templateUrl: `./detail-user.component.html`,
+  styleUrls: [`./detail-user.component.scss`],
 })
 export class DetailUserComponent implements OnInit {
   user!: UserModel;
   currentTime = new Date().getTime();
-  public  apiUrl = environment.apiUrl;
-
+  public apiUrl = environment.apiUrl;
 
   constructor(private userService: UserService) {}
 
@@ -27,16 +26,17 @@ export class DetailUserComponent implements OnInit {
     let file: File | null = element.files ? element.files[0] : null;
     if (file && this.user.id) {
       // Remplacez 'this.userId' par l'identifiant réel de l'utilisateur actuel
-      this.userService.uploadUserPicture(this.user.id, file).subscribe((response) => {
-        console.log('Image uploaded successfully');
+      this.userService
+        .uploadUserPicture(this.user.id, file)
+        .subscribe((response) => {
+          console.log(`Image uploaded successfully`);
 
-        // Supposons que la réponse contient le nouveau chemin de l'image sous 'response.filePath'
-        this.user.picture = response.filePath;
+          // Supposons que la réponse contient le nouveau chemin de l'image sous 'response.filePath'
+          this.user.picture = response.filePath;
 
-        // Mettez à jour 'currentTime' pour forcer le rechargement de l'image
-        this.currentTime = new Date().getTime();
-      });
+          // Mettez à jour 'currentTime' pour forcer le rechargement de l'image
+          this.currentTime = new Date().getTime();
+        });
     }
   }
-
 }

@@ -12,8 +12,8 @@
     "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.22.15",
     "@types/node": "^20.8.7",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.12.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
     "eslint": "^8.54.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.0.0",
@@ -27,12 +27,12 @@
     "tsc": "tsc",
     "type-check": "tsc --noEmit",
     "lint": "yarn workspaces run lint",
-    "startf": "cd y-go-front && ng serve",
-    "startb": "cd y-go-back && nest start",
     "format": "prettier --check .",
     "format:fix": "prettier --ignore-unknown --write .",
-    "eslint:fix": "eslint --fix .",
-    "lint:fix": "yarn eslint --fix \"**/*.{js,ts}"
+    "lint:fix": "eslint --fix .",
+    "startd": "cd y-go-back && docker-compose up -V --force-recreate",
+    "startb": "cd y-go-back && nest start",
+    "startf": "cd y-go-front && ng serve"
   },
   "dependencies": {
     "bootstrap": "^5.3.2"

@@ -1,7 +1,18 @@
 <mat-form-field class="example-form-field">
   <mat-label>Recherchez un bar ...</mat-label>
-  <input matInput type="text" [(ngModel)]="value" (ngModelChange)="onSearchChange(value)">
-  <button matSuffix mat-icon-button aria-label="Clear" *ngIf="value" (click)="resetSearch()">
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="value"
+    (ngModelChange)="onSearchChange(value)"
+  />
+  <button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    *ngIf="value"
+    (click)="resetSearch()"
+  >
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>

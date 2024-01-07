@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { GeoController } from './geo.controller';
 import { GeoService } from './geo.service';
 
-describe('GeoController', () => {
+describe(`GeoController`, () => {
   let controller: GeoController;
 
   beforeEach(async () => {
@@ -14,7 +14,7 @@ describe('GeoController', () => {
     controller = module.get<GeoController>(GeoController);
   });
 
-  it('should be defined', () => {
+  it(`should be defined`, () => {
     expect(controller).toBeDefined();
   });
 });

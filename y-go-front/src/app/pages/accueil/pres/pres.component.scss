@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .pres-content {
   position: relative;
   height: 100vh;
@@ -5,7 +7,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: rgb(250, 240, 228);
+  background-color: $backPres;
   .title-pres {
     width: 55%;
     height: 100vh;
@@ -15,7 +17,7 @@
     flex-direction: column;
     h1 {
       z-index: 3;
-      position: fixed;
+      //position: fixed;
       top: 23%;
       left: 12%;
       color: #000000;
@@ -83,7 +85,11 @@
       top: 30%;
       left: 0;
       height: 15%;
-      background: linear-gradient(180deg, rgba(250, 245, 245, 0) 7%, rgb(166, 66, 70) 80%);
+      background: linear-gradient(
+        180deg,
+        rgba(250, 245, 245, 0) 7%,
+        rgb(166, 66, 70) 80%
+      );
       width: 100%;
       z-index: 4;
     }

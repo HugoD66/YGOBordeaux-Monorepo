@@ -1,4 +1,4 @@
-import {IsOptional} from "class-validator";
+import { IsOptional } from 'class-validator';
 
 export class CreatePictureListDto {
   @IsOptional()
@@ -12,5 +12,4 @@ export class CreatePictureListDto {
 
   @IsOptional()
   public pictureFour?: string;
-
 }

@@ -1,7 +1,7 @@
-import { PartialType } from "@nestjs/mapped-types"
-import { CreateBarDto } from "./create-bar.dto"
-import {IsEmpty, IsOptional, IsString} from "class-validator";
-import {UserResponseDto} from "../../users/dto/user-response.dto";
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateBarDto } from './create-bar.dto';
+import { IsEmpty, IsOptional, IsString } from 'class-validator';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
 
 export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()
@@ -33,5 +33,4 @@ export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()
   note?: number;
    */
-
 }

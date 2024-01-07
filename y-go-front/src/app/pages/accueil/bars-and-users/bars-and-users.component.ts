@@ -1,21 +1,20 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { BarModel } from '../../../models/bar.model';
 import { BarService } from '../../../services/bar.service';
-import {UserModel} from "../../../models/user.model";
+import { UserModel } from '../../../models/user.model';
 
 @Component({
-  selector: 'app-bars-and-users',
-  templateUrl: './bars-and-users.component.html',
-  styleUrls: ['./bars-and-users.component.scss'],
+  selector: `app-bars-and-users`,
+  templateUrl: `./bars-and-users.component.html`,
+  styleUrls: [`./bars-and-users.component.scss`],
 })
 export class BarsAndUsersComponent implements OnInit, OnDestroy {
   @Input() barList: BarModel[] | undefined;
   private carouselInterval: any;
 
-
   ngOnInit() {
     this.startCarousel();
-    console.log(this.barList)
+    console.log(this.barList);
   }
 
   ngOnDestroy() {
@@ -33,20 +32,21 @@ export class BarsAndUsersComponent implements OnInit, OnDestroy {
     }
   }
   addInitialSlides() {
-    const carouselContainer = document.getElementById('carouselContainer');
-    for (let i = 0; i < 10; i++) {  // Adjust the number based on the desired number of initial slides
+    const carouselContainer = document.getElementById(`carouselContainer`);
+    for (let i = 0; i < 10; i++) {
+      // Adjust the number based on the desired number of initial slides
       this.addRandomSlide(carouselContainer);
     }
   }
   addRandomSlide(carouselContainer?) {
     const randomIndex = Math.floor(Math.random() * this.barList!.length);
     const bar = this.barList![randomIndex];
-    const slide = document.createElement('div');
-    slide.className = 'carousel-slide';
-    const img = document.createElement('img');
-    img.className = 'picture-carousel';
-    img.src = '../../assets/temp/1.jpg';  // Use bar.picture or a placeholder
-    img.alt = 'Bar Image';
+    const slide = document.createElement(`div`);
+    slide.className = `carousel-slide`;
+    const img = document.createElement(`img`);
+    img.className = `picture-carousel`;
+    img.src = `../../assets/temp/1.jpg`; // Use bar.picture or a placeholder
+    img.alt = `Bar Image`;
 
     slide.appendChild(img);
 

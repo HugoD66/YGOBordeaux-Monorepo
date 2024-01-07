@@ -1,11 +1,11 @@
 import { __decorate } from "tslib";
-import { Component } from '@angular/core';
-let LoaderComponent = class LoaderComponent {
-};
-LoaderComponent = __decorate([
+import { Component } from "@angular/core";
+let LoaderComponent = class LoaderComponent {};
+LoaderComponent = __decorate(
+  [
     Component({
-        selector: 'app-loader',
-        template: `
+      selector: "app-loader",
+      template: `
     <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-blue">
         <div class="circle-clipper left">
@@ -18,7 +18,9 @@ LoaderComponent = __decorate([
       </div>
     </div>
   `,
-    })
-], LoaderComponent);
+    }),
+  ],
+  LoaderComponent,
+);
 export { LoaderComponent };
 //# sourceMappingURL=loader.js.map

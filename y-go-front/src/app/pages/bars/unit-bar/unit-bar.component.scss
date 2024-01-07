@@ -1,16 +1,21 @@
 .unit-bar-content {
-  max-width: 35vw;
-  margin: 5%;
+  width: 35vw;
+  margin: 3%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: rgba(246, 225, 195, 0.32);
+  @media (max-width: 1180px) {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+  }
   .header-card {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    color: #7A3E65;
+    color: #7a3e65;
     .title {
-      font-size: 2em;
+      font-size: 2.2em;
     }
     .author-picture {
       background-size: cover;
@@ -22,23 +27,59 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    p {
-      width: 49%;
-      text-align: justify;
-      font-size: 1.2em;
+    justify-content: center;
+    @media (max-width: 680px) {
+      flex-direction: column-reverse;
     }
-    ul {
-      width: 49%;
+    p {
+      width: 55%;
+      text-align: justify;
+      font-size: 1.1em;
+      font-family: "Montserrat light", sans-serif;
+      @media (max-width: 680px) {
+        margin-top: 5%;
+        width: 80%;
+      }
+    }
+    .list {
+      width: 44%;
       letter-spacing: 1px;
       line-height: 2vh;
+      margin: 1%;
+      @media (max-width: 680px) {
+        width: 100%;
+        padding: 0;
+        margin: auto;
+      }
       .list-data {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        margin-left: 4%;
-        font-size: 1.2em;
-        line-height: 3vh;
+        text-align: end;
+        font-size: 1.1em;
+        line-height: 2.5vh;
+        width: 80%;
+        font-family: "Montserrat light", sans-serif;
+        margin-top: 10%;
+        @media (max-width: 680px) {
+          text-align: start;
+          line-height: 1px;
+        }
+      }
+      .createdby-at {
+        font-size: 0.8em;
+        font-style: italic;
+        align-self: end;
+        text-align: end;
+        margin-top: 4%;
+        line-height: 1.6vh;
+        font-family: "Titillium", sans-serif;
+        font-weight: bold;
+        color: #1f1f1f;
+        opacity: 0.8;
+        @media (max-width: 680px) {
+          line-height: 1.3vh;
+          font-size: 0.7em;
+          width: 40%;
+          float: right;
+        }
       }
       .picture-star-list-data {
         width: 2vw;
@@ -49,6 +90,11 @@
       }
     }
   }
+  .divider-horizontal {
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+  }
   .button-list {
     width: 100%;
     display: flex;
@@ -57,11 +103,9 @@
     justify-content: space-around;
     button {
       margin-top: 5%;
-      background-color: #7A3E65;
+      background-color: #7a3e65;
       color: #f1f1f1;
       font-size: 1.2em;
     }
   }
 }
-
-

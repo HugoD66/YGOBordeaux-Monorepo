@@ -4,17 +4,48 @@
   <div class="content-bar-unit">
     <div class="pictures-adress">
       <div class="pictures-content">
-        <img class="picture-center" [src]="'http://localhost:3000/' + (bar | async)?.pictureList?.pictureOne" alt="Photo du bar">
+        <img
+          class="picture-center"
+          [src]="
+            'http://localhost:3000/' + (bar | async)?.pictureList?.pictureOne
+          "
+          alt="Photo du bar"
+        />
         <div class="pictures-content-galerie">
-          <img class="pictures-content-galerie-unit" [src]="'http://localhost:3000/' + (bar | async)?.pictureList?.pictureTwo" alt="Photo du bar2">
-          <img class="pictures-content-galerie-unit" [src]="'http://localhost:3000/' + (bar | async)?.pictureList?.pictureThree" alt="Photo du bar3">
-          <img class="pictures-content-galerie-unit" [src]="'http://localhost:3000/' + (bar | async)?.pictureList?.pictureFour" alt="Photo du bar4">
+          <img
+            class="pictures-content-galerie-unit"
+            [src]="
+              'http://localhost:3000/' + (bar | async)?.pictureList?.pictureTwo
+            "
+            alt="Photo du bar2"
+          />
+          <img
+            class="pictures-content-galerie-unit"
+            [src]="
+              'http://localhost:3000/' +
+              (bar | async)?.pictureList?.pictureThree
+            "
+            alt="Photo du bar3"
+          />
+          <img
+            class="pictures-content-galerie-unit"
+            [src]="
+              'http://localhost:3000/' + (bar | async)?.pictureList?.pictureFour
+            "
+            alt="Photo du bar4"
+          />
         </div>
       </div>
       <div class="adress-note">
-        <h2>Description</h2>
-        <p >Créé le  {{ (bar | async)?.createdAt | date:"dd/MM/yyyy" }} par  {{(bar | async)?.createdBy?.email}}</p>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et </p>
+        <p>
+          Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} par
+          {{ (bar | async)?.createdBy?.email }}
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et
+        </p>
         <div class="description-button">
           <button class="description-button-unit">Horaires</button>
         </div>
@@ -28,18 +59,49 @@
           <p>{{ (bar | async)?.adresse }}</p>
         </div>
         <div class="note">
-          <h2>Note</h2>
-          <p> {{  (bar | async)?.note }}</p>
+          <div class="list-data rate">
+            <span
+              class="rate-list"
+              *ngFor="let star of (bar | async)?.note | starRating"
+            >
+              <img
+                class="picture-star-list-data"
+                [src]="
+                  star.color === 'yellow'
+                    ? '../../../../assets/icons/star-colored.png'
+                    : '../../../../assets/icons/star.png'
+                "
+                alt=""
+              />
+            </span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="mapEmplacement">
-      <div class="map-wrap">
-        <div class="map" #map></div>
+    <div class="rate-hour-map">
+      <div class="note">
+        <span
+          class="rate-list"
+          *ngFor="let star of (bar | async)?.note | starRating"
+        >
+          <img
+            class="picture-star-list-data"
+            [src]="
+              star.color === 'yellow'
+                ? '../../../../assets/icons/star-colored.png'
+                : '../../../../assets/icons/star.png'
+            "
+            alt=""
+          />
+        </span>
+      </div>
+      <h2>Nombre de votants : {{ rateCount() }}</h2>
+      <div class="mapEmplacement">
+        <div class="map-wrap">
+          <div class="map" #map></div>
+        </div>
       </div>
     </div>
   </div>
   <app-logo-ygo></app-logo-ygo>
 </div>
-
-

@@ -1,7 +1,7 @@
-import { Component, Input } from "@angular/core"
-import { MatButtonModule } from "@angular/material/button"
-import { MatIconModule } from "@angular/material/icon"
-import { RouterLink } from "@angular/router"
+import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: `app-button-unit`,
@@ -11,10 +11,9 @@ import { RouterLink } from "@angular/router"
   imports: [MatButtonModule, MatIconModule, RouterLink],
 })
 export class ButtonUnitHorizComponent {
-  @Input({ required: true }) public src!: string
+  @Input({ required: true }) public src!: string;
 
-  @Input({ required: true }) public isParentElement!: boolean
+  @Input({ required: true }) public isParentElement!: boolean;
 
-  @Input() public routerLink: string | undefined
+  @Input() public routerLink: string | undefined;
 }
-

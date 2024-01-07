@@ -1,11 +1,19 @@
 <div class="accueil-nav">
-    <button mat-button routerLink="/bars/add-bar">TEMP ADD BAR</button>
-    <button *ngIf="!isAuthenticated" mat-button routerLink="login">Se connecter</button>
-    <button *ngIf="!isAuthenticated" mat-button routerLink="register">Nous rejoindre</button>
+  <button mat-button routerLink="/bars/add-bar">TEMP ADD BAR</button>
+  <button *ngIf="!isAuthenticated" mat-button routerLink="login">
+    Se connecter
+  </button>
+  <button *ngIf="!isAuthenticated" mat-button routerLink="register">
+    Nous rejoindre
+  </button>
 
-    <button *ngIf="isAuthenticated" mat-button (click)="onLogout()">Déconnexion</button>
-    <button *ngIf="isAuthenticated" mat-button (click)="navigateToProfile()">Votre compte</button>
-    <!--
+  <button *ngIf="isAuthenticated" mat-button (click)="onLogout()">
+    Déconnexion
+  </button>
+  <button *ngIf="isAuthenticated" mat-button (click)="navigateToProfile()">
+    Votre compte
+  </button>
+  <!--
      <span class="list-item">
       <img src="../../../../../assets/icons/user-count.png" alt="Icône nombre d'utilisateurs">
           <p> 15 Utilisateurs</p>

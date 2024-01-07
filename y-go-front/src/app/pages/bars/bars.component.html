@@ -3,6 +3,7 @@
   <app-search-bars (searchEvent)="onSearch($event)"></app-search-bars>
   <div class="content-bars">
     <app-unit-bar
+      class="content-bar"
       *ngFor="let bar of filteredBarList"
       [bar]="bar"
     />

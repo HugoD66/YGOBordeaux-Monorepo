@@ -16,66 +16,65 @@ import { ContactComponent } from "./pages/accueil/contact/contact.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { AccueilNavComponent } from "./pages/accueil/pres/accueil-nav/accueil-nav.component";
 import { MapComponent } from "./pages/accueil/map/map/map.component";
-import { PageMapComponent } from './pages/accueil/map/page-map/page-map.component';
-import { PresComponent } from './pages/accueil/pres/pres.component';
-import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component';
+import { PageMapComponent } from "./pages/accueil/map/page-map/page-map.component";
+import { PresComponent } from "./pages/accueil/pres/pres.component";
+import { LogoYGoComponent } from "./components/logo-ygo/logo-ygo.component";
 import { MatInputModule } from "@angular/material/input";
-import { ButtonPanelVerComponent } from './components/button-panel/button-panel-ver/button-panel-ver.component';
-import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { ButtonPanelVerComponent } from "./components/button-panel/button-panel-ver/button-panel-ver.component";
+import { ButtonUnitVerComponent } from "./components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component";
+import { RegisterComponent } from "./pages/register/register.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthInterceptor } from "./auth.interceptor";
 import { UserModule } from "./pages/users/user.module";
 import { BarModule } from "./pages/bars/bar.module";
-import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { AddBarComponent } from "./pages/bars/add-bar/add-bar.component";
+import { SnackbarComponent } from "./components/snackbar/snackbar.component";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
-let AppModule = class AppModule {
-};
-AppModule = __decorate([
+let AppModule = class AppModule {};
+AppModule = __decorate(
+  [
     NgModule({
-        declarations: [
-            AppComponent,
-            AccueilComponent,
-            NotFoundComponent,
-            MapComponent,
-            PageMapComponent,
-            PresComponent,
-            RegisterComponent,
-            AddBarComponent,
-        ],
-        imports: [
-            HttpClientModule,
-            FormsModule,
-            CommonModule,
-            BrowserModule,
-            AppRoutingModule,
-            BrowserAnimationsModule,
-            MatSidenavModule,
-            MatButtonModule,
-            MatIconModule,
-            ButtonPanelHorizComponent,
-            ButtonUnitHorizComponent,
-            ButtonPanelVerComponent,
-            ButtonUnitVerComponent,
-            AccueilNavComponent,
-            ContactComponent,
-            LogoYGoComponent,
-            MatInputModule,
-            SnackbarComponent,
-            UserModule,
-            BarModule,
-            MatSnackBarModule,
-        ],
-        providers: [
-            { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-        ],
-        bootstrap: [AppComponent],
-        exports: [
-            MapComponent,
-            MapComponent
-        ],
-    })
-], AppModule);
+      declarations: [
+        AppComponent,
+        AccueilComponent,
+        NotFoundComponent,
+        MapComponent,
+        PageMapComponent,
+        PresComponent,
+        RegisterComponent,
+        AddBarComponent,
+      ],
+      imports: [
+        HttpClientModule,
+        FormsModule,
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        ButtonPanelHorizComponent,
+        ButtonUnitHorizComponent,
+        ButtonPanelVerComponent,
+        ButtonUnitVerComponent,
+        AccueilNavComponent,
+        ContactComponent,
+        LogoYGoComponent,
+        MatInputModule,
+        SnackbarComponent,
+        UserModule,
+        BarModule,
+        MatSnackBarModule,
+      ],
+      providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+      ],
+      bootstrap: [AppComponent],
+      exports: [MapComponent, MapComponent],
+    }),
+  ],
+  AppModule,
+);
 export { AppModule };
 //# sourceMappingURL=app.module.js.map

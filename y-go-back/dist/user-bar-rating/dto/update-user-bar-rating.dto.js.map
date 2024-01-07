@@ -1,1 +1,1 @@
-{"version":3,"file":"update-user-bar-rating.dto.js","sourceRoot":"","sources":["../../../src/user-bar-rating/dto/update-user-bar-rating.dto.ts"],"names":[],"mappings":";;;AAAA,6CAA8C;AAC9C,6EAAsE;AAItE,MAAa,sBAAuB,SAAQ,IAAA,qBAAW,EAAC,mDAAsB,CAAC;CAW9E;AAXD,wDAWC"}
+{"version":3,"file":"update-user-bar-rating.dto.js","sourceRoot":"","sources":["../../../src/user-bar-rating/dto/update-user-bar-rating.dto.ts"],"names":[],"mappings":";;;AAAA,6CAA8C;AAC9C,6EAAsE;AAItE,MAAa,sBAAuB,SAAQ,IAAA,qBAAW,EACrD,mDAAsB,CACvB;CAUA;AAZD,wDAYC"}

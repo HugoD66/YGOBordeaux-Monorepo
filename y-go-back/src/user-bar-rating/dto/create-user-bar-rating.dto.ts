@@ -1,6 +1,13 @@
-import {IsEmpty, IsInt, IsNotEmpty, IsOptional, Max, Min} from "class-validator";
-import {UserResponseDto} from "../../users/dto/user-response.dto";
-import {ResponseBarDto} from "../../bars/dto/response-bar.dto";
+import {
+  IsEmpty,
+  IsInt,
+  IsNotEmpty,
+  IsOptional,
+  Max,
+  Min,
+} from 'class-validator';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
+import { ResponseBarDto } from '../../bars/dto/response-bar.dto';
 
 export class CreateUserBarRatingDto {
   @IsNotEmpty()
@@ -15,9 +22,9 @@ export class CreateUserBarRatingDto {
   @IsOptional()
   public updatedAt?: Date | null;
 
-  @IsEmpty()
+  @IsNotEmpty()
   public user: UserResponseDto;
 
-  @IsEmpty()
+  @IsNotEmpty()
   public bar: ResponseBarDto;
 }

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {ResponsePictureListDto} from "../../picture-list/dto/response-picture-list.dto";
-import {ResponseGeoDto} from "../../geo/dto/response-geo.dto";
-import {UserResponseDto} from "../../users/dto/user-response.dto";
+import { ResponsePictureListDto } from '../../picture-list/dto/response-picture-list.dto';
+import { ResponseGeoDto } from '../../geo/dto/response-geo.dto';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
 
 export class ResponseBarDto {
   id?: string;

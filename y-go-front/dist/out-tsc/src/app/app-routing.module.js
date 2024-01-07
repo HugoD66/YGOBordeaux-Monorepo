@@ -10,33 +10,35 @@ import { RegisterComponent } from "./pages/register/register.component";
 import { UsersComponent } from "./pages/users/users.component";
 import { AddBarComponent } from "./pages/bars/add-bar/add-bar.component";
 const routes = [
-    { path: `login`, component: LoginComponent },
-    { path: `register`, component: RegisterComponent },
-    {
-        path: 'bars',
-        children: [
-            { path: '', component: BarsComponent },
-            { path: 'add-bar', component: AddBarComponent },
-            { path: 'detail/:id', component: DetailBarComponent },
-        ]
-    },
-    {
-        path: 'users',
-        children: [
-            { path: '', component: UsersComponent },
-            { path: 'detail/:id', component: DetailBarComponent },
-        ]
-    },
-    { path: ``, component: AccueilComponent },
-    { path: `**`, component: NotFoundComponent },
+  { path: `login`, component: LoginComponent },
+  { path: `register`, component: RegisterComponent },
+  {
+    path: "bars",
+    children: [
+      { path: "", component: BarsComponent },
+      { path: "add-bar", component: AddBarComponent },
+      { path: "detail/:id", component: DetailBarComponent },
+    ],
+  },
+  {
+    path: "users",
+    children: [
+      { path: "", component: UsersComponent },
+      { path: "detail/:id", component: DetailBarComponent },
+    ],
+  },
+  { path: ``, component: AccueilComponent },
+  { path: `**`, component: NotFoundComponent },
 ];
-let AppRoutingModule = class AppRoutingModule {
-};
-AppRoutingModule = __decorate([
+let AppRoutingModule = class AppRoutingModule {};
+AppRoutingModule = __decorate(
+  [
     NgModule({
-        imports: [RouterModule.forRoot(routes)],
-        exports: [RouterModule],
-    })
-], AppRoutingModule);
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule],
+    }),
+  ],
+  AppRoutingModule,
+);
 export { AppRoutingModule };
 //# sourceMappingURL=app-routing.module.js.map

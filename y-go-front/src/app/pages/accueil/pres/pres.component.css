@@ -48,7 +48,9 @@
   line-height: 5vw;
   letter-spacing: 1.1vw;
   text-shadow: 0 14px 13px black;
-  font-family: Moontime, sans serif;
+  font-family:
+    Moontime,
+    sans serif;
   user-select: none;
 }
 @media screen and (max-width: 1080px) {
@@ -91,7 +93,11 @@
   top: 30%;
   left: 0;
   height: 15%;
-  background: linear-gradient(180deg, rgba(250, 245, 245, 0) 7%, rgb(166, 66, 70) 80%);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 245, 245, 0) 7%,
+    rgb(166, 66, 70) 80%
+  );
   width: 100%;
   z-index: 4;
 }

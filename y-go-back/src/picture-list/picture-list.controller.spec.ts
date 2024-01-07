@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PictureListController } from './picture-list.controller';
 import { PictureListService } from './picture-list.service';
 
-describe('PictureListController', () => {
+describe(`PictureListController`, () => {
   let controller: PictureListController;
 
   beforeEach(async () => {
@@ -14,7 +14,7 @@ describe('PictureListController', () => {
     controller = module.get<PictureListController>(PictureListController);
   });
 
-  it('should be defined', () => {
+  it(`should be defined`, () => {
     expect(controller).toBeDefined();
   });
 });

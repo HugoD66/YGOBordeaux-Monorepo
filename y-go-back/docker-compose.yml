@@ -4,11 +4,11 @@ services:
     image: bitnami/postgresql:latest
     restart: always
     environment:
-      POSTGRES_PASSWORD: "root"
-      POSTGRES_USER: "root"
-      POSTGRES_DB: "root"
+      POSTGRES_PASSWORD: 'root'
+      POSTGRES_USER: 'root'
+      POSTGRES_DB: 'root'
     ports:
-      - "5500:5432"
+      - '5500:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

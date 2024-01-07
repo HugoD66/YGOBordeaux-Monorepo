@@ -1,4 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/styles/variables";
+@import "./app/styles/fonts";
+
+/*
+MediaQueries :
+- Mobile : 0px - 767px
+- Tablet : 768px - 1023px
+- Desktop : 1024px - 1279px
+- Large : 1280px - 1919px
+- Extra Large : 1920px - 5000px
+680
+980
+1080
+1300
+ */
 
 html,
 body {
@@ -10,30 +24,7 @@ body {
   height: 100%;
 }
 
-/* Design  */
-
-/* Typo */
-@font-face {
-  font-family: "Moontime";
-  src: url("assets/typo/FontsFree-Net-MoonTime-Regular.ttf");
-}
-@font-face {
-  font-family: "Montserrat light";
-  src: url("assets/typo/MontserratAlternates-Regular.ttf");
-}
-@font-face {
-  font-family: "Titillium";
-  src: url("assets/typo/TitilliumWeb-Regular.ttf");
-}
-/* Colors */
-$background-accueil: rgb(236, 183, 150);
-$base: rgb(245, 221, 194);
-$marron: rgb(233, 161, 120);
-$red: rgb(168, 68, 72);
-$violet: rgb(122, 62, 101);
-
 /* Buttons */
-
 .button-panel-unit {
   background-color: $base;
   padding: 10px 20px;
@@ -48,4 +39,19 @@ $violet: rgb(122, 62, 101);
     transition: background-color 0.1s;
     background-color: $background-accueil;
   }
+}
+
+//ScrollBar
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

@@ -3,34 +3,35 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  ManyToOne, OneToMany,
+  ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn
-} from "typeorm"
-import { PictureList } from "../../picture-list/entities/picture-list.entity";
-import {Geo} from "../../geo/entities/geo.entity";
-import {User} from "../../users/entities/user.entity";
-import {UserBarRating} from "../../user-bar-rating/entities/user-bar-rating.entity";
+  UpdateDateColumn,
+} from 'typeorm';
+import { PictureList } from '../../picture-list/entities/picture-list.entity';
+import { Geo } from '../../geo/entities/geo.entity';
+import { User } from '../../users/entities/user.entity';
+import { UserBarRating } from '../../user-bar-rating/entities/user-bar-rating.entity';
 
 @Entity()
 export class Bar {
   @PrimaryGeneratedColumn(`uuid`)
-  public id!: string
+  public id!: string;
 
   @Column({ unique: true })
-  public name!: string
+  public name!: string;
 
   @Column({ unique: true })
-  public adresse!: string
+  public adresse!: string;
 
   @Column()
   public description?: string;
 
-  @Column({unique: true})
+  @Column({ unique: true })
   public telephone: string;
 
-  @Column({ type: 'float', nullable: true, default: 0 })
+  @Column({ type: `float`, nullable: true, default: 0 })
   public note?: number;
 
   @CreateDateColumn()
@@ -39,29 +40,29 @@ export class Bar {
   @UpdateDateColumn()
   public updatedAt?: Date | null;
 
-  @OneToOne(() => PictureList, pictureList => pictureList.bar, {
-    cascade: ['insert', 'update', 'remove'],
-    onDelete: 'CASCADE',
+  @OneToOne(() => PictureList, (pictureList) => pictureList.bar, {
+    cascade: [`insert`, `update`, `remove`],
+    onDelete: `CASCADE`,
   })
   @JoinColumn()
   public pictureList: PictureList | null;
 
-  @OneToOne(() => Geo, geo => geo.bar, {
-    cascade: ['insert', 'update', 'remove'],
-    onDelete: 'CASCADE',
+  @OneToOne(() => Geo, (geo) => geo.bar, {
+    cascade: [`insert`, `update`, `remove`],
+    onDelete: `CASCADE`,
   })
   @JoinColumn()
   public geo: Geo | null;
 
-  @ManyToOne(() => User, user => user.createBars)
-  @JoinColumn({ name: 'createdById' })
+  @ManyToOne(() => User, (user) => user.createBars)
+  @JoinColumn({ name: `createdById` })
   public createdBy!: User;
 
-  @OneToMany(() => UserBarRating, userBarRating => userBarRating.bar)
+  @OneToMany(() => UserBarRating, (userBarRating) => userBarRating.bar)
   userBarRatings?: UserBarRating[] | null;
 }
 
-  /*
+/*
   @Column()
   public neighborhood?: string // quartier
 
@@ -97,4 +98,3 @@ export class Bar {
   @Column()
   public notes?: number
    */
-

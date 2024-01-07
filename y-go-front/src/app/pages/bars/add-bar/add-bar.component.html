@@ -1,5 +1,5 @@
 <section>
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="formulaire">
+  <form [formGroup]="barForm" (ngSubmit)="onSubmit()" class="formulaire">
     <div class="form-inputs">
       <div class="inputs">
         <!-- Name -->
@@ -8,11 +8,10 @@
             <mat-label>Nom</mat-label>
             <input
               class="form-control"
-              matInput placeholder="Nom du bar..."
-              name="name"
-              required
-              [(ngModel)]="name"
-            >
+              matInput
+              placeholder="Nom du bar..."
+              formControlName="name"
+            />
             <mat-icon matSuffix></mat-icon>
           </mat-form-field>
         </div>
@@ -23,9 +22,7 @@
             <textarea
               class="form-control form-textarea"
               matInput
-              name="description"
-              required
-              [(ngModel)]="description"
+              formControlName="description"
             ></textarea>
             <mat-icon matSuffix>description</mat-icon>
           </mat-form-field>
@@ -36,22 +33,31 @@
             <mat-label>Telephone</mat-label>
             <input
               class="form-control"
-              matInput placeholder="06.67 ..."
-              name="telephone"
-              required
-              [(ngModel)]="telephone"
-            >
+              matInput
+              placeholder="06.67 ..."
+              formControlName="telephone"
+            />
             <mat-icon matSuffix>phone</mat-icon>
+            <mat-error
+              *ngIf="
+                barForm.get('telephone')?.invalid &&
+                barForm.get('telephone')?.touched
+              "
+            >
+              <div
+                class="error-phone-valid"
+                *ngIf="barForm.get('telephone')?.errors?.['pattern']"
+              >
+                Veuillez entrer un numéro de téléphone valide.
+              </div>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="submit-error">
-          <div *ngIf="errorMessage" class="error-message">
-            {{ errorMessage }}
+          <div *ngIf="barForm.errors?.['submit']" class="error-message">
+            {{ barForm.errors?.["submit"] }}
           </div>
-          <button class="send-button"
-                  type="submit"
-                  mat-raised-button
-          >
+          <button class="send-button" type="submit" mat-raised-button>
             Envoyer
           </button>
         </div>
@@ -69,44 +75,111 @@
             <mat-label>Adresse </mat-label>
             <input
               class="form-control"
-              matInput placeholder="Son adresse..."
-              name="adresse"
-              required
-              [(ngModel)]="adresse"
-              (ngModelChange)="onAddressChange()"
-            >
+              matInput
+              placeholder="Son adresse..."
+              formControlName="adresse"
+              (change)="onAddressChange()"
+            />
             <mat-icon matSuffix></mat-icon>
             <mat-hint></mat-hint>
+            <mat-error
+              *ngIf="
+                barForm.get('adresse')?.invalid &&
+                barForm.get('adresse')?.touched
+              "
+              >Adresse is required.</mat-error
+            >
           </mat-form-field>
         </div>
         <!-- Pictures -->
         <div class="content-list-pictures">
           <div class="form-group custom-file-upload">
-            <input type="file" id="pictureOne" name="pictureOne" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureOne')">
+            <input
+              type="file"
+              id="pictureOne"
+              name="pictureOne"
+              accept="image/png, image/jpeg"
+              (change)="onFileChange($event, 'pictureOne')"
+              [ngClass]="{
+                'input-invalid':
+                  barForm.get('pictureOne')?.invalid &&
+                  barForm.get('pictureOne')?.touched
+              }"
+            />
             <label for="pictureOne" class="file-upload-label">
-              <mat-icon class="icon-submit" *ngIf="!pictureOne">upload</mat-icon>
-              <mat-icon class="icon-submit" *ngIf="pictureOne">done</mat-icon>
+              <mat-icon
+                class="icon-submit"
+                *ngIf="!barForm.get('pictureOne')?.value"
+                >upload</mat-icon
+              >
+              <mat-icon
+                class="icon-submit"
+                *ngIf="barForm.get('pictureOne')?.value"
+                >done</mat-icon
+              >
             </label>
           </div>
           <div class="form-group custom-file-upload">
-            <input type="file" id="pictureTwo" name="pictureTwo" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureTwo')">
+            <input
+              type="file"
+              id="pictureTwo"
+              name="pictureTwo"
+              accept="image/png, image/jpeg"
+              (change)="onFileChange($event, 'pictureTwo')"
+            />
             <label for="pictureTwo" class="file-upload-label">
-              <mat-icon class="icon-submit" *ngIf="!pictureTwo">upload</mat-icon>
-              <mat-icon class="icon-submit" *ngIf="pictureTwo">thumb_up</mat-icon>
+              <mat-icon
+                class="icon-submit"
+                *ngIf="!barForm.get('pictureTwo')?.value"
+                >upload</mat-icon
+              >
+              <mat-icon
+                class="icon-submit"
+                *ngIf="barForm.get('pictureTwo')?.value"
+                >thumb_up</mat-icon
+              >
             </label>
           </div>
           <div class="form-group custom-file-upload">
-            <input type="file" id="pictureThree" name="pictureThree" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureThree')">
+            <input
+              type="file"
+              id="pictureThree"
+              name="pictureThree"
+              accept="image/png, image/jpeg"
+              (change)="onFileChange($event, 'pictureThree')"
+            />
             <label for="pictureThree" class="file-upload-label">
-              <mat-icon class="icon-submit" *ngIf="!pictureThree">upload</mat-icon>
-              <mat-icon class="icon-submit" *ngIf="pictureThree">thumb_up</mat-icon>
+              <mat-icon
+                class="icon-submit"
+                *ngIf="!barForm.get('pictureThree')?.value"
+                >upload</mat-icon
+              >
+              <mat-icon
+                class="icon-submit"
+                *ngIf="barForm.get('pictureThree')?.value"
+                >thumb_up</mat-icon
+              >
             </label>
           </div>
           <div class="form-group custom-file-upload">
-            <input type="file" id="pictureFour" name="pictureFour" accept="image/png, image/jpeg" (change)="onFileChange($event, 'pictureFour')">
+            <input
+              type="file"
+              id="pictureFour"
+              name="pictureFour"
+              accept="image/png, image/jpeg"
+              (change)="onFileChange($event, 'pictureFour')"
+            />
             <label for="pictureFour" class="file-upload-label">
-              <mat-icon class="icon-submit" *ngIf="!pictureFour">upload</mat-icon>
-              <mat-icon class="icon-submit" *ngIf="pictureFour">thumb_up</mat-icon>
+              <mat-icon
+                class="icon-submit"
+                *ngIf="!barForm.get('pictureFour')?.value"
+                >upload</mat-icon
+              >
+              <mat-icon
+                class="icon-submit"
+                *ngIf="barForm.get('pictureFour')?.value"
+                >thumb_up</mat-icon
+              >
             </label>
           </div>
         </div>
@@ -116,7 +189,10 @@
 </section>
 <app-logo-ygo></app-logo-ygo>
 <div class="background-form">
-  <img class="back-picture" src="assets/pictures/back-add-bar-form.jpg" alt="background-form">
+  <img
+    class="back-picture"
+    src="assets/pictures/back-add-bar-form.jpg"
+    alt="background-form"
+  />
   <div class="linear"></div>
 </div>
-```

@@ -42,7 +42,7 @@
         }
         ol {
           @media screen and (max-width: 1300px) {
-            font-size: .9rem;
+            font-size: 0.9rem;
             text-align: center;
           }
         }
@@ -64,7 +64,11 @@
           bottom: 0;
           right: 0;
           width: 1px;
-          background: linear-gradient(to bottom, rgb(245, 221, 194), rgb(166, 66, 70));
+          background: linear-gradient(
+            to bottom,
+            rgb(245, 221, 194),
+            rgb(166, 66, 70)
+          );
         }
         &::before {
           content: "";
@@ -73,7 +77,11 @@
           right: 0;
           bottom: 0;
           height: 1px;
-          background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
+          background: linear-gradient(
+            to right,
+            rgb(245, 221, 194),
+            rgb(166, 66, 70)
+          );
         }
       }
       p {
@@ -86,7 +94,7 @@
       }
       .map-clicked {
         background-color: rgb(245, 221, 194);
-        color: #A64246FF;
+        color: #a64246ff;
         width: 60%;
         height: 30%;
         align-self: center;
@@ -107,10 +115,22 @@
           align-items: center;
           flex-direction: column;
           height: 100%;
+          .star-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            width: 80%;
+            img {
+              width: 90%;
+              height: 90%;
+              object-fit: cover;
+            }
+          }
           h5 {
             width: 90%;
             font-size: 1.5rem;
-            color: #A64246FF;
+            color: #a64246ff;
             margin: 0;
             padding: 8px;
             position: relative;
@@ -124,7 +144,11 @@
               bottom: 0;
               right: 0;
               width: 1px;
-              background: linear-gradient(to top, rgb(245, 221, 194), rgb(166, 66, 70));
+              background: linear-gradient(
+                to top,
+                rgb(245, 221, 194),
+                rgb(166, 66, 70)
+              );
             }
             &::before {
               content: "";
@@ -133,18 +157,21 @@
               right: 0;
               bottom: 0;
               height: 1px;
-              background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
+              background: linear-gradient(
+                to left,
+                rgb(245, 221, 194),
+                rgb(166, 66, 70)
+              );
             }
           }
           p {
             width: 80%;
             color: rgb(166, 66, 70);
             @media screen and (max-width: 1300px) {
-              font-size: .8rem;
+              font-size: 0.8rem;
             }
           }
         }
-
       }
     }
   }
@@ -170,7 +197,7 @@
   right: 0;
   bottom: 0;
   z-index: 3;
-  .back-picture{
+  .back-picture {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -178,4 +205,3 @@
     background-color: black;
   }
 }
-

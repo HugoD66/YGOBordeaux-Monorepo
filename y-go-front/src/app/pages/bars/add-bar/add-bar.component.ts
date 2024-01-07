@@ -1,56 +1,68 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {environment} from "../../../../../env";
-import {NgForm} from "@angular/forms";
-import {BarService} from "../../../services/bar.service";
-import {PictureListService} from "../../../services/picture-list.service";
-import {PictureListModel} from "../../../models/picture-list.model";
-import {BarModel} from "../../../models/bar.model";
-import {config, Map, MapStyle, Marker} from "@maptiler/sdk";
-import {GeocodingService} from "../../../services/geocoding.service";
-import {MapService} from "../../../services/map.service";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BarService } from '../../../services/bar.service';
+import { PictureListService } from '../../../services/picture-list.service';
+import { BarModel } from '../../../models/bar.model';
+import { config, Map } from '@maptiler/sdk';
+import { GeocodingService } from '../../../services/geocoding.service';
+import { MapService } from '../../../services/map.service';
+import { PictureListModel } from '../../../models/picture-list.model';
 
 @Component({
-  selector: 'app-add-bars',
-  templateUrl: './add-bar.component.html',
-  styleUrls: ['./add-bar.component.scss']
+  selector: `app-add-bars`,
+  templateUrl: `./add-bar.component.html`,
+  styleUrls: [`./add-bar.component.scss`],
 })
-export class AddBarComponent implements OnInit, AfterViewInit{
-  errorMessage: any
-  name: string;
-  adresse: string;
-  description: string;
-  telephone: string;
-  pictureOne: string | null = null;
-  pictureTwo: string | null = null;
-  pictureThree: string | null = null;
-  pictureFour: string | null = null;
+export class AddBarComponent implements OnInit, AfterViewInit {
+  barForm: FormGroup;
+  map: Map | undefined;
 
-  currentMarker: Marker | null = null;
+  @ViewChild(`map`)
+  private mapContainer!: ElementRef<HTMLElement>;
 
   constructor(
+    private fb: FormBuilder,
     private barService: BarService,
     private pictureListService: PictureListService,
     private geocodingService: GeocodingService,
-    private mapService: MapService
-    ) {
-    this.name = '';
-    this.adresse = '';
-    this.description = '';
-    this.telephone = '';
-    this.pictureOne = '';
-    this.pictureTwo = '';
-    this.pictureThree = '';
-    this.pictureFour = '';
+    private mapService: MapService,
+  ) {
+    this.barForm = this.fb.group({
+      name: [
+        ``,
+        [
+          Validators.required,
+          Validators.maxLength(15),
+          Validators.minLength(3),
+        ],
+      ],
+      adresse: [``, Validators.required],
+      description: [
+        ``,
+        [
+          Validators.required,
+          Validators.maxLength(150),
+          Validators.minLength(15),
+        ],
+      ],
+      telephone: [``, [Validators.pattern(`^((\\+91-?)|0)?[0-9]{10}$`)]],
+      pictureOne: [Validators.required],
+      pictureTwo: [null],
+      pictureThree: [null],
+      pictureFour: [null],
+    });
   }
-  map: Map | undefined;
-
-  @ViewChild('map')
-  private mapContainer!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    config.apiKey = '1bYmKrc8pg0FSu8GXalV';
-    this.mapService.addressSelected.subscribe(address => {
-      this.adresse = address;
+    config.apiKey = `1bYmKrc8pg0FSu8GXalV`;
+    this.mapService.addressSelected.subscribe((address) => {
+      this.barForm.patchValue({ adresse: address });
     });
   }
 
@@ -66,88 +78,86 @@ export class AddBarComponent implements OnInit, AfterViewInit{
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        switch(pictureId) {
-          case 'pictureOne':
-            this.pictureOne = reader.result as string;
-            break;
-          case 'pictureTwo':
-            this.pictureTwo = reader.result as string;
-            break;
-          case 'pictureThree':
-            this.pictureThree = reader.result as string;
-            break;
-          case 'pictureFour':
-            this.pictureFour = reader.result as string;
-            break;
-        }
+        this.barForm.patchValue({
+          [pictureId as string]: reader.result as string,
+        });
       };
     }
   }
 
-  onSubmit(form: NgForm) {
-    const barData = {
-      name: this.name,
-      adresse: this.adresse,
-      description: this.description,
-      telephone: this.telephone,
-    };
-    this.barService.addBar(barData).subscribe({
-      next: (barResponse: BarModel) => {
-        console.log('Bar enregistré avec succès:', barResponse);
-        const pictureListData = {
-          pictureOne: this.pictureOne,
-          pictureTwo: this.pictureTwo,
-          pictureThree: this.pictureThree,
-          pictureFour: this.pictureFour,
-        };
-        this.pictureListService.addPictureList(pictureListData).subscribe({
-          next: (pictureListResponse: PictureListModel | null) => {
-            console.log('PictureList enregistrée avec succès:', pictureListResponse);
-          },
-          error: (error) => console.error("Erreur lors de l'enregistrement de PictureList:", error)
-        });
-      },
-      error: (error) => {
-        console.error('Erreur lors de l\'enregistrement du bar:', error);
-        this.errorMessage = error.error.message || 'Une erreur s\'est produite lors de l\'enregistrement du bar.';
-      }
-    });
+  onSubmit() {
+    if (this.barForm.valid) {
+      const barData = this.barForm.value;
+      this.barService.addBar(barData).subscribe({
+        next: (barResponse: BarModel) => {
+          const pictureListData = {
+            pictureOne: this.barForm.value.pictureOne,
+            pictureTwo: this.barForm.value.pictureTwo,
+            pictureThree: this.barForm.value.pictureThree,
+            pictureFour: this.barForm.value.pictureFour,
+          };
+
+          this.pictureListService.addPictureList(pictureListData).subscribe({
+            next: (pictureListResponse: PictureListModel | null) => {
+              console.log(
+                `PictureList enregistrée avec succès:`,
+                pictureListResponse,
+              );
+            },
+            error: (error) =>
+              console.error(
+                `Erreur lors de l'enregistrement de PictureList:`,
+                error,
+              ),
+          });
+
+          this.geocodingService
+            .getCoordinates(this.barForm.value.adresse)
+            .subscribe(
+              (data) => {
+                console.log(data);
+                this.geocodingService.addGeo(data).subscribe(
+                  (geoResponse) => {
+                    console.log(`Geo enregistré avec succès:`, geoResponse);
+                  },
+                  (error) => {
+                    console.error(
+                      `Erreur lors de l'enregistrement du Geo:`,
+                      error,
+                    );
+                  },
+                );
+              },
+              (error) => {
+                console.error(
+                  `Erreur lors de la récupération des coordonnées:`,
+                  error,
+                );
+              },
+            );
+
+          console.log(`Bar enregistré avec succès:`, barResponse);
+        },
+        error: (error) => {
+          console.error(`Erreur lors de l'enregistrement du bar:`, error);
+          this.barForm.setErrors({
+            submit:
+              error.error.message ||
+              `Une erreur s'est produite lors de l'enregistrement du bar.`,
+          });
+        },
+      });
+    }
   }
 
   onAddressChange(): void {
-    this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
-      console.log(data);
-      if (this.adresse.length > 5) {
-        this.mapService.setMarkerByCoordinates(data.x, data.y);
-      }
-    })
-      /*
-       if (this.adresse.length > 5) { // Pour éviter les requêtes trop fréquentes
-        this.geocodingService.getCoordinates(this.adresse).subscribe(data => {
-          console.log(this.adresse);
-
-          if (data && data.features && data.features.length > 0) {
-            const coordinates = data.features[0].geometry.coordinates;
-            this.updateMapMarker(coordinates[0], coordinates[1]);
-          }
-        }, error => {
-          console.error('Erreur de géocodage:', error);
+    if (this.barForm.value.adresse.length > 5) {
+      this.geocodingService
+        .getCoordinates(this.barForm.value.adresse)
+        .subscribe((data) => {
+          console.log(data);
+          this.mapService.setMarkerByCoordinates(data.x, data.y);
         });
-      }
-       */
+    }
   }
-
-  //updateMapMarker(lng: number, lat: number): void {
-  //  // Supprimer l'ancien marqueur
-  //  if (this.currentMarker) {
-  //    this.currentMarker.remove();
-  //  }
-
-  //  // Ajouter un nouveau marqueur
-  //  this.currentMarker = new Marker({ color: "#00FF00" })
-  //    .setLngLat([lng, lat])
-  //    .addTo(this.map!);
-  //}
-
-
 }

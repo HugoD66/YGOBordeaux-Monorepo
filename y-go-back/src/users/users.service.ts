@@ -1,20 +1,25 @@
-import {Injectable, NotFoundException, UnauthorizedException} from "@nestjs/common"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { User } from "./entities/user.entity"
-import {CreateUserDto} from "./dto/create-user.dto";
-import {UserResponseDto} from "./dto/user-response.dto";
-import {JwtService} from "@nestjs/jwt";
-import {UserRoleEnum} from "./entities/types/user.roles.enum";
-import {LoginDto} from "./dto/login.dto";
-import {LoginResponseDto} from "./dto/login-response.dto";
+import { User } from './entities/user.entity';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UserResponseDto } from './dto/user-response.dto';
+import { JwtService } from '@nestjs/jwt';
+import { UserRoleEnum } from './entities/types/user.roles.enum';
+import { LoginDto } from './dto/login.dto';
+import { LoginResponseDto } from './dto/login-response.dto';
 import {
   EmailAlreadyExistsException,
-  InvalidEmailFormatException, InvalidPasswordFormatException,
+  InvalidEmailFormatException,
+  InvalidPasswordFormatException,
   NameTooShortException,
-  ServerErrorException
-} from "./errorsRegister/errors";
+  ServerErrorException,
+} from './errorsRegister/errors';
 @Injectable()
 export class UsersService {
   constructor(
@@ -38,7 +43,7 @@ export class UsersService {
         name: createUserDto.name,
         email: createUserDto.email,
         password: hashedPassword,
-        picture: createUserDto.picture?? null,
+        picture: createUserDto.picture ?? null,
         role: createUserDto.role ?? UserRoleEnum.Utilisateur,
       });
       const savedUser: User = await this.usersRepository.save(user);
@@ -47,14 +52,16 @@ export class UsersService {
         name: savedUser.name,
         email: savedUser.email,
         picture: savedUser.picture,
-        role: savedUser.role
+        role: savedUser.role,
       };
     } catch (error) {
-      if ( error instanceof EmailAlreadyExistsException ||
+      if (
+        error instanceof EmailAlreadyExistsException ||
         error instanceof InvalidEmailFormatException ||
         error instanceof NameTooShortException ||
         error instanceof ServerErrorException ||
-        error instanceof InvalidPasswordFormatException) {
+        error instanceof InvalidPasswordFormatException
+      ) {
         throw error;
       }
       throw new ServerErrorException();
@@ -66,14 +73,14 @@ export class UsersService {
         where: { email: loginDto.email },
       });
       if (!user) {
-        throw new NotFoundException('User not found');
+        throw new NotFoundException(`User not found`);
       }
       const passwordMatch = await bcrypt.compare(
         loginDto.password,
         user.password,
       );
       if (!passwordMatch) {
-        throw new UnauthorizedException('Invalid password');
+        throw new UnauthorizedException(`Invalid password`);
       }
       const payload = { sub: user.id, email: user.email };
       return {
@@ -86,21 +93,24 @@ export class UsersService {
   }
 
   async findOne(id: string): Promise<User> {
-    return this.usersRepository.findOne({ where: { id } })
+    return this.usersRepository.findOne({ where: { id } });
   }
 
   async findAll(): Promise<User[]> {
-    return this.usersRepository.find()
+    return this.usersRepository.find();
   }
 
-  async update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto> {
+  async update(
+    id: string,
+    updateUserDto: Partial<User>,
+  ): Promise<UserResponseDto> {
     const user: User = await this.usersRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
     const updatedUser = {
       ...user,
-      ...updateUserDto
+      ...updateUserDto,
     };
     await this.usersRepository.save(updatedUser);
     return {
@@ -113,6 +123,6 @@ export class UsersService {
   }
 
   async remove(id: string): Promise<void> {
-    await this.usersRepository.delete(id)
+    await this.usersRepository.delete(id);
   }
 }

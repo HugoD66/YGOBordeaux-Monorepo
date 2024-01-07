@@ -1,15 +1,15 @@
-import {MapStyle} from "@maptiler/sdk";
+import { MapStyle } from '@maptiler/sdk';
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: `http://localhost:3000`,
 
-  //Map
+  // Map
   mapStyle: MapStyle.STREETS,
-  mapTilerUrl: 'https://api.maptiler.com/maps/streets',
-  mapTilerApiKey: '1bYmKrc8pg0FSu8GXalV',
+  mapTilerUrl: `https://api.maptiler.com/maps/streets`,
+  mapTilerApiKey: `1bYmKrc8pg0FSu8GXalV`,
   mapInitialState: { lng: -0.57918, lat: 44.83779, zoom: 12 },
 
-  //Geocoding
-  geocodingUrl : 'https://api.maptiler.com/geocoding/',
+  // Geocoding
+  geocodingUrl: `https://api.maptiler.com/geocoding/`,
 };

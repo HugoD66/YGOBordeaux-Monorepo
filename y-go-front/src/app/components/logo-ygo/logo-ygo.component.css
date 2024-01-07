@@ -22,7 +22,9 @@ h3 {
   font-weight: normal;
   line-height: 5vw;
   text-shadow: 0 14px 13px black;
-  font-family: Moontime, sans serif;
+  font-family:
+    Moontime,
+    sans serif;
   user-select: none;
 }
 

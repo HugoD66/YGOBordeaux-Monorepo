@@ -1,14 +1,14 @@
-import {Injectable, NotFoundException} from "@nestjs/common"
-import { CreateBarDto } from "./dto/create-bar.dto"
-import { UpdateBarDto } from "./dto/update-bar.dto"
-import {InjectRepository} from "@nestjs/typeorm";
-import {Repository} from "typeorm";
-import {Bar} from "./entities/bar.entity";
-import {ResponseBarDto} from "./dto/response-bar.dto";
-import {PictureListService} from "../picture-list/picture-list.service";
-import {GeoService} from "../geo/geo.service";
-import {UsersService} from "../users/users.service";
-import {User} from "../users/entities/user.entity";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { CreateBarDto } from './dto/create-bar.dto';
+import { UpdateBarDto } from './dto/update-bar.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Bar } from './entities/bar.entity';
+import { ResponseBarDto } from './dto/response-bar.dto';
+import { PictureListService } from '../picture-list/picture-list.service';
+import { GeoService } from '../geo/geo.service';
+import { UsersService } from '../users/users.service';
+import { User } from '../users/entities/user.entity';
 @Injectable()
 export class BarsService {
   constructor(
@@ -20,23 +20,23 @@ export class BarsService {
     private geoService: GeoService,
 
     private usersService: UsersService,
-  ) {
-  }
+  ) {}
 
   async create(createBarDto: CreateBarDto, userId: string): Promise<Bar> {
     try {
       const user = await this.usersService.findOne(userId);
-      let pictureListEntity = await this.pictureListService.create(createBarDto.pictureList);
+      let pictureListEntity = await this.pictureListService.create(
+        createBarDto.pictureList,
+      );
       let geoEntity = await this.geoService.create(createBarDto.geo);
       const bar = this.barRepository.create({
         ...createBarDto,
         createdBy: user,
         pictureList: pictureListEntity,
-        geo: geoEntity
+        geo: geoEntity,
       });
 
       return await this.barRepository.save(bar);
-
     } catch (error) {
       throw error;
     }
@@ -71,11 +71,11 @@ export class BarsService {
 
   async findOne(id: string): Promise<Bar> {
     const bar = await this.barRepository
-      .createQueryBuilder('bar')
-      .leftJoinAndSelect('bar.pictureList', 'pictureList')
-      .leftJoinAndSelect('bar.geo', 'geo')
-      .leftJoinAndSelect('bar.createdBy', 'createdBy')
-      .where('bar.id = :id', { id })
+      .createQueryBuilder(`bar`)
+      .leftJoinAndSelect(`bar.pictureList`, `pictureList`)
+      .leftJoinAndSelect(`bar.geo`, `geo`)
+      .leftJoinAndSelect(`bar.createdBy`, `createdBy`)
+      .where(`bar.id = :id`, { id })
       .getOne();
     if (!bar) {
       throw new NotFoundException(`Bar with id ${id} not found`);
@@ -84,15 +84,15 @@ export class BarsService {
   }
 
   async findOnePartial(id: string): Promise<Bar> {
-    return this.barRepository.findOne({ where: { id } })
+    return this.barRepository.findOne({ where: { id } });
   }
 
   async findAll(): Promise<ResponseBarDto[]> {
     const barList: ResponseBarDto[] = await this.barRepository
-      .createQueryBuilder('bar')
-      .leftJoinAndSelect('bar.pictureList', 'pictureList')
-      .leftJoinAndSelect('bar.geo', 'geo')
-      .leftJoinAndSelect('bar.createdBy', 'createdBy')
+      .createQueryBuilder(`bar`)
+      .leftJoinAndSelect(`bar.pictureList`, `pictureList`)
+      .leftJoinAndSelect(`bar.geo`, `geo`)
+      .leftJoinAndSelect(`bar.createdBy`, `createdBy`)
       .getMany();
 
     return barList;
@@ -105,10 +105,15 @@ export class BarsService {
   }
    */
 
-  async update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto> {
+  async update(
+    id: string,
+    updateBarDto: Partial<UpdateBarDto>,
+  ): Promise<ResponseBarDto> {
     // @ts-ignore
     await this.barRepository.update(id, updateBarDto);
-    const updatedUser: Bar = await this.barRepository.findOne({ where: { id } })
+    const updatedUser: Bar = await this.barRepository.findOne({
+      where: { id },
+    });
     return updatedUser;
   }
 

@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UserBarRatingController } from './user-bar-rating.controller';
 import { UserBarRatingService } from './user-bar-rating.service';
 
-describe('UserBarRatingController', () => {
+describe(`UserBarRatingController`, () => {
   let controller: UserBarRatingController;
 
   beforeEach(async () => {
@@ -14,7 +14,7 @@ describe('UserBarRatingController', () => {
     controller = module.get<UserBarRatingController>(UserBarRatingController);
   });
 
-  it('should be defined', () => {
+  it(`should be defined`, () => {
     expect(controller).toBeDefined();
   });
 });

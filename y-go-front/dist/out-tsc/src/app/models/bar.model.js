@@ -1,3 +1,2 @@
-export class BarModel {
-}
+export class BarModel {}
 //# sourceMappingURL=bar.model.js.map

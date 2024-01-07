@@ -18,6 +18,10 @@ section {
       justify-content: center;
       align-items: center;
       height: 85%;
+      .error-phone-valid {
+        font-weight: 500;
+        font-size: 1.2em;
+      }
       @media screen and (max-width: 1080px) {
         flex-direction: column;
       }
@@ -49,7 +53,6 @@ section {
             @media screen and (max-width: 1080px) {
               margin: auto;
               align-self: center;
-
             }
           }
         }
@@ -73,7 +76,6 @@ section {
             min-height: 200px;
             height: calc(100% - 77px);
             //height: 80%; ?
-
           }
           .map {
             position: absolute;
@@ -121,15 +123,15 @@ section {
           .file-upload-label mat-icon {
             color: #666;
           }
-
         }
-        .mapEmplacement, .adress, .content-list-pictures {
+        .mapEmplacement,
+        .adress,
+        .content-list-pictures {
           width: 80%;
           margin: auto;
         }
       }
     }
-
   }
 }
 .background-form {
@@ -158,11 +160,25 @@ section {
     left: 0;
     bottom: 0;
     width: 25%;
-    background: linear-gradient(90deg, rgba(232, 232, 232, 0.51) 0%, rgba(23, 20, 20, 0) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba(232, 232, 232, 0.51) 0%,
+      rgba(23, 20, 20, 0) 100%
+    );
   }
 }
 
+.input-invalid {
+  border: 1px solid red;
+  color: red;
+  /* autres styles pour l'état invalide */
+}
 
-
-
-
+input[type="file"].ng-invalid {
+  border-color: red;
+  color: red;
+}
+input.ng-invalid {
+  border-color: red;
+  color: red;
+}

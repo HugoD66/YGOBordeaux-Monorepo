@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PictureListService } from './picture-list.service';
 
-describe('PictureListService', () => {
+describe(`PictureListService`, () => {
   let service: PictureListService;
 
   beforeEach(async () => {
@@ -12,7 +12,7 @@ describe('PictureListService', () => {
     service = module.get<PictureListService>(PictureListService);
   });
 
-  it('should be defined', () => {
+  it(`should be defined`, () => {
     expect(service).toBeDefined();
   });
 });

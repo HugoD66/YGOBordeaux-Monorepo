@@ -2,20 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SnackbarComponent } from './snackbar.component';
 
-describe('SnackbarComponent', () => {
+describe(`SnackbarComponent`, () => {
   let component: SnackbarComponent;
   let fixture: ComponentFixture<SnackbarComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SnackbarComponent]
+      declarations: [SnackbarComponent],
     });
     fixture = TestBed.createComponent(SnackbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it(`should create`, () => {
     expect(component).toBeTruthy();
   });
 });

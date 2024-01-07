@@ -19,7 +19,10 @@
   align-items: center;
   justify-content: space-around;
 }
-.content-bar-unit .pictures-content .pictures-content-galerie .pictures-content-galerie-unit {
+.content-bar-unit
+  .pictures-content
+  .pictures-content-galerie
+  .pictures-content-galerie-unit {
   display: flex;
   flex-direction: column;
   width: 200px;

@@ -1,10 +1,10 @@
-import {Column, Entity, OneToOne, PrimaryGeneratedColumn} from "typeorm";
-import {Bar} from "../../bars/entities/bar.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Bar } from '../../bars/entities/bar.entity';
 
 @Entity()
 export class PictureList {
   @PrimaryGeneratedColumn(`uuid`)
-  public id!: string
+  public id!: string;
 
   @Column({ nullable: true })
   public pictureOne?: string;
@@ -18,6 +18,6 @@ export class PictureList {
   @Column({ nullable: true })
   public pictureFour?: string;
 
-  @OneToOne(() => Bar, bar => bar.pictureList)
+  @OneToOne(() => Bar, (bar) => bar.pictureList)
   public bar!: Bar;
 }

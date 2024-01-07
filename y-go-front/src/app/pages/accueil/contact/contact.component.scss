@@ -3,7 +3,7 @@ section {
   z-index: 3;
   min-height: 100vh;
   position: relative;
-  background-color: #FAF0E4FF;
+  background-color: #faf0e4ff;
   height: 100vh;
   .contact {
     width: 100%;
@@ -39,7 +39,11 @@ section {
             bottom: 0;
             right: 0;
             width: 1px;
-            background: linear-gradient(to top, rgb(166, 66, 70), rgb(245, 221, 194));
+            background: linear-gradient(
+              to top,
+              rgb(166, 66, 70),
+              rgb(245, 221, 194)
+            );
           }
           &::before {
             content: "";
@@ -48,7 +52,11 @@ section {
             right: 0;
             top: 0;
             height: 1px;
-            background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
+            background: linear-gradient(
+              to left,
+              rgb(245, 221, 194),
+              rgb(166, 66, 70)
+            );
           }
         }
         .contact-ecole {
@@ -89,7 +97,6 @@ section {
             }
           }
         }
-
       }
       .form-content {
         margin-top: 10%;
@@ -115,7 +122,11 @@ section {
             bottom: 0;
             left: 0;
             width: 1px;
-            background: linear-gradient(to top, rgb(166, 66, 70), rgb(245, 221, 194));
+            background: linear-gradient(
+              to top,
+              rgb(166, 66, 70),
+              rgb(245, 221, 194)
+            );
           }
           &::before {
             content: "";
@@ -124,7 +135,11 @@ section {
             right: 0;
             top: 0;
             height: 1px;
-            background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
+            background: linear-gradient(
+              to right,
+              rgb(245, 221, 194),
+              rgb(166, 66, 70)
+            );
           }
         }
         .form {
@@ -159,7 +174,9 @@ section {
               font-weight: bold;
               color: rgb(245, 221, 194);
               background-color: rgb(166, 66, 70);
-              transition: background-color 0.4s, color 0.4s; /* Ajoutez cette ligne pour spécifier la transition */
+              transition:
+                background-color 0.4s,
+                color 0.4s; /* Ajoutez cette ligne pour spécifier la transition */
 
               &:focus {
                 cursor: pointer;

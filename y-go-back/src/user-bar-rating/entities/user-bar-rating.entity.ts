@@ -1,11 +1,18 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn} from "typeorm";
-import { User } from "../../users/entities/user.entity";
-import { Bar } from "../../bars/entities/bar.entity";
-import {IsInt, Max, Min} from "class-validator";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { User } from '../../users/entities/user.entity';
+import { Bar } from '../../bars/entities/bar.entity';
+import { IsInt, Max, Min } from 'class-validator';
 
 @Entity()
 export class UserBarRating {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn(`uuid`)
   id: string;
 
   @Column()
@@ -20,9 +27,9 @@ export class UserBarRating {
   @UpdateDateColumn()
   public updatedAt: Date;
 
-  @ManyToOne(() => User, user => user.userBarRatings)
+  @ManyToOne(() => User, (user) => user.userBarRatings)
   user: User;
 
-  @ManyToOne(() => Bar, bar => bar.userBarRatings)
+  @ManyToOne(() => Bar, (bar) => bar.userBarRatings)
   bar: Bar;
 }
