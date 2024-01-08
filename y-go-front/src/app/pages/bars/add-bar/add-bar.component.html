@@ -48,7 +48,7 @@
                 class="error-phone-valid"
                 *ngIf="barForm.get('telephone')?.errors?.['pattern']"
               >
-                Veuillez entrer un numéro de téléphone valide.
+                Mauvais format.
               </div>
             </mat-error>
           </mat-form-field>
@@ -87,13 +87,16 @@
                 barForm.get('adresse')?.invalid &&
                 barForm.get('adresse')?.touched
               "
-              >Adresse is required.</mat-error
+              >Adresse obligatoire.</mat-error
             >
           </mat-form-field>
         </div>
         <!-- Pictures -->
         <div class="content-list-pictures">
-          <div class="form-group custom-file-upload">
+          <div
+            class="form-group custom-file-upload"
+            [style.background-color]="barForm.get('pictureOne')?.value ? '#00FFA68C' : '#ffffff'"
+          >
             <input
               type="file"
               id="pictureOne"
@@ -119,7 +122,9 @@
               >
             </label>
           </div>
-          <div class="form-group custom-file-upload">
+          <div class="form-group custom-file-upload"
+               [style.background-color]="barForm.get('pictureTwo')?.value ? '#00FFA68C' : '#ffffff'"
+          >
             <input
               type="file"
               id="pictureTwo"
@@ -140,7 +145,9 @@
               >
             </label>
           </div>
-          <div class="form-group custom-file-upload">
+          <div class="form-group custom-file-upload"
+               [style.background-color]="barForm.get('pictureThree')?.value ? '#00FFA68C' : '#ffffff'"
+          >
             <input
               type="file"
               id="pictureThree"
@@ -161,7 +168,9 @@
               >
             </label>
           </div>
-          <div class="form-group custom-file-upload">
+          <div class="form-group custom-file-upload"
+               [style.background-color]="barForm.get('pictureFour')?.value ? '#00FFA68C' : '#ffffff'"
+          >
             <input
               type="file"
               id="pictureFour"
@@ -187,7 +196,7 @@
     </div>
   </form>
 </section>
-<app-logo-ygo></app-logo-ygo>
+<app-logo-ygo />
 <div class="background-form">
   <img
     class="back-picture"

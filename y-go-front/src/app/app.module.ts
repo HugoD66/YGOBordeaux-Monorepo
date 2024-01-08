@@ -27,9 +27,10 @@ import { AuthInterceptor } from './auth.interceptor';
 import { UserModule } from './pages/users/user.module';
 import { BarModule } from './pages/bars/bar.module';
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { SnackbarService } from './components/snackbar/snackbar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StarRatingPipe } from './pipe/star-rating.pipe';
+import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { StarRatingPipe } from './pipe/star-rating.pipe';
     PresComponent,
     RegisterComponent,
     AddBarComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     HttpClientModule,
@@ -59,7 +61,6 @@ import { StarRatingPipe } from './pipe/star-rating.pipe';
     ContactComponent,
     LogoYGoComponent,
     MatInputModule,
-    SnackbarComponent,
     UserModule,
     BarModule,
     MatSnackBarModule,

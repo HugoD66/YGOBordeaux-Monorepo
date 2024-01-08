@@ -13,6 +13,8 @@ import { config, Map } from '@maptiler/sdk';
 import { GeocodingService } from '../../../services/geocoding.service';
 import { MapService } from '../../../services/map.service';
 import { PictureListModel } from '../../../models/picture-list.model';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {SnackbarService} from "../../../components/snackbar/snackbar.component";
 
 @Component({
   selector: `app-add-bars`,
@@ -32,6 +34,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     private pictureListService: PictureListService,
     private geocodingService: GeocodingService,
     private mapService: MapService,
+    private snackbarService: SnackbarService
   ) {
     this.barForm = this.fb.group({
       name: [
@@ -52,7 +55,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
         ],
       ],
       telephone: [``, [Validators.pattern(`^((\\+91-?)|0)?[0-9]{10}$`)]],
-      pictureOne: [Validators.required],
+      pictureOne: [null, Validators.required],
       pictureTwo: [null],
       pictureThree: [null],
       pictureFour: [null],
@@ -135,6 +138,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
                 );
               },
             );
+          this.snackbarService.openSnackBar(`Bar enregistré avec succès !`, `Fermer`);
 
           console.log(`Bar enregistré avec succès:`, barResponse);
         },

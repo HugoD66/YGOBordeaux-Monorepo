@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { UserModel } from '../../../models/user.model';
 import { environment } from '../../../../../env';
+import {RateService} from "../../../services/rate.service";
+import {RateModel} from "../../../models/rate.model";
+import {Subject} from "rxjs";
 
 @Component({
   selector: `app-detail-user`,
@@ -13,11 +16,23 @@ export class DetailUserComponent implements OnInit {
   currentTime = new Date().getTime();
   public apiUrl = environment.apiUrl;
 
-  constructor(private userService: UserService) {}
+  filteredRateList: RateModel[] = [];
+  filteredRateList$ = new Subject<RateModel[]>();
+
+
+  constructor(
+    private userService: UserService,
+    private rateService: RateService) {}
 
   ngOnInit(): void {
     this.userService.getUser().subscribe((user: UserModel) => {
       this.user = user;
+    });
+
+    this.rateService.getRateList().subscribe((rateList: RateModel[]) => {
+      this.filteredRateList = rateList.filter(rate => rate.user === this.user.id);
+      console.log(this.filteredRateList);
+      this.filteredRateList$.next(this.filteredRateList);
     });
   }
 

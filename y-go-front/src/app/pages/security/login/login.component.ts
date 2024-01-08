@@ -8,7 +8,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../env';
 import { catchError, throwError } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatMenuModule} from "@angular/material/menu";
+import { SnackbarService} from "../../../components/snackbar/snackbar.component";
 @Component({
   selector: `app-login`,
   templateUrl: `./login.component.html`,
@@ -20,7 +21,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     FormsModule,
+    MatMenuModule,
   ],
+  providers: [SnackbarService]
 })
 export class LoginComponent {
   email: string;
@@ -30,7 +33,7 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private snackBar: MatSnackBar,
+    private snackBarService: SnackbarService
   ) {
     this.email = ``;
     this.password = ``;
@@ -46,21 +49,15 @@ export class LoginComponent {
       .pipe(
         catchError((error) => {
           console.error(`Erreur HTTP :`, error);
-          this.openSnackBar(`Erreur lors de l'envoi`, `Fermer`);
+          this.snackBarService.openSnackBar(`Erreur lors de l'envoi`, `Fermer`);
           return throwError(error);
         }),
       )
       .subscribe((response: any) => {
         localStorage.setItem(`access_token`, response.access_token);
         this.router.navigate([`/`]);
-        this.openSnackBar(`Bienvenu, ${this.email} !`, `Fermer`);
+        this.snackBarService.openSnackBar(`Bienvenu, ${this.email} !`, `Fermer`);
       });
-  }
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000,
-    });
   }
 
   goHome() {
@@ -68,5 +65,8 @@ export class LoginComponent {
   }
   goRegister() {
     this.router.navigate([`/register`]);
+  }
+  goForgotPassword() {
+    this.router.navigate([`/forgot-password`]);
   }
 }

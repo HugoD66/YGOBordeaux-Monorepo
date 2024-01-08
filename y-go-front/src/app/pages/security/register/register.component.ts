@@ -4,11 +4,13 @@ import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { environment } from '../../../../../env';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {SnackbarService} from "../../../components/snackbar/snackbar.component";
 
 @Component({
   selector: `app-register`,
   templateUrl: `./register.component.html`,
   styleUrls: [`./register.component.scss`],
+  providers: [SnackbarService]
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -19,7 +21,7 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private snackBar: MatSnackBar,
+    private snackBarService: SnackbarService,
   ) {
     this.registerForm = this.fb.group({
       name: [
@@ -43,11 +45,11 @@ export class RegisterComponent {
         (response) => {
           console.log(`Réponse du backend :`, response);
           this.router.navigate([`/login`]);
-          this.openSnackBar(`Enregistrement réussi !`, `Fermer`);
+          this.snackBarService.openSnackBar(`Enregistrement réussi !`, `Fermer`);
         },
         (error) => {
           console.error(`Erreur HTTP :`, error);
-          this.openSnackBar(`${error.error.message}`, `Fermer`);
+          this.snackBarService.openSnackBar(`${error.error.message}`, `Fermer`);
         },
       );
     } else {
@@ -76,12 +78,6 @@ export class RegisterComponent {
   //    },
   //  );
   //}
-
-  openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action, {
-      duration: 3000,
-    });
-  }
 
   goHome() {
     this.router.navigate([`/`]);

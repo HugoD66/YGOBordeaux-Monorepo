@@ -27,10 +27,27 @@
         </button>
       </mat-form-field>
       <div class="sendForm-register">
-        <span class="new-on-site" (click)="goRegister()"
+        <button class="send" type="submit" mat-raised-button>Connexion</button>
+        <button class="custom-menu" type="button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button type="button" mat-menu-item>
+            <mat-icon>verified_user</mat-icon>
+            <span (click)="goRegister()">Nouveau sur le site ?</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>autorenew</mat-icon>
+            <span (click)="goForgotPassword()">Mot de passe oublié ?</span>
+          </button>
+        </mat-menu>
+
+        <!--
+         <span class="new-on-site" (click)="goRegister()"
           >Nouveau sur le site ?
         </span>
-        <button type="submit" mat-raised-button>Connexion</button>
+        -->
+
       </div>
     </div>
   </form>
