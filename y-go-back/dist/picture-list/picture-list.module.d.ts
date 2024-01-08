@@ -1,1 +1,2 @@
-export declare class PictureListModule {}
+export declare class PictureListModule {
+}

@@ -214,38 +214,19 @@ export class BarFixtures {
         if (!existingBar) {
           const randomUser = users[Math.floor(Math.random() * users.length)];
           const { pictureList, geo, ...barInfo } = bar;
-          const barData = { ...barInfo, createdBy: randomUser };
-          const createdBar = await this.barsService.create(
-            barData,
-            randomUser.id,
-          );
 
-          console.log('createdBar');
-          console.log(createdBar);
-          if (pictureList) {
-            const pictureListData = { ...pictureList, bar: createdBar };
-            await this.pictureListService.create(pictureListData);
-          }
-          if (geo) {
-            const geoData = { ...geo, bar: createdBar };
-            await this.geoService.create(geoData);
-            console.log('geoData');
-            console.log(geoData);
-          }
-          //if (geo) {
-          //  const geoData = { ...geo, bar: createdBar };
-          //  const newGeo = await this.geoService.create(geoData);
-          //  createdBar.geo = newGeo;
-          //  await this.barRepository.save(createdBar);
-          //  console.log('geoData', geoData)
-          //}
+          const pictureListEntity = await this.pictureListService.create(pictureList);
+          const geoEntity = await this.geoService.create(geo);
+
+          const barData = { ...barInfo, createdBy: randomUser, pictureList: pictureListEntity, geo: geoEntity };
+          const createdBar = await this.barsService.create(barData, randomUser.id);
+
           console.log(`${createdBar.name} created.`);
         }
       } catch (error) {
         console.error(`Error creating bar ${bar.name}:`, error);
       }
     }
-
     console.log(`Seeding bars complete!`);
   }
 }

@@ -43,8 +43,5 @@ export class User {
 
   @Column()
   public phone: string
-
-  @Column()
-  public newsletters: boolean
    */
 }

@@ -2,6 +2,8 @@
 import { PictureListModule } from './picture-list/picture-list.module';
 import { GeoModule } from './geo/geo.module';
 import { UserBarRatingModule } from './user-bar-rating/user-bar-rating.module';
+import { DetailUserResolver } from './detail-user/detail-user.resolver';
+import { DetailUsersResolver } from './detail-users/detail-users.resolver';
 var __decorate =
   (this && this.__decorate) ||
   function (decorators, target, key, desc) {
