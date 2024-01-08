@@ -21,16 +21,14 @@ import { PresComponent } from './pages/accueil/pres/pres.component';
 import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component';
 import { MatInputModule } from '@angular/material/input';
 import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
-import { RegisterComponent } from './pages/security/register/register.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { UserModule } from './pages/users/user.module';
 import { BarModule } from './pages/bars/bar.module';
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
-import { SnackbarService } from './components/snackbar/snackbar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StarRatingPipe } from './pipe/star-rating.pipe';
-import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot-password.component';
+import { SecurityModule } from './pages/security/security.module';
 
 @NgModule({
   declarations: [
@@ -40,13 +38,11 @@ import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot
     MapComponent,
     PageMapComponent,
     PresComponent,
-    RegisterComponent,
     AddBarComponent,
-    ForgotPasswordComponent,
   ],
   imports: [
-    HttpClientModule,
-    FormsModule,
+    HttpClientModule, //A ENLEVER ?
+    FormsModule, //A ENLEVER ?
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -66,6 +62,7 @@ import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot
     MatSnackBarModule,
     StarRatingPipe,
     ReactiveFormsModule,
+    SecurityModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

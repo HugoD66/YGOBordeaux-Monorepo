@@ -8,8 +8,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../../env';
 import { catchError, throwError } from 'rxjs';
-import {MatMenuModule} from "@angular/material/menu";
-import { SnackbarService} from "../../../components/snackbar/snackbar.component";
+import { MatMenuModule } from '@angular/material/menu';
+import { SnackbarService } from '../../../components/snackbar/snackbar.component';
 @Component({
   selector: `app-login`,
   templateUrl: `./login.component.html`,
@@ -23,7 +23,7 @@ import { SnackbarService} from "../../../components/snackbar/snackbar.component"
     FormsModule,
     MatMenuModule,
   ],
-  providers: [SnackbarService]
+  providers: [SnackbarService],
 })
 export class LoginComponent {
   email: string;
@@ -33,7 +33,7 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private snackBarService: SnackbarService
+    private snackBarService: SnackbarService,
   ) {
     this.email = ``;
     this.password = ``;
@@ -56,7 +56,10 @@ export class LoginComponent {
       .subscribe((response: any) => {
         localStorage.setItem(`access_token`, response.access_token);
         this.router.navigate([`/`]);
-        this.snackBarService.openSnackBar(`Bienvenu, ${this.email} !`, `Fermer`);
+        this.snackBarService.openSnackBar(
+          `Bienvenu, ${this.email} !`,
+          `Fermer`,
+        );
       });
   }
 

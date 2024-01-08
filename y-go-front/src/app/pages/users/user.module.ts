@@ -8,7 +8,7 @@ import { ButtonPanelHorizComponent } from '../../components/button-panel/button-
 import { LogoYGoComponent } from '../../components/logo-ygo/logo-ygo.component';
 import { UnitUserComponent } from './unit-user/unit-user.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [UsersComponent, DetailUserComponent],

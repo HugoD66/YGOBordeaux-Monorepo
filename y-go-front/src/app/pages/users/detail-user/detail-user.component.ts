@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { UserModel } from '../../../models/user.model';
 import { environment } from '../../../../../env';
-import {RateService} from "../../../services/rate.service";
-import {RateModel} from "../../../models/rate.model";
-import {Subject} from "rxjs";
+import { RateService } from '../../../services/rate.service';
+import { RateModel } from '../../../models/rate.model';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: `app-detail-user`,
@@ -19,10 +19,10 @@ export class DetailUserComponent implements OnInit {
   filteredRateList: RateModel[] = [];
   filteredRateList$ = new Subject<RateModel[]>();
 
-
   constructor(
     private userService: UserService,
-    private rateService: RateService) {}
+    private rateService: RateService,
+  ) {}
 
   ngOnInit(): void {
     this.userService.getUser().subscribe((user: UserModel) => {
@@ -30,7 +30,9 @@ export class DetailUserComponent implements OnInit {
     });
 
     this.rateService.getRateList().subscribe((rateList: RateModel[]) => {
-      this.filteredRateList = rateList.filter(rate => rate.user === this.user.id);
+      this.filteredRateList = rateList.filter(
+        (rate) => rate.user === this.user.id,
+      );
       console.log(this.filteredRateList);
       this.filteredRateList$.next(this.filteredRateList);
     });

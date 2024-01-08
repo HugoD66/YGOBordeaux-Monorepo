@@ -33,53 +33,53 @@
 <div class="picture-infos">
   <div class="pic">
     <div class="picture-content">
-      <img class="picture"
-           src="../../../../assets/pictures/avatar-user.png"
-           alt="default avatar"
+      <img
+        class="picture"
+        src="../../../../assets/pictures/avatar-user.png"
+        alt="default avatar"
       />
       <span class="add-picture">
-      <form>
-        <label for="file-upload" class="custom-file-upload">
-          <img src="assets/icons/picture-add.png" alt="Add" />
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          (change)="onFileSelect($event)"
-          style="display: none"
-        />
-      </form>
-    </span>
+        <form>
+          <label for="file-upload" class="custom-file-upload">
+            <img src="assets/icons/picture-add.png" alt="Add" />
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            (change)="onFileSelect($event)"
+            style="display: none"
+          />
+        </form>
+      </span>
     </div>
-
   </div>
   <div class="infos">
     <p>Bonjour, {{ user.name }}</p>
     <p>{{ user.email }}</p>
-    <p> Vous devez compléter vos informations afin d'avoir les bars prés de chez vous !</p>
+    <p>
+      Vous devez compléter vos informations afin d'avoir les bars prés de chez
+      vous !
+    </p>
     <button type="button" mat-raised-button>Compléter profil</button>
     <button type="button" mat-raised-button>Modifier profil</button>
-
   </div>
 </div>
 
 <div class="profil">
   <ul>
-    <li>TODOS  : </li>
-    <li>Mes bars notés </li>
+    <li>TODOS :</li>
+    <li>Mes bars notés</li>
     <li>Mes bars créés</li>
     <li>Votre role : Admin</li>
     <li>Reinitialiser password(pareil dans register ? mot de passe oublié )</li>
     <li>Finir mon inscription</li>
-    <li>Informations complémentaires : </li>
-    <li> Telephone </li>
-    <li>Adresse ? </li>
+    <li>Informations complémentaires :</li>
+    <li>Telephone</li>
+    <li>Adresse ?</li>
   </ul>
 </div>
 <app-logo-ygo />
-<div class="background-picture">
-
-</div>
+<div class="background-picture"></div>
 <!--
 <ng-container *ngIf="user?.picture; else noPicture">
   <div class="picture">

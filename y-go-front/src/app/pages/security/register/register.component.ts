@@ -1,16 +1,34 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  NgForm,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { environment } from '../../../../../env';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {SnackbarService} from "../../../components/snackbar/snackbar.component";
+import { SnackbarService } from '../../../components/snackbar/snackbar.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: `app-register`,
   templateUrl: `./register.component.html`,
   styleUrls: [`./register.component.scss`],
-  providers: [SnackbarService]
+  standalone: true,
+  imports: [
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+  ],
+  providers: [SnackbarService],
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -45,7 +63,10 @@ export class RegisterComponent {
         (response) => {
           console.log(`Réponse du backend :`, response);
           this.router.navigate([`/login`]);
-          this.snackBarService.openSnackBar(`Enregistrement réussi !`, `Fermer`);
+          this.snackBarService.openSnackBar(
+            `Enregistrement réussi !`,
+            `Fermer`,
+          );
         },
         (error) => {
           console.error(`Erreur HTTP :`, error);

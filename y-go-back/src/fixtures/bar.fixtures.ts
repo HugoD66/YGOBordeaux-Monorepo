@@ -215,11 +215,20 @@ export class BarFixtures {
           const randomUser = users[Math.floor(Math.random() * users.length)];
           const { pictureList, geo, ...barInfo } = bar;
 
-          const pictureListEntity = await this.pictureListService.create(pictureList);
+          const pictureListEntity =
+            await this.pictureListService.create(pictureList);
           const geoEntity = await this.geoService.create(geo);
 
-          const barData = { ...barInfo, createdBy: randomUser, pictureList: pictureListEntity, geo: geoEntity };
-          const createdBar = await this.barsService.create(barData, randomUser.id);
+          const barData = {
+            ...barInfo,
+            createdBy: randomUser,
+            pictureList: pictureListEntity,
+            geo: geoEntity,
+          };
+          const createdBar = await this.barsService.create(
+            barData,
+            randomUser.id,
+          );
 
           console.log(`${createdBar.name} created.`);
         }

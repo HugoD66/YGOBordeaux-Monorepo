@@ -9,12 +9,12 @@ import { RegisterComponent } from './pages/security/register/register.component'
 import { UsersComponent } from './pages/users/users.component';
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 import { DetailUserComponent } from './pages/users/detail-user/detail-user.component';
-import {ForgotPasswordComponent} from "./pages/security/forgot-password/forgot-password.component";
+import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: `login`, component: LoginComponent },
   { path: `register`, component: RegisterComponent },
-  { path: `forgot-password`, component: ForgotPasswordComponent},
+  { path: `forgot-password`, component: ForgotPasswordComponent },
   {
     path: `bars`,
     children: [

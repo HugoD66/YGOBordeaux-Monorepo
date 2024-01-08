@@ -11,9 +11,7 @@ import { UserModel } from '../../models/user.model';
 export class UsersComponent implements OnInit {
   userList: UserModel[] | undefined;
 
-  constructor(
-    private userService: UserService,
-  ) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService

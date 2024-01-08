@@ -41,9 +41,7 @@ export class RateFixtures {
         };
         try {
           await this.userBarRatingService.create(rateDto);
-        } catch (error) {
-          // console.error(`Error creating rate for user ${user.id} and bar ${randomBar.id}:`, error)
-        }
+        } catch {}
       }
     }
     console.log(`Seeding rates complete!`);
