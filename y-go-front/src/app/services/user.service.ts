@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { environment } from '../../../env';
+import {FormGroup} from "@angular/forms";
 
 @Injectable()
 export class UserService {
@@ -69,6 +70,12 @@ export class UserService {
         tap((response) => console.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
+  }
+
+  passwordMatchValidator(group: FormGroup): { [key: string]: any } | null {
+    const password = group.get('password')?.value;
+    const verifyPassword = group.get('verifyPassword')?.value;
+    return password === verifyPassword ? null : { passwordMismatch: true };
   }
 
   private log(response: UserModel[] | UserModel | undefined | Object) {

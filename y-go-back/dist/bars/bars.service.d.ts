@@ -7,24 +7,16 @@ import { PictureListService } from '../picture-list/picture-list.service';
 import { GeoService } from '../geo/geo.service';
 import { UsersService } from '../users/users.service';
 export declare class BarsService {
-  private barRepository;
-  private pictureListService;
-  private geoService;
-  private usersService;
-  constructor(
-    barRepository: Repository<Bar>,
-    pictureListService: PictureListService,
-    geoService: GeoService,
-    usersService: UsersService,
-  );
-  create(createBarDto: CreateBarDto, userId: string): Promise<Bar>;
-  findOne(id: string): Promise<Bar>;
-  findOnePartial(id: string): Promise<Bar>;
-  findAll(): Promise<ResponseBarDto[]>;
-  update(
-    id: string,
-    updateBarDto: Partial<UpdateBarDto>,
-  ): Promise<ResponseBarDto>;
-  remove(id: string): Promise<void>;
-  updateAverageRating(barId: string, note: number): Promise<void>;
+    private barRepository;
+    private pictureListService;
+    private geoService;
+    private usersService;
+    constructor(barRepository: Repository<Bar>, pictureListService: PictureListService, geoService: GeoService, usersService: UsersService);
+    create(createBarDto: CreateBarDto, userId: string): Promise<Bar>;
+    findOne(id: string): Promise<Bar>;
+    findOnePartial(id: string): Promise<Bar>;
+    findAll(): Promise<ResponseBarDto[]>;
+    update(id: string, updateBarDto: Partial<UpdateBarDto>): Promise<ResponseBarDto>;
+    remove(id: string): Promise<void>;
+    updateAverageRating(barId: string, note: number): Promise<void>;
 }

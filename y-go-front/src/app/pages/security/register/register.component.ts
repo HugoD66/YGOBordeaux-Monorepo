@@ -55,9 +55,9 @@ export class RegisterComponent {
     });
   }
 
+  //TODO APPEL SERVICE POUR REGISTER
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log(`userData :`, this.registerForm.value);
       const url = `${this.apiUrl}/users/auth/register`;
       this.http.post(url, this.registerForm.value).subscribe(
         (response) => {
