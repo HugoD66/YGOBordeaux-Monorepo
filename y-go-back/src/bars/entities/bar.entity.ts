@@ -13,6 +13,8 @@ import { PictureList } from '../../picture-list/entities/picture-list.entity';
 import { Geo } from '../../geo/entities/geo.entity';
 import { User } from '../../users/entities/user.entity';
 import { UserBarRating } from '../../user-bar-rating/entities/user-bar-rating.entity';
+import {UserRoleEnum} from "../../users/entities/types/user.roles.enum";
+import {ParticularityEnum} from "./types/particularity.enum";
 
 @Entity()
 export class Bar {
@@ -39,6 +41,14 @@ export class Bar {
 
   @UpdateDateColumn()
   public updatedAt?: Date | null;
+
+  @Column({
+    type: 'enum',
+    enum: ParticularityEnum,
+    array: true,
+    default: [],
+  })
+  public particularities: ParticularityEnum[];
 
   @OneToOne(() => PictureList, (pictureList) => pictureList.bar, {
     cascade: [`insert`, `update`, `remove`],

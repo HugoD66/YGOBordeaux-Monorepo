@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { ResponsePictureListDto } from '../../picture-list/dto/response-picture-list.dto';
 import { ResponseGeoDto } from '../../geo/dto/response-geo.dto';
 import { UserResponseDto } from '../../users/dto/user-response.dto';
+import {ParticularityEnum} from "../entities/types/particularity.enum";
 
 export class ResponseBarDto {
   id?: string;
@@ -17,4 +18,7 @@ export class ResponseBarDto {
   pictureList?: ResponsePictureListDto;
   geo?: ResponseGeoDto;
   createdBy: UserResponseDto;
+  @ApiProperty({ enum: ParticularityEnum, isArray: true })
+  particularities?: ParticularityEnum[];
+
 }

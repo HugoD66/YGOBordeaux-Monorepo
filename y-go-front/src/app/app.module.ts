@@ -29,6 +29,7 @@ import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StarRatingPipe } from './pipe/star-rating.pipe';
 import { SecurityModule } from './pages/security/security.module';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { SecurityModule } from './pages/security/security.module';
     StarRatingPipe,
     ReactiveFormsModule,
     SecurityModule,
+    MatSlideToggleModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

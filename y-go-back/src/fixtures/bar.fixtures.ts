@@ -7,6 +7,7 @@ import { PictureListService } from '../picture-list/picture-list.service';
 import { GeoService } from '../geo/geo.service';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
+import {ParticularityEnum} from "../bars/entities/types/particularity.enum";
 
 @Injectable()
 export class BarFixtures {
@@ -31,6 +32,7 @@ export class BarFixtures {
         telephone: `0123456789`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar10.png`,
           pictureTwo: `./uploads/bar/bar11.png`,
@@ -49,6 +51,7 @@ export class BarFixtures {
         telephone: `0123456790`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar20.png`,
           pictureTwo: `./uploads/bar/bar21.png`,
@@ -67,6 +70,7 @@ export class BarFixtures {
         telephone: `0123456791`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar30.png`,
           pictureTwo: `./uploads/bar/bar31.png`,
@@ -85,6 +89,7 @@ export class BarFixtures {
         telephone: `0123456792`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar40.png`,
           pictureTwo: `./uploads/bar/bar41.png`,
@@ -103,6 +108,7 @@ export class BarFixtures {
         telephone: `0123456793`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar50.png`,
           pictureTwo: `./uploads/bar/bar51.png`,
@@ -121,6 +127,7 @@ export class BarFixtures {
         telephone: `0123456794`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar60.png`,
           pictureTwo: `./uploads/bar/bar61.png`,
@@ -139,6 +146,7 @@ export class BarFixtures {
         telephone: `0123456795`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar70.png`,
           pictureTwo: `./uploads/bar/bar71.png`,
@@ -157,6 +165,7 @@ export class BarFixtures {
         telephone: `0123456796`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar80.png`,
           pictureTwo: `./uploads/bar/bar81.png`,
@@ -175,6 +184,7 @@ export class BarFixtures {
         telephone: `0123456797`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
         pictureList: {
           pictureOne: `./uploads/bar/bar90.png`,
           pictureTwo: `./uploads/bar/bar91.png`,
@@ -193,6 +203,8 @@ export class BarFixtures {
         telephone: `0123456798`,
         createdAt: new Date(),
         updateAt: null,
+        particularities: this.getRandomParticularities(),
+
         pictureList: {
           pictureOne: `./uploads/bar/bar100.png`,
           pictureTwo: `./uploads/bar/bar101.png`,
@@ -213,7 +225,7 @@ export class BarFixtures {
         });
         if (!existingBar) {
           const randomUser = users[Math.floor(Math.random() * users.length)];
-          const { pictureList, geo, ...barInfo } = bar;
+          const { pictureList, geo, particularities, ...barInfo } = bar;
 
           const pictureListEntity =
             await this.pictureListService.create(pictureList);
@@ -224,6 +236,7 @@ export class BarFixtures {
             createdBy: randomUser,
             pictureList: pictureListEntity,
             geo: geoEntity,
+            particularities,
           };
           const createdBar = await this.barsService.create(
             barData,
@@ -238,4 +251,21 @@ export class BarFixtures {
     }
     console.log(`Seeding bars complete!`);
   }
+
+  private getRandomParticularities(): ParticularityEnum[] {
+    const allParticularities = Object.values(ParticularityEnum);
+    const count = Math.floor(Math.random() * 5);
+    const randomParticularities: ParticularityEnum[] = [];
+
+    for (let i = 0; i < count; i++) {
+      const randomIndex = Math.floor(Math.random() * allParticularities.length);
+      const particularity = allParticularities[randomIndex];
+      if (!randomParticularities.includes(particularity)) {
+        randomParticularities.push(particularity);
+      }
+    }
+
+    return randomParticularities;
+  }
+
 }

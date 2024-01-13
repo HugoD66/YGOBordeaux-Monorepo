@@ -45,8 +45,10 @@ h1 {
       }
       .pictures-content-galerie {
         @media (max-width: 1212px) {
+          min-width: 100%;
           display: flex;
           flex-direction: row;
+          justify-content: center;
         }
         .pictures-content-galerie-unit {
           display: flex;
@@ -110,4 +112,13 @@ h1 {
       }
     }
   }
+}
+.picture-center {
+  /* Autres styles... */
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.picture-center-fade {
+  opacity: 0;
 }

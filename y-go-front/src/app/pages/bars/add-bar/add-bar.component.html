@@ -2,6 +2,17 @@
   <form [formGroup]="barForm" (ngSubmit)="onSubmit()" class="formulaire">
     <div class="form-inputs">
       <div class="inputs">
+
+        <div class="form-group">
+          <label>Particularités</label>
+          <div *ngFor="let particularity of particularitiesArray">
+            <mat-slide-toggle
+              formControlName="{{ particularity.key }}"
+            >{{ particularity.label }}</mat-slide-toggle>
+          </div>
+        </div>
+
+
         <!-- Name -->
         <div class="form-group">
           <mat-form-field appearance="fill">

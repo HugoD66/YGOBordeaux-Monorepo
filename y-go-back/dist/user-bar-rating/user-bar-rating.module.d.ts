@@ -1,1 +1,2 @@
-export declare class UserBarRatingModule {}
+export declare class UserBarRatingModule {
+}

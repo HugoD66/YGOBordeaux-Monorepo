@@ -48,10 +48,8 @@ export class DetailUserComponent implements OnInit {
         .subscribe((response) => {
           console.log(`Image uploaded successfully`);
 
-          // Supposons que la réponse contient le nouveau chemin de l'image sous 'response.filePath'
           this.user.picture = response.filePath;
 
-          // Mettez à jour 'currentTime' pour forcer le rechargement de l'image
           this.currentTime = new Date().getTime();
         });
     }

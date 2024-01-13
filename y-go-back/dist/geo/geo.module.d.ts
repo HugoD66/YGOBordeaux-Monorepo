@@ -1,1 +1,2 @@
-export declare class GeoModule {}
+export declare class GeoModule {
+}

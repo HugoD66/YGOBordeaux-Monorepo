@@ -1,7 +1,8 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateBarDto } from './create-bar.dto';
-import { IsEmpty, IsOptional, IsString } from 'class-validator';
+import {IsArray, IsEmpty, IsEnum, IsOptional, IsString} from 'class-validator';
 import { UserResponseDto } from '../../users/dto/user-response.dto';
+import {ParticularityEnum} from "../entities/types/particularity.enum";
 
 export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()
@@ -23,12 +24,19 @@ export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()
   createdBy?: UserResponseDto;
 
-  @IsEmpty()
-  updatedAt: Date = new Date();
+  //Génération auto ?
+  //@IsEmpty()
+  //updatedAt: Date = new Date();
 
   @IsOptional()
   @IsString()
   picture: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsEnum(ParticularityEnum, { each: true })
+  particularities?: ParticularityEnum[];
+
   /*
   @IsOptional()
   note?: number;

@@ -8,7 +8,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BarService } from '../../../services/bar.service';
 import { PictureListService } from '../../../services/picture-list.service';
-import { BarModel } from '../../../models/bar.model';
+import {BarModel, ParticularityEnum} from '../../../models/bar.model';
 import { config, Map } from '@maptiler/sdk';
 import { GeocodingService } from '../../../services/geocoding.service';
 import { MapService } from '../../../services/map.service';
@@ -23,6 +23,7 @@ import { SnackbarService } from '../../../components/snackbar/snackbar.component
 export class AddBarComponent implements OnInit, AfterViewInit {
   barForm: FormGroup;
   map: Map | undefined;
+  particularitiesArray: any[] = [];
 
   @ViewChild(`map`)
   private mapContainer!: ElementRef<HTMLElement>;
@@ -35,6 +36,11 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     private mapService: MapService,
     private snackbarService: SnackbarService,
   ) {
+    this.particularitiesArray = Object.keys(ParticularityEnum).map((key) => ({
+      key,
+      label: ParticularityEnum[key as keyof typeof ParticularityEnum],
+    }));
+
     this.barForm = this.fb.group({
       name: [
         ``,
@@ -58,6 +64,11 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       pictureTwo: [null],
       pictureThree: [null],
       pictureFour: [null],
+
+      ...this.particularitiesArray.reduce((controls, particularity) => {
+        controls[particularity.key] = [false];
+        return controls;
+      }, {})
     });
   }
 
@@ -90,6 +101,10 @@ export class AddBarComponent implements OnInit, AfterViewInit {
   onSubmit() {
     if (this.barForm.valid) {
       const barData = this.barForm.value;
+      barData.particularities = this.particularitiesArray
+        .filter(particularity => this.barForm.get(particularity.key)?.value)
+        .map(particularity => particularity.key);
+
       this.barService.addBar(barData).subscribe({
         next: (barResponse: BarModel) => {
           const pictureListData = {

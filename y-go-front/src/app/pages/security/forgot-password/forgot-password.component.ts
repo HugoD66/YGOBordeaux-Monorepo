@@ -53,17 +53,6 @@ export class ForgotPasswordComponent {
     );
   }
 
-  /*
-  onSubmit() {
-    if (this.registerForm.valid) {
-      console.log(`userData:`, this.registerForm.value);
-      this.router.navigate(['/login']);
-      this.snackBarService.openSnackBar(`Un email de vérification vous a été envoyé !`, `Fermer`);
-    } else {
-      this.snackBarService.openSnackBar(`Erreur lors de l'envoie.`, `Fermer`);
-    }
-  }
-   */
   onSubmit() {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);

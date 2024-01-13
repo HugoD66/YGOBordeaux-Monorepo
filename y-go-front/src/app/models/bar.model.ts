@@ -29,4 +29,18 @@ export class BarModel {
         y: string | undefined;
       };
   createdBy: UserModel | undefined;
+  particularities: ParticularityEnum[] | undefined;
+}
+
+export enum ParticularityEnum {
+  AFTERWORK = `After Work`,
+  HAPPYHOUR = `Happy Hour`,
+  THEMEPARTY = `Theme Party`,
+  COCKTAILBAR = `Cocktail Bar`,
+  WINEBAR = `Bar à vin`,
+  BEERBAR = `Bar à bière`,
+  CONCERT = `Concert`,
+  KARAOKE = `Karaoké`,
+  PETFRIENDLY = `Bar à animaux`,
+  TERRACE = `Terrasse`,
 }
