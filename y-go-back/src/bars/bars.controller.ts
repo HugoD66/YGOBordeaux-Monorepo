@@ -24,6 +24,7 @@ export class BarsController {
     @Body() createBarDto: CreateBarDto,
     userId: string,
   ): Promise<ResponseBarDto> {
+    console.log(createBarDto)
     const bar: ResponseBarDto = await this.barService.create(
       createBarDto,
       userId,

@@ -77,6 +77,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     this.mapService.addressSelected.subscribe((address) => {
       this.barForm.patchValue({ adresse: address });
     });
+    this.subscribeToParticularityChanges();
   }
 
   ngAfterViewInit() {
@@ -97,10 +98,16 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       };
     }
   }
-
+  onParticularityChange(event: any, particularityKey: string) {
+    const isChecked = event.checked;
+    console.log(particularityKey);
+    this.barForm.get(particularityKey)?.setValue(isChecked);
+    console.log(particularityKey);
+  };
   onSubmit() {
     if (this.barForm.valid) {
-      const barData = this.barForm.value;
+      const barData = this.prepareBarData();
+
       barData.particularities = this.particularitiesArray
         .filter(particularity => this.barForm.get(particularity.key)?.value)
         .map(particularity => particularity.key);
@@ -180,5 +187,18 @@ export class AddBarComponent implements OnInit, AfterViewInit {
           this.mapService.setMarkerByCoordinates(data.x, data.y);
         });
     }
+  }
+  private prepareBarData(): any {
+    const formData = this.barForm.value;
+    console.log(formData);
+    return formData;
+  }
+  private subscribeToParticularityChanges() {
+    this.particularitiesArray.forEach(particularity => {
+      this.barForm.get(particularity.key)?.valueChanges.subscribe(value => {
+        console.log(particularity.key, value);
+        // Autres actions en fonction de la valeur
+      });
+    });
   }
 }

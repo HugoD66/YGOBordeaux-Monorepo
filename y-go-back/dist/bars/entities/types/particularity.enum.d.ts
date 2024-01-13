@@ -1,12 +1,12 @@
 export declare enum ParticularityEnum {
-    AFTERWORK = "afterwork",
-    HAPPYHOUR = "happyhour",
-    THEMEPARTY = "themeparty",
-    COCKTAILBAR = "cocktailbar",
-    WINEBAR = "winebar",
-    BEERBAR = "beerbar",
-    CONCERT = "concert",
-    KARAOKE = "karaoke",
-    PETFRIENDLY = "petfriendly",
-    TERRACE = "terrace"
+    AFTERWORK = "AFTERWORK",
+    HAPPYHOUR = "HAPPYHOUR",
+    THEMEPARTY = "THEMEPARTY",
+    COCKTAILBAR = "COCKTAILBAR",
+    WINEBAR = "WINEBAR",
+    BEERBAR = "BEERBAR",
+    CONCERT = "CONCERT",
+    KARAOKE = "KARAOKE",
+    PETFRIENDLY = "PETFRIENDLY",
+    TERRACE = "TERRACE"
 }

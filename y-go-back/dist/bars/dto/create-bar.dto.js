@@ -16,6 +16,7 @@ const response_geo_dto_1 = require("../../geo/dto/response-geo.dto");
 const response_picture_list_dto_1 = require("../../picture-list/dto/response-picture-list.dto");
 const user_response_dto_1 = require("../../users/dto/user-response.dto");
 const particularity_enum_1 = require("../entities/types/particularity.enum");
+const class_transformer_1 = require("class-transformer");
 class CreateBarDto {
 }
 exports.CreateBarDto = CreateBarDto;
@@ -64,6 +65,7 @@ __decorate([
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsEnum)(particularity_enum_1.ParticularityEnum, { each: true }),
     (0, swagger_1.ApiProperty)({ example: '[ParticularityEnum.AFTERWORK, ParticularityEnum.THEMEPARTY]', description: 'Liste des particularités du bar', enum: particularity_enum_1.ParticularityEnum, isArray: true }),
+    (0, class_transformer_1.Transform)(({ value }) => value.map(v => v.toUpperCase())),
     __metadata("design:type", Array)
 ], CreateBarDto.prototype, "particularities", void 0);
 //# sourceMappingURL=create-bar.dto.js.map

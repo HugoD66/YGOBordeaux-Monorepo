@@ -15,6 +15,7 @@ import { User } from '../../users/entities/user.entity';
 import { UserBarRating } from '../../user-bar-rating/entities/user-bar-rating.entity';
 import {UserRoleEnum} from "../../users/entities/types/user.roles.enum";
 import {ParticularityEnum} from "./types/particularity.enum";
+import {Transform} from "class-transformer";
 
 @Entity()
 export class Bar {
