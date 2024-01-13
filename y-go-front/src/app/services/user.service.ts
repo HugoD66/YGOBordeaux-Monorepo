@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { environment } from '../../../env';
-import {FormGroup} from "@angular/forms";
+import { FormGroup } from '@angular/forms';
+import { ChangePasswordModel } from '../models/change-password.model';
 
 @Injectable()
 export class UserService {
@@ -76,6 +77,20 @@ export class UserService {
     const password = group.get('password')?.value;
     const verifyPassword = group.get('verifyPassword')?.value;
     return password === verifyPassword ? null : { passwordMismatch: true };
+  }
+
+  changePasswordOnLoginScreen(changePasswordModel: ChangePasswordModel) {
+    //const accessToken = localStorage.getItem(`access_token`);
+    //const headers = new HttpHeaders({
+    //  Authorization: `Bearer ${accessToken}`,
+    //});
+    //const options = { headers: headers };
+    return this.http
+      .patch(`${this.apiUrl}/users/change-password`, changePasswordModel)
+      .pipe(
+        tap((response) => console.log(response)),
+        catchError((error) => this.handleError(error, undefined)),
+      );
   }
 
   private log(response: UserModel[] | UserModel | undefined | Object) {

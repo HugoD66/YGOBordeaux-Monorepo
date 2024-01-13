@@ -25,26 +25,32 @@ var __metadata =
       return Reflect.metadata(k, v);
   };
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.LoginResponseDto = void 0;
+exports.ChangePasswordDto = void 0;
 const class_validator_1 = require('class-validator');
-class LoginResponseDto {}
-exports.LoginResponseDto = LoginResponseDto;
+class ChangePasswordDto {}
+exports.ChangePasswordDto = ChangePasswordDto;
 __decorate(
-  [(0, class_validator_1.IsNotEmpty)(), __metadata('design:type', String)],
-  LoginResponseDto.prototype,
-  'id',
+  [
+    (0, class_validator_1.MinLength)(3),
+    (0, class_validator_1.IsStrongPassword)(
+      {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      },
+      {
+        message: `Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial`,
+      },
+    ),
+    (0, class_validator_1.IsNotEmpty)({
+      message: `Le mot de passe ne peut pas être vide`,
+    }),
+    __metadata('design:type', String),
+  ],
+  ChangePasswordDto.prototype,
+  'password',
   void 0,
 );
-__decorate(
-  [(0, class_validator_1.IsNotEmpty)(), __metadata('design:type', String)],
-  LoginResponseDto.prototype,
-  'email',
-  void 0,
-);
-__decorate(
-  [(0, class_validator_1.IsNotEmpty)(), __metadata('design:type', String)],
-  LoginResponseDto.prototype,
-  'access_token',
-  void 0,
-);
-//# sourceMappingURL=login-response.dto.js.map
+//# sourceMappingURL=change-password.dto.js.map

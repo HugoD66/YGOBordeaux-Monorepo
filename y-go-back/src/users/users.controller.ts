@@ -16,6 +16,7 @@ import {
   UseInterceptors,
   UploadedFile,
   ParseFilePipe,
+  Patch,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './entities/user.entity';
@@ -29,6 +30,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { FileSizeValidationPipe } from '../pipe/FileSizeValidationPipe';
 import { multerConfig } from '../multer.config';
+import { ChangePasswordDto } from './dto/change-password.dto';
 
 @Controller(`users`)
 @ApiTags(`Users`)
@@ -65,6 +67,15 @@ export class UsersController {
   }
 
   @Public()
+  @UsePipes(new ValidationPipe())
+  @Patch('/change-password')
+  async changePassword(
+    @Body() changePasswordDto: ChangePasswordDto,
+  ): Promise<any> {
+    return this.usersService.changePassword(changePasswordDto);
+  }
+
+  @Public()
   @Post(`/auth/login`)
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: `Login user` })
@@ -81,7 +92,7 @@ export class UsersController {
 
   @Post(`/auth/logout`)
   @UseGuards(AuthGuard)
-  async logout(@Req() req): Promise<void> {
+  async logout(): Promise<void> {
     return;
   }
 
@@ -114,7 +125,7 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Put(`:id`)
+  @Patch(`:id`)
   async update(@Param(`id`) id: string, @Body() user: User): Promise<any> {
     return this.usersService.update(id, user);
   }

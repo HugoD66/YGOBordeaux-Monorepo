@@ -20,6 +20,7 @@ import {
   NameTooShortException,
   ServerErrorException,
 } from './errorsRegister/errors';
+import { ChangePasswordDto } from './dto/change-password.dto';
 @Injectable()
 export class UsersService {
   constructor(
@@ -67,6 +68,24 @@ export class UsersService {
       throw new ServerErrorException();
     }
   }
+  async changePassword(changePasswordDto: ChangePasswordDto): Promise<any> {
+    console.log('Received changePasswordDto:', changePasswordDto);
+
+    const user = await this.usersRepository.findOne({
+      where: { email: changePasswordDto.email },
+    });
+    if (!user) {
+      throw new NotFoundException(`User not found`);
+    }
+
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(changePasswordDto.password, salt);
+
+    await this.usersRepository.update(user.id, { password: hashedPassword });
+
+    return { message: 'Mot de passe changé' };
+  }
+
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     try {
       const user: User = await this.usersRepository.findOne({

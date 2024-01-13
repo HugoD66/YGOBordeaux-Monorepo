@@ -13,7 +13,6 @@ import { config, Map } from '@maptiler/sdk';
 import { GeocodingService } from '../../../services/geocoding.service';
 import { MapService } from '../../../services/map.service';
 import { PictureListModel } from '../../../models/picture-list.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
 
 @Component({

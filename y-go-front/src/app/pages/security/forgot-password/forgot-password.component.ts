@@ -13,8 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
 import { LogoYGoComponent } from '../../../components/logo-ygo/logo-ygo.component';
-import {UserService} from "../../../services/user.service";
-import {CommonModule} from "@angular/common";
+import { UserService } from '../../../services/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-forgot-password',
@@ -41,15 +41,17 @@ export class ForgotPasswordComponent {
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private snackBarService: SnackbarService
+    private snackBarService: SnackbarService,
   ) {
-    this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      verifyPassword: ['', [Validators.required, Validators.minLength(6)]],
-    }, { validator: this.userService.passwordMatchValidator });
+    this.registerForm = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        verifyPassword: ['', [Validators.required, Validators.minLength(6)]],
+      },
+      { validator: this.userService.passwordMatchValidator },
+    );
   }
-
 
   /*
   onSubmit() {
@@ -64,14 +66,32 @@ export class ForgotPasswordComponent {
    */
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log(`userData:`, this.registerForm.value);
-      this.router.navigate(['/login']);
-      this.snackBarService.openSnackBar(`Un email de vérification vous a été envoyé !`, `Fermer`);
-    } else {
-      this.snackBarService.openSnackBar(`Les mots de passe doivent être similaires.`, `Fermer`);
+      console.log(this.registerForm.value);
+      this.userService
+        .changePasswordOnLoginScreen(this.registerForm.value)
+        .subscribe(
+          (response) => {
+            console.log(response);
+            this.router.navigate(['/login']);
+            this.snackBarService.openSnackBar(
+              `Un email de vérification vous a été envoyé !`,
+              `Fermer`,
+            );
+          },
+          (error) => {
+            console.log(error);
+            this.snackBarService.openSnackBar(
+              `Erreur lors de l'envoie.`,
+              `Fermer`,
+            );
+          },
+        );
+      this.snackBarService.openSnackBar(
+        `Les mots de passe doivent être similaires.`,
+        `Fermer`,
+      );
     }
   }
-
 
   goHome() {
     this.router.navigate([`/`]);

@@ -1,7 +1,7 @@
 export declare class ResponsePictureListDto {
-    id: string;
-    pictureOne?: string;
-    pictureTwo?: string;
-    pictureThree?: string;
-    pictureFour?: string;
+  id: string;
+  pictureOne?: string;
+  pictureTwo?: string;
+  pictureThree?: string;
+  pictureFour?: string;
 }

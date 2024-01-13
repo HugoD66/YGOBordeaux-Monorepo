@@ -5,14 +5,16 @@ import { UserResponseDto } from './dto/user-response.dto';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDto } from './dto/login.dto';
 import { LoginResponseDto } from './dto/login-response.dto';
+import { ChangePasswordDto } from './dto/change-password.dto';
 export declare class UsersService {
-    private usersRepository;
-    private readonly jwtService;
-    constructor(usersRepository: Repository<User>, jwtService: JwtService);
-    create(createUserDto: CreateUserDto): Promise<UserResponseDto>;
-    login(loginDto: LoginDto): Promise<LoginResponseDto>;
-    findOne(id: string): Promise<User>;
-    findAll(): Promise<User[]>;
-    update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto>;
-    remove(id: string): Promise<void>;
+  private usersRepository;
+  private readonly jwtService;
+  constructor(usersRepository: Repository<User>, jwtService: JwtService);
+  create(createUserDto: CreateUserDto): Promise<UserResponseDto>;
+  changePassword(changePasswordDto: ChangePasswordDto): Promise<any>;
+  login(loginDto: LoginDto): Promise<LoginResponseDto>;
+  findOne(id: string): Promise<User>;
+  findAll(): Promise<User[]>;
+  update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto>;
+  remove(id: string): Promise<void>;
 }
