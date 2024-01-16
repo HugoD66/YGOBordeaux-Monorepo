@@ -7,7 +7,7 @@ import { PictureListService } from '../picture-list/picture-list.service';
 import { GeoService } from '../geo/geo.service';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/entities/user.entity';
-import {ParticularityEnum} from "../bars/entities/types/particularity.enum";
+import { ParticularityEnum } from '../bars/entities/types/particularity.enum';
 
 @Injectable()
 export class BarFixtures {
@@ -267,5 +267,4 @@ export class BarFixtures {
 
     return randomParticularities;
   }
-
 }

@@ -1,6 +1,11 @@
 section {
   width: 100%;
-  height: 100%;
+  @media screen and (max-width: 1080px) {
+    //height: 120vh;
+  }
+  @media screen and (min-width: 1080px) {
+    //height: 85%;
+  }
   .formulaire {
     overflow-y: auto;
     width: 80%;
@@ -11,7 +16,8 @@ section {
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 1080px) {
-      height: 100%;
+      height: 85%;
+      margin-top: 5%;
     }
     .form-inputs {
       position: relative;
@@ -38,6 +44,12 @@ section {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        .name {
+          margin-top: 0;
+          @media screen and (max-width: 1080px) {
+            margin-top: 40px;
+          }
+        }
         .form-group {
           width: 80%;
           mat-form-field {
@@ -70,11 +82,10 @@ section {
         }
       }
       .adresse-pictures-map {
-        height: 100%;
+        height: 80%;
         width: 100%;
         margin-top: 10%;
-        margin-bottom: 1%;
-
+        margin-bottom: 0;
         .mapEmplacement {
           height: 50%;
           display: flex;
@@ -179,5 +190,39 @@ section {
       rgba(232, 232, 232, 0.51) 0%,
       rgba(23, 20, 20, 0) 100%
     );
+  }
+}
+.particularity-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  /* mobile
+   display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+   */
+  .particularity {
+    background-color: #ffffff;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: 2%;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 15px;
+    .particularity-label {
+      padding: 5%;
+      margin-top: 5px;
+      margin-right: 15px;
+      font-size: 1.2em;
+      font-weight: 500;
+      text-align: start;
+      font-family: "Montserrat", sans-serif;
+      user-select: none;
+    }
+  }
+  @media screen and (max-width: 1080px) {
+    margin-top: 5%;
   }
 }

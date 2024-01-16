@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   AfterViewInit,
   Component,
@@ -5,10 +6,9 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BarService } from '../../../services/bar.service';
 import { PictureListService } from '../../../services/picture-list.service';
-import {BarModel, ParticularityEnum} from '../../../models/bar.model';
+import { BarModel, ParticularityEnum } from '../../../models/bar.model';
 import { config, Map } from '@maptiler/sdk';
 import { GeocodingService } from '../../../services/geocoding.service';
 import { MapService } from '../../../services/map.service';
@@ -68,7 +68,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       ...this.particularitiesArray.reduce((controls, particularity) => {
         controls[particularity.key] = [false];
         return controls;
-      }, {})
+      }, {}),
     });
   }
 
@@ -103,14 +103,17 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     console.log(particularityKey);
     this.barForm.get(particularityKey)?.setValue(isChecked);
     console.log(particularityKey);
-  };
+  }
   onSubmit() {
     if (this.barForm.valid) {
       const barData = this.prepareBarData();
 
       barData.particularities = this.particularitiesArray
-        .filter(particularity => this.barForm.get(particularity.key)?.value)
-        .map(particularity => particularity.key);
+        .filter((particularity) => this.barForm.get(particularity.key)?.value)
+        .map((particularity) => particularity.key);
+
+      // barData.geo.x = this.mapService.getMarkerCoordinates()!.x;
+      // barData.geo.y = this.mapService.getMarkerCoordinates()!.y;
 
       this.barService.addBar(barData).subscribe({
         next: (barResponse: BarModel) => {
@@ -135,30 +138,30 @@ export class AddBarComponent implements OnInit, AfterViewInit {
               ),
           });
 
-          this.geocodingService
-            .getCoordinates(this.barForm.value.adresse)
-            .subscribe(
-              (data) => {
-                console.log(data);
-                this.geocodingService.addGeo(data).subscribe(
-                  (geoResponse) => {
-                    console.log(`Geo enregistré avec succès:`, geoResponse);
-                  },
-                  (error) => {
-                    console.error(
-                      `Erreur lors de l'enregistrement du Geo:`,
-                      error,
-                    );
-                  },
-                );
-              },
-              (error) => {
-                console.error(
-                  `Erreur lors de la récupération des coordonnées:`,
-                  error,
-                );
-              },
-            );
+          // this.geocodingService
+          //  .getCoordinates(this.barForm.value.adresse)
+          //  .subscribe(
+          //    (data) => {
+          //      console.log(data);
+          //      this.geocodingService.addGeo(data).subscribe(
+          //        (geoResponse) => {
+          //          console.log(`Geo enregistré avec succès:`, geoResponse);
+          //        },
+          //        (error) => {
+          //          console.error(
+          //            `Erreur lors de l'enregistrement du Geo:`,
+          //            error,
+          //          );
+          //        },
+          //      );
+          //    },
+          //    (error) => {
+          //      console.error(
+          //        `Erreur lors de la récupération des coordonnées:`,
+          //        error,
+          //      );
+          //    },
+          //  );
           this.snackbarService.openSnackBar(
             `Bar enregistré avec succès !`,
             `Fermer`,
@@ -188,14 +191,18 @@ export class AddBarComponent implements OnInit, AfterViewInit {
         });
     }
   }
-  private prepareBarData(): any {
+  prepareBarData(): any {
     const formData = this.barForm.value;
-    console.log(formData);
+    const markerCoordinates = this.mapService.getMarkerCoordinates();
+    if (markerCoordinates) {
+      formData.geo = markerCoordinates;
+    }
     return formData;
   }
+
   private subscribeToParticularityChanges() {
-    this.particularitiesArray.forEach(particularity => {
-      this.barForm.get(particularity.key)?.valueChanges.subscribe(value => {
+    this.particularitiesArray.forEach((particularity) => {
+      this.barForm.get(particularity.key)?.valueChanges.subscribe((value) => {
         console.log(particularity.key, value);
         // Autres actions en fonction de la valeur
       });

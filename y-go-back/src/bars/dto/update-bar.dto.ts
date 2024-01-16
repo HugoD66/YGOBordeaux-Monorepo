@@ -1,8 +1,14 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateBarDto } from './create-bar.dto';
-import {IsArray, IsEmpty, IsEnum, IsOptional, IsString} from 'class-validator';
+import {
+  IsArray,
+  IsEmpty,
+  IsEnum,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 import { UserResponseDto } from '../../users/dto/user-response.dto';
-import {ParticularityEnum} from "../entities/types/particularity.enum";
+import { ParticularityEnum } from '../entities/types/particularity.enum';
 
 export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()

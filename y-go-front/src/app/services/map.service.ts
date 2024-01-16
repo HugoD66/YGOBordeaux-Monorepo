@@ -3,6 +3,7 @@ import { config, Map, Marker } from '@maptiler/sdk';
 import { environment } from '../../../env';
 import { BarModel } from '../models/bar.model';
 import { GeocodingService } from './geocoding.service';
+import { AddBarComponent } from '../pages/bars/add-bar/add-bar.component';
 
 @Injectable({
   providedIn: `root`,
@@ -29,6 +30,16 @@ export class MapService implements OnInit, OnDestroy {
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom,
     });
+  }
+
+  getMarkerCoordinates(): { x: number; y: number } | null {
+    if (this.currentMarker) {
+      return {
+        x: this.currentMarker.getLngLat().lng,
+        y: this.currentMarker.getLngLat().lat,
+      };
+    }
+    return null;
   }
 
   addMarker(

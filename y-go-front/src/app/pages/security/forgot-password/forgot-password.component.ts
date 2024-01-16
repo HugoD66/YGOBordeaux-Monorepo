@@ -63,14 +63,14 @@ export class ForgotPasswordComponent {
             console.log(response);
             this.router.navigate(['/login']);
             this.snackBarService.openSnackBar(
-              `Un email de vérification vous a été envoyé !`,
+              `Votre mot de passe a été changé !`,
               `Fermer`,
             );
           },
           (error) => {
             console.log(error);
             this.snackBarService.openSnackBar(
-              `Erreur lors de l'envoie.`,
+              `Erreur lors de l'envoi.`,
               `Fermer`,
             );
           },

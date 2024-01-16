@@ -1,10 +1,16 @@
-import {IsArray, IsEnum, IsNotEmpty, IsOptional, MinLength} from 'class-validator';
+import {
+  IsArray,
+  IsEnum,
+  IsNotEmpty,
+  IsOptional,
+  MinLength,
+} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { ResponseGeoDto } from '../../geo/dto/response-geo.dto';
 import { ResponsePictureListDto } from '../../picture-list/dto/response-picture-list.dto';
 import { UserResponseDto } from '../../users/dto/user-response.dto';
-import {ParticularityEnum} from "../entities/types/particularity.enum";
-import {Transform} from "class-transformer";
+import { ParticularityEnum } from '../entities/types/particularity.enum';
+import { Transform } from 'class-transformer';
 
 export class CreateBarDto {
   @MinLength(2)
@@ -41,7 +47,12 @@ export class CreateBarDto {
 
   @IsArray()
   @IsEnum(ParticularityEnum, { each: true })
-  @ApiProperty({ example: '[ParticularityEnum.AFTERWORK, ParticularityEnum.THEMEPARTY]', description: 'Liste des particularités du bar', enum: ParticularityEnum, isArray: true })
-  @Transform(({ value }) => value.map(v => v.toUpperCase()))
+  @ApiProperty({
+    example: '[ParticularityEnum.AFTERWORK, ParticularityEnum.THEMEPARTY]',
+    description: 'Liste des particularités du bar',
+    enum: ParticularityEnum,
+    isArray: true,
+  })
+  @Transform(({ value }) => value.map((v) => v.toUpperCase()))
   public particularities?: ParticularityEnum[];
 }

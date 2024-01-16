@@ -46,7 +46,7 @@ export class AccueilNavComponent implements OnChanges {
   onLogout(): void {
     this.userService.logout();
     this.isAuthenticated = false;
-    this.router.navigateByUrl(`/`); // Redirection après déconnexion
+    this.router.navigateByUrl(`/`);
   }
 
   navigateToProfile(): void {

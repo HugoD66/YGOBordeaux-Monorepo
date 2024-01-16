@@ -4,29 +4,43 @@
   <div class="content-bar-unit">
     <div class="pictures-adress">
       <div class="pictures-content">
-        <img class="picture-center" [src]="selectedPicture" alt="Photo du bar"/>
+        <img
+          class="picture-center"
+          [src]="selectedPicture"
+          alt="Photo du bar"
+        />
         <div class="pictures-content-galerie">
           <img
             class="pictures-content-galerie-unit"
-            (click)="onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')"
-            [src]=" apiUrl + '/' + currentBar?.pictureList?.pictureTwo"
+            (click)="
+              onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')
+            "
+            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureTwo"
             alt="Photo du bar2"
           />
           <img
             class="pictures-content-galerie-unit"
-            (click)="onSelectPicture(currentBar?.pictureList?.pictureThree, 'pictureThree')"
-            [src]=" apiUrl + '/' + currentBar?.pictureList?.pictureThree"
+            (click)="
+              onSelectPicture(
+                currentBar?.pictureList?.pictureThree,
+                'pictureThree'
+              )
+            "
+            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureThree"
             alt="Photo du bar3"
           />
           <img
             class="pictures-content-galerie-unit"
-            (click)="onSelectPicture(currentBar?.pictureList?.pictureFour, 'pictureFour')"
-            [src]=" apiUrl + '/' + currentBar?.pictureList?.pictureFour"
+            (click)="
+              onSelectPicture(
+                currentBar?.pictureList?.pictureFour,
+                'pictureFour'
+              )
+            "
+            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureFour"
             alt="Photo du bar4"
           />
-
-           </div>
-
+        </div>
       </div>
 
       <div class="adress-note">
@@ -99,8 +113,6 @@
       <p *ngIf="!currentBar?.particularities">
         Aucune particularité pour ce bar
       </p>
-
-
 
       <div class="mapEmplacement">
         <div class="map-wrap">

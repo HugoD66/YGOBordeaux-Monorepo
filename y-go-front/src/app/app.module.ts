@@ -29,7 +29,8 @@ import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StarRatingPipe } from './pipe/star-rating.pipe';
 import { SecurityModule } from './pages/security/security.module';
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     AddBarComponent,
   ],
   imports: [
-    HttpClientModule, //A ENLEVER ?
-    FormsModule, //A ENLEVER ?
+    HttpClientModule, // A ENLEVER ?
+    FormsModule, // A ENLEVER ?
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -65,6 +66,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     ReactiveFormsModule,
     SecurityModule,
     MatSlideToggleModule,
+    MatListModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
