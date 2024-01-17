@@ -37,7 +37,7 @@ export class BarService {
     return this.http
       .get<number>(`${this.apiUrl}/user-bar-rating/${barId}/count-voters`)
       .pipe(
-        //return this.http.get<number>(`${this.apiUrl}/${barId}/count`).pipe(
+        // return this.http.get<number>(`${this.apiUrl}/${barId}/count`).pipe(
         tap((response: number) => this.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );

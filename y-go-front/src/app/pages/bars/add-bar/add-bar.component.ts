@@ -100,9 +100,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
   }
   onParticularityChange(event: any, particularityKey: string) {
     const isChecked = event.checked;
-    console.log(particularityKey);
     this.barForm.get(particularityKey)?.setValue(isChecked);
-    console.log(particularityKey);
   }
   onSubmit() {
     if (this.barForm.valid) {
@@ -112,62 +110,14 @@ export class AddBarComponent implements OnInit, AfterViewInit {
         .filter((particularity) => this.barForm.get(particularity.key)?.value)
         .map((particularity) => particularity.key);
 
-      // barData.geo.x = this.mapService.getMarkerCoordinates()!.x;
-      // barData.geo.y = this.mapService.getMarkerCoordinates()!.y;
-
+      console.log(barData);
       this.barService.addBar(barData).subscribe({
         next: (barResponse: BarModel) => {
-          const pictureListData = {
-            pictureOne: this.barForm.value.pictureOne,
-            pictureTwo: this.barForm.value.pictureTwo,
-            pictureThree: this.barForm.value.pictureThree,
-            pictureFour: this.barForm.value.pictureFour,
-          };
-
-          this.pictureListService.addPictureList(pictureListData).subscribe({
-            next: (pictureListResponse: PictureListModel | null) => {
-              console.log(
-                `PictureList enregistrée avec succès:`,
-                pictureListResponse,
-              );
-            },
-            error: (error) =>
-              console.error(
-                `Erreur lors de l'enregistrement de PictureList:`,
-                error,
-              ),
-          });
-
-          // this.geocodingService
-          //  .getCoordinates(this.barForm.value.adresse)
-          //  .subscribe(
-          //    (data) => {
-          //      console.log(data);
-          //      this.geocodingService.addGeo(data).subscribe(
-          //        (geoResponse) => {
-          //          console.log(`Geo enregistré avec succès:`, geoResponse);
-          //        },
-          //        (error) => {
-          //          console.error(
-          //            `Erreur lors de l'enregistrement du Geo:`,
-          //            error,
-          //          );
-          //        },
-          //      );
-          //    },
-          //    (error) => {
-          //      console.error(
-          //        `Erreur lors de la récupération des coordonnées:`,
-          //        error,
-          //      );
-          //    },
-          //  );
+          console.log(`Bar enregistré:`, barResponse);
           this.snackbarService.openSnackBar(
-            `Bar enregistré avec succès !`,
+            `Le bar ${barResponse.name} a bien été enregistré`,
             `Fermer`,
           );
-
-          console.log(`Bar enregistré avec succès:`, barResponse);
         },
         error: (error) => {
           console.error(`Erreur lors de l'enregistrement du bar:`, error);
@@ -197,6 +147,17 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     if (markerCoordinates) {
       formData.geo = markerCoordinates;
     }
+    formData.pictureList = {
+      pictureOne: formData.pictureOne,
+      pictureTwo: formData.pictureTwo,
+      pictureThree: formData.pictureThree,
+      pictureFour: formData.pictureFour,
+    };
+    delete formData.pictureOne;
+    delete formData.pictureTwo;
+    delete formData.pictureThree;
+    delete formData.pictureFour;
+
     return formData;
   }
 
