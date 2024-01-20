@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: $backPres;
+  background-color: $backPres2;
   .title-pres {
     width: 55%;
     height: 100vh;
@@ -16,8 +16,7 @@
     justify-content: center;
     flex-direction: column;
     h1 {
-      z-index: 3;
-      //position: fixed;
+      z-index: 6;
       top: 23%;
       left: 12%;
       color: #000000;
@@ -35,8 +34,8 @@
       }
     }
     h2 {
-      z-index: 3;
-      position: fixed;
+      z-index: 6;
+      //position: fixed;
       top: 40%;
       left: 17%;
       color: #000000;

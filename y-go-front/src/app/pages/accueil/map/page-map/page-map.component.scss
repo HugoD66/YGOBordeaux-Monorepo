@@ -1,3 +1,6 @@
+@import "../../../../styles/variables";
+
+
 .mapContent {
   position: relative;
   width: 100%;
@@ -178,7 +181,7 @@
   .map {
     width: 100%;
     height: 100%;
-    background-color: rgb(250, 240, 228);
+    background-color: $backPres2;
   }
 }
 
