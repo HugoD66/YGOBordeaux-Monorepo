@@ -5,7 +5,7 @@ import { BarModel } from '../../../models/bar.model';
 import { UserModel } from '../../../models/user.model';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BarService } from '../../../services/bar.service';
-import { CommonModule } from '@angular/common';
+
 import { RateModel } from '../../../models/rate.model';
 import { RateService } from '../../../services/rate.service';
 
@@ -14,7 +14,7 @@ import { RateService } from '../../../services/rate.service';
   templateUrl: `./unit-user.component.html`,
   styleUrls: [`./unit-user.component.scss`],
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatExpansionModule],
+  imports: [MatCardModule, MatButtonModule, MatExpansionModule],
 })
 export class UnitUserComponent implements OnInit {
   @Input() user: UserModel | undefined;

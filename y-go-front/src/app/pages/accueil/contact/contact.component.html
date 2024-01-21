@@ -17,7 +17,7 @@
                 class="ynov-logo"
                 src="assets/icons/ynov-withoutB.webp"
                 alt=""
-              />
+                />
             </a>
             <p>Projet réalisé dans le cadre de l'Ymatch de Ynov Bordeaux</p>
           </div>
@@ -33,7 +33,7 @@
               placeholder="pat@example.com"
               [formControl]="email"
               required
-            />
+              />
           </mat-form-field>
           <mat-form-field class="form-textarea">
             <textarea
@@ -47,18 +47,20 @@
             <button mat-raised-button class="button-form" (click)="sendEmail()">
               Envoyer
             </button>
-            <p
-              class="error"
-              *ngIf="submitted && (email.invalid || message.invalid)"
-            >
-              {{ getErrorMessage() }}
-            </p>
+            @if (submitted && (email.invalid || message.invalid)) {
+              <p
+                class="error"
+                >
+                {{ getErrorMessage() }}
+              </p>
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="reseaux-sociaux">
+  <mat-divider class="divider"></mat-divider>
+  <div class="reseaux-sociaux" [ngClass]="{'fade-in': showIcons}">
     <a
       href="https://www.facebook.com/"
       [style.display]="showIcons ? 'block' : 'none'"
@@ -81,6 +83,6 @@
       ><img src="assets/icons/linkedin.png" alt=""
     /></a>
   </div>
-  <!--   <div class="liner"></div>
- -->
+  <div class="liner"></div>
+
 </section>

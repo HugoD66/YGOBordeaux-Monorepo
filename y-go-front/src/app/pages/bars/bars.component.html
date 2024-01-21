@@ -2,11 +2,12 @@
   <app-button-panel-horiz></app-button-panel-horiz>
   <app-search-bars (searchEvent)="onSearch($event)"></app-search-bars>
   <div class="content-bars">
-    <app-unit-bar
-      class="content-bar"
-      *ngFor="let bar of filteredBarList"
-      [bar]="bar"
-    />
+    @for (bar of filteredBarList; track bar) {
+      <app-unit-bar
+        class="content-bar"
+        [bar]="bar"
+        />
+    }
   </div>
   <app-logo-ygo />
 </div>

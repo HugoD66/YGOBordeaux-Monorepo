@@ -8,7 +8,7 @@
           class="picture-center"
           [src]="selectedPicture"
           alt="Photo du bar"
-        />
+          />
         <div class="pictures-content-galerie">
           <img
             class="pictures-content-galerie-unit"
@@ -17,7 +17,7 @@
             "
             [src]="apiUrl + '/' + currentBar?.pictureList?.pictureTwo"
             alt="Photo du bar2"
-          />
+            />
           <img
             class="pictures-content-galerie-unit"
             (click)="
@@ -28,7 +28,7 @@
             "
             [src]="apiUrl + '/' + currentBar?.pictureList?.pictureThree"
             alt="Photo du bar3"
-          />
+            />
           <img
             class="pictures-content-galerie-unit"
             (click)="
@@ -39,7 +39,7 @@
             "
             [src]="apiUrl + '/' + currentBar?.pictureList?.pictureFour"
             alt="Photo du bar4"
-          />
+            />
         </div>
       </div>
 
@@ -67,52 +67,60 @@
         </div>
         <div class="note">
           <div class="list-data rate">
-            <span
-              class="rate-list"
-              *ngFor="let star of (bar | async)?.note | starRating"
-            >
-              <img
-                class="picture-star-list-data"
+            @for (star of (bar | async)?.note | starRating; track star) {
+              <span
+                class="rate-list"
+                >
+                <img
+                  class="picture-star-list-data"
                 [src]="
                   star.color === 'yellow'
                     ? '../../../../assets/icons/star-colored.png'
                     : '../../../../assets/icons/star.png'
                 "
-                alt=""
-              />
-            </span>
+                  alt=""
+                  />
+              </span>
+            }
           </div>
         </div>
       </div>
     </div>
     <div class="rate-hour-map">
       <div class="note">
-        <span
-          class="rate-list"
-          *ngFor="let star of (bar | async)?.note | starRating"
-        >
-          <img
-            class="picture-star-list-data"
+        @for (star of (bar | async)?.note | starRating; track star) {
+          <span
+            class="rate-list"
+            >
+            <img
+              class="picture-star-list-data"
             [src]="
               star.color === 'yellow'
                 ? '../../../../assets/icons/star-colored.png'
                 : '../../../../assets/icons/star.png'
             "
-            alt=""
-          />
-        </span>
+              alt=""
+              />
+          </span>
+        }
       </div>
       <h2>Nombre de votants : {{ rateCount() }}</h2>
       <h2>Particularités</h2>
 
-      <ul *ngIf="currentBar?.particularities">
-        <li *ngFor="let particularity of currentBar?.particularities">
-          {{ particularity }}
-        </li>
-      </ul>
-      <p *ngIf="!currentBar?.particularities">
-        Aucune particularité pour ce bar
-      </p>
+      @if (currentBar?.particularities) {
+        <ul>
+          @for (particularity of currentBar?.particularities; track particularity) {
+            <li>
+              {{ particularity }}
+            </li>
+          }
+        </ul>
+      }
+      @if (!currentBar?.particularities) {
+        <p>
+          Aucune particularité pour ce bar
+        </p>
+      }
 
       <div class="mapEmplacement">
         <div class="map-wrap">

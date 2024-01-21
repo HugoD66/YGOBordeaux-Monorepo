@@ -16,7 +16,7 @@ import { MapService } from '../../../services/map.service';
 import { StarRatingPipe } from '../../../pipe/star-rating.pipe';
 import { LogoYGoComponent } from '../../../components/logo-ygo/logo-ygo.component';
 import { Observable } from 'rxjs';
-import { AsyncPipe, DatePipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { ButtonPanelHorizComponent } from '../../../components/button-panel/button-panel-horiz/button-panel-horiz.component';
 
 type PictureListKey =
@@ -34,10 +34,8 @@ type PictureListKey =
     LogoYGoComponent,
     AsyncPipe,
     DatePipe,
-    ButtonPanelHorizComponent,
-    NgForOf,
-    NgIf,
-  ],
+    ButtonPanelHorizComponent
+],
   standalone: true,
 })
 export class DetailBarComponent implements AfterViewInit, OnInit {

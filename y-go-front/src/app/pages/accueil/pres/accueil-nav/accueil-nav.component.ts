@@ -5,9 +5,11 @@ import { MatButtonModule } from "@angular/material/button"
 import { Router, RouterLink, RouterLinkActive } from "@angular/router"
 import { UserService } from "../../../../services/user.service"
 import { UserModel } from "../../../../models/user.model"
-import { NgIf } from "@angular/common"
+
 import { ButtonUnitHorizComponent } from "../../../../components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component"
 import { Observable, Observer } from "rxjs"
+import { MatTabsModule } from "@angular/material/tabs"
+import { AsyncPipe } from "@angular/common"
 
 export interface ExampleTab {
   label: string
@@ -20,13 +22,14 @@ export interface ExampleTab {
   styleUrls: [`./accueil-nav.component.scss`],
   standalone: true,
   imports: [
-    NgIf,
     MatListModule,
     MatDividerModule,
     MatButtonModule,
     RouterLinkActive,
     RouterLink,
     ButtonUnitHorizComponent,
+    MatTabsModule,
+    AsyncPipe,
   ],
 })
 export class AccueilNavComponent implements OnChanges {

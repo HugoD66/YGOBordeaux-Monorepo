@@ -11,7 +11,7 @@
               matInput
               placeholder="Nom du bar..."
               formControlName="name"
-            />
+              />
             <mat-icon matSuffix></mat-icon>
           </mat-form-field>
         </div>
@@ -36,27 +36,31 @@
               matInput
               placeholder="06.67 ..."
               formControlName="telephone"
-            />
+              />
             <mat-icon matSuffix>phone</mat-icon>
-            <mat-error
-              *ngIf="
-                barForm.get('telephone')?.invalid &&
-                barForm.get('telephone')?.touched
-              "
-            >
-              <div
-                class="error-phone-valid"
-                *ngIf="barForm.get('telephone')?.errors?.['pattern']"
-              >
-                Mauvais format.
-              </div>
-            </mat-error>
+            @if (
+              barForm.get('telephone')?.invalid &&
+              barForm.get('telephone')?.touched
+              ) {
+              <mat-error
+                >
+                @if (barForm.get('telephone')?.errors?.['pattern']) {
+                  <div
+                    class="error-phone-valid"
+                    >
+                    Mauvais format.
+                  </div>
+                }
+              </mat-error>
+            }
           </mat-form-field>
         </div>
         <div class="submit-error">
-          <div *ngIf="barForm.errors?.['submit']" class="error-message">
-            {{ barForm.errors?.["submit"] }}
-          </div>
+          @if (barForm.errors?.['submit']) {
+            <div class="error-message">
+              {{ barForm.errors?.["submit"] }}
+            </div>
+          }
           <button class="send-button" type="submit" mat-raised-button>
             Envoyer
           </button>
@@ -79,158 +83,169 @@
               placeholder="Son adresse..."
               formControlName="adresse"
               (change)="onAddressChange()"
-            />
+              />
             <mat-icon matSuffix></mat-icon>
             <mat-hint></mat-hint>
-            <mat-error
-              *ngIf="
-                barForm.get('adresse')?.invalid &&
-                barForm.get('adresse')?.touched
-              "
-              >Adresse obligatoire.</mat-error
-            >
-          </mat-form-field>
-        </div>
-        <!-- Pictures -->
-        <div class="content-list-pictures">
-          <div
-            class="form-group custom-file-upload"
+            @if (
+              barForm.get('adresse')?.invalid &&
+              barForm.get('adresse')?.touched
+              ) {
+              <mat-error
+                >Adresse obligatoire.</mat-error
+                >
+              }
+            </mat-form-field>
+          </div>
+          <!-- Pictures -->
+          <div class="content-list-pictures">
+            <div
+              class="form-group custom-file-upload"
             [style.background-color]="
               barForm.get('pictureOne')?.value ? '#00FFA68C' : '#ffffff'
             "
-          >
-            <input
-              type="file"
-              id="pictureOne"
-              name="pictureOne"
-              accept="image/png, image/jpeg"
-              (change)="onFileChange($event, 'pictureOne')"
+              >
+              <input
+                type="file"
+                id="pictureOne"
+                name="pictureOne"
+                accept="image/png, image/jpeg"
+                (change)="onFileChange($event, 'pictureOne')"
               [ngClass]="{
                 'input-invalid':
                   barForm.get('pictureOne')?.invalid &&
                   barForm.get('pictureOne')?.touched
               }"
-            />
-            <label for="pictureOne" class="file-upload-label">
-              <mat-icon
-                class="icon-submit"
-                *ngIf="!barForm.get('pictureOne')?.value"
-                >upload</mat-icon
-              >
-              <mat-icon
-                class="icon-submit"
-                *ngIf="barForm.get('pictureOne')?.value"
-                >done</mat-icon
-              >
-            </label>
-          </div>
+                />
+              <label for="pictureOne" class="file-upload-label">
+                @if (!barForm.get('pictureOne')?.value) {
+                  <mat-icon
+                    class="icon-submit"
+                    >upload</mat-icon
+                    >
+                  }
+                  @if (barForm.get('pictureOne')?.value) {
+                    <mat-icon
+                      class="icon-submit"
+                      >done</mat-icon
+                      >
+                    }
+                  </label>
+                </div>
 
 
-          <div
-            class="form-group custom-file-upload"
+                <div
+                  class="form-group custom-file-upload"
             [style.background-color]="
               barForm.get('pictureTwo')?.value ? '#00FFA68C' : '#ffffff'
             "
-          >
-            <input
-              type="file"
-              id="pictureTwo"
-              name="pictureTwo"
-              accept="image/png, image/jpeg"
-              (change)="onFileChange($event, 'pictureTwo')"
-            />
-            <label for="pictureTwo" class="file-upload-label">
-              <mat-icon
-                class="icon-submit"
-                *ngIf="!barForm.get('pictureTwo')?.value"
-                >upload</mat-icon
-              >
-              <mat-icon
-                class="icon-submit"
-                *ngIf="barForm.get('pictureTwo')?.value"
-                >done</mat-icon
-              >
-            </label>
-          </div>
+                  >
+                  <input
+                    type="file"
+                    id="pictureTwo"
+                    name="pictureTwo"
+                    accept="image/png, image/jpeg"
+                    (change)="onFileChange($event, 'pictureTwo')"
+                    />
+                  <label for="pictureTwo" class="file-upload-label">
+                    @if (!barForm.get('pictureTwo')?.value) {
+                      <mat-icon
+                        class="icon-submit"
+                        >upload</mat-icon
+                        >
+                      }
+                      @if (barForm.get('pictureTwo')?.value) {
+                        <mat-icon
+                          class="icon-submit"
+                          >done</mat-icon
+                          >
+                        }
+                      </label>
+                    </div>
 
 
 
-          <div
-            class="form-group custom-file-upload"
+                    <div
+                      class="form-group custom-file-upload"
             [style.background-color]="
               barForm.get('pictureThree')?.value ? '#00FFA68C' : '#ffffff'
             "
-          >
-            <input
-              type="file"
-              id="pictureThree"
-              name="pictureThree"
-              accept="image/png, image/jpeg"
-              (change)="onFileChange($event, 'pictureThree')"
-            />
-            <label for="pictureThree" class="file-upload-label">
-              <mat-icon
-                class="icon-submit"
-                *ngIf="!barForm.get('pictureThree')?.value"
-                >upload</mat-icon
-              >
-              <mat-icon
-                class="icon-submit"
-                *ngIf="barForm.get('pictureThree')?.value"
-                >done</mat-icon
-              >
-            </label>
-          </div>
-          <div
-            class="form-group custom-file-upload"
+                      >
+                      <input
+                        type="file"
+                        id="pictureThree"
+                        name="pictureThree"
+                        accept="image/png, image/jpeg"
+                        (change)="onFileChange($event, 'pictureThree')"
+                        />
+                      <label for="pictureThree" class="file-upload-label">
+                        @if (!barForm.get('pictureThree')?.value) {
+                          <mat-icon
+                            class="icon-submit"
+                            >upload</mat-icon
+                            >
+                          }
+                          @if (barForm.get('pictureThree')?.value) {
+                            <mat-icon
+                              class="icon-submit"
+                              >done</mat-icon
+                              >
+                            }
+                          </label>
+                        </div>
+                        <div
+                          class="form-group custom-file-upload"
             [style.background-color]="
               barForm.get('pictureFour')?.value ? '#00FFA68C' : '#ffffff'
             "
-          >
-            <input
-              type="file"
-              id="pictureFour"
-              name="pictureFour"
-              accept="image/png, image/jpeg"
-              (change)="onFileChange($event, 'pictureFour')"
-            />
-            <label for="pictureFour" class="file-upload-label">
-              <mat-icon
-                class="icon-submit"
-                *ngIf="!barForm.get('pictureFour')?.value"
-                >upload</mat-icon
-              >
-              <mat-icon
-                class="icon-submit"
-                *ngIf="barForm.get('pictureFour')?.value"
-                >done</mat-icon
-              >
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="form-group particularity-list">
-      <div *ngFor="let particularity of particularitiesArray">
-        <mat-slide-toggle
-          class="particularity"
-          formControlName="{{ particularity.key }}"
-        >
-          <p class="particularity-label">
-            {{ particularity.label }}
-          </p>
-        </mat-slide-toggle>
-      </div>
-    </div>
-  </form>
-</section>
-<app-logo-ygo />
-<div class="background-form">
-  <img
-    class="back-picture"
-    src="assets/pictures/back-add-bar-form.jpg"
-    alt="background-form"
-  />
-  <div class="linear"></div>
-</div>
+                          >
+                          <input
+                            type="file"
+                            id="pictureFour"
+                            name="pictureFour"
+                            accept="image/png, image/jpeg"
+                            (change)="onFileChange($event, 'pictureFour')"
+                            />
+                          <label for="pictureFour" class="file-upload-label">
+                            @if (!barForm.get('pictureFour')?.value) {
+                              <mat-icon
+                                class="icon-submit"
+                                >upload</mat-icon
+                                >
+                              }
+                              @if (barForm.get('pictureFour')?.value) {
+                                <mat-icon
+                                  class="icon-submit"
+                                  >done</mat-icon
+                                  >
+                                }
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <mat-divider></mat-divider>
+                      <div class="form-group particularity-list">
+                        @for (particularity of particularitiesArray; track particularity) {
+                          <div>
+                            <mat-slide-toggle
+                              class="particularity"
+                              formControlName="{{ particularity.key }}"
+                              >
+                              <p class="particularity-label">
+                                {{ particularity.label }}
+                              </p>
+                            </mat-slide-toggle>
+                          </div>
+                        }
+                      </div>
+                    </form>
+                  </section>
+                  <app-logo-ygo />
+                  <div class="background-form">
+                    <img
+                      class="back-picture"
+                      src="assets/pictures/back-add-bar-form.jpg"
+                      alt="background-form"
+                      />
+                    <div class="linear"></div>
+                  </div>

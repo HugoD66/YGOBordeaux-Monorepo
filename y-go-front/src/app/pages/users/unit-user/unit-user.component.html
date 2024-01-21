@@ -8,30 +8,50 @@
         : 'assets/pictures/avatar-user.png'
     "
     alt="Photo du bar"
-  />
+    />
   <div class="content-title-accorderon">
     <h2>{{ user?.name }}</h2>
     <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
-      >
+        >
         <mat-expansion-panel-header>
           <mat-panel-description> Plus d'infos </mat-panel-description>
         </mat-expansion-panel-header>
-        <p *ngIf="getBarsCreatedByUser().length === 0">Aucuns bars créé</p>
-        <p *ngIf="getBarsCreatedByUser().length === 1">Bar créé :</p>
-        <p *ngIf="getBarsCreatedByUser().length > 1">Bars créés :</p>
-        <ul *ngIf="getBarsCreatedByUser().length > 0">
-          <li *ngFor="let bar of getBarsCreatedByUser()">{{ bar.name }}</li>
-        </ul>
+        @if (getBarsCreatedByUser().length === 0) {
+          <p>Aucuns bars créé</p>
+        }
+        @if (getBarsCreatedByUser().length === 1) {
+          <p>Bar créé :</p>
+        }
+        @if (getBarsCreatedByUser().length > 1) {
+          <p>Bars créés :</p>
+        }
+        @if (getBarsCreatedByUser().length > 0) {
+          <ul>
+            @for (bar of getBarsCreatedByUser(); track bar) {
+              <li>{{ bar.name }}</li>
+            }
+          </ul>
+        }
 
-        <p *ngIf="getBarsCreatedByUser().length === 0">Aucuns bars notés</p>
-        <p *ngIf="getBarsRatesByUser().length === 1">Bar noté :</p>
-        <p *ngIf="getBarsRatesByUser().length > 1">Bars notés :</p>
-        <ul *ngIf="getBarsRatesByUser().length > 0">
-          <li *ngFor="let rate of getBarsRatesByUser()">{{ rate.rate }}</li>
-        </ul>
+        @if (getBarsCreatedByUser().length === 0) {
+          <p>Aucuns bars notés</p>
+        }
+        @if (getBarsRatesByUser().length === 1) {
+          <p>Bar noté :</p>
+        }
+        @if (getBarsRatesByUser().length > 1) {
+          <p>Bars notés :</p>
+        }
+        @if (getBarsRatesByUser().length > 0) {
+          <ul>
+            @for (rate of getBarsRatesByUser(); track rate) {
+              <li>{{ rate.rate }}</li>
+            }
+          </ul>
+        }
       </mat-expansion-panel>
     </mat-accordion>
   </div>
