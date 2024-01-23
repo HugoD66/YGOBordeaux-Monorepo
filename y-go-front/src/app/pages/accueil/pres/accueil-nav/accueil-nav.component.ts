@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from "@angular/core"
+import { Component, Input, OnChanges } from "@angular/core"
 import { MatDividerModule } from "@angular/material/divider"
 import { MatListModule } from "@angular/material/list"
 import { MatButtonModule } from "@angular/material/button"
@@ -14,6 +14,7 @@ import { AsyncPipe } from "@angular/common"
 export interface ExampleTab {
   label: string
   content: string
+  buttons?: boolean
 }
 
 @Component({
@@ -21,6 +22,7 @@ export interface ExampleTab {
   templateUrl: `./accueil-nav.component.html`,
   styleUrls: [`./accueil-nav.component.scss`],
   standalone: true,
+
   imports: [
     MatListModule,
     MatDividerModule,
@@ -37,7 +39,6 @@ export class AccueilNavComponent implements OnChanges {
   routerLinkProfile: string = ``
   @Input() user!: UserModel | undefined
   asyncTabs: Observable<ExampleTab[]>
-
   constructor(
     private userService: UserService,
     private router: Router
@@ -45,9 +46,9 @@ export class AccueilNavComponent implements OnChanges {
     this.asyncTabs = new Observable((observer: Observer<ExampleTab[]>) => {
       setTimeout(() => {
         observer.next([
-          { label: `First`, content: `Content 1` },
-          { label: `Second`, content: `Content 2` },
-          { label: `Third`, content: `Content 3` },
+          { label: `First`, content: `Content 1`, buttons: false },
+          { label: `Second`, content: `Content 2`, buttons: false },
+          { label: `Third`, content: `Content 3`, buttons: true },
         ])
       }, 1000)
     })

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from "@angular/core"
 
 @Component({
   selector: `app-search-bars`,
@@ -6,14 +6,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: [`./search-bar.component.scss`],
 })
 export class SearchBarComponent {
-  @Output() searchEvent = new EventEmitter<string>();
-  value = ``;
+  @Output() searchEvent = new EventEmitter<string>()
+  value = ``
 
   onSearchChange(searchValue: string): void {
-    this.searchEvent.emit(searchValue);
+    this.searchEvent.emit(searchValue)
   }
   resetSearch(): void {
-    this.value = ``;
-    this.onSearchChange(this.value);
+    this.value = ``
+    this.onSearchChange(this.value)
   }
 }

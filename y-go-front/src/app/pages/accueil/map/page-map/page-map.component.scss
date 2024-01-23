@@ -34,6 +34,9 @@
           background-color: rgb(245, 215, 187);
           margin: 0;
           padding: 0;
+          @media screen and (max-width: 1300px) {
+            display: none;
+          }
         }
         color: rgb(245, 221, 194);
         font-size: 1.1rem;
@@ -97,7 +100,7 @@
         font-size: 1.3rem;
         width: 80%;
         @media screen and (max-width: 1300px) {
-          font-size: 1.1rem;
+          display: none;
         }
       }
       .map-clicked {

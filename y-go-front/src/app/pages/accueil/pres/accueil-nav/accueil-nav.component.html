@@ -1,32 +1,38 @@
 <div class="accueil-nav">
   @if ((asyncTabs | async) === null) {
-    Loading tabs...
+    Chargement ...
   }
 
-  <mat-tab-group>
+  <mat-tab-group class="header">
     @for (tab of asyncTabs | async; track tab) {
       <mat-tab>
         <ng-template mat-tab-label>{{tab.label}}</ng-template>
         {{tab.content}}
+        @if (tab.buttons) {
+            <button mat-button routerLink="/bars/add-bar">TEMP ADD BAR</button>
+          @if (!isAuthenticated) {
+            <button mat-button routerLink="login">
+              Se connecter
+            </button>
+            <button mat-button routerLink="register">
+              Nous rejoindre
+            </button>
+          }
+          @if (isAuthenticated) {
+            <button mat-button (click)="onLogout()">
+              Déconnexion
+            </button>
+            <button mat-button (click)="navigateToProfile()">
+              Votre compte
+            </button>
+          }
+        }
       </mat-tab>
     }
   </mat-tab-group>
-  <button mat-button routerLink="/bars/add-bar">TEMP ADD BAR</button>
-  @if (!isAuthenticated) {
-    <button mat-button routerLink="login">
-      Se connecter
-    </button>
-    <button mat-button routerLink="register">
-      Nous rejoindre
-    </button>
-  }
-  @if (isAuthenticated) {
-    <button mat-button (click)="onLogout()">
-      Déconnexion
-    </button>
-    <button mat-button (click)="navigateToProfile()">
-      Votre compte
-    </button>
-  }
+
+
+
+
 
 </div>

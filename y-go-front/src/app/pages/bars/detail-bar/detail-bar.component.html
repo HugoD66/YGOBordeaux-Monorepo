@@ -2,7 +2,7 @@
   <app-button-panel-horiz></app-button-panel-horiz>
   <h1>{{ (bar | async)?.name }}</h1>
   <div class="content-bar-unit">
-    <div class="pictures-adress">
+    <div class="pictures">
       <div class="pictures-content">
         <img
           class="picture-center"
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <div class="adress-note">
+      <div class="desc">
         <p>
           Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} par
           {{ (bar | async)?.createdBy?.email }}
@@ -53,41 +53,37 @@
           nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
           sed diam voluptua. At vero eos et accusam et
         </p>
-        <div class="description-button">
-          <button class="description-button-unit">Horaires</button>
-        </div>
-        <ul>
-          <li>Grignotage</li>
-          <li>Happy Hour</li>
-          <li>Soirée à thème</li>
-        </ul>
-        <div class="adress">
-          <h2>Adresse</h2>
-          <p>{{ (bar | async)?.adresse }}</p>
-        </div>
-        <div class="note">
-          <div class="list-data rate">
-            @for (star of (bar | async)?.note | starRating; track star) {
-              <span
-                class="rate-list"
-                >
-                <img
-                  class="picture-star-list-data"
-                [src]="
-                  star.color === 'yellow'
-                    ? '../../../../assets/icons/star-colored.png'
-                    : '../../../../assets/icons/star.png'
-                "
-                  alt=""
-                  />
-              </span>
+        <button class="horaires-button">Horaires</button>
+        <div class="particularity-adress">
+          <div class="particularity">
+            <h2>Particularités</h2>
+            @if (currentBar?.particularities) {
+              <ul>
+                @for (particularity of currentBar?.particularities; track particularity) {
+                  <li>
+                    {{ particularity }}
+                  </li>
+                }
+              </ul>
+            }
+            @if (!currentBar?.particularities) {
+              <p>
+                Aucune particularité pour ce bar
+              </p>
             }
           </div>
+          <div class="adress">
+            <h2>Adresse</h2>
+            <p>{{ (bar | async)?.adresse }}</p>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="rate-hour-map">
+    <div class="rate-map">
+
       <div class="note">
+        <h2>Nombre de votants : {{ rateCount() }}</h2>
         @for (star of (bar | async)?.note | starRating; track star) {
           <span
             class="rate-list"
@@ -104,23 +100,7 @@
           </span>
         }
       </div>
-      <h2>Nombre de votants : {{ rateCount() }}</h2>
-      <h2>Particularités</h2>
 
-      @if (currentBar?.particularities) {
-        <ul>
-          @for (particularity of currentBar?.particularities; track particularity) {
-            <li>
-              {{ particularity }}
-            </li>
-          }
-        </ul>
-      }
-      @if (!currentBar?.particularities) {
-        <p>
-          Aucune particularité pour ce bar
-        </p>
-      }
 
       <div class="mapEmplacement">
         <div class="map-wrap">

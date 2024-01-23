@@ -1,13 +1,12 @@
 .accueil-nav {
   position: absolute;
-  bottom: 20%;
-  right: 8%;
-  padding-right: 2%;
+  width: 42%;
   border-radius: 10px;
   background-color: #faf0e4ff;
-  width: auto;
-  max-width: 30vw;
+  bottom: 20px;
+  right: 20px;
   display: flex;
+  height: 45%;
   .list-item {
     display: flex;
     flex-direction: row;
@@ -31,4 +30,8 @@
     right: 0;
     border-radius: 0;
   }
+}
+
+.header {
+  width: 100%;
 }

@@ -1,124 +1,152 @@
-h1 {
-  color: #282828;
-  font-size: 3.2em;
-  margin-left: 10%;
-  margin-top: 3%;
-}
-.content-bar-unit {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-around;
-  height: 90vh;
-  width: 83vw;
-  margin-top: 3%;
-  margin-left: 3%;
-  position: absolute;
-  overflow-y: auto;
-  border-radius: 10px;
-  .pictures-adress {
+.content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  h1 {
+    color: #282828;
+    font-size: 3.2em;
+    margin-left: 10%;
+    margin-top: 3%;
+  }
+  .content-bar-unit {
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
     flex-direction: row;
-    @media (max-width: 1300px) {
-      flex-direction: column;
-    }
-    .pictures-content {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: 75vh;
+    width: 83vw;
+    margin-top: 3%;
+    margin-left: 3%;
+    position: absolute;
+    overflow-y: auto;
+    border-radius: 10px;
+    .pictures {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
       width: 100%;
-      .picture-center {
-        height: 470px;
-        @media (max-width: 1448px) {
-          flex-wrap: nowrap;
-        }
-        @media (max-width: 1300px) {
-          height: 350px;
-          width: 92%;
-        }
-      }
-      .pictures-content-galerie {
-        @media (max-width: 1212px) {
-          min-width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-        }
-        .pictures-content-galerie-unit {
-          display: flex;
-          flex-direction: column;
-          width: 200px;
-          height: 153px;
-          margin: 3%;
-          @media (max-width: 1300px) {
-            height: 120px;
-            margin: 2%;
-          }
-          @media (max-width: 766px) {
-            width: 33%;
-          }
-        }
-      }
-    }
-    .adress-note {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      width: 60%;
-      margin-left: 10%;
-    }
-  }
-  .rate-hour-map {
-    width: 100%;
-    height: 1000px;
-    .note {
-      .picture-star-list-data {
-        width: 2vw;
-        height: 2vw;
-        max-width: 20px;
-        max-height: 20px;
-        margin: 2%;
-        img {
-          z-index: 10;
-          width: 500px;
-          height: 500px;
-        }
+      justify-content: space-around;
+      flex-direction: row;
+      @media (max-width: 1300px) {
+        flex-direction: column;
       }
-    }
-
-    .mapEmplacement {
-      width: 90%;
-      height: 90%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .map-wrap {
-        position: relative;
-        width: 80%;
-        height: calc(100% - 77px);
-        //height: 80%;
-      }
-      .map {
-        position: absolute;
+      .pictures-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        height: 100%;
+        .picture-center {
+          height: 470px;
+          @media (max-width: 1448px) {
+            flex-wrap: nowrap;
+          }
+          @media (max-width: 1300px) {
+            height: 350px;
+            width: 92%;
+          }
+        }
+        .pictures-content-galerie {
+          @media (max-width: 1212px) {
+            min-width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .pictures-content-galerie-unit {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            height: 153px;
+            margin: 3%;
+            @media (max-width: 1300px) {
+              height: 120px;
+              margin: 2%;
+            }
+            @media (max-width: 766px) {
+              width: 33%;
+            }
+          }
+        }
+      }
+      .desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+        margin-left: 10%;
+        .horaires-button {
+
+        }
+        .particularity-adress {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          margin: 5%;
+          .particularity {
+
+          }
+          .adress {
+
+          }
+        }
+      }
+    }
+    .rate-map {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: 980px) {
+        flex-direction: column;
+      }
+      .note {
+        .picture-star-list-data {
+          width: 2vw;
+          height: 2vw;
+          max-width: 20px;
+          max-height: 20px;
+          margin: 2%;
+          img {
+            z-index: 10;
+            width: 500px;
+            height: 500px;
+          }
+        }
+      }
+      .mapEmplacement {
+        width: 600px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .map-wrap {
+          position: relative;
+          width: 80%;
+          height: calc(100% - 77px);
+          //height: 80%;
+        }
+        .map {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
-}
-.picture-center {
-  /* Autres styles... */
-  transition: opacity 0.2s ease-in-out;
-  opacity: 1;
-}
+  .picture-center {
+    /* Autres styles... */
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+  }
 
-.picture-center-fade {
-  opacity: 0;
+  .picture-center-fade {
+    opacity: 0;
+  }
+
 }
