@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, signal, ViewChild, WritableSignal } from "@angular/core"
-import { ActivatedRoute } from "@angular/router"
+import { ActivatedRoute, Router, RouterLink } from "@angular/router"
 import { BarService } from "../../../services/bar.service"
 import { BarModel } from "../../../models/bar.model"
 import { config, Map } from "@maptiler/sdk"
@@ -10,6 +10,10 @@ import { LogoYGoComponent } from "../../../components/logo-ygo/logo-ygo.componen
 import { Observable } from "rxjs"
 import { AsyncPipe, DatePipe } from "@angular/common"
 import { ButtonPanelHorizComponent } from "../../../components/button-panel/button-panel-horiz/button-panel-horiz.component"
+import { UserService } from "../../../services/user.service"
+import { UserModel } from "../../../models/user.model"
+import { RateService } from "../../../services/rate.service"
+import { RateModel } from "../../../models/rate.model"
 
 type PictureListKey = "pictureOne" | "pictureTwo" | "pictureThree" | "pictureFour"
 
@@ -17,12 +21,16 @@ type PictureListKey = "pictureOne" | "pictureTwo" | "pictureThree" | "pictureFou
   selector: `app-detail-bars`,
   templateUrl: `./detail-bar.component.html`,
   styleUrls: [`./detail-bar.component.scss`],
-  imports: [StarRatingPipe, LogoYGoComponent, AsyncPipe, DatePipe, ButtonPanelHorizComponent],
+  imports: [StarRatingPipe, LogoYGoComponent, AsyncPipe, DatePipe, ButtonPanelHorizComponent, RouterLink],
   standalone: true,
 })
 export class DetailBarComponent implements AfterViewInit, OnInit {
   bar: Observable<BarModel | undefined>
   map: Map | undefined
+  user: UserModel | undefined
+  hasUserRatedBar: WritableSignal<boolean> = signal(false)
+  isUserLogged: WritableSignal<boolean> = signal(false)
+  userRate: WritableSignal<number | undefined> = signal(undefined)
   selectedPicture: string | undefined
   currentBar: BarModel | undefined
   mainPicture: string | undefined
@@ -36,13 +44,15 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
   constructor(
     private route: ActivatedRoute,
     private barService: BarService,
-    private mapService: MapService
+    private mapService: MapService,
+    private userService: UserService,
+    private rateService: RateService,
+    private router: Router
   ) {
     this.bar = this.barService.getBarById(this.route.snapshot.paramMap.get(`id`))
     this.bar.subscribe((barData) => {
       this.currentBar = barData
 
-      console.log(this.currentBar?.particularities)
       if (barData?.pictureList?.pictureOne) {
         this.selectedPicture = `${this.apiUrl}/` + barData.pictureList.pictureOne
       }
@@ -71,6 +81,11 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
       }
     })
   }
+
+  loggin(): void {
+    this.router.navigate([`/login`])
+  }
+
   ngAfterViewInit(): void {
     this.mapService.initializeMap(this.mapContainer.nativeElement)
     this.bar.subscribe((barData) => {
@@ -83,6 +98,29 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
             this.rateCount.set(`Pas de participants.`)
           }
           console.log(`count :`, count)
+        })
+        this.userService.getUser().subscribe((userData) => {
+          this.user = userData
+          this.isUserLogged.set(!!userData)
+
+          if (userData && this.currentBar?.id) {
+            this.rateService.getRateByIdBar(this.currentBar.id).subscribe((rateData) => {
+              if (rateData) {
+                console.log(`ratedata` + rateData)
+                console.log(`USERDATA` + userData.id)
+                this.hasUserRatedBar.set(true)
+                const userSpecificRate = rateData.find((rate: RateModel) => rate.user?.id === userData.id)
+                if (userSpecificRate) {
+                  this.userRate.set(userSpecificRate.rate)
+                  console.log(this.userRate())
+                } else {
+                  this.userRate.set(undefined)
+                }
+              } else {
+                this.hasUserRatedBar.set(false)
+              }
+            })
+          }
         })
       }
     })

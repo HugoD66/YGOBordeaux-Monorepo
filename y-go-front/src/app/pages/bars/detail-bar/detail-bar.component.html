@@ -66,7 +66,7 @@
                 }
               </ul>
             }
-            @if (!currentBar?.particularities) {
+            @if (currentBar?.particularities?.length === 0) {
               <p>
                 Aucune particularité pour ce bar
               </p>
@@ -99,6 +99,34 @@
               />
           </span>
         }
+        <div class="voter">
+          @if(!isUserLogged()) {
+            <p>Vous devez être connecté pour voter ! </p>
+            <button (click)="loggin()">Connexion</button>
+          } @else if (!hasUserRatedBar()) {
+            <p>Vous n'avez toujours pas voté ! </p>
+            <button class="voter-button" > <!-- (click)="onVote()" -->Voter</button>
+          } @else {
+           @if (userRate() !== undefined) {
+             <p>La note que vous avez attribué : </p>
+             @for (star of userRate()! | starRating; track star) {
+               <span
+                 class="rate-list"
+               >
+            <img
+              class="picture-star-list-data"
+              [src]="
+              star.color === 'yellow'
+                ? '../../../../assets/icons/star-colored.png'
+                : '../../../../assets/icons/star.png'
+            "
+              alt=""
+            />
+          </span>
+             }
+            }
+          }
+        </div>
       </div>
 
 

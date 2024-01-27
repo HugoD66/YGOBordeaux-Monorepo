@@ -60,10 +60,16 @@ let UserBarRatingService = exports.UserBarRatingService = class UserBarRatingSer
         }
     }
     async findOne(id) {
-        return await this.rateRepository.findOne({ where: { id } });
+        return await this.rateRepository.findOne({ where: { id }, relations: [`user`, `bar`] });
     }
     async findAll() {
-        return await this.rateRepository.find();
+        return await this.rateRepository.find({ relations: [`user`, `bar`] });
+    }
+    async findAllRatesByBarId(barId) {
+        return await this.rateRepository.find({
+            where: { bar: { id: barId } },
+            relations: [`user`, `bar`],
+        });
     }
     async update(id, updateUserBarRatingDto) {
         await this.rateRepository.update(id, updateUserBarRatingDto);

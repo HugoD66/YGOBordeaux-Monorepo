@@ -26,6 +26,9 @@ let UserBarRatingController = exports.UserBarRatingController = class UserBarRat
         const rate = await this.userBarRatingService.create(createUserBarRatingDto);
         return rate;
     }
+    async findRatesByBarId(barId) {
+        return await this.userBarRatingService.findAllRatesByBarId(barId);
+    }
     async findOne(id) {
         const rate = await this.userBarRatingService.findOne(id);
         return rate;
@@ -52,6 +55,14 @@ __decorate([
     __metadata("design:paramtypes", [create_user_bar_rating_dto_1.CreateUserBarRatingDto]),
     __metadata("design:returntype", Promise)
 ], UserBarRatingController.prototype, "create", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)(`rates/:barId`),
+    __param(0, (0, common_1.Param)(`barId`)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UserBarRatingController.prototype, "findRatesByBarId", null);
 __decorate([
     (0, public_decorator_1.Public)(),
     (0, common_1.Get)(`:id`),

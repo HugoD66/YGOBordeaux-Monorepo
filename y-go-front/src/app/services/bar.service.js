@@ -1,56 +1,50 @@
-"use strict";
+"use strict"
 var __decorate =
   (this && this.__decorate) ||
   function (decorators, target, key, desc) {
     var c = arguments.length,
-      r =
-        c < 3
-          ? target
-          : desc === null
-          ? (desc = Object.getOwnPropertyDescriptor(target, key))
-          : desc,
-      d;
+      r = c < 3 ? target : desc === null ? (desc = Object.getOwnPropertyDescriptor(target, key)) : desc,
+      d
     if (typeof Reflect === `object` && typeof Reflect.decorate === `function`)
-      r = Reflect.decorate(decorators, target, key, desc);
+      r = Reflect.decorate(decorators, target, key, desc)
     else
       for (var i = decorators.length - 1; i >= 0; i--)
-        if ((d = decorators[i]))
-          r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-  };
-Object.defineProperty(exports, `__esModule`, { value: true });
-exports.BarService = void 0;
-const core_1 = require(`@angular/core`);
-const env_1 = require(`../../../env`);
-const rxjs_1 = require(`rxjs`);
+        if ((d = decorators[i])) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r
+    return c > 3 && r && Object.defineProperty(target, key, r), r
+  }
+Object.defineProperty(exports, `__esModule`, { value: true })
+exports.BarService = void 0
+const core_1 = require(`@angular/core`)
+const env_1 = require(`../../../env`)
+const rxjs_1 = require(`rxjs`)
 let BarService = class BarService {
   constructor(http) {
-    this.http = http;
-    this.apiUrl = env_1.environment.apiUrl;
+    this.http = http
+    this.apiUrl = env_1.environment.apiUrl
   }
   addBar(barData) {
-    const url = `${this.apiUrl}/bars`;
-    return this.http.post(url, barData);
+    const url = `${this.apiUrl}/bars`
+    return this.http.post(url, barData)
   }
   getBarsList() {
     return this.http.get(`${this.apiUrl}/bars`).pipe(
       (0, rxjs_1.tap)((response) => this.log(response)),
-      (0, rxjs_1.catchError)((error) => this.handleError(error, [])),
-    );
+      (0, rxjs_1.catchError)((error) => this.handleError(error, []))
+    )
   }
   getBarById(barId) {
     return this.http.get(`${this.apiUrl}/bars/${barId}`).pipe(
       (0, rxjs_1.tap)((response) => this.log(response)),
-      (0, rxjs_1.catchError)((error) => this.handleError(error, undefined)),
-    );
+      (0, rxjs_1.catchError)((error) => this.handleError(error, undefined))
+    )
   }
   log(response) {
-    console.table(response);
+    console.table(response)
   }
   handleError(error, errorValue) {
-    console.error(error);
-    return (0, rxjs_1.of)(errorValue);
+    console.error(error)
+    return (0, rxjs_1.of)(errorValue)
   }
-};
-BarService = __decorate([(0, core_1.Injectable)()], BarService);
-exports.BarService = BarService;
+}
+BarService = __decorate([(0, core_1.Injectable)()], BarService)
+exports.BarService = BarService
