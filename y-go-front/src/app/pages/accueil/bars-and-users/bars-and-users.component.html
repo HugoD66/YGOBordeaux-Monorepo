@@ -3,13 +3,16 @@
     <div class="userContent">
       <div class="carousel-container">
         <div class="carousel-inner-user">
-          <div class="carousel-slide-users"
-               *ngFor="let slideUser of slidesUser"
-               (mouseenter)="explainSlide(slideUser.name)"
-               (mouseleave)="exitSlide()"
+          <div
+            class="carousel-slide-users"
+            *ngFor="let slideUser of slidesUser"
+            (mouseenter)="explainSlide(slideUser.name)"
+            (mouseleave)="exitSlide()"
           >
-            <img [src]="slideUser.picture" [alt]="slideUser.name">
-            <p class="adresse-font" *ngIf="displayedAdresse === slideUser.name">{{ slideUser.name }}</p>
+            <img [src]="slideUser.picture" [alt]="slideUser.name" />
+            <p class="adresse-font" *ngIf="displayedAdresse === slideUser.name">
+              {{ slideUser.name }}
+            </p>
           </div>
         </div>
       </div>
@@ -19,20 +22,25 @@
     </div>
     <div class="barContent">
       <div class="carousel-container">
-        <div class="carousel-inner-bar" >
+        <div class="carousel-inner-bar">
           <div class="carousel-slide-bars" *ngFor="let slideBar of slidesBar">
-            <img [src]="slideBar.imageUrl"
-                 [alt]="slideBar.name"
-                 (mouseenter)="explainSlide(slideBar.adresse)"
-                 (mouseleave)="exitSlide()"
-                 (click)="goDetailBar(slideBar.id)"
+            <img
+              [src]="slideBar.imageUrl"
+              [alt]="slideBar.name"
+              (mouseenter)="explainSlide(slideBar.adresse)"
+              (mouseleave)="exitSlide()"
+              (click)="goDetailBar(slideBar.id)"
+            />
+            <p>{{ slideBar.name }}</p>
+            <p
+              class="adresse-font"
+              *ngIf="displayedAdresse === slideBar.adresse"
             >
-            <p>{{slideBar.name}}</p>
-            <p class="adresse-font" *ngIf="displayedAdresse === slideBar.adresse">{{ slideBar.adresse }}</p>
+              {{ slideBar.adresse }}
+            </p>
           </div>
         </div>
+      </div>
     </div>
   </div>
-  </div>
 </div>
-

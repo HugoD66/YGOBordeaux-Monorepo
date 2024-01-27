@@ -9,7 +9,7 @@
           ? apiUrl + '/' + bar?.createdBy?.picture
           : '../../../../assets/pictures/avatar-user.png'
       "
-      />
+    />
   </mat-card-header>
   <img
     mat-card-image
@@ -19,7 +19,7 @@
         : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'
     "
     alt="Photo du bar"
-    />
+  />
   <!-- Probleme lors de l'enregistremment image, il faut , je pense, la recréer avec l'encodage dans le dossier upload -->
   <!--
   <img
@@ -44,17 +44,17 @@
       </p>
       <div class="list-data rate">
         @for (star of bar?.note | starRating; track star) {
-          <span class="rate-list">
-            <img
-              class="picture-star-list-data"
+        <span class="rate-list">
+          <img
+            class="picture-star-list-data"
             [src]="
               star.color === 'yellow'
                 ? '../../../../assets/icons/star-colored.png'
                 : '../../../../assets/icons/star.png'
             "
-              alt=""
-              />
-          </span>
+            alt=""
+          />
+        </span>
         }
       </div>
       <p class="list-data createdby-at">

@@ -1,5 +1,5 @@
-"use strict"
-Object.defineProperty(exports, `__esModule`, { value: true })
-exports.UserResponseDto = void 0
+'use strict';
+Object.defineProperty(exports, `__esModule`, { value: true });
+exports.UserResponseDto = void 0;
 class UserResponseDto {}
-exports.UserResponseDto = UserResponseDto
+exports.UserResponseDto = UserResponseDto;

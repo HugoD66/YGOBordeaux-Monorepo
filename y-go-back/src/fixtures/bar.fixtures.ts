@@ -1,13 +1,13 @@
-import { Injectable } from "@nestjs/common"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { Bar } from "../bars/entities/bar.entity"
-import { BarsService } from "../bars/bars.service"
-import { PictureListService } from "../picture-list/picture-list.service"
-import { GeoService } from "../geo/geo.service"
-import { UsersService } from "../users/users.service"
-import { User } from "../users/entities/user.entity"
-import { ParticularityEnum } from "../bars/entities/types/particularity.enum"
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Bar } from '../bars/entities/bar.entity';
+import { BarsService } from '../bars/bars.service';
+import { PictureListService } from '../picture-list/picture-list.service';
+import { GeoService } from '../geo/geo.service';
+import { UsersService } from '../users/users.service';
+import { User } from '../users/entities/user.entity';
+import { ParticularityEnum } from '../bars/entities/types/particularity.enum';
 
 @Injectable()
 export class BarFixtures {
@@ -20,7 +20,7 @@ export class BarFixtures {
     private readonly pictureListService: PictureListService,
     private readonly geoService: GeoService,
 
-    private readonly usersService: UsersService
+    private readonly usersService: UsersService,
   ) {}
 
   async seedBars(): Promise<void> {
@@ -216,19 +216,20 @@ export class BarFixtures {
           y: `44.855741800057615`,
         },
       },
-    ]
-    const users: User[] = await this.usersService.findAll()
+    ];
+    const users: User[] = await this.usersService.findAll();
     for (const bar of bars) {
       try {
         const existingBar: Bar = await this.barRepository.findOne({
           where: { name: bar.name },
-        })
+        });
         if (!existingBar) {
-          const randomUser = users[Math.floor(Math.random() * users.length)]
-          const { pictureList, geo, particularities, ...barInfo } = bar
+          const randomUser = users[Math.floor(Math.random() * users.length)];
+          const { pictureList, geo, particularities, ...barInfo } = bar;
 
-          const pictureListEntity = await this.pictureListService.create(pictureList)
-          const geoEntity = await this.geoService.create(geo)
+          const pictureListEntity =
+            await this.pictureListService.create(pictureList);
+          const geoEntity = await this.geoService.create(geo);
 
           const barData = {
             ...barInfo,
@@ -236,31 +237,34 @@ export class BarFixtures {
             pictureList: pictureListEntity,
             geo: geoEntity,
             particularities,
-          }
-          const createdBar = await this.barsService.create(barData, randomUser.id)
+          };
+          const createdBar = await this.barsService.create(
+            barData,
+            randomUser.id,
+          );
 
-          console.log(`${createdBar.name} created.`)
+          console.log(`${createdBar.name} created.`);
         }
       } catch (error) {
-        console.error(`Error creating bar ${bar.name}:`, error)
+        console.error(`Error creating bar ${bar.name}:`, error);
       }
     }
-    console.log(`Seeding bars complete!`)
+    console.log(`Seeding bars complete!`);
   }
 
   private getRandomParticularities(): ParticularityEnum[] {
-    const allParticularities = Object.values(ParticularityEnum)
-    const count = Math.floor(Math.random() * 5)
-    const randomParticularities: ParticularityEnum[] = []
+    const allParticularities = Object.values(ParticularityEnum);
+    const count = Math.floor(Math.random() * 5);
+    const randomParticularities: ParticularityEnum[] = [];
 
     for (let i = 0; i < count; i++) {
-      const randomIndex = Math.floor(Math.random() * allParticularities.length)
-      const particularity = allParticularities[randomIndex]
+      const randomIndex = Math.floor(Math.random() * allParticularities.length);
+      const particularity = allParticularities[randomIndex];
       if (!randomParticularities.includes(particularity)) {
-        randomParticularities.push(particularity)
+        randomParticularities.push(particularity);
       }
     }
 
-    return randomParticularities
+    return randomParticularities;
   }
 }

@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common"
-import { InjectRepository } from "@nestjs/typeorm"
-import { Repository } from "typeorm"
-import { User } from "../users/entities/user.entity"
-import { UsersService } from "../users/users.service"
-import { UserRoleEnum } from "../users/entities/types/user.roles.enum"
-import { CreateUserDto } from "../users/dto/create-user.dto"
-import { UserResponseDto } from "../users/dto/user-response.dto"
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from '../users/entities/user.entity';
+import { UsersService } from '../users/users.service';
+import { UserRoleEnum } from '../users/entities/types/user.roles.enum';
+import { CreateUserDto } from '../users/dto/create-user.dto';
+import { UserResponseDto } from '../users/dto/user-response.dto';
 
 @Injectable()
 export class UserFixtures {
@@ -13,7 +13,7 @@ export class UserFixtures {
     @InjectRepository(User)
     private userRepository: Repository<User>,
 
-    private usersService: UsersService
+    private usersService: UsersService,
   ) {}
 
   async seedUsers(): Promise<void> {
@@ -114,21 +114,22 @@ export class UserFixtures {
         picture: `./uploads/user/userHFixture5.png`,
         phone: `0606060606`,
       },
-    ]
+    ];
 
     for (const userData of users) {
       try {
         const existingUser: User = await this.userRepository.findOne({
           where: { email: userData.email },
-        })
+        });
         if (!existingUser) {
-          const createdUser: UserResponseDto = await this.usersService.create(userData)
-          console.log(`User ${createdUser.email} created.`)
+          const createdUser: UserResponseDto =
+            await this.usersService.create(userData);
+          console.log(`User ${createdUser.email} created.`);
         }
       } catch (error) {
-        console.error(`Error creating user ${userData.email}:`, error)
+        console.error(`Error creating user ${userData.email}:`, error);
       }
     }
-    console.log(`Seeding users complete!`)
+    console.log(`Seeding users complete!`);
   }
 }

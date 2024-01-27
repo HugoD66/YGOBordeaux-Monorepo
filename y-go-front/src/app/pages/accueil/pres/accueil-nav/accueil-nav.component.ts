@@ -10,11 +10,13 @@ import { ButtonUnitHorizComponent } from "../../../../components/button-panel/bu
 import { Observable, Observer } from "rxjs"
 import { MatTabsModule } from "@angular/material/tabs"
 import { AsyncPipe } from "@angular/common"
+import { MatIconModule } from "@angular/material/icon"
 
-export interface ExampleTab {
+export interface PresentationTab {
   label: string
-  content: string
-  buttons?: boolean
+  firstTab: boolean
+  secondTab: boolean
+  thirdTab: boolean
 }
 
 @Component({
@@ -32,25 +34,45 @@ export interface ExampleTab {
     ButtonUnitHorizComponent,
     MatTabsModule,
     AsyncPipe,
+    MatIconModule,
   ],
 })
 export class AccueilNavComponent implements OnChanges {
   isAuthenticated = false
   routerLinkProfile: string = ``
   @Input() user!: UserModel | undefined
-  asyncTabs: Observable<ExampleTab[]>
+  asyncTabs: Observable<PresentationTab[]>
+  firstLabel = `../../../../../assets/icons/wine-count.png`
+  secondLabel = `../../../../../assets/icons/student.png`
+  thirdLabel = `../../../../../assets/icons/register.png`
+
   constructor(
     private userService: UserService,
     private router: Router
   ) {
-    this.asyncTabs = new Observable((observer: Observer<ExampleTab[]>) => {
+    this.asyncTabs = new Observable((observer: Observer<PresentationTab[]>) => {
       setTimeout(() => {
         observer.next([
-          { label: `First`, content: `Content 1`, buttons: false },
-          { label: `Second`, content: `Content 2`, buttons: false },
-          { label: `Third`, content: `Content 3`, buttons: true },
+          {
+            label: `Ygo`,
+            firstTab: true,
+            secondTab: false,
+            thirdTab: false,
+          },
+          {
+            label: `Ynov`,
+            firstTab: false,
+            secondTab: true,
+            thirdTab: false,
+          },
+          {
+            label: `Rejoignez-nous`,
+            firstTab: false,
+            secondTab: false,
+            thirdTab: true,
+          },
         ])
-      }, 1000)
+      }, 500)
     })
   }
 

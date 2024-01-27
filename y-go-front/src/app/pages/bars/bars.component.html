@@ -3,10 +3,7 @@
   <app-search-bars (searchEvent)="onSearch($event)"></app-search-bars>
   <div class="content-bars">
     @for (bar of filteredBarList; track bar) {
-      <app-unit-bar
-        class="content-bar"
-        [bar]="bar"
-        />
+    <app-unit-bar class="content-bar" [bar]="bar" />
     }
   </div>
   <app-logo-ygo />

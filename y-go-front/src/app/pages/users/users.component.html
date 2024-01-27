@@ -2,10 +2,7 @@
   <app-button-panel-horiz></app-button-panel-horiz>
   <div class="content-users">
     @for (user of userList; track user) {
-      <app-unit-user
-        class="user"
-        [user]="user"
-      ></app-unit-user>
+    <app-unit-user class="user" [user]="user"></app-unit-user>
     }
   </div>
   <app-logo-ygo />
