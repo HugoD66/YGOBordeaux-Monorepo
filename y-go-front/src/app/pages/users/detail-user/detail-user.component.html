@@ -1,38 +1,5 @@
 <!--
-<ng-container *ngIf="user?.picture; else noPicture">
-  <div class="picture-content">
-    <img class="picture"
-      [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
-      alt="user picture"
-    />
-  </div>
-</ng-container>
-<ng-template #noPicture>
-  <div class="picture-content">
-    <img class="picture"
-      src="../../../../assets/pictures/avatar-user.png"
-      alt="default avatar"
-    />
-    <span class="add-picture">
-      <form>
-        <label for="file-upload" class="custom-file-upload">
-          <img src="assets/icons/picture-add.png" alt="Add" />
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          (change)="onFileSelect($event)"
-          style="display: none"
-        />
-      </form>
-    </span>
-  </div>
-</ng-template>
--->
-
-<div class="picture-infos">
-  <div class="pic">
-    <div class="picture-content">
+ <div class="picture-content">
       <img
         class="picture"
         src="../../../../assets/pictures/avatar-user.png"
@@ -52,13 +19,48 @@
         </form>
       </span>
     </div>
+-->
+
+<div class="picture-infos">
+  <div class="pic">
+  <ng-container *ngIf="user?.picture; else noPicture">
+    <div class="picture-content">
+      <img class="picture"
+           [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
+           alt="user picture"
+      />
+    </div>
+  </ng-container>
+    <ng-template #noPicture>
+      <div class="picture-content">
+        <img class="picture"
+             src="../../../../assets/pictures/avatar-user.png"
+             alt="default avatar"
+        />
+        <span class="add-picture">
+          <form>
+            <label for="file-upload" class="custom-file-upload">
+              <img src="assets/icons/picture-add.png" alt="Add" />
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              (change)="onFileSelect($event)"
+              style="display: none"
+            />
+          </form>
+        </span>
+      </div>
+    </ng-template>
+
+
+
   </div>
   <div class="infos">
-    <p>Bonjour, {{ user.name }}</p>
-    <p>{{ user.email }}</p>
+    <p>Bonjour, {{ user?.name }}</p>
+    <p>{{ user?.email }}</p>
     <p>
-      Vous devez compléter vos informations afin d'avoir les bars prés de chez
-      vous !
+      Completez votre profil pour profiter pleinement de l'application
     </p>
     <button type="button" mat-raised-button>Compléter profil</button>
     <button type="button" mat-raised-button>Modifier profil</button>

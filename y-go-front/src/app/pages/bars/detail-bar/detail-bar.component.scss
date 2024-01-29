@@ -1,14 +1,40 @@
+@import '../../../styles/variables';
 .content {
   width: 100%;
   height: 100%;
   overflow: hidden;
   h1 {
-    color: #282828;
     font-size: 3.2em;
+    color: $red;
+    font-weight: 600;
     margin-left: 10%;
     margin-top: 3%;
+    padding: 8px;
+    position: relative;
+    @media screen and (max-width: 1300px) {
+      font-size: 2rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      width: 500px;
+      background: linear-gradient(
+          to left,
+          rgb(250, 237, 225),
+          rgb(166, 66, 70)
+      );
+      @media screen and (max-width: 1300px) {
+        width: 300px;
+
+      }
+    }
   }
   .content-bar-unit {
+    background-color: $backPres2;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -76,19 +102,127 @@
         align-items: center;
         justify-content: space-between;
         width: 60%;
-        margin-left: 10%;
-        .horaires-button {
+        margin-right: 15px;
+        .description {
+          font-size: 1.1em;
+          text-align: end;
+          line-height: 1.6rem;
         }
         .particularity-adress {
           display: flex;
           width: 100%;
           flex-direction: row;
-          align-items: center;
+          align-items: start;
           justify-content: space-around;
           margin: 5%;
+          .particularity, .adress {
+            h2 {
+              font-size: 2rem;
+              color: rgb(166, 66, 70);
+              font-weight: 400;
+              padding: 8px;
+              position: relative;
+            }
+            .particularity-unit {
+              display: flex;
+              align-items: center;
+              font-size: 1.1em;
+              
+              img {
+                width: 30px;
+                height: 30px;
+                margin: 5%;
+              }
+
+            }
+          }
           .particularity {
+            h2 {
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 1px;
+                background: linear-gradient(
+                    to top,
+                    rgb(166, 66, 70),
+                    rgb(245, 221, 194)
+                );
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 1px;
+                background: linear-gradient(
+                    to left,
+                    rgb(245, 221, 194),
+                    rgb(166, 66, 70)
+                );
+              }
+            }
+            ul {
+              list-style: none;
+              li {
+                font-size: 1.1em;
+                line-height: 1.6rem;
+              }
+            }
           }
           .adress {
+            h2 {
+              //height: 10%;
+              //align-self: flex-start;
+              //margin-left: 15%;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 1px;
+                background: linear-gradient(
+                    to top,
+                    rgb(166, 66, 70),
+                    rgb(245, 221, 194)
+                );
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 1px;
+                background: linear-gradient(
+                    to right,
+                    rgb(245, 221, 194),
+                    rgb(166, 66, 70)
+                );
+              }
+            }
+          }
+        }
+        .createdby-at {
+          margin-right: 5px;
+          align-self: end;
+          text-align: end;
+          font-style: italic;
+          line-height: 1.6vh;
+          font-family: "Titillium", sans-serif;
+          font-weight: bold;
+          color: #1f1f1f;
+          opacity: 0.8;
+          @media (max-width: 680px) {
+            line-height: 1.3vh;
+            font-size: 0.7em;
+            width: 40%;
+            float: right;
           }
         }
       }

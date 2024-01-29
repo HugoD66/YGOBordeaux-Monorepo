@@ -9,34 +9,56 @@
   }
   <mat-tab-group class="header">
     @for (tab of asyncTabs | async; track tab) {
-    <mat-tab>
+    <mat-tab class="content">
       @if (tab.firstTab) {
         <ng-template class="tab-label" mat-tab-label>
           <img class="tab-label-icon" [src]="firstLabel" alt="First tab icon"> {{ tab.label }}
         </ng-template>
         <div class="tab-content">
-          <p>Découvrez Bordeaux sous un nouveau jour avec notre application : explorez une sélection variée de bars et découvrez tout ce qu'ils ont à offrir, du confort de votre poche !</p>
-
+          <p class="tab-text text-one">
+            Découvrez Bordeaux sous un nouveau jour avec notre application : explorez une sélection variée de bars et découvrez tout ce qu'ils ont à offrir, du confort de votre poche !
+          </p>
+          <video class="tab-video" autoplay loop muted>
+            <source src="./assets/pictures/accueil/video.mp4" type="video/mp4">
+          </video>
         </div>
       }
       @if(tab.secondTab) {
         <ng-template mat-tab-label>
           <img class="tab-label-icon" [src]="secondLabel" alt="First tab icon"> {{ tab.label }}
         </ng-template>
-        <p>Cette application a été conçue et développée par des étudiants d'Ynov Bordeaux, dans le cadre des Ydays, un programme innovant qui encourage la créativité et l'ingénierie pratique pour apporter des solutions réelles aux défis du monde moderne.</p>
+        <div class="tab-content">
+          <p class="tab-text text-two">
+            Cette application a été conçue et développée par des étudiants d'Ynov Bordeaux, dans le cadre des Ydays, un programme innovant qui encourage la créativité et l'ingénierie pratique pour apporter des solutions réelles aux défis du monde moderne.
+          </p>
+          <img  class="tab-picture" src="./assets/pictures/accueil/ynov-pres.png" alt="Présentation de Ynov Bordeaux">
+        </div>
       }
       @if (tab.thirdTab) {
         <ng-template mat-tab-label>
           <img class="tab-label-icon" [src]="thirdLabel" alt="First tab icon"> {{ tab.label }}
         </ng-template>
-        <button mat-button routerLink="/bars/add-bar">TEMP ADD BAR</button>
-        @if (!isAuthenticated) {
-        <button mat-button routerLink="login">Se connecter</button>
-        <button mat-button routerLink="register">Nous rejoindre</button>
-        } @if (isAuthenticated) {
-        <button mat-button (click)="onLogout()">Déconnexion</button>
-        <button mat-button (click)="navigateToProfile()">Votre compte</button>
-        }
+        <div class="tab-content">
+          <p class="tab-text text-thirdh">
+            Rejoignez notre communauté et participez à l'aventure <br>
+            Votre contribution fait toute la différence !
+          </p>
+          <div class="tab-buttons">
+            @if (!isAuthenticated) {
+              <button mat-button routerLink="login" class="button-custom">Se connecter</button>
+              <button mat-button routerLink="register" class="button-custom">Nous rejoindre</button>
+            } @if (isAuthenticated) {
+            <button mat-button (click)="onLogout()" class="button-custom">Déconnexion</button>
+            <button mat-button (click)="navigateToProfile()" class="button-custom">Votre compte</button>
+          }
+          </div>
+
+
+        </div>
+
+
+
+
       }
     </mat-tab>
     }
