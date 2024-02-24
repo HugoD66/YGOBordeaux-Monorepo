@@ -4,6 +4,7 @@ import { GeoModule } from './geo/geo.module';
 import { UserBarRatingModule } from './user-bar-rating/user-bar-rating.module';
 import { DetailUserResolver } from './detail-user/detail-user.resolver';
 import { DetailUsersResolver } from './detail-users/detail-users.resolver';
+import { PostResolver } from './post/post.resolver';
 var __decorate =
   (this && this.__decorate) ||
   function (decorators, target, key, desc) {

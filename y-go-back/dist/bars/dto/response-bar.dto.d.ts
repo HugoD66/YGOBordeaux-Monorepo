@@ -1,7 +1,7 @@
-import { ResponsePictureListDto } from '../../picture-list/dto/response-picture-list.dto';
-import { ResponseGeoDto } from '../../geo/dto/response-geo.dto';
-import { UserResponseDto } from '../../users/dto/user-response.dto';
-import { ParticularityEnum } from '../entities/types/particularity.enum';
+import { ResponsePictureListDto } from "../../picture-list/dto/response-picture-list.dto";
+import { ResponseGeoDto } from "../../geo/dto/response-geo.dto";
+import { UserResponseDto } from "../../users/dto/user-response.dto";
+import { ParticularityEnum } from "../entities/types/particularity.enum";
 export declare class ResponseBarDto {
     id?: string;
     name: string;

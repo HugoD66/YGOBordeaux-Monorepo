@@ -1,11 +1,11 @@
 /// <reference types="multer" />
-import { UsersService } from './users.service';
-import { User } from './entities/user.entity';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UserResponseDto } from './dto/user-response.dto';
-import { LoginDto } from './dto/login.dto';
-import { LoginResponseDto } from './dto/login-response.dto';
-import { ChangePasswordDto } from './dto/change-password.dto';
+import { UsersService } from "./users.service";
+import { User } from "./entities/user.entity";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UserResponseDto } from "./dto/user-response.dto";
+import { LoginDto } from "./dto/login.dto";
+import { LoginResponseDto } from "./dto/login-response.dto";
+import { ChangePasswordDto } from "./dto/change-password.dto";
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);

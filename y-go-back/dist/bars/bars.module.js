@@ -20,12 +20,7 @@ let BarsModule = exports.BarsModule = class BarsModule {
 };
 exports.BarsModule = BarsModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            typeorm_1.TypeOrmModule.forFeature([bar_entity_1.Bar]),
-            users_module_1.UsersModule,
-            picture_list_module_1.PictureListModule,
-            geo_module_1.GeoModule,
-        ],
+        imports: [typeorm_1.TypeOrmModule.forFeature([bar_entity_1.Bar]), users_module_1.UsersModule, picture_list_module_1.PictureListModule, geo_module_1.GeoModule],
         controllers: [bars_controller_1.BarsController],
         providers: [bar_fixtures_1.BarFixtures, bars_service_1.BarsService],
         exports: [bars_service_1.BarsService],

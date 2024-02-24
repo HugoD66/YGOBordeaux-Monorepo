@@ -57,6 +57,10 @@ let BarsService = exports.BarsService = class BarsService {
         }
         return bar;
     }
+    async findOneRandom() {
+        const bars = await this.barRepository.find();
+        return bars[Math.floor(Math.random() * bars.length)];
+    }
     async findOnePartial(id) {
         return this.barRepository.findOne({ where: { id } });
     }

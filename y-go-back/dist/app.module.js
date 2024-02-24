@@ -27,6 +27,8 @@ const picture_list_entity_1 = require("./picture-list/entities/picture-list.enti
 const picture_list_module_1 = require("./picture-list/picture-list.module");
 const user_bar_rating_entity_1 = require("./user-bar-rating/entities/user-bar-rating.entity");
 const user_bar_rating_module_1 = require("./user-bar-rating/user-bar-rating.module");
+const post_entity_1 = require("./post/entities/post.entity");
+const posts_module_1 = require("./post/posts.module");
 let AppModule = exports.AppModule = class AppModule {
 };
 exports.AppModule = AppModule = __decorate([
@@ -37,6 +39,7 @@ exports.AppModule = AppModule = __decorate([
             picture_list_module_1.PictureListModule,
             geo_module_1.GeoModule,
             user_bar_rating_module_1.UserBarRatingModule,
+            posts_module_1.PostsModule,
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             passport_1.PassportModule.register({ defaultStrategy: `jwt` }),
             jwt_1.JwtModule.register({
@@ -54,7 +57,7 @@ exports.AppModule = AppModule = __decorate([
                         username: configService.get(`DB_USERNAME`),
                         password: configService.get(`DB_PASSWORD`),
                         database: configService.get(`DB_NAME`),
-                        entities: [user_entity_1.User, bar_entity_1.Bar, picture_list_entity_1.PictureList, geo_entity_1.Geo, user_bar_rating_entity_1.UserBarRating],
+                        entities: [user_entity_1.User, bar_entity_1.Bar, picture_list_entity_1.PictureList, geo_entity_1.Geo, user_bar_rating_entity_1.UserBarRating, post_entity_1.Post],
                         synchronize: true,
                     };
                     console.log(dbConfig);

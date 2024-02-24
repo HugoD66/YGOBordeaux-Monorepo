@@ -16,6 +16,7 @@ const geo_entity_1 = require("../../geo/entities/geo.entity");
 const user_entity_1 = require("../../users/entities/user.entity");
 const user_bar_rating_entity_1 = require("../../user-bar-rating/entities/user-bar-rating.entity");
 const particularity_enum_1 = require("./types/particularity.enum");
+const post_entity_1 = require("../../post/entities/post.entity");
 let Bar = exports.Bar = class Bar {
 };
 __decorate([
@@ -52,7 +53,7 @@ __decorate([
 ], Bar.prototype, "updatedAt", void 0);
 __decorate([
     (0, typeorm_1.Column)({
-        type: 'enum',
+        type: `enum`,
         enum: particularity_enum_1.ParticularityEnum,
         array: true,
         default: [],
@@ -84,6 +85,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => user_bar_rating_entity_1.UserBarRating, (userBarRating) => userBarRating.bar),
     __metadata("design:type", Array)
 ], Bar.prototype, "userBarRatings", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => post_entity_1.Post, (post) => post.bar),
+    __metadata("design:type", Array)
+], Bar.prototype, "posts", void 0);
 exports.Bar = Bar = __decorate([
     (0, typeorm_1.Entity)()
 ], Bar);

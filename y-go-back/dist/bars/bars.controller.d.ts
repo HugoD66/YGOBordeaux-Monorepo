@@ -1,7 +1,7 @@
-import { BarsService } from './bars.service';
-import { CreateBarDto } from './dto/create-bar.dto';
-import { UpdateBarDto } from './dto/update-bar.dto';
-import { ResponseBarDto } from './dto/response-bar.dto';
+import { BarsService } from "./bars.service";
+import { CreateBarDto } from "./dto/create-bar.dto";
+import { UpdateBarDto } from "./dto/update-bar.dto";
+import { ResponseBarDto } from "./dto/response-bar.dto";
 export declare class BarsController {
     private readonly barService;
     constructor(barService: BarsService);

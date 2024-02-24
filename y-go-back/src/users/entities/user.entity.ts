@@ -1,42 +1,46 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Exclude } from 'class-transformer';
-import { UserRoleEnum } from './types/user.roles.enum';
-import { Bar } from '../../bars/entities/bar.entity';
-import { UserBarRating } from '../../user-bar-rating/entities/user-bar-rating.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Exclude } from "class-transformer"
+import { UserRoleEnum } from "./types/user.roles.enum"
+import { Bar } from "../../bars/entities/bar.entity"
+import { UserBarRating } from "../../user-bar-rating/entities/user-bar-rating.entity"
+import { Post } from "../../post/entities/post.entity"
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn(`uuid`)
-  public id!: string;
+  public id!: string
 
   @Column({ length: 500, unique: true })
-  public name!: string;
+  public name!: string
 
   @Column()
-  public email!: string;
+  public email!: string
 
   @Exclude()
   @Column()
-  public password!: string;
+  public password!: string
 
   @Column({ nullable: true })
-  public picture: string | null;
+  public picture: string | null
 
   @Column({
     type: `enum`,
     enum: UserRoleEnum,
     default: UserRoleEnum.Utilisateur,
   })
-  public role: UserRoleEnum;
+  public role: UserRoleEnum
 
   @Column({ nullable: true })
-  public phone!: string | null;
+  public phone!: string | null
 
   @OneToMany(() => Bar, (bar) => bar.createdBy)
-  public createBars?: Bar[] | null;
+  public createBars?: Bar[] | null
 
   @OneToMany(() => UserBarRating, (userBarRating) => userBarRating.user)
-  userBarRatings?: UserBarRating[] | null;
+  userBarRatings?: UserBarRating[] | null
+
+  @OneToMany(() => Post, (post) => post.user)
+  public posts?: Post[] | null
   /*
   @Column()
   public adress: string

@@ -7,6 +7,7 @@ const express = require("express");
 const bar_fixtures_1 = require("./fixtures/bar.fixtures");
 const rate_fixtures_1 = require("./fixtures/rate.fixtures");
 const user_fixtures_1 = require("./fixtures/user.fixtures");
+const post_fixtures_1 = require("./fixtures/post.fixtures");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: true });
     const corsOptions = {
@@ -27,9 +28,11 @@ async function bootstrap() {
     const userFixtures = app.get(user_fixtures_1.UserFixtures);
     const barFixtures = app.get(bar_fixtures_1.BarFixtures);
     const rateFixtures = app.get(rate_fixtures_1.RateFixtures);
+    const postFixtures = app.get(post_fixtures_1.PostFixtures);
     await userFixtures.seedUsers();
     await barFixtures.seedBars();
     await rateFixtures.seedRates();
+    await postFixtures.seedPosts();
     app.use(express.json({ limit: `50mb` }));
     app.use(`/uploads`, express.static(`uploads`));
     await app.listen(3000);

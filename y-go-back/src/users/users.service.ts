@@ -1,44 +1,40 @@
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
-import { User } from './entities/user.entity';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UserResponseDto } from './dto/user-response.dto';
-import { JwtService } from '@nestjs/jwt';
-import { UserRoleEnum } from './entities/types/user.roles.enum';
-import { LoginDto } from './dto/login.dto';
-import { LoginResponseDto } from './dto/login-response.dto';
+import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common"
+import { InjectRepository } from "@nestjs/typeorm"
+import { Repository } from "typeorm"
+import * as bcrypt from "bcrypt"
+import { User } from "./entities/user.entity"
+import { CreateUserDto } from "./dto/create-user.dto"
+import { UserResponseDto } from "./dto/user-response.dto"
+import { JwtService } from "@nestjs/jwt"
+import { UserRoleEnum } from "./entities/types/user.roles.enum"
+import { LoginDto } from "./dto/login.dto"
+import { LoginResponseDto } from "./dto/login-response.dto"
 import {
   EmailAlreadyExistsException,
   InvalidEmailFormatException,
   InvalidPasswordFormatException,
   NameTooShortException,
   ServerErrorException,
-} from './errorsRegister/errors';
-import { ChangePasswordDto } from './dto/change-password.dto';
+} from "./errorsRegister/errors"
+import { ChangePasswordDto } from "./dto/change-password.dto"
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    private readonly jwtService: JwtService,
+    private readonly jwtService: JwtService
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<UserResponseDto> {
     try {
       const existingUser: User = await this.usersRepository.findOne({
         where: { email: createUserDto.email },
-      });
+      })
       if (existingUser) {
-        throw new EmailAlreadyExistsException();
+        throw new EmailAlreadyExistsException()
       }
-      const salt = await bcrypt.genSalt();
-      const hashedPassword = await bcrypt.hash(createUserDto.password, salt);
+      const salt = await bcrypt.genSalt()
+      const hashedPassword = await bcrypt.hash(createUserDto.password, salt)
 
       const user: User = this.usersRepository.create({
         name: createUserDto.name,
@@ -46,15 +42,15 @@ export class UsersService {
         password: hashedPassword,
         picture: createUserDto.picture ?? null,
         role: createUserDto.role ?? UserRoleEnum.Utilisateur,
-      });
-      const savedUser: User = await this.usersRepository.save(user);
+      })
+      const savedUser: User = await this.usersRepository.save(user)
       return {
         id: savedUser.id,
         name: savedUser.name,
         email: savedUser.email,
         picture: savedUser.picture,
         role: savedUser.role,
-      };
+      }
     } catch (error) {
       if (
         error instanceof EmailAlreadyExistsException ||
@@ -63,85 +59,85 @@ export class UsersService {
         error instanceof ServerErrorException ||
         error instanceof InvalidPasswordFormatException
       ) {
-        throw error;
+        throw error
       }
-      throw new ServerErrorException();
+      throw new ServerErrorException()
     }
   }
   async changePassword(changePasswordDto: ChangePasswordDto): Promise<any> {
-    console.log('Received changePasswordDto:', changePasswordDto);
+    console.log(`Received changePasswordDto:`, changePasswordDto)
 
     const user = await this.usersRepository.findOne({
       where: { email: changePasswordDto.email },
-    });
+    })
     if (!user) {
-      throw new NotFoundException(`User not found`);
+      throw new NotFoundException(`User not found`)
     }
 
-    const salt = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(changePasswordDto.password, salt);
+    const salt = await bcrypt.genSalt()
+    const hashedPassword = await bcrypt.hash(changePasswordDto.password, salt)
 
-    await this.usersRepository.update(user.id, { password: hashedPassword });
+    await this.usersRepository.update(user.id, { password: hashedPassword })
 
-    return { message: 'Mot de passe changé' };
+    return { message: `Mot de passe changé` }
   }
 
   async login(loginDto: LoginDto): Promise<LoginResponseDto> {
     try {
       const user: User = await this.usersRepository.findOne({
         where: { email: loginDto.email },
-      });
+      })
       if (!user) {
-        throw new NotFoundException(`User not found`);
+        throw new NotFoundException(`User not found`)
       }
-      const passwordMatch = await bcrypt.compare(
-        loginDto.password,
-        user.password,
-      );
+      const passwordMatch = await bcrypt.compare(loginDto.password, user.password)
       if (!passwordMatch) {
-        throw new UnauthorizedException(`Invalid password`);
+        throw new UnauthorizedException(`Invalid password`)
       }
-      const payload = { sub: user.id, email: user.email };
+      const payload = { sub: user.id, email: user.email }
       return {
         ...user,
         access_token: await this.jwtService.signAsync(payload),
-      };
+      }
     } catch (error) {
-      throw error;
+      throw error
     }
   }
 
   async findOne(id: string): Promise<User> {
-    return this.usersRepository.findOne({ where: { id } });
+    return this.usersRepository.findOne({ where: { id } })
+  }
+
+  // For fixtures
+  async findOneRandom(): Promise<User> {
+    const users: User[] = await this.usersRepository.find()
+    return users[Math.floor(Math.random() * users.length)]
   }
 
   async findAll(): Promise<User[]> {
-    return this.usersRepository.find();
+    return this.usersRepository.find()
   }
 
-  async update(
-    id: string,
-    updateUserDto: Partial<User>,
-  ): Promise<UserResponseDto> {
-    const user: User = await this.usersRepository.findOne({ where: { id } });
+  async update(id: string, updateUserDto: Partial<User>): Promise<UserResponseDto> {
+    const user: User = await this.usersRepository.findOne({ where: { id } })
     if (!user) {
-      throw new NotFoundException(`User with ID ${id} not found`);
+      throw new NotFoundException(`User with ID ${id} not found`)
     }
     const updatedUser = {
       ...user,
       ...updateUserDto,
-    };
-    await this.usersRepository.save(updatedUser);
+    }
+    await this.usersRepository.save(updatedUser)
     return {
       id: updatedUser.id,
       name: updatedUser.name,
       email: updatedUser.email,
       picture: updatedUser.picture,
       role: updatedUser.role,
-    };
+    }
   }
 
   async remove(id: string): Promise<void> {
-    await this.usersRepository.delete(id);
+    await this.usersRepository.delete(id)
   }
 }

@@ -64,7 +64,7 @@ let UsersService = exports.UsersService = class UsersService {
         }
     }
     async changePassword(changePasswordDto) {
-        console.log('Received changePasswordDto:', changePasswordDto);
+        console.log(`Received changePasswordDto:`, changePasswordDto);
         const user = await this.usersRepository.findOne({
             where: { email: changePasswordDto.email },
         });
@@ -74,7 +74,7 @@ let UsersService = exports.UsersService = class UsersService {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(changePasswordDto.password, salt);
         await this.usersRepository.update(user.id, { password: hashedPassword });
-        return { message: 'Mot de passe changé' };
+        return { message: `Mot de passe changé` };
     }
     async login(loginDto) {
         try {
@@ -100,6 +100,10 @@ let UsersService = exports.UsersService = class UsersService {
     }
     async findOne(id) {
         return this.usersRepository.findOne({ where: { id } });
+    }
+    async findOneRandom() {
+        const users = await this.usersRepository.find();
+        return users[Math.floor(Math.random() * users.length)];
     }
     async findAll() {
         return this.usersRepository.find();
