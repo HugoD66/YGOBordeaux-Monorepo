@@ -19,6 +19,7 @@ const public_decorator_1 = require("../users/auth/public.decorator");
 const create_post_dto_1 = require("./dto/create-post.dto");
 const posts_services_1 = require("./posts.services");
 const update_post_dto_1 = require("./dto/update-post.dto");
+const sanitize_guard_1 = require("../guard/sanitize.guard");
 let PostsController = exports.PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
@@ -56,6 +57,7 @@ let PostsController = exports.PostsController = class PostsController {
 };
 __decorate([
     (0, public_decorator_1.Public)(),
+    (0, common_1.UseGuards)(sanitize_guard_1.SanitizeGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -78,6 +80,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PostsController.prototype, "findAll", null);
 __decorate([
+    (0, common_1.UseGuards)(sanitize_guard_1.SanitizeGuard),
     (0, common_1.Patch)(`:id`),
     __param(0, (0, common_1.Param)(`id`)),
     __param(1, (0, common_1.Body)()),

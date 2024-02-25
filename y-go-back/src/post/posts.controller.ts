@@ -1,10 +1,11 @@
 import { ApiTags } from "@nestjs/swagger"
-import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post } from "@nestjs/common"
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, UseGuards } from "@nestjs/common"
 import { Public } from "../users/auth/public.decorator"
 import { CreatePostDto } from "./dto/create-post.dto"
 import { PostsService } from "./posts.services"
 import { ResponsePostDto } from "./dto/response-post.dto"
 import { UpdatePostDto } from "./dto/update-post.dto"
+import { SanitizeGuard } from "../guard/sanitize.guard"
 
 @Controller(`posts`)
 @ApiTags(`Posts`)
@@ -12,6 +13,7 @@ export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
   @Public()
+  // @UseGuards(SanitizeGuard)
   @Post()
   async create(@Body() createPostDto: CreatePostDto): Promise<ResponsePostDto> {
     console.log(createPostDto)
@@ -39,6 +41,7 @@ export class PostsController {
     return postList
   }
 
+  // @UseGuards(SanitizeGuard)
   @Patch(`:id`)
   async update(@Param(`id`) id: string, @Body() updatePostDto: UpdatePostDto): Promise<ResponsePostDto> {
     const postUpdated: ResponsePostDto = await this.postsService.update(id, updatePostDto)

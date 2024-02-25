@@ -11,7 +11,7 @@ export declare class PostsService {
     private barsService;
     constructor(postRepository: Repository<Post>, usersService: UsersService, barsService: BarsService);
     create(createPostDto: CreatePostDto, userId: string): Promise<Post>;
-    findOne(id: string): Promise<Post>;
+    findOne(id: string): Promise<ResponsePostDto>;
     findAll(): Promise<ResponsePostDto[]>;
     update(id: string, updatePostDto: UpdatePostDto): Promise<Post>;
     remove(id: string): Promise<void>;

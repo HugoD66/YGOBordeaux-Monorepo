@@ -36,7 +36,7 @@ let PostFixtures = exports.PostFixtures = class PostFixtures {
                 createdAt: this.getRandomDate(),
             },
             {
-                message: `Les cocktails étaient délicieux, et le service était irréprochable.`,
+                message: `<p> coucou </p>Les cocktails étaient délicieux, et le service était irréprochable.`,
                 user: user,
                 bar: bar,
                 createdAt: this.getRandomDate(),

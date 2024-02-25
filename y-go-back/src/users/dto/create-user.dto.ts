@@ -7,16 +7,16 @@ import {
   IsOptional,
   IsPhoneNumber,
   MaxLength,
-} from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
-import { UserRoleEnum } from '../entities/types/user.roles.enum';
+} from "class-validator"
+import { ApiProperty } from "@nestjs/swagger"
+import { UserRoleEnum } from "../entities/types/user.roles.enum"
 
 export class CreateUserDto {
   @MinLength(2)
   @MaxLength(20)
   @IsNotEmpty()
   @ApiProperty({ example: `Jean Moulin`, description: `Name` })
-  name: string;
+  name: string
 
   @IsEmail({}, { message: `L'Email n'est pas valide` })
   @ApiProperty({
@@ -24,7 +24,7 @@ export class CreateUserDto {
     description: `Email address`,
   })
   @IsNotEmpty({ message: `L'Email ne peut pas être vide` })
-  public email!: string;
+  public email!: string
 
   @MinLength(3)
   @IsStrongPassword(
@@ -37,10 +37,10 @@ export class CreateUserDto {
     },
     {
       message: `Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial`,
-    },
+    }
   )
   @IsNotEmpty({ message: `Le mot de passe ne peut pas être vide` })
-  public password!: string;
+  public password!: string
 
   @ApiProperty({
     enum: UserRoleEnum,
@@ -48,15 +48,15 @@ export class CreateUserDto {
     example: `Utilisateur`,
     description: `User role`,
   })
-  public role: UserRoleEnum;
+  public role: UserRoleEnum
 
   @IsOptional()
   @IsPhoneNumber()
-  public phone: string;
+  public phone: string
 
   @IsOptional()
   @IsString()
-  picture: string;
+  picture: string
 
   /*
   @IsOptional()

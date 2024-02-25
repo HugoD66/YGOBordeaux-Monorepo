@@ -18,15 +18,13 @@ export class RateFixtures {
 
   async seedRates(): Promise<void> {
     const users: User[] = await this.usersService.findAll()
-    const bars: ResponseBarDto[] = await this.barsService.findAll()
 
     for (const user of users) {
       for (let i = 0; i < 5; i++) {
-        const randomBar = bars[Math.floor(Math.random() * bars.length)]
         const randomRate = Math.floor(Math.random() * 6)
 
         const userDto: UserResponseDto = await this.usersService.findOne(user.id)
-        const barDto: ResponseBarDto = await this.barsService.findOne(randomBar.id)
+        const barDto: ResponseBarDto = await this.barsService.findOneRandom()
 
         const rateDto: CreateUserBarRatingDto = {
           rate: randomRate,
