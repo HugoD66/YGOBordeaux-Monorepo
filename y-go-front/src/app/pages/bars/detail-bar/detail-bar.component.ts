@@ -239,6 +239,19 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
       });
     }
   }
+  getErrorMessage() {
+    const messageControl = this.postForm.get('message');
+    if (messageControl?.hasError('required')) {
+      return 'Vous devez entrer un message';
+    }
+    if (messageControl?.hasError('minlength')) {
+      return 'Le message doit contenir au moins 15 caractères';
+    }
+    if (messageControl?.hasError('maxlength')) {
+      return 'Le message doit contenir au maximum 150 caractères';
+    }
+    return '';
+  }
 }
 /*
   id: string | undefined

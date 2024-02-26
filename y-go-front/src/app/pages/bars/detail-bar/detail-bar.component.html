@@ -104,14 +104,15 @@
         </span>
         }
         <div class="voter">
-          @if(!isUserLogged()) {
-          <p>Vous devez être connecté pour voter !</p>
-          <button (click)="loggin()">Connexion</button>
-          } @else if (!hasUserRatedBar()) {
-          <p>Vous n'avez toujours pas voté !</p>
-          <button class="voter-button"><!-- (click)="onVote()" -->Voter</button>
-          } @else { @if (userRate() !== undefined) {
-          <p>La note que vous avez attribué :</p>
+        @if(!isUserLogged()) {
+        <p>Vous devez être connecté pour voter !</p>
+        <button (click)="loggin()">Connexion</button>
+        } @else if (!hasUserRatedBar()) {
+        <p>Vous n'avez toujours pas voté !</p>
+        <button class="voter-button"><!-- (click)="onVote()" -->Voter</button>
+        } @else {
+          @if (userRate() !== undefined) {
+        <p>La note que vous avez attribué :</p>
           @for (star of userRate()! | starRating; track star) {
           <span class="rate-list">
             <img
@@ -124,8 +125,10 @@
               alt=""
             />
           </span>
-          } } }
-        </div>
+          }
+        }
+        }
+      </div>
       </div>
       <h1>CALENDRIERRRR</h1>
       <div class="mapEmplacement">
@@ -138,9 +141,10 @@
       @if (this.comments().length === 0) {
       <h2>Aucun commentaires pour le moment</h2>
       @if(!isUserLogged()) {
-      <p>Vous devez être connecté pour voter !</p>
-      <button (click)="loggin()">Connexion</button>
-      } @if(isUserLogged()) {
+        <p>Vous devez être connecté pour voter !</p>
+        <button (click)="loggin()">Connexion</button>
+      }
+      @if(isUserLogged()) {
       <form [formGroup]="postForm" (ngSubmit)="onPost()">
         <input formControlName="message" type="text" />
         <button type="submit">Submit</button>
@@ -169,8 +173,14 @@
       <form [formGroup]="postForm" (ngSubmit)="onPost()">
         <input formControlName="message" type="text" />
         <button type="submit">Submit</button>
+        @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty || postForm.get('message')?.touched)) {
+          <p class="error">
+            {{ getErrorMessage() }}
+          </p>
+        }
       </form>
-      } }
+      }
+    }
     </div>
   </div>
   <app-logo-ygo />
