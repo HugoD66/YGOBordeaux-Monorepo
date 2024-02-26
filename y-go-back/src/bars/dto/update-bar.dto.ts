@@ -1,28 +1,34 @@
-import { PartialType } from "@nestjs/mapped-types"
-import { CreateBarDto } from "./create-bar.dto"
-import { IsArray, IsEmpty, IsEnum, IsOptional, IsString } from "class-validator"
-import { UserResponseDto } from "../../users/dto/user-response.dto"
-import { ParticularityEnum } from "../entities/types/particularity.enum"
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateBarDto } from './create-bar.dto';
+import {
+  IsArray,
+  IsEmpty,
+  IsEnum,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
+import { ParticularityEnum } from '../entities/types/particularity.enum';
 
 export class UpdateBarDto extends PartialType(CreateBarDto) {
   @IsOptional()
   @IsString()
-  name: string
+  name: string;
 
   @IsOptional()
   @IsString()
-  adresse: string
+  adresse: string;
 
   @IsOptional()
   @IsString()
-  description?: string
+  description?: string;
 
   @IsOptional()
   @IsString()
-  telephone: string
+  telephone: string;
 
   @IsOptional()
-  createdBy?: UserResponseDto
+  createdBy?: UserResponseDto;
 
   // Génération auto ?
   // @IsEmpty()
@@ -30,12 +36,12 @@ export class UpdateBarDto extends PartialType(CreateBarDto) {
 
   @IsOptional()
   @IsString()
-  picture: string
+  picture: string;
 
   @IsOptional()
   @IsArray()
   @IsEnum(ParticularityEnum, { each: true })
-  particularities?: ParticularityEnum[]
+  particularities?: ParticularityEnum[];
 
   /*
   @IsOptional()

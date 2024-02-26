@@ -6,16 +6,25 @@ import { ResponseRateDto } from './dto/response-rate.dto';
 import { UsersService } from '../users/users.service';
 import { BarsService } from '../bars/bars.service';
 export declare class UserBarRatingService {
-    private rateRepository;
-    private usersServices;
-    private barsService;
-    constructor(rateRepository: Repository<UserBarRating>, usersServices: UsersService, barsService: BarsService);
-    create(createUserBarRatingDto: CreateUserBarRatingDto): Promise<ResponseRateDto>;
-    findOne(id: string): Promise<ResponseRateDto>;
-    findAll(): Promise<ResponseRateDto[]>;
-    findAllRatesByBarId(barId: string): Promise<ResponseRateDto[]>;
-    update(id: string, updateUserBarRatingDto: Partial<UpdateUserBarRatingDto>): Promise<ResponseRateDto>;
-    private updateBarAverageRating;
-    countVoters(barId: string): Promise<number>;
-    remove(id: string): Promise<void>;
+  private rateRepository;
+  private usersServices;
+  private barsService;
+  constructor(
+    rateRepository: Repository<UserBarRating>,
+    usersServices: UsersService,
+    barsService: BarsService,
+  );
+  create(
+    createUserBarRatingDto: CreateUserBarRatingDto,
+  ): Promise<ResponseRateDto>;
+  findOne(id: string): Promise<ResponseRateDto>;
+  findAll(): Promise<ResponseRateDto[]>;
+  findAllRatesByBarId(barId: string): Promise<ResponseRateDto[]>;
+  update(
+    id: string,
+    updateUserBarRatingDto: Partial<UpdateUserBarRatingDto>,
+  ): Promise<ResponseRateDto>;
+  private updateBarAverageRating;
+  countVoters(barId: string): Promise<number>;
+  remove(id: string): Promise<void>;
 }

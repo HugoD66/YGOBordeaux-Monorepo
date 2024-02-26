@@ -23,19 +23,21 @@
 
 <div class="picture-infos">
   <div class="pic">
-  <ng-container *ngIf="user?.picture; else noPicture">
-    <div class="picture-content">
-      <img class="picture"
-           [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
-           alt="user picture"
-      />
-    </div>
-  </ng-container>
+    <ng-container *ngIf="user?.picture; else noPicture">
+      <div class="picture-content">
+        <img
+          class="picture"
+          [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
+          alt="user picture"
+        />
+      </div>
+    </ng-container>
     <ng-template #noPicture>
       <div class="picture-content">
-        <img class="picture"
-             src="../../../../assets/pictures/avatar-user.png"
-             alt="default avatar"
+        <img
+          class="picture"
+          src="../../../../assets/pictures/avatar-user.png"
+          alt="default avatar"
         />
         <span class="add-picture">
           <form>
@@ -52,16 +54,11 @@
         </span>
       </div>
     </ng-template>
-
-
-
   </div>
   <div class="infos">
     <p>Bonjour, {{ user?.name }}</p>
     <p>{{ user?.email }}</p>
-    <p>
-      Completez votre profil pour profiter pleinement de l'application
-    </p>
+    <p>Completez votre profil pour profiter pleinement de l'application</p>
     <button type="button" mat-raised-button>Compléter profil</button>
     <button type="button" mat-raised-button>Modifier profil</button>
   </div>

@@ -1,4 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  effect,
+  Input,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router } from '@angular/router';
@@ -7,6 +14,8 @@ import { StarRatingPipe } from '../../../pipe/star-rating.pipe';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../../env';
 import { MatListModule } from '@angular/material/list';
+import { PostModel } from '../../../models/post.model';
+import { PostService } from '../../../services/post.service';
 
 @Component({
   selector: `app-unit-bar`,
@@ -30,6 +39,7 @@ export class UnitBarComponent {
   goDetailBar() {
     this.router.navigate([`/bars/detail/${this.bar?.id}`]);
   }
+
   // getBarImageUrl(): string {
   //  if (this.bar?.pictureList?.pictureOne) {
   //    if (this.bar.pictureList.pictureOne.startsWith('data:image')) {

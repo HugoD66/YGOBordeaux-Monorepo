@@ -49,12 +49,26 @@
         </p>
         <div class="particularity-adress">
           <div class="particularity">
-            <h2>{{ currentBar?.particularities?.length === 1 ? 'Particularité' : 'Particularités' }}</h2>
+            <h2>
+              {{
+                currentBar?.particularities?.length === 1
+                  ? "Particularité"
+                  : "Particularités"
+              }}
+            </h2>
             @if (currentBar?.particularities) {
-              <ul *ngFor="let particularity of (bar | async)?.particularities" class="particularity-unit">
-                {{ (particularity | particularityTranslate).translation }}
-                <img [src]="(particularity | particularityTranslate).logo" alt="{{ particularity }}">
-              </ul>
+            <ul
+              *ngFor="let particularity of (bar | async)?.particularities"
+              class="particularity-unit"
+            >
+              {{
+                (particularity | particularityTranslate).translation
+              }}
+              <img
+                [src]="(particularity | particularityTranslate).logo"
+                alt="{{ particularity }}"
+              />
+            </ul>
             } @if (currentBar?.particularities?.length === 0) {
             <p>Aucune particularité pour ce bar</p>
             }
@@ -65,12 +79,14 @@
           </div>
         </div>
         <p class="createdby-at">
-          Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} <br> par
+          Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} <br />
+          par
           {{ (bar | async)?.createdBy?.email }}
         </p>
       </div>
     </div>
     <mat-divider></mat-divider>
+
     <div class="rate-map">
       <div class="note">
         <h2>Nombre de votants : {{ rateCount() }}</h2>
@@ -111,12 +127,50 @@
           } } }
         </div>
       </div>
-<h1>CALENDRIERRRR</h1>
+      <h1>CALENDRIERRRR</h1>
       <div class="mapEmplacement">
         <div class="map-wrap">
           <div class="map" #map></div>
         </div>
       </div>
+    </div>
+    <div class="comments">
+      @if (this.comments().length === 0) {
+      <h2>Aucun commentaires pour le moment</h2>
+      @if(!isUserLogged()) {
+      <p>Vous devez être connecté pour voter !</p>
+      <button (click)="loggin()">Connexion</button>
+      } @if(isUserLogged()) {
+      <form [formGroup]="postForm" (ngSubmit)="onPost()">
+        <input formControlName="message" type="text" />
+        <button type="submit">Submit</button>
+      </form>
+      } } @if (this.comments().length > 0) {
+      <h2>Ils ont commentés</h2>
+      <div class="comment-content">
+        @for(comment of this.comments(); track comment?.id) {
+        <div class="comment-unit">
+          <div class="comment-unit-content">
+            <p class="comment-unit-content-comment">
+              {{ comment?.message }}
+            </p>
+            <p class="comment-unit-content-date">
+              {{ comment?.createdAt | date: "dd/MM/yyyy" }}
+            </p>
+          </div>
+        </div>
+        }
+      </div>
+      @if(!isUserLogged()) {
+      <p>Vous devez être connecté pour voter !</p>
+      <button (click)="loggin()">Connexion</button>
+      } @if(isUserLogged()) {
+      <p>Commenter</p>
+      <form [formGroup]="postForm" (ngSubmit)="onPost()">
+        <input formControlName="message" type="text" />
+        <button type="submit">Submit</button>
+      </form>
+      } }
     </div>
   </div>
   <app-logo-ygo />

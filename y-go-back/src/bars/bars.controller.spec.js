@@ -1,4 +1,4 @@
-'use strict';
+"use strict"
 var __awaiter =
   (this && this.__awaiter) ||
   function (thisArg, _arguments, P, generator) {
@@ -6,48 +6,46 @@ var __awaiter =
       return value instanceof P
         ? value
         : new P(function (resolve) {
-            resolve(value);
-          });
+            resolve(value)
+          })
     }
     return new (P || (P = Promise))(function (resolve, reject) {
       function fulfilled(value) {
         try {
-          step(generator.next(value));
+          step(generator.next(value))
         } catch (e) {
-          reject(e);
+          reject(e)
         }
       }
       function rejected(value) {
         try {
-          step(generator[`throw`](value));
+          step(generator[`throw`](value))
         } catch (e) {
-          reject(e);
+          reject(e)
         }
       }
       function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected);
+        result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected)
       }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-  };
-Object.defineProperty(exports, `__esModule`, { value: true });
-const testing_1 = require(`@nestjs/testing`);
-const bars_controller_1 = require(`./bars.controller`);
-const bars_service_1 = require(`./bars.service`);
+      step((generator = generator.apply(thisArg, _arguments || [])).next())
+    })
+  }
+Object.defineProperty(exports, `__esModule`, { value: true })
+const testing_1 = require(`@nestjs/testing`)
+const bars_controller_1 = require(`./bars.controller`)
+const bars_service_1 = require(`./bars.service`)
 describe(`BarController`, () => {
-  let controller;
+  let controller
   beforeEach(() =>
     __awaiter(void 0, void 0, void 0, function* () {
       const module = yield testing_1.Test.createTestingModule({
         controllers: [bars_controller_1.BarsController],
         providers: [bars_service_1.BarsService],
-      }).compile();
-      controller = module.get(bars_controller_1.BarsController);
-    }),
-  );
+      }).compile()
+      controller = module.get(bars_controller_1.BarsController)
+    })
+  )
   it(`should be defined`, () => {
-    expect(controller).toBeDefined();
-  });
-});
+    expect(controller).toBeDefined()
+  })
+})

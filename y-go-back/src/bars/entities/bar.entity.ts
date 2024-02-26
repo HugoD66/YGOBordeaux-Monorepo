@@ -8,39 +8,39 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from "typeorm"
-import { PictureList } from "../../picture-list/entities/picture-list.entity"
-import { Geo } from "../../geo/entities/geo.entity"
-import { User } from "../../users/entities/user.entity"
-import { UserBarRating } from "../../user-bar-rating/entities/user-bar-rating.entity"
-import { ParticularityEnum } from "./types/particularity.enum"
-import { Post } from "../../post/entities/post.entity"
+} from 'typeorm';
+import { PictureList } from '../../picture-list/entities/picture-list.entity';
+import { Geo } from '../../geo/entities/geo.entity';
+import { User } from '../../users/entities/user.entity';
+import { UserBarRating } from '../../user-bar-rating/entities/user-bar-rating.entity';
+import { ParticularityEnum } from './types/particularity.enum';
+import { Post } from '../../post/entities/post.entity';
 
 @Entity()
 export class Bar {
   @PrimaryGeneratedColumn(`uuid`)
-  public id!: string
+  public id!: string;
 
   @Column({ unique: true })
-  public name!: string
+  public name!: string;
 
   @Column({ unique: true })
-  public adresse!: string
+  public adresse!: string;
 
   @Column()
-  public description?: string
+  public description?: string;
 
   @Column({ unique: true })
-  public telephone: string
+  public telephone: string;
 
   @Column({ type: `float`, nullable: true, default: 0 })
-  public note?: number
+  public note?: number;
 
   @CreateDateColumn()
-  public createdAt!: Date
+  public createdAt!: Date;
 
   @UpdateDateColumn()
-  public updatedAt?: Date | null
+  public updatedAt?: Date | null;
 
   @Column({
     type: `enum`,
@@ -48,31 +48,31 @@ export class Bar {
     array: true,
     default: [],
   })
-  public particularities: ParticularityEnum[]
+  public particularities: ParticularityEnum[];
 
   @OneToOne(() => PictureList, (pictureList) => pictureList.bar, {
     cascade: [`insert`, `update`, `remove`],
     onDelete: `CASCADE`,
   })
   @JoinColumn()
-  public pictureList: PictureList | null
+  public pictureList: PictureList | null;
 
   @OneToOne(() => Geo, (geo) => geo.bar, {
     cascade: [`insert`, `update`, `remove`],
     onDelete: `CASCADE`,
   })
   @JoinColumn()
-  public geo: Geo | null
+  public geo: Geo | null;
 
   @ManyToOne(() => User, (user) => user.createBars)
   @JoinColumn({ name: `createdById` })
-  public createdBy!: User
+  public createdBy!: User;
 
   @OneToMany(() => UserBarRating, (userBarRating) => userBarRating.bar)
-  userBarRatings?: UserBarRating[] | null
+  userBarRatings?: UserBarRating[] | null;
 
   @OneToMany(() => Post, (post) => post.bar)
-  public posts?: Post[] | null
+  public posts?: Post[] | null;
 }
 
 /*

@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 .content {
   width: 100%;
   height: 100%;
@@ -23,13 +23,12 @@
       height: 1px;
       width: 500px;
       background: linear-gradient(
-          to left,
-          rgb(250, 237, 225),
-          rgb(166, 66, 70)
+        to left,
+        rgb(250, 237, 225),
+        rgb(166, 66, 70)
       );
       @media screen and (max-width: 1300px) {
         width: 300px;
-
       }
     }
   }
@@ -115,7 +114,8 @@
           align-items: start;
           justify-content: space-around;
           margin: 5%;
-          .particularity, .adress {
+          .particularity,
+          .adress {
             h2 {
               font-size: 2rem;
               color: rgb(166, 66, 70);
@@ -127,13 +127,12 @@
               display: flex;
               align-items: center;
               font-size: 1.1em;
-              
+
               img {
                 width: 30px;
                 height: 30px;
                 margin: 5%;
               }
-
             }
           }
           .particularity {
@@ -146,9 +145,9 @@
                 right: 0;
                 width: 1px;
                 background: linear-gradient(
-                    to top,
-                    rgb(166, 66, 70),
-                    rgb(245, 221, 194)
+                  to top,
+                  rgb(166, 66, 70),
+                  rgb(245, 221, 194)
                 );
               }
               &::before {
@@ -159,9 +158,9 @@
                 top: 0;
                 height: 1px;
                 background: linear-gradient(
-                    to left,
-                    rgb(245, 221, 194),
-                    rgb(166, 66, 70)
+                  to left,
+                  rgb(245, 221, 194),
+                  rgb(166, 66, 70)
                 );
               }
             }
@@ -187,9 +186,9 @@
                 left: 0;
                 width: 1px;
                 background: linear-gradient(
-                    to top,
-                    rgb(166, 66, 70),
-                    rgb(245, 221, 194)
+                  to top,
+                  rgb(166, 66, 70),
+                  rgb(245, 221, 194)
                 );
               }
               &::before {
@@ -200,9 +199,9 @@
                 top: 0;
                 height: 1px;
                 background: linear-gradient(
-                    to right,
-                    rgb(245, 221, 194),
-                    rgb(166, 66, 70)
+                  to right,
+                  rgb(245, 221, 194),
+                  rgb(166, 66, 70)
                 );
               }
             }

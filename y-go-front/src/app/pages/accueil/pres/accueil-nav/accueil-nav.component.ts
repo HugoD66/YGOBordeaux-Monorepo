@@ -1,22 +1,22 @@
-import { Component, Input, OnChanges } from "@angular/core"
-import { MatDividerModule } from "@angular/material/divider"
-import { MatListModule } from "@angular/material/list"
-import { MatButtonModule } from "@angular/material/button"
-import { Router, RouterLink, RouterLinkActive } from "@angular/router"
-import { UserService } from "../../../../services/user.service"
-import { UserModel } from "../../../../models/user.model"
+import { Component, Input, OnChanges } from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { UserService } from '../../../../services/user.service';
+import { UserModel } from '../../../../models/user.model';
 
-import { ButtonUnitHorizComponent } from "../../../../components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component"
-import { Observable, Observer } from "rxjs"
-import { MatTabsModule } from "@angular/material/tabs"
-import { AsyncPipe } from "@angular/common"
-import { MatIconModule } from "@angular/material/icon"
+import { ButtonUnitHorizComponent } from '../../../../components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component';
+import { Observable, Observer } from 'rxjs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AsyncPipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface PresentationTab {
-  label: string
-  firstTab: boolean
-  secondTab: boolean
-  thirdTab: boolean
+  label: string;
+  firstTab: boolean;
+  secondTab: boolean;
+  thirdTab: boolean;
 }
 
 @Component({
@@ -38,17 +38,17 @@ export interface PresentationTab {
   ],
 })
 export class AccueilNavComponent implements OnChanges {
-  isAuthenticated = false
-  routerLinkProfile: string = ``
-  @Input() user!: UserModel | undefined
-  asyncTabs: Observable<PresentationTab[]>
-  firstLabel = `../../../../../assets/icons/wine-count.png`
-  secondLabel = `../../../../../assets/icons/student.png`
-  thirdLabel = `../../../../../assets/icons/register.png`
+  isAuthenticated = false;
+  routerLinkProfile: string = ``;
+  @Input() user!: UserModel | undefined;
+  asyncTabs: Observable<PresentationTab[]>;
+  firstLabel = `../../../../../assets/icons/wine-count.png`;
+  secondLabel = `../../../../../assets/icons/student.png`;
+  thirdLabel = `../../../../../assets/icons/register.png`;
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) {
     this.asyncTabs = new Observable((observer: Observer<PresentationTab[]>) => {
       setTimeout(() => {
@@ -71,31 +71,31 @@ export class AccueilNavComponent implements OnChanges {
             secondTab: false,
             thirdTab: true,
           },
-        ])
-      }, 500)
-    })
+        ]);
+      }, 500);
+    });
   }
 
   ngOnChanges(): void {
     if (this.user) {
-      console.log(this.user)
-      this.isAuthenticated = true
-      this.routerLinkProfile = `users/detail/${this.user.id}`
+      console.log(this.user);
+      this.isAuthenticated = true;
+      this.routerLinkProfile = `users/detail/${this.user.id}`;
     } else {
-      this.isAuthenticated = false
+      this.isAuthenticated = false;
     }
   }
 
   onLogout(): void {
-    this.userService.logout()
-    this.isAuthenticated = false
-    this.router.navigateByUrl(`/`)
+    this.userService.logout();
+    this.isAuthenticated = false;
+    this.router.navigateByUrl(`/`);
   }
 
   navigateToProfile(): void {
     if (this.user?.id) {
-      this.routerLinkProfile = `users/detail/${this.user.id}`
-      this.router.navigate([this.routerLinkProfile])
+      this.routerLinkProfile = `users/detail/${this.user.id}`;
+      this.router.navigate([this.routerLinkProfile]);
     }
   }
 }

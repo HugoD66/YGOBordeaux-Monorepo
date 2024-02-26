@@ -1,16 +1,16 @@
-import { IsString, Length, IsUUID, IsDate } from "class-validator"
+import { IsString, Length, IsUUID, IsDate } from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
   @Length(4, 280)
-  message!: string
+  message!: string;
 
   @IsDate()
-  createdAt!: Date
+  createdAt!: Date;
 
   @IsUUID()
-  userId!: string
+  userId!: string;
 
   @IsUUID()
-  barId!: string
+  barId!: string;
 }
