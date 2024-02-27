@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   Component,
-  effect,
   ElementRef,
   OnInit,
   signal,
@@ -34,6 +33,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
+import {forbidHtmlTagsValidator} from "../../../utils/validation.utils";
 
 type PictureListKey =
   | 'pictureOne'
@@ -111,6 +111,7 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
           Validators.required,
           Validators.maxLength(150),
           Validators.minLength(15),
+          Validators.required, forbidHtmlTagsValidator()
         ],
       ],
     });
@@ -192,6 +193,9 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     });
   }
 
+  onVote() {
+
+  }
   onPost() {
     let post: PostModel;
     if (this.postForm.valid) {
@@ -239,6 +243,7 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
       });
     }
   }
+
   getErrorMessage() {
     const messageControl = this.postForm.get('message');
     if (messageControl?.hasError('required')) {
@@ -250,13 +255,9 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     if (messageControl?.hasError('maxlength')) {
       return 'Le message doit contenir au maximum 150 caractères';
     }
+    if (messageControl?.hasError('forbiddenHtmlTags')) {
+      return 'Le message ne doit pas contenir de balises HTML';
+    }
     return '';
   }
 }
-/*
-  id: string | undefined
-  message: string | undefined
-  createdAt: Date | undefined
-  user: UserModel | undefined
-  bar: BarModel | undefined
- */

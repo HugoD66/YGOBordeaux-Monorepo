@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   @media screen and (min-width: 980px) {
     flex-direction: row;
   }
@@ -20,6 +20,9 @@
     flex-direction: column;
     height: 90%;
     width: 90%;
+    @media screen and (max-width: 980px ) {
+      height: 1350px;
+    }
     .explain {
       text-align: end;
       height: 80%;
@@ -28,35 +31,6 @@
       justify-content: space-around;
       align-items: self-end;
       flex-direction: column;
-      .guide-utilisation {
-        .divider-map-explain {
-          background-color: rgb(245, 215, 187);
-          margin: 0;
-          padding: 0;
-          @media screen and (max-width: 1300px) {
-            display: none;
-          }
-        }
-        color: rgb(245, 221, 194);
-        font-size: 1.1rem;
-        width: 80%;
-        h4 {
-          color: rgb(245, 221, 194);
-          font-size: 1.5rem;
-          margin: 0;
-          padding: 8px;
-          position: relative;
-          @media screen and (max-width: 1300px) {
-            font-size: 1.3rem;
-          }
-        }
-        ol {
-          @media screen and (max-width: 1300px) {
-            font-size: 0.9rem;
-            text-align: center;
-          }
-        }
-      }
       h1 {
         font-size: 2.5rem;
         color: rgb(245, 221, 194);
@@ -98,14 +72,14 @@
         color: rgb(245, 221, 194);
         font-size: 1.3rem;
         width: 80%;
-        @media screen and (max-width: 1300px) {
-          display: none;
-        }
+        //@media screen and (max-width: 1300px) {
+        //  display: none;
+        //}
       }
       .map-clicked {
         background-color: rgb(245, 221, 194);
         color: #a64246ff;
-        width: 60%;
+        width: 90%;
         height: 30%;
         align-self: center;
         border-radius: 10px;
@@ -113,6 +87,9 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        @media screen and (max-width: 980px ) {
+          height: 60%;
+        }
         img {
           width: 50%;
           height: 85%;
@@ -125,6 +102,7 @@
           align-items: center;
           flex-direction: column;
           height: 100%;
+
           .star-rating {
             display: flex;
             justify-content: center;
@@ -182,6 +160,35 @@
             }
           }
         }
+      }
+    }
+    .how-use-map {
+      color: rgb(245, 221, 194);
+      font-size: 1.1rem;
+      width: 100%;
+      text-align: center;
+      margin: auto;
+      padding: 0;
+      align-self: center;
+      h4 {
+        color: rgb(245, 221, 194);
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 8px;
+        position: relative;
+        @media screen and (max-width: 1300px) {
+          font-size: 1.3rem;
+        }
+      }
+      p  {
+        width: 80%;
+        margin: auto;
+        margin-top: 3%;
+        color: rgb(245, 221, 194);
+        @media screen and (max-width: 1300px) {
+          font-size: 0.8rem;
+        }
+
       }
     }
   }

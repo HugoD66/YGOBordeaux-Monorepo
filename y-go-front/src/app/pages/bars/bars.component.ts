@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, effect, OnInit, signal, WritableSignal} from '@angular/core';
 import { BarService } from '../../services/bar.service';
 import { BarModel } from '../../models/bar.model';
-import { PictureListService } from '../../services/picture-list.service';
-import { PictureListModel } from '../../models/picture-list.model';
+import {UserModel} from "../../models/user.model";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: `app-bars`,
@@ -10,10 +10,17 @@ import { PictureListModel } from '../../models/picture-list.model';
   styleUrls: [`./bars.component.scss`],
 })
 export class BarsComponent implements OnInit {
+  public isLogged: WritableSignal<boolean> = signal(false);
+  public user: WritableSignal<UserModel | undefined> = signal(undefined);
   barList: BarModel[] | undefined;
   filteredBarList: BarModel[] = [];
 
-  constructor(private barService: BarService) {}
+
+  constructor(private barService: BarService,
+              private userService: UserService) {
+    this.initializeUser();
+
+  }
 
   ngOnInit() {
     this.barService.getBarsList().subscribe((barList) => {
@@ -32,5 +39,17 @@ export class BarsComponent implements OnInit {
         this.filteredBarList = this.barList;
       }
     }
+  }
+
+  async initializeUser() {
+    this.userService.getUser().subscribe({
+      next: (user) => {
+        this.user.set(user);
+        this.isLogged.set(true);
+      },
+      error: (error) => {
+        this.isLogged.set(false);
+      }
+    });
   }
 }

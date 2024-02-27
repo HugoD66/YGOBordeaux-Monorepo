@@ -30,7 +30,6 @@ export class UnitUserComponent implements OnInit {
 
   ngOnInit() {
     this.barService.getBarsList().subscribe((barList) => {
-      console.log(barList);
       this.barList = barList;
     });
     this.rateService.getRateList().subscribe((rateList) => {
@@ -44,7 +43,7 @@ export class UnitUserComponent implements OnInit {
       this.barList?.filter((bar) => bar.createdBy?.id === this.user?.id) || []
     );
   }
-  getBarsRatesByUser() {
+  getBarsRatesByUser(): RateModel[] {
     // Ne retourne pas User et Bar , seulement id rate ratedAt et updatedAt
     return (
       this.rateList?.filter((rate) => rate.user?.id === this.user?.id) || []

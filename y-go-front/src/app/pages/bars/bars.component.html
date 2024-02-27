@@ -6,5 +6,8 @@
     <app-unit-bar class="content-bar" [bar]="bar" />
     }
   </div>
+  @if(this.user()) {
+    <button class="add-bar-button"> COUCOU</button>
+  }
   <app-logo-ygo />
 </div>

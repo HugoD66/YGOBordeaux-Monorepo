@@ -40,7 +40,7 @@
         } @if (getBarsRatesByUser().length > 0) {
         <ul>
           @for (rate of getBarsRatesByUser(); track rate) {
-          <li>{{ rate.rate }}</li>
+          <li>{{ rate.rate }} {{ rate.bar?.name }}</li>
           }
         </ul>
         }

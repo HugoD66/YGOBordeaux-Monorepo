@@ -109,7 +109,7 @@
         <button (click)="loggin()">Connexion</button>
         } @else if (!hasUserRatedBar()) {
         <p>Vous n'avez toujours pas voté !</p>
-        <button class="voter-button"><!-- (click)="onVote()" -->Voter</button>
+        <button class="voter-button" (click)="onVote()">Voter</button>
         } @else {
           @if (userRate() !== undefined) {
         <p>La note que vous avez attribué :</p>
