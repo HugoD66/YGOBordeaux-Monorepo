@@ -173,6 +173,7 @@
             }
           }
           .adress {
+
             h2 {
               //height: 10%;
               //align-self: flex-start;
@@ -205,6 +206,13 @@
                 );
               }
             }
+            p {
+              @media screen and (max-width: 767px) {
+
+                margin: auto;
+                text-align: center;
+              }
+            }
           }
         }
         .createdby-at {
@@ -217,11 +225,12 @@
           font-weight: bold;
           color: #1f1f1f;
           opacity: 0.8;
-          @media (max-width: 680px) {
+          @media (max-width: 767px) {
             line-height: 1.3vh;
             font-size: 0.7em;
-            width: 40%;
+            width: 100%;
             float: right;
+            text-align: end;
           }
         }
       }
@@ -255,11 +264,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @media screen and (max-width: 767px) {
+          width: 90%;
+          height: 350px;
+        }
         .map-wrap {
           position: relative;
           width: 80%;
           height: calc(100% - 77px);
-          //height: 80%;
         }
         .map {
           position: absolute;

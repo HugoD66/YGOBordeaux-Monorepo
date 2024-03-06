@@ -66,4 +66,12 @@ export class BarsController {
     }
     await this.barService.remove(id);
   }
+
+  @Delete()
+  async removeAllBars(): Promise<void> {
+    const bars = await this.barService.findAll()
+    bars.forEach(bar => {
+      this.barService.remove(bar.id)
+    })
+  }
 }

@@ -39,6 +39,18 @@ body {
     transition: background-color 0.1s;
     background-color: $background-accueil;
   }
+  @media screen and (max-width: 767px) {
+    width: 66px;
+    height: 66px;
+  }
+  img {
+    @media screen and (max-width: 767px) {
+      margin: auto;
+      width: 30px !important;
+      height: 30px;
+      //margin-left: 5px;
+    }
+  }
 }
 
 //ScrollBar

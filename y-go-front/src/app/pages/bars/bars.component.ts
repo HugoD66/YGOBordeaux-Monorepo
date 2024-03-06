@@ -3,6 +3,7 @@ import { BarService } from '../../services/bar.service';
 import { BarModel } from '../../models/bar.model';
 import {UserModel} from "../../models/user.model";
 import {UserService} from "../../services/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: `app-bars`,
@@ -17,7 +18,8 @@ export class BarsComponent implements OnInit {
 
 
   constructor(private barService: BarService,
-              private userService: UserService) {
+              private userService: UserService,
+              private router: Router) {
     this.initializeUser();
 
   }
@@ -51,5 +53,9 @@ export class BarsComponent implements OnInit {
         this.isLogged.set(false);
       }
     });
+  }
+
+  onClick() {
+    this.router.navigate([`/bars/add-bar`])
   }
 }

@@ -22,17 +22,14 @@ export class UserService {
 
   getUser(): Observable<UserModel> {
     const accessToken = localStorage.getItem(`access_token`);
-    console.log(accessToken);
     const headers = new HttpHeaders().set(
       `Authorization`,
       `Bearer ${accessToken}`,
     );
     const options = { headers: headers };
-    console.log(`OPTION` + JSON.stringify(headers));
-    console.log(`Authorization header:`, headers.get(`Authorization`));
     return this.http.get<UserModel>(`${this.apiUrl}/users/me`, options).pipe(
       tap((response: UserModel) => this.log(response)),
-      catchError((error) => this.handleError(error, undefined)),
+      //catchError((error) => this.handleError(error, undefined)),
     );
   }
 

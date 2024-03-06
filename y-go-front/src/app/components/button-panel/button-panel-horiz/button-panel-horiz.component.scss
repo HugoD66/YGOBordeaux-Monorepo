@@ -12,6 +12,7 @@
   @media screen and (max-width: 1300px) {
     right: 30px;
   }
+
   .parent-button-panel {
   }
   .button-panel-drawer {
@@ -22,5 +23,8 @@
     align-items: center;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
+    @media screen and (max-width: 767px) {
+      width: 230px;
+    }
   }
 }

@@ -39,7 +39,11 @@
             </span>
             }
           </div>
-          <button mat-raised-button (click)="goDetailBar()">
+          <button
+            mat-raised-button
+            (click)="goDetailBar()"
+            class="button-detail"
+          >
             En savoir plus
           </button>
         </div>
@@ -51,10 +55,8 @@
           <p>
               Cliquez sur l'icône du bar pour afficher des informations
               détaillées.
-
               Les informations disponibles pour chaque bar incluent le nom du bar
               et son adresse.
-
               Utilisez la fonction de zoom pour explorer davantage la carte et
               localiser les bars qui vous intéressent.
           </p>
