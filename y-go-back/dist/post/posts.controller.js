@@ -49,6 +49,13 @@ let PostsController = exports.PostsController = class PostsController {
         }
         return postList;
     }
+    async findAllByUser(userId) {
+        const postList = await this.postsService.findAllByBar(userId);
+        if (!postList) {
+            throw new common_1.NotFoundException(`PostList not found`);
+        }
+        return postList;
+    }
     async update(id, updatePostDto) {
         const postUpdated = await this.postsService.update(id, updatePostDto);
         return postUpdated;
@@ -92,6 +99,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], PostsController.prototype, "findAllByBar", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)('by-user/:userId'),
+    __param(0, (0, common_1.Param)(`userId`)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], PostsController.prototype, "findAllByUser", null);
 __decorate([
     (0, common_1.Patch)(`:id`),
     __param(0, (0, common_1.Param)(`id`)),

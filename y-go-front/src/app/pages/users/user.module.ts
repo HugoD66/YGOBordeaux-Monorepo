@@ -9,6 +9,7 @@ import { LogoYGoComponent } from '../../components/logo-ygo/logo-ygo.component';
 import { UnitUserComponent } from './unit-user/unit-user.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [UsersComponent, DetailUserComponent],
@@ -21,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     UnitUserComponent,
     MatIconModule,
     MatButtonModule,
+    MatListModule,
   ],
 })
 export class UserModule {}

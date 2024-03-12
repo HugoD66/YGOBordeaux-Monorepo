@@ -70,6 +70,19 @@ export class PostsController {
     return postList;
   }
 
+  @Public()
+  @Get('by-user/:userId')
+  async findAllByUser(
+    @Param(`userId`) userId: string,
+  ): Promise<ResponsePostDto[] | ResponsePostDto | null> {
+    const postList: ResponsePostDto[] | ResponsePostDto | null =
+      await this.postsService.findAllByBar(userId);
+    if (!postList) {
+      throw new NotFoundException(`PostList not found`);
+    }
+    return postList;
+  }
+
   // @UseGuards(SanitizeGuard)
   @Patch(`:id`)
   async update(

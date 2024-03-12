@@ -9,6 +9,7 @@ export declare class PostsController {
     findOne(id: string): Promise<ResponsePostDto>;
     findAll(): Promise<ResponsePostDto[]>;
     findAllByBar(barId: string): Promise<ResponsePostDto[] | ResponsePostDto | null>;
+    findAllByUser(userId: string): Promise<ResponsePostDto[] | ResponsePostDto | null>;
     update(id: string, updatePostDto: UpdatePostDto): Promise<ResponsePostDto>;
     remove(id: string): Promise<void>;
 }

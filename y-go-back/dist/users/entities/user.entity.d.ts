@@ -13,4 +13,6 @@ export declare class User {
     createBars?: Bar[] | null;
     userBarRatings?: UserBarRating[] | null;
     posts?: Post[] | null;
+    createdAt: Date;
+    updatedAt?: Date | null;
 }

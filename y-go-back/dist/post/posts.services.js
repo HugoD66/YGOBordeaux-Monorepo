@@ -52,6 +52,9 @@ let PostsService = exports.PostsService = class PostsService {
     async findAllByBar(barId) {
         return await this.postRepository.find({ where: { bar: { id: barId } } });
     }
+    async findAllByUser(userId) {
+        return await this.postRepository.find({ where: { user: { id: userId } } });
+    }
     async update(id, updatePostDto) {
         const post = await this.postRepository.preload({
             id: id,

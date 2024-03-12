@@ -14,6 +14,7 @@ export declare class PostsService {
     findOne(id: string): Promise<ResponsePostDto>;
     findAll(): Promise<ResponsePostDto[]>;
     findAllByBar(barId: string): Promise<ResponsePostDto[] | ResponsePostDto | null>;
+    findAllByUser(userId: string): Promise<ResponsePostDto[] | ResponsePostDto | null>;
     update(id: string, updatePostDto: UpdatePostDto): Promise<Post>;
     remove(id: string): Promise<void>;
 }
