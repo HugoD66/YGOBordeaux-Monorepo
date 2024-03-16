@@ -9,15 +9,15 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { BarService } from '../../../services/bar.service';
-import { PictureListService } from '../../../services/picture-list.service';
 import { BarModel, ParticularityEnum } from '../../../models/bar.model';
 import { config, Map } from '@maptiler/sdk';
 import { GeocodingService } from '../../../services/geocoding.service';
 import { MapService } from '../../../services/map.service';
-import { PictureListModel } from '../../../models/picture-list.model';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
 import { UserService } from '../../../services/user.service';
 import { UserModel } from '../../../models/user.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: `app-add-bars`,
@@ -40,6 +40,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     private geocodingService: GeocodingService,
     private mapService: MapService,
     private snackbarService: SnackbarService,
+    private router: Router,
   ) {
     this.particularitiesArray = Object.keys(ParticularityEnum).map((key) => ({
       key,
@@ -127,6 +128,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
             `Le bar ${barResponse.name} a bien été enregistré`,
             `Fermer`,
           );
+          this.router.navigate([`/bars`]);
         },
         error: (error) => {
           console.error(`Erreur lors de l'enregistrement du bar:`, error);

@@ -2,8 +2,10 @@
   <app-button-panel-horiz></app-button-panel-horiz>
 
   <div class="pictures-name">
-    <div class="header-picture" [ngStyle]="{ 'background-image': 'url(' + pictureBackDetailUser + ')' }">
-    </div>
+    <div
+      class="header-picture"
+      [ngStyle]="{ 'background-image': 'url(' + pictureBackDetailUser + ')' }"
+    ></div>
     <div class="user-picture">
       <img
         class="picture"
@@ -12,71 +14,64 @@
       />
     </div>
     <div class="user-name">
-      Bonjour, <br/>
-      {{user.name}}
-      <mat-divider/>
+      Bonjour, <br />
+      {{ user.name }}
+      <mat-divider />
     </div>
   </div>
 
   <div class="content-user">
-
     <div class="infos-button-change">
       <div class="infos">
         <p>Email : {{ user?.email }}</p>
-        <p>Enregistré depuis le : {{ user?.createdAt | date}}</p>
+        <p>Enregistré depuis le : {{ user?.createdAt | date }}</p>
       </div>
       <div class="button-change">
-        <button> Complétez votre profil</button>
+        <button>Complétez votre profil</button>
       </div>
     </div>
     <div class="bar-comment-rate">
       <div class="bar">
         <h2>Bar</h2>
         @if(!bar?.length) {
-          <p> N'hésitez pas à ajouter un bar !  </p>
-          <button mat-button (click)="goAddBar()"> Ajouter un bar</button>
-        }
-        @if(bar?.length) {
-          <ul>
-            @for(bar of bar; track bar.name) {
-              <li>{{bar.name}}</li>
-            }
-          </ul>
+        <p>N'hésitez pas à ajouter un bar !</p>
+        <button mat-button (click)="goAddBar()">Ajouter un bar</button>
+        } @if(bar?.length) {
+        <ul>
+          @for(bar of bar; track bar.name) {
+          <li>{{ bar.name }}</li>
+          }
+        </ul>
         }
       </div>
       <div class="rate">
         <h2>Rate</h2>
         @if(!rate?.length) {
-          <p> Parcourez notre site et notez des bars ! </p>
-          <button mat-button (click)="goBarList()"> Liste des bars</button>
-        }
-        @if(rate?.length) {
-          <ul>
-            @for(rate of rate; track rate.id) {
-              <li>{{rate.bar?.name}}</li>
-            }
-          </ul>
+        <p>Parcourez notre site et notez des bars !</p>
+        <button mat-button (click)="goBarList()">Liste des bars</button>
+        } @if(rate?.length) {
+        <ul>
+          @for(rate of rate; track rate.id) {
+          <li>{{ rate.bar?.name }}</li>
+          }
+        </ul>
         }
       </div>
       <div class="comment">
         <h2>Commentaires</h2>
         @if(!comment?.length) {
-          <p> Parcourez notre site et commentez des bars ! </p>
-          <button mat-button (click)="goBarList()"> Liste des bars</button>
+        <p>Parcourez notre site et commentez des bars !</p>
+        <button mat-button (click)="goBarList()">Liste des bars</button>
+        } @if(comment?.length) {
+        <ul>
+          @for(comment of comment; track comment.id) {
+          <li>{{ comment.bar?.name }}</li>
+          }
+        </ul>
         }
-        @if(comment?.length) {
-          <ul>
-            @for(comment of comment; track comment.id) {
-              <li>{{comment.bar?.name}}</li>
-            }
-          </ul>
-        }
-
       </div>
     </div>
   </div>
-
-
 </div>
 <app-logo-ygo />
 <!--

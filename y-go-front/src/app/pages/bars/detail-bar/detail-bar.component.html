@@ -4,85 +4,15 @@
   <div class="content-bar-unit">
     <div class="pictures">
       <div class="pictures-content">
-        <img
-          class="picture-center"
-          [src]="selectedPicture"
-          alt="Photo du bar"
-        />
+        <!-- Image principale -->
+        <img class="picture-center" [src]="selectedPicture" alt="Photo principale du bar" />
         <div class="pictures-content-galerie">
-          <img
-            class="pictures-content-galerie-unit"
-            (click)="
-              onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')
-            "
-            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureTwo"
-            alt="Photo du bar2"
-          />
-          <img
-            class="pictures-content-galerie-unit"
-            (click)="
-              onSelectPicture(
-                currentBar?.pictureList?.pictureThree,
-                'pictureThree'
-              )
-            "
-            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureThree"
-            alt="Photo du bar3"
-          />
-          <img
-            class="pictures-content-galerie-unit"
-            (click)="
-              onSelectPicture(
-                currentBar?.pictureList?.pictureFour,
-                'pictureFour'
-              )
-            "
-            [src]="apiUrl + '/' + currentBar?.pictureList?.pictureFour"
-            alt="Photo du bar4"
-          />
+          <!-- Conditionnellement afficher chaque image seulement si getPictureUrl retourne quelque chose de non null -->
+          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureTwo)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')" [src]="getPictureUrl(currentBar?.pictureList?.pictureTwo)" alt="Photo du bar 2" />
+          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureThree)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureThree, 'pictureThree')" [src]="getPictureUrl(currentBar?.pictureList?.pictureThree)" alt="Photo du bar 3" />
+          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureFour)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureFour, 'pictureFour')" [src]="getPictureUrl(currentBar?.pictureList?.pictureFour)" alt="Photo du bar 4" />
         </div>
-      </div>
 
-      <div class="desc">
-        <p class="description">
-          {{ (bar | async)?.description }}
-        </p>
-        <div class="particularity-adress">
-          <div class="particularity">
-            <h2>
-              {{
-                currentBar?.particularities?.length === 1
-                  ? "Particularité"
-                  : "Particularités"
-              }}
-            </h2>
-            @if (currentBar?.particularities) {
-            <ul
-              *ngFor="let particularity of (bar | async)?.particularities"
-              class="particularity-unit"
-            >
-              {{
-                (particularity | particularityTranslate).translation
-              }}
-              <img
-                [src]="(particularity | particularityTranslate).logo"
-                alt="{{ particularity }}"
-              />
-            </ul>
-            } @if (currentBar?.particularities?.length === 0) {
-            <p>Ce bar n'a aucune particularité </p>
-            }
-          </div>
-          <div class="adress">
-            <h2>Adresse</h2>
-            <p>{{ (bar | async)?.adresse }}</p>
-          </div>
-        </div>
-        <p class="createdby-at">
-          Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} <br />
-          par
-          {{ (bar | async)?.createdBy?.email }}
-        </p>
       </div>
     </div>
     <mat-divider></mat-divider>
@@ -104,15 +34,14 @@
         </span>
         }
         <div class="voter">
-        @if(!isUserLogged()) {
-        <p>Vous devez être connecté pour voter !</p>
-        <button (click)="loggin()">Connexion</button>
-        } @else if (!hasUserRatedBar()) {
-        <p>Vous n'avez toujours pas voté !</p>
-        <button class="voter-button" (click)="onVote()">Voter</button>
-        } @else {
-          @if (userRate() !== undefined) {
-        <p>La note que vous avez attribué :</p>
+          @if(!isUserLogged()) {
+          <p>Vous devez être connecté pour voter !</p>
+          <button (click)="loggin()">Connexion</button>
+          } @else if (!hasUserRatedBar()) {
+          <p>Vous n'avez toujours pas voté !</p>
+          <button class="voter-button" (click)="onVote()">Voter</button>
+          } @else { @if (userRate() !== undefined) {
+          <p>La note que vous avez attribué :</p>
           @for (star of userRate()! | starRating; track star) {
           <span class="rate-list">
             <img
@@ -125,10 +54,8 @@
               alt=""
             />
           </span>
-          }
-        }
-        }
-      </div>
+          } } }
+        </div>
       </div>
       <h1>CALENDRIERRRR</h1>
       <div class="mapEmplacement">
@@ -141,10 +68,9 @@
       @if (this.comments().length === 0) {
       <h2>Aucun commentaires pour le moment</h2>
       @if(!isUserLogged()) {
-        <p>Vous devez être connecté pour voter !</p>
-        <button (click)="loggin()">Connexion</button>
-      }
-      @if(isUserLogged()) {
+      <p>Vous devez être connecté pour voter !</p>
+      <button (click)="loggin()">Connexion</button>
+      } @if(isUserLogged()) {
       <form [formGroup]="postForm" (ngSubmit)="onPost()">
         <input formControlName="message" type="text" />
         <button type="submit">Submit</button>
@@ -173,14 +99,14 @@
       <form [formGroup]="postForm" (ngSubmit)="onPost()">
         <input formControlName="message" type="text" />
         <button type="submit">Submit</button>
-        @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty || postForm.get('message')?.touched)) {
-          <p class="error">
-            {{ getErrorMessage() }}
-          </p>
+        @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty
+        || postForm.get('message')?.touched)) {
+        <p class="error">
+          {{ getErrorMessage() }}
+        </p>
         }
       </form>
-      }
-    }
+      } }
     </div>
   </div>
   <app-logo-ygo />

@@ -9,8 +9,7 @@
         divertissement et de détente offertes par les différents bars de la
         région.
       </p>
-        <mat-divider class="divider"></mat-divider>
-
+      <mat-divider class="divider"></mat-divider>
 
       @if (selectedBar) {
       <div class="map-clicked">
@@ -48,19 +47,16 @@
           </button>
         </div>
       </div>
-      }
-      @if (!selectedBar) {
-        <div class="how-use-map">
-          <h4>Comment l'utiliser ?</h4>
-          <p>
-              Cliquez sur l'icône du bar pour afficher des informations
-              détaillées.
-              Les informations disponibles pour chaque bar incluent le nom du bar
-              et son adresse.
-              Utilisez la fonction de zoom pour explorer davantage la carte et
-              localiser les bars qui vous intéressent.
-          </p>
-        </div>
+      } @if (!selectedBar) {
+      <div class="how-use-map">
+        <h4>Comment l'utiliser ?</h4>
+        <p>
+          Cliquez sur l'icône du bar pour afficher des informations détaillées.
+          Les informations disponibles pour chaque bar incluent le nom du bar et
+          son adresse. Utilisez la fonction de zoom pour explorer davantage la
+          carte et localiser les bars qui vous intéressent.
+        </p>
+      </div>
       }
     </div>
   </div>

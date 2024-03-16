@@ -9,7 +9,7 @@ import { LogoYGoComponent } from '../../components/logo-ygo/logo-ygo.component';
 import { UnitUserComponent } from './unit-user/unit-user.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import {MatListModule} from "@angular/material/list";
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [UsersComponent, DetailUserComponent],

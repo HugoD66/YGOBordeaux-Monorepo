@@ -33,7 +33,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
-import {forbidHtmlTagsValidator} from "../../../utils/validation.utils";
+import { forbidHtmlTagsValidator } from '../../../utils/validation.utils';
 
 type PictureListKey =
   | 'pictureOne'
@@ -62,6 +62,7 @@ type PictureListKey =
 })
 export class DetailBarComponent implements AfterViewInit, OnInit {
   postForm: FormGroup;
+  public defaultPicutre = `assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg`;
 
   bar: Observable<BarModel | undefined>;
   map: Map | undefined;
@@ -96,11 +97,6 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     );
     this.bar.subscribe((barData) => {
       this.currentBar = barData;
-
-      if (barData?.pictureList?.pictureOne) {
-        this.selectedPicture =
-          `${this.apiUrl}/` + barData.pictureList.pictureOne;
-      }
       this.getComments(barData);
     });
 
@@ -111,28 +107,37 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
           Validators.required,
           Validators.maxLength(150),
           Validators.minLength(15),
-          Validators.required, forbidHtmlTagsValidator()
+          Validators.required,
+          forbidHtmlTagsValidator(),
         ],
       ],
     });
   }
 
-  onSelectPicture(
-    pictureUrl: string | undefined,
-    pictureKey: PictureListKey,
-  ): void {
+  onSelectPicture(pictureUrl: string | undefined, pictureKey: PictureListKey): void {
     if (pictureUrl) {
-      const newSelectedPicture = `${this.apiUrl}/` + pictureUrl;
+      let newSelectedPicture;
+      if (pictureUrl.startsWith(`data:image`)) {
+        // Si l'image est en base64, utilisez-la directement
+        newSelectedPicture = pictureUrl;
+      } else {
+        // Sinon, construisez l'URL
+        newSelectedPicture = `${this.apiUrl}/` + pictureUrl;
+      }
+
       if (this.selectedPicture !== newSelectedPicture) {
-        const temp = this.selectedPicture;
         this.selectedPicture = newSelectedPicture;
-        // @ts-ignore
-        this.currentBar.pictureList[pictureKey] = temp?.replace(
-          `${this.apiUrl}/`,
-          ``,
-        );
       }
     }
+  }
+
+  getPictureUrl(pictureUrl: string | undefined): string | null {
+    if (pictureUrl?.startsWith('data:image')) {
+      return pictureUrl; // Image en base64
+    } else if (pictureUrl) {
+      return `${this.apiUrl}/${pictureUrl}`; // Image via URL
+    }
+    return null; // Aucune image par défaut
   }
 
   ngOnInit(): void {
@@ -140,7 +145,11 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     this.bar.subscribe((barData) => {
       this.currentBar = barData;
       if (barData?.pictureList?.pictureOne) {
-        this.mainPicture = `${this.apiUrl}/` + barData.pictureList.pictureOne;
+        if (barData.pictureList.pictureOne.startsWith(`data:image`)) {
+          this.mainPicture = barData.pictureList.pictureOne;
+        } else {
+          this.mainPicture = `${this.apiUrl}/` + barData.pictureList.pictureOne;
+        }
         this.selectedPicture = this.mainPicture;
       }
     });
@@ -193,9 +202,7 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     });
   }
 
-  onVote() {
-
-  }
+  onVote() {}
   onPost() {
     let post: PostModel;
     if (this.postForm.valid) {
@@ -235,9 +242,7 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
         if (!comments || comments.length === 0) {
           return this.comments.set([]);
         } else {
-          const commentsArray = Array.isArray(comments)
-            ? comments
-            : [comments];
+          const commentsArray = Array.isArray(comments) ? comments : [comments];
           return this.comments.set(commentsArray);
         }
       });

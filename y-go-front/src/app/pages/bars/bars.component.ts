@@ -1,9 +1,15 @@
-import {Component, effect, OnInit, signal, WritableSignal} from '@angular/core';
+import {
+  Component,
+  effect,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { BarService } from '../../services/bar.service';
 import { BarModel } from '../../models/bar.model';
-import {UserModel} from "../../models/user.model";
-import {UserService} from "../../services/user.service";
-import {Router} from "@angular/router";
+import { UserModel } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: `app-bars`,
@@ -16,12 +22,12 @@ export class BarsComponent implements OnInit {
   barList: BarModel[] | undefined;
   filteredBarList: BarModel[] = [];
 
-
-  constructor(private barService: BarService,
-              private userService: UserService,
-              private router: Router) {
+  constructor(
+    private barService: BarService,
+    private userService: UserService,
+    private router: Router,
+  ) {
     this.initializeUser();
-
   }
 
   ngOnInit() {
@@ -51,11 +57,11 @@ export class BarsComponent implements OnInit {
       },
       error: (error) => {
         this.isLogged.set(false);
-      }
+      },
     });
   }
 
   onClick() {
-    this.router.navigate([`/bars/add-bar`])
+    this.router.navigate([`/bars/add-bar`]);
   }
 }

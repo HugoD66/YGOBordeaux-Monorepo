@@ -51,7 +51,6 @@ export class PostService {
         tap((response: PostModel | null | PostModel[]) => this.log(response)),
         catchError((error) => this.handleError(error, [])),
       );
-
   }
   private log(
     response: number | Object | PostModel | PostModel[] | undefined | null,

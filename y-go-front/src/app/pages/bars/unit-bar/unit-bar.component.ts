@@ -33,21 +33,21 @@ import { PostService } from '../../../services/post.service';
 export class UnitBarComponent {
   @Input() bar: BarModel | undefined;
   public apiUrl = environment.apiUrl;
-
+  public defaultPicutre = `assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg`;
   constructor(private router: Router) {}
 
   goDetailBar() {
     this.router.navigate([`/bars/detail/${this.bar?.id}`]);
   }
 
-  // getBarImageUrl(): string {
-  //  if (this.bar?.pictureList?.pictureOne) {
-  //    if (this.bar.pictureList.pictureOne.startsWith('data:image')) {
-  //      return this.bar.pictureList.pictureOne;
-  //    } else {
-  //      return 'http://localhost:3000/' + this.bar.pictureList.pictureOne;
-  //    }
-  //  }
-  //  return 'assets/path-to-default-image.jpg'; // Chemin de votre image par défaut
-  // }
+  getBarImageUrl(): string {
+    if (this.bar?.pictureList?.pictureOne) {
+      if (this.bar.pictureList.pictureOne.startsWith(`data:image`)) {
+        return this.bar.pictureList.pictureOne;
+      } else {
+        return `${this.apiUrl}/${this.bar.pictureList.pictureOne}`;
+      }
+    }
+    return this.defaultPicutre;
+  }
 }

@@ -23,7 +23,6 @@ export class AccueilComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.userService.getUser().subscribe((data) => {
       this.user = data;
     });
@@ -39,6 +38,5 @@ export class AccueilComponent implements OnInit {
     this.rateService.getRateList().subscribe((data) => {
       this.rates = data;
     });
-
   }
 }
