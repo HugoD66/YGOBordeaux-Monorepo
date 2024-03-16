@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0cac88fd-af62-4b7b-a78f-38aa3dfbb061" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/eslint.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yGoProject.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2dm1XfdH5Vzcd1LCk7SooUh5IlJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0cac88fd-af62-4b7b-a78f-38aa3dfbb061" name="Changes" comment="" />
+      <created>1710598482938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710598482938</updated>
+      <workItem from="1710598486179" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/y-go-front/src/app/services/user.service.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/app.service.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/app.controller.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/app.controller.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/main.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/app.module.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/geo/entities/geo.entity.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/bars.module.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/bars.service.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/bars.service.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/dto/update-bar.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/dto/create-bar.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/dto/response-bar.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/entities/bar.entity.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/bars/entities/types/drinks.enum.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-panel-horiz.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/models/user.model.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/auth/constant.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/auth/public.decorator.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/users.controller.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/users.service.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/users.module.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/dto/login.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/dto/create-user.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/dto/update-user.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/dto/login-response.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/dto/user-response.dto.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/auth/auth.guard.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/entities/user.entity.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/entities/types/user.roles.enum.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/users/errorsRegister/errors.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/picture-list/entities/picture-list.entity.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.js" />
+        <option value="$PROJECT_DIR$/y-go-back/src/user-bar-rating/entities/user-bar-rating.entity.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/app.module.js" />
+        <option value="$PROJECT_DIR$/y-go-front/env.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/app-routing.module.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.js" />
+        <option value="$PROJECT_DIR$/y-go-back/test/app.e2e-spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/main.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/app.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/app.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bar.module.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/accueil.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/bars-and-users/bars-and-users.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/loader/loader.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/models/bar.model.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/services/bar.service.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.spec.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.js" />
+        <option value="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component.js" />
+      </list>
+    </option>
+  </component>
+</project>
