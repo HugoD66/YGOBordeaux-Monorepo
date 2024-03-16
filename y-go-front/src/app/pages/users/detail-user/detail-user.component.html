@@ -7,11 +7,34 @@
       [ngStyle]="{ 'background-image': 'url(' + pictureBackDetailUser + ')' }"
     ></div>
     <div class="user-picture">
+      @if(user?.picture) {
       <img
         class="picture"
-        src="../../../../assets/pictures/avatar-user.png"
-        alt="default avatar"
+        [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
+        alt="user picture"
       />
+      }
+      @if(!user?.picture) {
+        <img
+          class="picture"
+          src="../../../../assets/pictures/avatar-user.png"
+          alt="default avatar"
+        />
+        <span class="add-picture">
+          <form>
+            <label for="file-upload" class="custom-file-upload">
+              <img src="assets/icons/picture-add.png" alt="Add" />
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              (change)="onFileSelect($event)"
+              style="display: none"
+            />
+          </form>
+        </span>
+      }
+
     </div>
     <div class="user-name">
       Bonjour, <br />
@@ -27,50 +50,51 @@
         <p>Enregistré depuis le : {{ user?.createdAt | date }}</p>
       </div>
       <div class="button-change">
-        <button>Complétez votre profil</button>
+        <button>Modifiez votre profil</button>
       </div>
     </div>
     <div class="bar-comment-rate">
+      <div class="comment-rate">
+        <div class="rate">
+          <h2>Vos votes</h2>
+          @if(!rate?.length) {
+            <p>Parcourez notre site et notez des bars !</p>
+            <button mat-button (click)="goBarList()">Liste des bars</button>
+          } @if(rate?.length) {
+          <ul>
+            @for(rate of rate; track rate.id) {
+              <li>{{ rate.bar?.name }}: {{ rate.rate }} / 5,  à {{ rate.ratedAt | date}}</li>
+            }
+          </ul>
+        }
+        </div>
+        <div class="comment">
+          <h2>Commentaires</h2>
+          @if(!comment?.length) {
+            <p>Parcourez notre site et commentez des bars !</p>
+            <button mat-button (click)="goBarList()">Liste des bars</button>
+          } @if(comment?.length) {
+          <ul>
+            @for(comment of comment; track comment.id) {
+              <li>{{ comment.bar?.name }}</li>
+            }
+          </ul>
+        }
+        </div>
+      </div>
+      </div>
       <div class="bar">
-        <h2>Bar</h2>
+        <h2>Vos bars créés</h2>
         @if(!bar?.length) {
         <p>N'hésitez pas à ajouter un bar !</p>
         <button mat-button (click)="goAddBar()">Ajouter un bar</button>
         } @if(bar?.length) {
-        <ul>
+
           @for(bar of bar; track bar.name) {
-          <li>{{ bar.name }}</li>
+            <app-unit-bar class="content-bar" [bar]="bar" />
           }
-        </ul>
         }
       </div>
-      <div class="rate">
-        <h2>Rate</h2>
-        @if(!rate?.length) {
-        <p>Parcourez notre site et notez des bars !</p>
-        <button mat-button (click)="goBarList()">Liste des bars</button>
-        } @if(rate?.length) {
-        <ul>
-          @for(rate of rate; track rate.id) {
-          <li>{{ rate.bar?.name }}</li>
-          }
-        </ul>
-        }
-      </div>
-      <div class="comment">
-        <h2>Commentaires</h2>
-        @if(!comment?.length) {
-        <p>Parcourez notre site et commentez des bars !</p>
-        <button mat-button (click)="goBarList()">Liste des bars</button>
-        } @if(comment?.length) {
-        <ul>
-          @for(comment of comment; track comment.id) {
-          <li>{{ comment.bar?.name }}</li>
-          }
-        </ul>
-        }
-      </div>
-    </div>
   </div>
 </div>
 <app-logo-ygo />
@@ -94,19 +118,7 @@ Ancienne mise en place
           src="../../../../assets/pictures/avatar-user.png"
           alt="default avatar"
         />
-        <span class="add-picture">
-          <form>
-            <label for="file-upload" class="custom-file-upload">
-              <img src="assets/icons/picture-add.png" alt="Add" />
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              (change)="onFileSelect($event)"
-              style="display: none"
-            />
-          </form>
-        </span>
+
       </div>
     </ng-template>
   </div>

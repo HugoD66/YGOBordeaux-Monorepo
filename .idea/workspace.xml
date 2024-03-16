@@ -5,254 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cac88fd-af62-4b7b-a78f-38aa3dfbb061" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bruno/Y-Go-Bordeaux/bruno.json" beforeDir="false" afterPath="$PROJECT_DIR$/bruno/Y-Go-Bordeaux/bruno.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/app.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/app.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/create-bar.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/create-bar.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/create-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/create-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/response-bar.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/response-bar.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/response-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/response-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/update-bar.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/update-bar.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/dto/update-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/dto/update-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/bar.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/bar.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/bar.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/bar.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/drinks.enum.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/drinks.enum.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/drinks.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/drinks.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/particularity.enum.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/particularity.enum.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/particularity.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/entities/types/particularity.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/bar.fixtures.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/bar.fixtures.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/bar.fixtures.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/bar.fixtures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/post.fixtures.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/post.fixtures.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/post.fixtures.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/post.fixtures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/rate.fixtures.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/rate.fixtures.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/rate.fixtures.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/rate.fixtures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/user.fixtures.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/user.fixtures.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/fixtures/user.fixtures.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/fixtures/user.fixtures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/create-geo.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/create-geo.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/create-geo.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/create-geo.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/response-geo.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/response-geo.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/response-geo.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/response-geo.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/update-geo.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/update-geo.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/dto/update-geo.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/dto/update-geo.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/entities/geo.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/entities/geo.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/entities/geo.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/entities/geo.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/geo/geo.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/geo/geo.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/guard/sanitize.guard.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/guard/sanitize.guard.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/guard/sanitize.guard.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/guard/sanitize.guard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/main.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/multer.config.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/multer.config.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/multer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/multer.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/create-picture-list.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/create-picture-list.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/create-picture-list.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/create-picture-list.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/response-picture-list.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/response-picture-list.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/response-picture-list.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/response-picture-list.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/update-picture-list.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/update-picture-list.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/update-picture-list.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/dto/update-picture-list.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/entities/picture-list.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/entities/picture-list.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/entities/picture-list.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/entities/picture-list.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/picture-list/picture-list.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/pipe/FileSizeValidationPipe.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/pipe/FileSizeValidationPipe.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/pipe/FileSizeValidationPipe.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/pipe/FileSizeValidationPipe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/create-post.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/create-post.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/create-post.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/create-post.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/response-post.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/response-post.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/response-post.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/response-post.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/update-post.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/update-post.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/dto/update-post.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/dto/update-post.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/entities/post.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/entities/post.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/entities/post.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/entities/post.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/bars/bars.controller.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/create-user-bar-rating.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/create-user-bar-rating.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/create-user-bar-rating.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/create-user-bar-rating.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/response-rate.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/response-rate.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/response-rate.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/response-rate.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/update-user-bar-rating.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/update-user-bar-rating.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/update-user-bar-rating.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/dto/update-user-bar-rating.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/entities/user-bar-rating.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/entities/user-bar-rating.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/entities/user-bar-rating.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/entities/user-bar-rating.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/user-bar-rating/user-bar-rating.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/auth.guard.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/auth.guard.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/auth.guard.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/auth.guard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/constant.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/constant.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/public.decorator.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/public.decorator.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/auth/public.decorator.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/auth/public.decorator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/change-password.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/change-password.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/change-password.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/change-password.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/create-user.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/create-user.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/create-user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/create-user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/login-response.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/login-response.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/login-response.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/login-response.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/login.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/login.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/login.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/login.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/update-user.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/update-user.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/update-user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/update-user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/user-response.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/user-response.dto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/dto/user-response.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/dto/user-response.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/entities/types/user.roles.enum.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/entities/types/user.roles.enum.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/entities/types/user.roles.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/entities/types/user.roles.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/errorsRegister/errors.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/errorsRegister/errors.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/errorsRegister/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/errorsRegister/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/entities/user.entity.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.service.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/app.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/app.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/app.controller.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/app.controller.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/app.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/app.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/bars.service.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/bars.service.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/dto/create-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/dto/create-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/dto/response-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/dto/response-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/dto/update-bar.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/dto/update-bar.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/entities/bar.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/entities/bar.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/bars/entities/types/drinks.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/bars/entities/types/drinks.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/geo/entities/geo.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/geo/entities/geo.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/picture-list/entities/picture-list.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/picture-list/entities/picture-list.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/post/posts.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/post/posts.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/post/posts.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/post/posts.services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/user-bar-rating/entities/user-bar-rating.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/user-bar-rating/entities/user-bar-rating.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/auth/auth.guard.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/auth/auth.guard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/auth/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/auth/constant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/auth/public.decorator.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/auth/public.decorator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/dto/create-user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/dto/create-user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/dto/login-response.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/dto/login-response.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/dto/login.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/dto/login.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/dto/update-user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/dto/update-user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/dto/user-response.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/dto/user-response.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/entities/types/user.roles.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/entities/types/user.roles.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/entities/user.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/entities/user.entity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/entities/user.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/entities/user.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/errorsRegister/errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/errorsRegister/errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/users.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/users.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/users.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/users.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/users.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/users.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/test/app.e2e-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/test/app.e2e-spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/app-routing.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/app-routing.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/app.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/app.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/app.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/app.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/auth.interceptor.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-panel-horiz.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-panel-horiz.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-panel-horiz.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-panel-horiz.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/button-panel/button-panel-horiz/button-unit-horiz/button-unit-horiz.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/logo-ygo/logo-ygo.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/search-bar/search-bar.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/components/snackbar/snackbar.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/loader/loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/loader/loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/models/bar.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/models/bar.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/accueil.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/accueil.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/accueil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/accueil.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/bars-and-users/bars-and-users.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/bars-and-users/bars-and-users.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/bars-and-users/bars-and-users.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/bars-and-users/bars-and-users.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/map/map.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/users/users.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/users.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/add-bar/add-bar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bar.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bar.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/bars.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/not-found/not-found.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/security/login/login.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/security/register/register.component.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.spec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/unit-user/unit-user.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/users.component.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/services/bar.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/services/bar.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/services/post.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/services/post.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/styles/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,10 +47,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "D:\\Projets\\dev\\y-go-project\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "D:\\Projets\\dev\\y-go-project\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -297,7 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1710598482938</updated>
       <workItem from="1710598486179" duration="36000" />
-      <workItem from="1710598588115" duration="1441000" />
+      <workItem from="1710598588115" duration="1744000" />
+      <workItem from="1710605119327" duration="2791000" />
     </task>
     <servers />
   </component>

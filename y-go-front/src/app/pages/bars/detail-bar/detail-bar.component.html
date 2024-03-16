@@ -4,15 +4,46 @@
   <div class="content-bar-unit">
     <div class="pictures">
       <div class="pictures-content">
-        <!-- Image principale -->
-        <img class="picture-center" [src]="selectedPicture" alt="Photo principale du bar" />
+        <img
+          class="picture-center"
+          [src]="selectedPicture"
+          alt="Photo principale du bar"
+        />
         <div class="pictures-content-galerie">
-          <!-- Conditionnellement afficher chaque image seulement si getPictureUrl retourne quelque chose de non null -->
-          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureTwo)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')" [src]="getPictureUrl(currentBar?.pictureList?.pictureTwo)" alt="Photo du bar 2" />
-          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureThree)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureThree, 'pictureThree')" [src]="getPictureUrl(currentBar?.pictureList?.pictureThree)" alt="Photo du bar 3" />
-          <img *ngIf="getPictureUrl(currentBar?.pictureList?.pictureFour)" class="pictures-content-galerie-unit" (click)="onSelectPicture(currentBar?.pictureList?.pictureFour, 'pictureFour')" [src]="getPictureUrl(currentBar?.pictureList?.pictureFour)" alt="Photo du bar 4" />
+          <img
+            *ngIf="getPictureUrl(currentBar?.pictureList?.pictureTwo)"
+            class="pictures-content-galerie-unit"
+            (click)="
+              onSelectPicture(currentBar?.pictureList?.pictureTwo, 'pictureTwo')
+            "
+            [src]="getPictureUrl(currentBar?.pictureList?.pictureTwo)"
+            alt="Photo du bar 2"
+          />
+          <img
+            *ngIf="getPictureUrl(currentBar?.pictureList?.pictureThree)"
+            class="pictures-content-galerie-unit"
+            (click)="
+              onSelectPicture(
+                currentBar?.pictureList?.pictureThree,
+                'pictureThree'
+              )
+            "
+            [src]="getPictureUrl(currentBar?.pictureList?.pictureThree)"
+            alt="Photo du bar 3"
+          />
+          <img
+            *ngIf="getPictureUrl(currentBar?.pictureList?.pictureFour)"
+            class="pictures-content-galerie-unit"
+            (click)="
+              onSelectPicture(
+                currentBar?.pictureList?.pictureFour,
+                'pictureFour'
+              )
+            "
+            [src]="getPictureUrl(currentBar?.pictureList?.pictureFour)"
+            alt="Photo du bar 4"
+          />
         </div>
-
       </div>
     </div>
     <mat-divider></mat-divider>

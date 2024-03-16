@@ -54,7 +54,7 @@ let BarsController = exports.BarsController = class BarsController {
     }
     async removeAllBars() {
         const bars = await this.barService.findAll();
-        bars.forEach(bar => {
+        bars.forEach((bar) => {
             this.barService.remove(bar.id);
         });
     }

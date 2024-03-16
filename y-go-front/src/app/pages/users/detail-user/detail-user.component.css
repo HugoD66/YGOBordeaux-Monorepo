@@ -1,0 +1,104 @@
+.detail-user {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.detail-user .pictures-name {
+  top: 0;
+  height: 120px;
+  width: 100%;
+  position: absolute;
+}
+.detail-user .pictures-name .header-picture {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top 35%;
+}
+.detail-user .pictures-name .user-picture img {
+  position: absolute;
+  bottom: -60%;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 10%;
+}
+@media screen and (max-width: 768px) {
+  .detail-user .pictures-name .user-picture img {
+    width: 130px;
+    height: 130px;
+  }
+}
+.detail-user .pictures-name .user-picture .add-picture {
+  background-color: white;
+  border-radius: 90%;
+  cursor: pointer;
+}
+.detail-user .pictures-name .user-picture .add-picture img {
+  width: 50px;
+  height: 50px;
+}
+.detail-user .pictures-name .user-name {
+  position: absolute;
+  right: 7%;
+  font-size: 1.2rem;
+  top: 125px;
+  text-align: end;
+}
+.detail-user .content-user {
+  margin: 200px auto auto;
+  border: 1px solid black;
+  width: 80%;
+  height: auto;
+}
+.detail-user .content-user .infos-button-change {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+/*
+ANCIENNE CONFIG
+.picture-infos {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  .pic {
+    width: 45%;
+    .picture-content {
+      position: relative;
+      width: 250px;
+      .picture {
+        width: 250px;
+        height: 250px;
+        border-radius: 90%;
+      }
+      .add-picture {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+  .infos {
+    width: 45%;
+  }
+}
+.background-picture {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(23, 20, 20, 0.22); //TODO
+}
+
+
+ */
+
+/*# sourceMappingURL=detail-user.component.css.map */

@@ -29,6 +29,16 @@
           height: 130px;
         }
       }
+      .add-picture {
+        background-color: white;
+        border-radius: 90%;
+        cursor: pointer;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+      }
     }
     .user-name {
       position: absolute;
@@ -51,6 +61,19 @@
       .infos {
       }
       .button-change {
+      }
+    }
+    .bar-comment-rate {
+      .comment-rate {
+        .comment {
+
+        }
+        .rate {
+
+        }
+      }
+      .bar {
+
       }
     }
   }

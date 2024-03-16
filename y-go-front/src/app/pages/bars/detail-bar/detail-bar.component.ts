@@ -114,7 +114,10 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     });
   }
 
-  onSelectPicture(pictureUrl: string | undefined, pictureKey: PictureListKey): void {
+  onSelectPicture(
+    pictureUrl: string | undefined,
+    pictureKey: PictureListKey,
+  ): void {
     if (pictureUrl) {
       let newSelectedPicture;
       if (pictureUrl.startsWith(`data:image`)) {

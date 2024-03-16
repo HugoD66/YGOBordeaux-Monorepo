@@ -24,23 +24,23 @@ export class DetailUserComponent implements OnInit {
   public comments: WritableSignal<PostModel[]> = signal([]);
 
   currentTime = new Date().getTime();
-  public apiUrl = environment.apiUrl;
-  public pictureBackDetailUser: string =
-    '../../../assets/pictures/header-back-detail-user.webp';
 
-  //public rateList: WritableSignal<RateModel | null> = signal(null);
-  //public barList: WritableSignal<BarModel | null> = signal(null);
+  public apiUrl = environment.apiUrl;
+  public pictureBackDetailUser: string = `../../../assets/pictures/header-back-detail-user.webp`;
+
+  // public rateList: WritableSignal<RateModel | null> = signal(null);
+  // public barList: WritableSignal<BarModel | null> = signal(null);
   /*
   filteredRateList: RateModel[] = [];
   filteredRateList$ = new Subject<RateModel[]>();
- this.rateList().set(rateList.filter(
-        (rate: RateModel) => rate.user === this.user.id,
-      ));
-      console.log(this.rateList())
-      console.log(this.rateList())
-      console.log(this.rateList())
-      console.log(this.rateList())
-      console.log(this.rateList())
+   this.rateList().set(rateList.filter(
+          (rate: RateModel) => rate.user === this.user.id,
+        ));
+        console.log(this.rateList())
+        console.log(this.rateList())
+        console.log(this.rateList())
+        console.log(this.rateList())
+        console.log(this.rateList())
 
  */
 
@@ -96,7 +96,6 @@ export class DetailUserComponent implements OnInit {
         .uploadUserPicture(this.user.id, file)
         .subscribe((response) => {
           console.log(`Image uploaded successfully`);
-
           this.user.picture = response.filePath;
 
           this.currentTime = new Date().getTime();

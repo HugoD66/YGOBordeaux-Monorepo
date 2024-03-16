@@ -18,7 +18,6 @@ import { UserService } from '../../../services/user.service';
 import { UserModel } from '../../../models/user.model';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: `app-add-bars`,
   templateUrl: `./add-bar.component.html`,
