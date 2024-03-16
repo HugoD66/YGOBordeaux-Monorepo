@@ -1,11 +1,12 @@
+/* Colors */
 .pres-content {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: rgb(250, 240, 228);
+  background-color: rgb(252, 240, 229);
 }
 .pres-content .title-pres {
   width: 55%;
@@ -16,8 +17,7 @@
   flex-direction: column;
 }
 .pres-content .title-pres h1 {
-  z-index: 3;
-  position: fixed;
+  z-index: 6;
   top: 23%;
   left: 12%;
   color: #000000;
@@ -36,11 +36,11 @@
 @media screen and (max-width: 680px) {
   .pres-content .title-pres h1 {
     font-size: 16vw;
+    top: 2%;
   }
 }
 .pres-content .title-pres h2 {
-  z-index: 3;
-  position: fixed;
+  z-index: 6;
   top: 40%;
   left: 17%;
   color: #000000;
@@ -48,9 +48,7 @@
   line-height: 5vw;
   letter-spacing: 1.1vw;
   text-shadow: 0 14px 13px black;
-  font-family:
-    Moontime,
-    sans serif;
+  font-family: Moontime, sans serif;
   user-select: none;
 }
 @media screen and (max-width: 1080px) {
@@ -61,6 +59,7 @@
 @media screen and (max-width: 680px) {
   .pres-content .title-pres h2 {
     font-size: 18vw;
+    top: 3%;
   }
 }
 .pres-content .title-pres p {
@@ -93,11 +92,7 @@
   top: 30%;
   left: 0;
   height: 15%;
-  background: linear-gradient(
-    180deg,
-    rgba(250, 245, 245, 0) 7%,
-    rgb(166, 66, 70) 80%
-  );
+  background: linear-gradient(180deg, rgba(250, 245, 245, 0) 7%, rgb(166, 66, 70) 80%);
   width: 100%;
   z-index: 4;
 }
@@ -107,13 +102,6 @@
   position: fixed;
   top: 6%;
   left: 6%;
-}
-@media screen and (max-width: 1080px) {
-  .pres-content img {
-    width: 45vw;
-    top: 20%;
-    left: 15%;
-  }
 }
 
 /*# sourceMappingURL=pres.component.css.map */

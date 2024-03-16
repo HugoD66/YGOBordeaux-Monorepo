@@ -1,3 +1,4 @@
+/* Colors */
 .mapContent {
   position: relative;
   width: 100%;
@@ -17,9 +18,197 @@
 .mapContent .explainMap {
   display: flex;
   justify-content: space-around;
-  align-items: self-start;
+  align-items: center;
   flex-direction: column;
-  height: 60%;
+  height: 90%;
+  width: 90%;
+}
+@media screen and (max-width: 980px) {
+  .mapContent .explainMap {
+    height: 1350px;
+  }
+}
+.mapContent .explainMap .explain {
+  text-align: end;
+  height: 80%;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: self-end;
+  flex-direction: column;
+}
+.mapContent .explainMap .explain h1 {
+  font-size: 2.5rem;
+  color: rgb(245, 221, 194);
+  font-weight: 600;
+  margin: 0;
+  padding: 8px;
+  position: relative;
+}
+@media screen and (max-width: 1300px) {
+  .mapContent .explainMap .explain h1 {
+    font-size: 2rem;
+  }
+}
+.mapContent .explainMap .explain h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgb(245, 221, 194), rgb(166, 66, 70));
+}
+.mapContent .explainMap .explain h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgb(245, 221, 194), rgb(166, 66, 70));
+}
+.mapContent .explainMap .explain p {
+  margin-top: 20px;
+  color: rgb(245, 221, 194);
+  font-size: 1rem;
+  width: 80%;
+}
+.mapContent .explainMap .explain .map-clicked {
+  background-color: rgb(245, 221, 194);
+  color: #a64246;
+  width: 90%;
+  height: 40%;
+  align-self: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+@media screen and (max-width: 1279px) {
+  .mapContent .explainMap .explain .map-clicked {
+    height: 47%;
+  }
+}
+@media screen and (max-width: 980px) {
+  .mapContent .explainMap .explain .map-clicked {
+    height: 60%;
+  }
+}
+.mapContent .explainMap .explain .map-clicked img {
+  width: 50%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .star-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 80%;
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .star-rating img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details h5 {
+  width: 90%;
+  font-size: 1.2rem;
+  color: #a64246;
+  margin: 0;
+  padding: 8px;
+  position: relative;
+}
+@media screen and (max-width: 1300px) {
+  .mapContent .explainMap .explain .map-clicked .map-clicked-details h5 {
+    font-size: 1.2rem;
+  }
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details h5::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(to top, rgb(245, 221, 194), rgb(166, 66, 70));
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details h5::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details p {
+  width: 80%;
+  color: rgb(166, 66, 70);
+}
+@media screen and (max-width: 1300px) {
+  .mapContent .explainMap .explain .map-clicked .map-clicked-details p {
+    font-size: 0.8rem;
+  }
+}
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .button-detail {
+  border-radius: 10px;
+  font-size: 0.9rem;
+  border: none;
+  margin: 2%;
+  color: rgb(245, 221, 194);
+  background-color: rgb(166, 66, 70);
+}
+.mapContent .explainMap .how-use-map {
+  color: rgb(245, 221, 194);
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+  align-self: center;
+}
+.mapContent .explainMap .how-use-map h4 {
+  color: rgb(245, 221, 194);
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 8px;
+  position: relative;
+}
+@media screen and (max-width: 1300px) {
+  .mapContent .explainMap .how-use-map h4 {
+    font-size: 1.3rem;
+  }
+}
+.mapContent .explainMap .how-use-map p {
+  width: 80%;
+  margin: 3% auto auto;
+  color: rgb(245, 221, 194);
+}
+@media screen and (max-width: 1300px) {
+  .mapContent .explainMap .how-use-map p {
+    font-size: 0.8rem;
+  }
+}
+.mapContent .map {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252, 240, 229);
+}
+@media screen and (max-width: 980px) {
+  .mapContent .map {
+    height: 1350px;
+  }
 }
 
 .liner {
@@ -44,6 +233,7 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+  background-color: black;
 }
 
 /*# sourceMappingURL=page-map.component.css.map */

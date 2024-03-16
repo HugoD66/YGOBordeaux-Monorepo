@@ -1,8 +1,15 @@
 .unit-bar-content {
-  max-width: 35vw;
-  margin: 5%;
+  width: 35vw;
+  margin: 3% auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: rgba(246, 225, 195, 0.32);
+}
+@media (max-width: 1180px) {
+  .unit-bar-content {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+  }
 }
 .unit-bar-content .header-card {
   display: flex;
@@ -12,7 +19,7 @@
   color: #7a3e65;
 }
 .unit-bar-content .header-card .title {
-  font-size: 2em;
+  font-size: 2.2em;
 }
 .unit-bar-content .header-card .author-picture {
   background-size: cover;
@@ -23,27 +30,83 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+@media (max-width: 680px) {
+  .unit-bar-content .card-content {
+    flex-direction: column-reverse;
+  }
 }
 .unit-bar-content .card-content p {
-  width: 49%;
+  width: 55%;
   text-align: justify;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-family: "Montserrat light", sans-serif;
 }
-.unit-bar-content .card-content ul {
-  width: 49%;
+@media (max-width: 680px) {
+  .unit-bar-content .card-content p {
+    margin-top: 5%;
+    width: 80%;
+  }
+}
+.unit-bar-content .card-content .list {
+  width: 44%;
   letter-spacing: 1px;
   line-height: 2vh;
+  margin: 1%;
 }
-.unit-bar-content .card-content ul .list-data {
-  margin-left: 4%;
-  font-size: 1.2em;
-  line-height: 3vh;
+@media (max-width: 680px) {
+  .unit-bar-content .card-content .list {
+    width: 100%;
+    padding: 0;
+    margin: auto;
+  }
 }
-.unit-bar-content .card-content ul .picture-star-list-data {
-  width: 20px;
-  height: 20px;
+.unit-bar-content .card-content .list .list-data {
+  text-align: end;
+  font-size: 1.1em;
+  line-height: 2.5vh;
+  width: 80%;
+  font-family: "Montserrat light", sans-serif;
+  margin-top: 10%;
+}
+@media (max-width: 680px) {
+  .unit-bar-content .card-content .list .list-data {
+    text-align: start;
+    line-height: 1px;
+  }
+}
+.unit-bar-content .card-content .list .createdby-at {
+  font-size: 0.8em;
+  font-style: italic;
+  align-self: end;
+  text-align: end;
+  margin-top: 4%;
+  line-height: 1.6vh;
+  font-family: "Titillium", sans-serif;
+  font-weight: bold;
+  color: #1f1f1f;
+  opacity: 0.8;
+}
+@media (max-width: 680px) {
+  .unit-bar-content .card-content .list .createdby-at {
+    line-height: 1.3vh;
+    font-size: 0.7em;
+    width: 40%;
+    float: right;
+  }
+}
+.unit-bar-content .card-content .list .picture-star-list-data {
+  width: 2vw;
+  height: 2vw;
+  max-width: 20px;
+  max-height: 20px;
   margin: 2%;
+}
+.unit-bar-content .divider-horizontal {
+  width: 80%;
+  margin: auto;
+  margin-top: 2%;
 }
 .unit-bar-content .button-list {
   width: 100%;
@@ -59,4 +122,4 @@
   font-size: 1.2em;
 }
 
-/*# sourceMappingURL=unit-bars.component.css.map */
+/*# sourceMappingURL=unit-bar.component.css.map */

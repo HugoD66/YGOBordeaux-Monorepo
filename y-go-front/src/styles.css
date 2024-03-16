@@ -1,4 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+/* Colors */
+/* Typo */
+/* Typo "Bordeaux" du titre*/
+@font-face {
+  font-family: "Moontime";
+  src: url("../../assets/typo/FontsFree-Net-MoonTime-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat light";
+  src: url("../../assets/typo/MontserratAlternates-Regular.ttf");
+}
+@font-face {
+  font-family: "Titillium";
+  src: url("../../assets/typo/TitilliumWeb-Regular.ttf");
+}
+/*
+MediaQueries :
+- Mobile : 0px - 767px
+- Tablet : 768px - 1023px
+- Desktop : 1024px - 1279px
+- Large : 1280px - 1919px
+- Extra Large : 1920px - 5000px
+680
+980
+1080
+1300
+ */
 html,
 body {
   height: 100%;
@@ -10,21 +36,6 @@ body {
   height: 100%;
 }
 
-/* Design  */
-/* Typo */
-@font-face {
-  font-family: "Moontime";
-  src: url("assets/typo/FontsFree-Net-MoonTime-Regular.ttf");
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("assets/typo/MontserratAlternates-Regular.ttf");
-}
-@font-face {
-  font-family: "Titillium";
-  src: url("assets/typo/TitilliumWeb-Regular.ttf");
-}
-/* Colors */
 /* Buttons */
 .button-panel-unit {
   background-color: rgb(245, 221, 194);
@@ -39,7 +50,37 @@ body {
 }
 .button-panel-unit:hover {
   transition: background-color 0.1s;
-  background-color: rgb(255, 204, 170);
+  background-color: rgb(236, 183, 150);
+}
+@media screen and (max-width: 767px) {
+  .button-panel-unit {
+    width: 66px;
+    height: 66px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .button-panel-unit img {
+    margin: auto;
+    width: 30px !important;
+    height: 30px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /*# sourceMappingURL=styles.css.map */

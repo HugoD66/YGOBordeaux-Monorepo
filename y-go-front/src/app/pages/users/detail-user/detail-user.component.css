@@ -1,3 +1,4 @@
+/* Colors */
 .detail-user {
   position: absolute;
   width: 100%;
@@ -43,23 +44,192 @@
 }
 .detail-user .pictures-name .user-name {
   position: absolute;
-  right: 7%;
-  font-size: 1.2rem;
+  right: 9%;
+  font-size: 1.4rem;
   top: 125px;
   text-align: end;
 }
 .detail-user .content-user {
   margin: 200px auto auto;
-  border: 1px solid black;
   width: 80%;
   height: auto;
 }
+@media screen and (max-width: 768px) {
+  .detail-user .content-user {
+    width: 100%;
+  }
+}
 .detail-user .content-user .infos-button-change {
+  width: 65%;
+  margin: 5% auto;
+  border-radius: 25px;
+  background-color: rgb(250, 240, 228);
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+  padding: 15px;
 }
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .infos-button-change {
+    flex-direction: column;
+  }
+}
+.detail-user .content-user .infos-button-change .infos p {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 8px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .infos-button-change .infos p {
+    text-align: center;
+  }
+}
+.detail-user .content-user .bar-comment-rate .comment-rate {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+}
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .bar-comment-rate .comment-rate {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment {
+  width: 40%;
+  text-align: center;
+  border-radius: 25px;
+  background-color: rgb(250, 240, 228);
+  padding-bottom: 3%;
+}
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .bar-comment-rate .comment-rate .comment {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .bar-comment-rate .comment-rate .comment {
+    margin-bottom: 5%;
+  }
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment p {
+  margin-top: 3%;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment button {
+  background-color: rgb(168, 68, 72);
+  color: white;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment .comment-unit {
+  padding: 5px;
+  border-radius: 15px;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 2%;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment .comment-unit .comment-message {
+  text-align: start;
+  padding-left: 5px;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment .comment-unit .comment-created-at {
+  font-size: 0.8rem;
+  color: rgb(87, 87, 87);
+  text-align: end;
+  padding-right: 5px;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .comment .comment-unit .comment-created-at img {
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .rate {
+  width: 40%;
+  text-align: center;
+  border-radius: 25px;
+  background-color: rgb(250, 240, 228);
+}
+@media screen and (max-width: 768px) {
+  .detail-user .content-user .bar-comment-rate .comment-rate .rate {
+    margin-bottom: 4%;
+    width: 90%;
+  }
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .rate p {
+  margin-top: 3%;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate .rate button {
+  background-color: white;
+  color: rgb(168, 68, 72);
+  margin-bottom: 4%;
+}
+.detail-user .content-user .bar-comment-rate .comment-rate h2 {
+  font-size: 1.8rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(168, 68, 72);
+  font-weight: 400;
+  margin: auto;
+  padding: 8px;
+  position: relative;
+}
+
+.bar {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .bar {
+    margin-top: 3%;
+  }
+}
+.bar h1 {
+  font-size: 2.5rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(168, 68, 72);
+  font-weight: 600;
+  margin: auto;
+  padding: 8px;
+  position: relative;
+}
+.bar .content-bar {
+  margin: auto;
+}
+@media screen and (max-width: 768px) {
+  .bar .content-bar {
+    width: 100%;
+  }
+}
+.bar .no-yet-bar {
+  margin: 2% auto auto;
+  padding: 8px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.bar .no-yet-bar button {
+  margin-top: 3%;
+  background-color: rgb(168, 68, 72);
+  color: white;
+  font-size: 1.2em;
+}
+@media screen and (max-width: 768px) {
+  .bar .no-yet-bar button {
+    margin-bottom: 5%;
+  }
+}
+.bar .no-yet-bar p {
+  font-size: 1.1rem;
+}
+
 /*
 ANCIENNE CONFIG
 .picture-infos {

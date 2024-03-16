@@ -1,3 +1,4 @@
+@use '../../../styles/variables' as var;
 .detail-user {
   position: absolute;
   width: 100%;
@@ -42,42 +43,188 @@
     }
     .user-name {
       position: absolute;
-      right: 7%;
-      font-size: 1.2rem;
+      right: 9%;
+      font-size: 1.4rem;
       top: 125px;
       text-align: end;
     }
   }
   .content-user {
     margin: 200px auto auto;
-    border: 1px solid black;
+
     width: 80%;
     height: auto;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
     .infos-button-change {
+      width: 65%;
+      margin: 5% auto;
+      border-radius: 25px;
+      background-color: var.$backPres;
       display: flex;
       align-items: center;
       justify-content: space-around;
       flex-direction: row;
+      padding: 15px;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
       .infos {
+        p {
+          font-size: 1.1rem;
+          margin: 0;
+          padding: 8px;
+          position: relative;
+          @media screen and (max-width: 768px) {
+            text-align: center;
+          }
+        }
+        .created-at {
+        }
       }
       .button-change {
       }
     }
     .bar-comment-rate {
       .comment-rate {
-        .comment {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: start;
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
 
+        }
+        .comment {
+          width: 40%;
+          text-align: center;
+          border-radius: 25px;
+          background-color: var.$backPres;
+          padding-bottom: 3%;
+          @media screen and (max-width: 768px) {
+            width: 90%;
+          }
+          @media screen and (max-width: 768px) {
+            margin-bottom: 5%;
+          }
+          p {
+            margin-top: 3%;
+          }
+          button {
+            background-color: var.$red;
+            color: white;
+          }
+          .comment-unit {
+            padding: 5px;
+            border-radius: 15px;
+            background-color: white;
+            width: 90%;
+            margin: auto;
+            margin-bottom: 2%;
+            .comment-message {
+              text-align: start;
+              padding-left: 5px;
+
+            }
+            .comment-created-at {
+              font-size: 0.8rem;
+              color: var.$gray;
+              text-align: end;
+              padding-right: 5px;
+              img {
+                margin: auto;
+                width: 15px;
+                height: 15px;
+                margin-left: 5px;
+
+              }
+            }
+          }
         }
         .rate {
+          width: 40%;
+          text-align: center;
+          border-radius: 25px;
+          background-color: var.$backPres;
+          @media screen and (max-width: 768px) {
+            margin-bottom: 4%;
+            width: 90%;
+          }
+          p {
+            margin-top: 3%;
+          }
+          button {
+            background-color: white;
+            color: var.$red;
+            margin-bottom: 4%;
 
+          }
         }
-      }
-      .bar {
-
+        h2 {
+          font-size: 1.8rem;
+          width: 100%;
+          text-align: center;
+          color: var.$red;
+          font-weight: 400;
+          margin: auto;
+          padding: 8px;
+          position: relative;
+        }
       }
     }
   }
 }
+.bar {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    margin-top: 3%;
+  }
+  h1 {
+    font-size: 2.5rem;
+    width: 100%;
+    text-align: center;
+    color: var.$red;
+    font-weight: 600;
+    margin: auto;
+    padding: 8px;
+    position: relative;
+  }
+  .content-bar {
+    margin: auto;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  .no-yet-bar {
+    margin: 2% auto auto;
+    padding: 8px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    @media screen and (max-width: 768px) {
+    }
+    button {
+      margin-top: 3%;
+      background-color: var.$red;
+      color: white;
+      font-size: 1.2em;
+      @media screen and (max-width: 768px) {
+      margin-bottom: 5%;
+      }
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
 
 /*
 ANCIENNE CONFIG

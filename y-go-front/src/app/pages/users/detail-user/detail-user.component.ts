@@ -28,22 +28,6 @@ export class DetailUserComponent implements OnInit {
   public apiUrl = environment.apiUrl;
   public pictureBackDetailUser: string = `../../../assets/pictures/header-back-detail-user.webp`;
 
-  // public rateList: WritableSignal<RateModel | null> = signal(null);
-  // public barList: WritableSignal<BarModel | null> = signal(null);
-  /*
-  filteredRateList: RateModel[] = [];
-  filteredRateList$ = new Subject<RateModel[]>();
-   this.rateList().set(rateList.filter(
-          (rate: RateModel) => rate.user === this.user.id,
-        ));
-        console.log(this.rateList())
-        console.log(this.rateList())
-        console.log(this.rateList())
-        console.log(this.rateList())
-        console.log(this.rateList())
-
- */
-
   constructor(
     private userService: UserService,
     private rateService: RateService,
@@ -88,6 +72,10 @@ export class DetailUserComponent implements OnInit {
       });
   }
 
+  goDetailBar(comment: PostModel): void {
+    console.log(comment);
+    this.router.navigate([`/bars/detail-bar/${comment.barId}`]);
+  }
   onFileSelect(event: Event): void {
     const element = event.currentTarget as HTMLInputElement;
     let file: File | null = element.files ? element.files[0] : null;
@@ -95,14 +83,20 @@ export class DetailUserComponent implements OnInit {
       this.userService
         .uploadUserPicture(this.user.id, file)
         .subscribe((response) => {
-          console.log(`Image uploaded successfully`);
           this.user.picture = response.filePath;
-
           this.currentTime = new Date().getTime();
         });
     }
   }
 
+  completeProfil(): void {
+    console.log(`complete profil`);
+    // this.router.navigate([`/users/update-profile`]);
+  }
+  updateProfil() {
+    console.log(`update profil`);
+    // this.router.navigate([`/users/update-profile`]);
+  }
   goAddBar() {
     this.router.navigate([`/bars/add-bar`]);
   }

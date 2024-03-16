@@ -58,7 +58,7 @@ export class PostsController {
   }
 
   @Public()
-  @Get('by-bar/:barId')
+  @Get(`by-bar/:barId`)
   async findAllByBar(
     @Param(`barId`) barId: string,
   ): Promise<ResponsePostDto[] | ResponsePostDto | null> {
@@ -71,12 +71,12 @@ export class PostsController {
   }
 
   @Public()
-  @Get('by-user/:userId')
+  @Get(`by-user/:userId`)
   async findAllByUser(
     @Param(`userId`) userId: string,
   ): Promise<ResponsePostDto[] | ResponsePostDto | null> {
     const postList: ResponsePostDto[] | ResponsePostDto | null =
-      await this.postsService.findAllByBar(userId);
+      await this.postsService.findAllByUser(userId);
     if (!postList) {
       throw new NotFoundException(`PostList not found`);
     }
