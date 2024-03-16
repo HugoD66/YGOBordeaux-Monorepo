@@ -159,6 +159,12 @@
     width: 90%;
   }
 }
+.detail-user .content-user .bar-comment-rate .comment-rate .rate .rate-unit img {
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+}
 .detail-user .content-user .bar-comment-rate .comment-rate .rate p {
   margin-top: 3%;
 }

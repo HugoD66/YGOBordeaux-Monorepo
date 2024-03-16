@@ -67,7 +67,11 @@
             <button mat-button (click)="goBarList()">Liste des bars</button>
           } @if(rate?.length) {
             @for(rate of rate; track rate.id) {
-              <p>{{ rate.bar?.name }}: {{ rate.rate }}/5,  le {{ rate.ratedAt | date}}</p>
+             <div class="rate-unit">
+               <p>{{ rate.bar?.name }}: {{ rate.rate }}/5,  le {{ rate.ratedAt | date}}
+                 <img src="../../../../assets/icons/arrow-right.png" alt="" (click)="goDetailBarFromRate(rate)">
+               </p>
+             </div>
             }
         }
         </div>
@@ -86,7 +90,7 @@
                 </p>
                 <p class="comment-created-at">
                   {{ comment.createdAt | date }}
-                  <img src="../../../../assets/icons/arrow-right.png" alt="" (click)="goDetailBar(comment)">
+                  <img src="../../../../assets/icons/arrow-right.png" alt="" (click)="goDetailBarFromComment(comment)">
                 </p>
               </div>
             }

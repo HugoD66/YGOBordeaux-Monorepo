@@ -72,9 +72,14 @@ export class DetailUserComponent implements OnInit {
       });
   }
 
-  goDetailBar(comment: PostModel): void {
+  goDetailBarFromRate(rate: RateModel): void {
+    console.log(rate);
+    this.router.navigate([`/bars/detail/${rate.bar?.id}`]);
+  }
+
+  goDetailBarFromComment(comment: PostModel): void {
     console.log(comment);
-    this.router.navigate([`/bars/detail-bar/${comment.barId}`]);
+    this.router.navigate([`/bars/detail/${comment.barId}`]);
   }
   onFileSelect(event: Event): void {
     const element = event.currentTarget as HTMLInputElement;

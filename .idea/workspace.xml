@@ -6,31 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0cac88fd-af62-4b7b-a78f-38aa3dfbb061" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/post/posts.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/post/posts.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/contact/contact.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/map/page-map/page-map.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/accueil-nav/accueil-nav.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/detail-bar/detail-bar.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/bars/unit-bar/unit-bar.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/styles/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/styles.css.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +65,7 @@
       <updated>1710598482938</updated>
       <workItem from="1710598486179" duration="36000" />
       <workItem from="1710598588115" duration="1744000" />
-      <workItem from="1710605119327" duration="10478000" />
+      <workItem from="1710605119327" duration="11443000" />
     </task>
     <servers />
   </component>
