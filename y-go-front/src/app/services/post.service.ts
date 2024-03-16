@@ -44,6 +44,15 @@ export class PostService {
       );
   }
 
+  getPostByUser(userId: string): Observable<null | PostModel | PostModel[]> {
+    return this.http
+      .get<PostModel[]>(`${this.apiUrl}/posts/by-user/${userId}`)
+      .pipe(
+        tap((response: PostModel | null | PostModel[]) => this.log(response)),
+        catchError((error) => this.handleError(error, [])),
+      );
+
+  }
   private log(
     response: number | Object | PostModel | PostModel[] | undefined | null,
   ) {

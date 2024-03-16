@@ -1,3 +1,65 @@
+.detail-user {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  .pictures-name {
+    top: 0;
+    height: 120px;
+    width: 100%;
+    position: absolute;
+    .header-picture {
+      height: 100%;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top 35%;
+    }
+    .user-picture {
+      img {
+        position: absolute;
+        bottom: -60%;
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        overflow: hidden;
+        left: 10%;
+        @media screen and (max-width: 768px) {
+          width: 130px;
+          height: 130px;
+        }
+      }
+    }
+    .user-name {
+      position: absolute;
+      right: 7%;
+      font-size: 1.2rem;
+      top: 125px;
+      text-align: end;
+    }
+  }
+  .content-user {
+    margin: 200px auto auto;
+    border: 1px solid black;
+    width: 80%;
+    height: auto;
+    .infos-button-change {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-direction: row;
+      .infos {
+
+      }
+      .button-change {
+
+      }
+    }
+  }
+}
+
+/*
+ANCIENNE CONFIG
 .picture-infos {
   margin-top: 25px;
   width: 100%;
@@ -26,7 +88,6 @@
     width: 45%;
   }
 }
-
 .background-picture {
   position: fixed;
   z-index: -1;
@@ -34,3 +95,7 @@
   height: 100%;
   background-color: rgba(23, 20, 20, 0.22); //TODO
 }
+
+
+ */
+

@@ -78,7 +78,6 @@ export class AccueilNavComponent implements OnChanges {
 
   ngOnChanges(): void {
     if (this.user) {
-      console.log(this.user);
       this.isAuthenticated = true;
       this.routerLinkProfile = `users/detail/${this.user.id}`;
     } else {

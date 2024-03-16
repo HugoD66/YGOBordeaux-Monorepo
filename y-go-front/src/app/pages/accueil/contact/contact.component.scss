@@ -213,11 +213,18 @@ section {
               background-color: rgb(166, 66, 70);
               transition:
                 background-color 0.4s,
-                color 0.4s; /* Ajoutez cette ligne pour spécifier la transition */
+                color 0.4s;
+              @media screen and (max-width: 1279px) {
+                align-self: center;
+                margin: auto;
+                width: 50%;
+              }
               @media screen and (max-width: 980px) {
                 align-self: center;
                 margin: auto;
+
               }
+
               &:focus {
                 cursor: pointer;
                 background-color: rgb(245, 221, 194);

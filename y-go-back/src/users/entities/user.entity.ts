@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn} from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { UserRoleEnum } from './types/user.roles.enum';
 import { Bar } from '../../bars/entities/bar.entity';
@@ -41,6 +41,13 @@ export class User {
 
   @OneToMany(() => Post, (post) => post.user)
   public posts?: Post[] | null;
+
+  @CreateDateColumn()
+  public createdAt!: Date;
+
+  @UpdateDateColumn()
+  public updatedAt?: Date | null;
+
   /*
   @Column()
   public adress: string
