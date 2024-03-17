@@ -28,15 +28,11 @@
   text-shadow: 0 14px 13px #1f1f1f;
   user-select: none;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 980px) {
   .pres-content .title-pres h1 {
-    font-size: 12vw;
-  }
-}
-@media screen and (max-width: 680px) {
-  .pres-content .title-pres h1 {
-    font-size: 16vw;
-    top: 2%;
+    position: absolute;
+    top: 25%;
+    left: 20%;
   }
 }
 .pres-content .title-pres h2 {
@@ -51,15 +47,11 @@
   font-family: Moontime, sans serif;
   user-select: none;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 980px) {
   .pres-content .title-pres h2 {
-    font-size: 12vw;
-  }
-}
-@media screen and (max-width: 680px) {
-  .pres-content .title-pres h2 {
-    font-size: 18vw;
-    top: 3%;
+    position: absolute;
+    top: 35%;
+    left: 25%;
   }
 }
 .pres-content .title-pres p {

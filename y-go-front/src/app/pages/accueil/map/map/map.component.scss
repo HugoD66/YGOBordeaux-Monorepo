@@ -1,9 +1,13 @@
 .mapEmplacement {
   width: 90%;
   height: 90%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 980px) {
+    width: 100%;
+  }
   .map-wrap {
     position: relative;
     width: 80%;

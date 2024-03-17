@@ -83,14 +83,23 @@
   }
 }
 @media (max-width: 1212px) {
-  .content .content-bar-unit .pictures .pictures-content .pictures-content-galerie {
+  .content
+    .content-bar-unit
+    .pictures
+    .pictures-content
+    .pictures-content-galerie {
     min-width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
   }
 }
-.content .content-bar-unit .pictures .pictures-content .pictures-content-galerie .pictures-content-galerie-unit {
+.content
+  .content-bar-unit
+  .pictures
+  .pictures-content
+  .pictures-content-galerie
+  .pictures-content-galerie-unit {
   display: flex;
   flex-direction: column;
   width: 200px;
@@ -98,13 +107,23 @@
   margin: 3%;
 }
 @media (max-width: 1300px) {
-  .content .content-bar-unit .pictures .pictures-content .pictures-content-galerie .pictures-content-galerie-unit {
+  .content
+    .content-bar-unit
+    .pictures
+    .pictures-content
+    .pictures-content-galerie
+    .pictures-content-galerie-unit {
     height: 120px;
     margin: 2%;
   }
 }
 @media (max-width: 766px) {
-  .content .content-bar-unit .pictures .pictures-content .pictures-content-galerie .pictures-content-galerie-unit {
+  .content
+    .content-bar-unit
+    .pictures
+    .pictures-content
+    .pictures-content-galerie
+    .pictures-content-galerie-unit {
     width: 33%;
   }
 }
@@ -129,7 +148,13 @@
   justify-content: space-around;
   margin: 5%;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity h2,
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  h2,
 .content .content-bar-unit .pictures .desc .particularity-adress .adress h2 {
   font-size: 2rem;
   color: rgb(166, 66, 70);
@@ -137,19 +162,51 @@
   padding: 8px;
   position: relative;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity .particularity-unit,
-.content .content-bar-unit .pictures .desc .particularity-adress .adress .particularity-unit {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  .particularity-unit,
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .adress
+  .particularity-unit {
   display: flex;
   align-items: center;
   font-size: 1.1em;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity .particularity-unit img,
-.content .content-bar-unit .pictures .desc .particularity-adress .adress .particularity-unit img {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  .particularity-unit
+  img,
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .adress
+  .particularity-unit
+  img {
   width: 30px;
   height: 30px;
   margin: 5%;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity h2::after {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  h2::after {
   content: "";
   position: absolute;
   top: 0;
@@ -158,7 +215,13 @@
   width: 1px;
   background: linear-gradient(to top, rgb(166, 66, 70), rgb(245, 221, 194));
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity h2::before {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  h2::before {
   content: "";
   position: absolute;
   left: 0;
@@ -167,14 +230,33 @@
   height: 1px;
   background: linear-gradient(to left, rgb(245, 221, 194), rgb(166, 66, 70));
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity ul {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  ul {
   list-style: none;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .particularity ul li {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .particularity
+  ul
+  li {
   font-size: 1.1em;
   line-height: 1.6rem;
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .adress h2::after {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .adress
+  h2::after {
   content: "";
   position: absolute;
   top: 0;
@@ -183,7 +265,13 @@
   width: 1px;
   background: linear-gradient(to top, rgb(166, 66, 70), rgb(245, 221, 194));
 }
-.content .content-bar-unit .pictures .desc .particularity-adress .adress h2::before {
+.content
+  .content-bar-unit
+  .pictures
+  .desc
+  .particularity-adress
+  .adress
+  h2::before {
   content: "";
   position: absolute;
   left: 0;

@@ -13,28 +13,26 @@
         [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
         alt="user picture"
       />
+      } @if(!user?.picture) {
+      <img
+        class="picture"
+        src="../../../../assets/pictures/avatar-user.png"
+        alt="default avatar"
+      />
+      <span class="add-picture">
+        <form>
+          <label for="file-upload" class="custom-file-upload">
+            <img src="assets/icons/picture-add.png" alt="Add" />
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            (change)="onFileSelect($event)"
+            style="display: none"
+          />
+        </form>
+      </span>
       }
-      @if(!user?.picture) {
-        <img
-          class="picture"
-          src="../../../../assets/pictures/avatar-user.png"
-          alt="default avatar"
-        />
-        <span class="add-picture">
-          <form>
-            <label for="file-upload" class="custom-file-upload">
-              <img src="assets/icons/picture-add.png" alt="Add" />
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              (change)="onFileSelect($event)"
-              style="display: none"
-            />
-          </form>
-        </span>
-      }
-
     </div>
     <div class="user-name">
       Bonjour, <br />
@@ -47,14 +45,19 @@
     <div class="infos-button-change">
       <div class="infos">
         <p>{{ user?.email }}</p>
-        <p class="created-at">Enregistré depuis le : {{ user?.createdAt | date }}</p>
+        <p class="created-at">
+          Enregistré depuis le : {{ user?.createdAt | date }}
+        </p>
       </div>
       <div class="button-change">
         @if(!user?.phone) {
-          <button mat-flat-button (click)="completeProfil()">Complétez votre profil</button>
-        }
-        @if(user?.phone) {
-          <button mat-flat-button (click)="updateProfil()">Modifier votre profil</button>
+        <button mat-flat-button (click)="completeProfil()">
+          Complétez votre profil
+        </button>
+        } @if(user?.phone) {
+        <button mat-flat-button (click)="updateProfil()">
+          Modifier votre profil
+        </button>
         }
       </div>
     </div>
@@ -63,57 +66,58 @@
         <div class="rate">
           <h2>Vos votes</h2>
           @if(!rate?.length) {
-            <p>Parcourez notre site et notez des bars !</p>
-            <button mat-button (click)="goBarList()">Liste des bars</button>
-          } @if(rate?.length) {
-            @for(rate of rate; track rate.id) {
-             <div class="rate-unit">
-               <p>{{ rate.bar?.name }}: {{ rate.rate }}/5,  le {{ rate.ratedAt | date}}
-                 <img src="../../../../assets/icons/arrow-right.png" alt="" (click)="goDetailBarFromRate(rate)">
-               </p>
-             </div>
-            }
-        }
+          <p>Parcourez notre site et notez des bars !</p>
+          <button mat-button (click)="goBarList()">Liste des bars</button>
+          } @if(rate?.length) { @for(rate of rate; track rate.id) {
+          <div class="rate-unit">
+            <p>
+              {{ rate.bar?.name }}: {{ rate.rate }}/5, le
+              {{ rate.ratedAt | date }}
+              <img
+                src="../../../../assets/icons/arrow-right.png"
+                alt=""
+                (click)="goDetailBarFromRate(rate)"
+              />
+            </p>
+          </div>
+          } }
         </div>
         <div class="comment">
           <h2>Commentaires</h2>
           @if(!comment?.length) {
-            <p>Parcourez notre site et commentez des bars !</p>
-            <button mat-button (click)="goBarList()">Liste des bars</button>
-          } @if(comment?.length) {
-
-
-            @for(comment of comment; track comment.id) {
-              <div class="comment-unit">
-                <p class="comment-message">
-                  {{ comment.message }}
-                </p>
-                <p class="comment-created-at">
-                  {{ comment.createdAt | date }}
-                  <img src="../../../../assets/icons/arrow-right.png" alt="" (click)="goDetailBarFromComment(comment)">
-                </p>
-              </div>
-            }
-        }
+          <p>Parcourez notre site et commentez des bars !</p>
+          <button mat-button (click)="goBarList()">Liste des bars</button>
+          } @if(comment?.length) { @for(comment of comment; track comment.id) {
+          <div class="comment-unit">
+            <p class="comment-message">
+              {{ comment.message }}
+            </p>
+            <p class="comment-created-at">
+              {{ comment.createdAt | date }}
+              <img
+                src="../../../../assets/icons/arrow-right.png"
+                alt=""
+                (click)="goDetailBarFromComment(comment)"
+              />
+            </p>
+          </div>
+          } }
         </div>
       </div>
+    </div>
+    <div class="bar">
+      <h1>Vos bars créés</h1>
+      @if(!bar?.length) {
+      <div class="no-yet-bar">
+        <p class="no-yet-bar">N'hésitez pas à ajouter un bar !</p>
+        <button mat-button (click)="goAddBar()">Ajouter un bar</button>
       </div>
-      <div class="bar">
-        <h1>Vos bars créés</h1>
-        @if(!bar?.length) {
-       <div class="no-yet-bar">
-         <p class="no-yet-bar">N'hésitez pas à ajouter un bar !</p>
-         <button mat-button (click)="goAddBar()">Ajouter un bar</button>
-       </div>
-        } @if(bar?.length) {
-          @for(bar of bar; track bar.name) {
-            <div class="content-bar">
-              <app-unit-bar [bar]="bar" />
-            </div>
-          }
-        }
+      } @if(bar?.length) { @for(bar of bar; track bar.name) {
+      <div class="content-bar">
+        <app-unit-bar [bar]="bar" />
       </div>
+      } }
+    </div>
   </div>
 </div>
 <app-logo-ygo />
-

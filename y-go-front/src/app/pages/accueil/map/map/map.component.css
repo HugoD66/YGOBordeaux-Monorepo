@@ -1,26 +1,25 @@
 .mapEmplacement {
-  width: 800px;
-  height: 800px;
+  width: 90%;
+  height: 90%;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media screen and (max-width: 980px) {
+  .mapEmplacement {
+    width: 100%;
+  }
+}
+.mapEmplacement .map-wrap {
+  position: relative;
+  width: 80%;
+  height: calc(100% - 77px);
 }
 .mapEmplacement .map {
+  position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mapEmplacement .map iframe {
-  width: 100%;
-  height: 100%;
-}
-@media screen and (min-width: 980px) {
-  .mapEmplacement .map {
-    width: 70%;
-    height: 80%;
-  }
 }
 
 /*# sourceMappingURL=map.component.css.map */

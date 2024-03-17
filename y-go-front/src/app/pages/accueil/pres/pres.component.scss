@@ -26,17 +26,14 @@
       font-family: "Montserrat", sans-serif;
       text-shadow: 0 14px 13px #1f1f1f;
       user-select: none;
-      @media screen and (max-width: 1080px) {
-        font-size: 12vw;
-      }
-      @media screen and (max-width: 680px) {
-        font-size: 16vw;
-        top: 2%;
+      @media screen and (max-width: 980px) {
+        position: absolute;
+        top: 25%;
+        left: 20%;
       }
     }
     h2 {
       z-index: 6;
-      //position: fixed;
       top: 40%;
       left: 17%;
       color: #000000;
@@ -48,12 +45,10 @@
         Moontime,
         sans serif;
       user-select: none;
-      @media screen and (max-width: 1080px) {
-        font-size: 12vw;
-      }
-      @media screen and (max-width: 680px) {
-        font-size: 18vw;
-        top: 3%;
+      @media screen and (max-width: 980px) {
+        position: absolute;
+        top: 35%;
+        left: 25%;
       }
     }
     p {

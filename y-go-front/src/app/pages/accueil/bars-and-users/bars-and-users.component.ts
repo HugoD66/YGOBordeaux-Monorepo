@@ -75,7 +75,7 @@ export class BarsAndUsersComponent implements OnChanges, OnDestroy {
     this.displayedAdresse = undefined;
   }
   onClick() {
-    if (!this.user) {
+    if (localStorage.getItem(`token`) === null) {
       this.snackbarService.openSnackBar(
         `Enregistrement obligatoire pour ajouter un bar`,
         `Fermer`,

@@ -1,4 +1,4 @@
-@use '../../../styles/variables' as var;
+@use "../../../styles/variables" as var;
 .detail-user {
   position: absolute;
   width: 100%;
@@ -38,7 +38,6 @@
           width: 50px;
           height: 50px;
         }
-
       }
     }
     .user-name {
@@ -96,7 +95,6 @@
         @media screen and (max-width: 768px) {
           flex-direction: column;
           align-items: center;
-
         }
         .comment {
           width: 40%;
@@ -127,7 +125,6 @@
             .comment-message {
               text-align: start;
               padding-left: 5px;
-
             }
             .comment-created-at {
               font-size: 0.8rem;
@@ -167,7 +164,6 @@
             background-color: white;
             color: var.$red;
             margin-bottom: 4%;
-
           }
         }
         h2 {
@@ -223,7 +219,7 @@
       color: white;
       font-size: 1.2em;
       @media screen and (max-width: 768px) {
-      margin-bottom: 5%;
+        margin-bottom: 5%;
       }
     }
     p {
@@ -231,7 +227,6 @@
     }
   }
 }
-
 
 /*
 ANCIENNE CONFIG
