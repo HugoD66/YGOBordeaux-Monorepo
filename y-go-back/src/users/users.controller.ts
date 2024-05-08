@@ -57,6 +57,12 @@ export class UsersController {
     }
   }
 
+  @Get('/auth/me')
+  @UseGuards(AuthGuard)
+  async getMe(@Req() req): Promise<UserResponseDto> {
+    return this.usersService.findOne(req.user.id);
+  }
+
   @Post(`upload-file/:userId`)
   @UseInterceptors(FileInterceptor(`file`, multerConfig))
   async uploadFile(
@@ -97,6 +103,7 @@ export class UsersController {
     return;
   }
 
+  //TODO DELETE ?
   @Get(`me`)
   async getProfile(@Req() req): Promise<UserResponseDto> {
     try {

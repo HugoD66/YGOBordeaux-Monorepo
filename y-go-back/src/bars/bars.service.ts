@@ -8,7 +8,6 @@ import { ResponseBarDto } from './dto/response-bar.dto';
 import { PictureListService } from '../picture-list/picture-list.service';
 import { GeoService } from '../geo/geo.service';
 import { UsersService } from '../users/users.service';
-import { User } from '../users/entities/user.entity';
 
 @Injectable()
 export class BarsService {
@@ -26,6 +25,7 @@ export class BarsService {
   async create(createBarDto: CreateBarDto, userId?: string): Promise<Bar> {
     try {
       let user = await this.usersService.findOne(userId);
+      console.log(user);
       let pictureListEntity = await this.pictureListService.create(
         createBarDto.pictureList,
       );

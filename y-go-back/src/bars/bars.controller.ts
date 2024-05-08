@@ -7,26 +7,42 @@ import {
   Param,
   Delete,
   NotFoundException,
+  UseGuards,
+  Req,
 } from '@nestjs/common';
 import { BarsService } from './bars.service';
 import { CreateBarDto } from './dto/create-bar.dto';
 import { UpdateBarDto } from './dto/update-bar.dto';
 import { ResponseBarDto } from './dto/response-bar.dto';
 import { Public } from '../users/auth/public.decorator';
+import { AuthGuard } from '../users/auth/auth.guard';
+import { request } from 'express';
 
 @Controller(`bars`)
 export class BarsController {
   constructor(private readonly barService: BarsService) {}
 
-  @Public() // TEMP
   @Post()
-  async create(@Body() createBarDto: CreateBarDto): Promise<ResponseBarDto> {
+  @UseGuards(AuthGuard)
+  async create(
+    @Req() req,
+    @Body() createBarDto: CreateBarDto,
+  ): Promise<ResponseBarDto> {
     console.log(createBarDto);
-    const bar: ResponseBarDto = await this.barService.create(createBarDto);
+    console.log('req.user.id');
+    console.log('req.user.id');
+    console.log('req.user.id');
+    console.log('req.user.id');
+    console.log('req.user.id');
+    console.log(req.user.id);
+    const bar: ResponseBarDto = await this.barService.create(
+      createBarDto,
+      req.user.id,
+    );
     return bar;
   }
 
-  @Public() // TEMP
+  @Public()
   @Get(`:id`)
   async findOne(@Param(`id`) id: string): Promise<ResponseBarDto> {
     const barSelected: ResponseBarDto = await this.barService.findOne(id);

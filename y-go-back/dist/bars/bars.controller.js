@@ -18,13 +18,20 @@ const bars_service_1 = require("./bars.service");
 const create_bar_dto_1 = require("./dto/create-bar.dto");
 const update_bar_dto_1 = require("./dto/update-bar.dto");
 const public_decorator_1 = require("../users/auth/public.decorator");
+const auth_guard_1 = require("../users/auth/auth.guard");
 let BarsController = exports.BarsController = class BarsController {
     constructor(barService) {
         this.barService = barService;
     }
-    async create(createBarDto) {
+    async create(req, createBarDto) {
         console.log(createBarDto);
-        const bar = await this.barService.create(createBarDto);
+        console.log('req.user.id');
+        console.log('req.user.id');
+        console.log('req.user.id');
+        console.log('req.user.id');
+        console.log('req.user.id');
+        console.log(req.user.id);
+        const bar = await this.barService.create(createBarDto, req.user.id);
         return bar;
     }
     async findOne(id) {
@@ -60,11 +67,12 @@ let BarsController = exports.BarsController = class BarsController {
     }
 };
 __decorate([
-    (0, public_decorator_1.Public)(),
     (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_bar_dto_1.CreateBarDto]),
+    __metadata("design:paramtypes", [Object, create_bar_dto_1.CreateBarDto]),
     __metadata("design:returntype", Promise)
 ], BarsController.prototype, "create", null);
 __decorate([

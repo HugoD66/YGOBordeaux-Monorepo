@@ -37,8 +37,12 @@ export class DetailUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const token = localStorage.getItem(`authToken`);
+    if (!token) {
+      this.router.navigate([`/login`]);
+    }
     this.userService
-      .getUser()
+      .getMe(token!)
       .pipe(
         switchMap((user: UserModel) => {
           this.user = user;

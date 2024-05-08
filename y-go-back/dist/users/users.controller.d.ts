@@ -10,6 +10,7 @@ export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
     register(createUserDto: CreateUserDto): Promise<UserResponseDto>;
+    getMe(req: any): Promise<UserResponseDto>;
     uploadFile(userId: string, file: Express.Multer.File): Promise<{
         message: string;
         filePath: string;

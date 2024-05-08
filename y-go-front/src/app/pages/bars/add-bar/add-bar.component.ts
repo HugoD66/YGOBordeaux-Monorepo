@@ -83,9 +83,13 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       this.barForm.patchValue({ adresse: address });
     });
     this.subscribeToParticularityChanges();
-    this.userService.getUser().subscribe((user) => {
+    const token = localStorage.getItem(`authToken`);
+    if (!token) {
+      this.router.navigate([`/login`]);
+    }
+    this.userService.getMe(token!).subscribe((user) => {
       this.user.set(user);
-      console.log(this.user());
+      console.log(`User:`, user);
     });
   }
 
@@ -169,6 +173,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     delete formData.pictureThree;
     delete formData.pictureFour;
     console.log(formData);
+    formData.createdBy = this.user();
 
     return formData;
   }

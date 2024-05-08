@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../env';
 import { BarModel } from '../models/bar.model';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { UserModel } from '../models/user.model';
 
 @Injectable()
@@ -12,11 +12,25 @@ export class BarService {
   constructor(private http: HttpClient) {}
 
   addBar(barData: any): Observable<BarModel> {
-    const url = `${this.apiUrl}/bars`;
-    return this.http.post<BarModel>(url, barData).pipe(
-      tap((response: BarModel) => this.log(response)),
-      catchError((error) => this.handleError(error, {} as BarModel)),
-    );
+    const token = localStorage.getItem('authToken');
+
+    console.log('TOKEN' + token);
+    return this.http
+      .post<BarModel>(`${this.apiUrl}/bars`, barData, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + token),
+        observe: 'response',
+      })
+      .pipe(
+        map((response) => {
+          if (response.body !== null) {
+            return response.body;
+          } else {
+            throw new Error('Response body is null');
+          }
+        }),
+        tap((response: BarModel) => this.log(response)),
+        catchError((error) => this.handleError(error, {} as BarModel)),
+      );
   }
 
   getBarsList(): Observable<BarModel[]> {

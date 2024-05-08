@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +27,7 @@ export class ButtonPanelHorizComponent {
   isUserAuthenticated: boolean = false;
   result: UserModel | undefined;
   routerLinkProfile: string = ``;
+  public getMe: WritableSignal<UserModel | null> = signal(null);
 
   constructor(
     private userService: UserService,
@@ -34,8 +35,16 @@ export class ButtonPanelHorizComponent {
   ) {}
 
   async fetchUserAndNavigate() {
-    const data = await this.userService.getUser().toPromise();
+    const isLogged = this.userService.isLoggedIn();
+    const token = localStorage.getItem(`access_token`);
+    if (!isLogged || !token) {
+      this.router.navigate([`/login`]);
+    }
+    const data = await this.userService.getMe(token!).toPromise();
     this.result = data;
+    console.log('this.result');
+    console.log(this.result);
+    console.log(this.result?.id);
     if (this.result?.id) {
       this.isUserAuthenticated = true;
       this.routerLinkProfile = `users/detail/${this.result?.id}`;

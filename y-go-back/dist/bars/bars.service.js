@@ -30,6 +30,7 @@ let BarsService = exports.BarsService = class BarsService {
     async create(createBarDto, userId) {
         try {
             let user = await this.usersService.findOne(userId);
+            console.log(user);
             let pictureListEntity = await this.pictureListService.create(createBarDto.pictureList);
             let geoEntity = await this.geoService.create(createBarDto.geo);
             const bar = this.barRepository.create({

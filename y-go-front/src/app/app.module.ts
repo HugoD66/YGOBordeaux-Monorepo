@@ -20,7 +20,6 @@ import { PageMapComponent } from './pages/accueil/map/page-map/page-map.componen
 import { PresComponent } from './pages/accueil/pres/pres.component';
 import { LogoYGoComponent } from './components/logo-ygo/logo-ygo.component';
 import { MatInputModule } from '@angular/material/input';
-import { ButtonUnitVerComponent } from './components/button-panel/button-panel-ver/button-unit-ver/button-unit-ver.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { UserModule } from './pages/users/user.module';
@@ -45,8 +44,8 @@ import { AccCalendarComponent } from './pages/accueil/acc-calendar/acc-calendar.
     AccCalendarComponent,
   ],
   imports: [
-    HttpClientModule, // A ENLEVER ?
-    FormsModule, // A ENLEVER ?
+    HttpClientModule,
+    FormsModule,
     CommonModule,
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +55,6 @@ import { AccCalendarComponent } from './pages/accueil/acc-calendar/acc-calendar.
     MatIconModule,
     ButtonPanelHorizComponent,
     ButtonUnitHorizComponent,
-    ButtonUnitVerComponent,
     AccueilNavComponent,
     ContactComponent,
     LogoYGoComponent,

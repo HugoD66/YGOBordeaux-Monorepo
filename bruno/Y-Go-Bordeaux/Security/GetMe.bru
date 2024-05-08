@@ -1,0 +1,15 @@
+meta {
+  name: GetMe
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://{{url}}:{{port}}/users/auth/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

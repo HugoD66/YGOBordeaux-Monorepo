@@ -13,6 +13,21 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('authToken');
+  }
+
+  getMe(token: string): Observable<UserModel> {
+    return this.http
+      .get<UserModel>(`${this.apiUrl}/users/auth/me`, {
+        headers: new HttpHeaders().set('Authorization', 'Bearer ' + token),
+      })
+      .pipe(
+        tap((response: UserModel) => this.log(response)),
+        catchError((error) => this.handleError(error, [])),
+      );
+  }
+
   getUsersList(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(`${this.apiUrl}/users`).pipe(
       tap((response: UserModel[]) => this.log(response)),

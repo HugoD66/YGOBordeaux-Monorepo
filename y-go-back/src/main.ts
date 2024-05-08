@@ -33,6 +33,7 @@ async function bootstrap() {
   SwaggerModule.setup(`api`, app, document);
 
   // Création des fixtures
+
   const userFixtures: UserFixtures = app.get(UserFixtures);
   const barFixtures: BarFixtures = app.get(BarFixtures);
   const rateFixtures: RateFixtures = app.get(RateFixtures);

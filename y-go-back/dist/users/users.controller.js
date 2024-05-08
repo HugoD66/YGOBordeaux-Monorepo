@@ -39,6 +39,9 @@ let UsersController = exports.UsersController = class UsersController {
             throw error;
         }
     }
+    async getMe(req) {
+        return this.usersService.findOne(req.user.id);
+    }
     async uploadFile(userId, file) {
         await this.usersService.update(userId, { picture: file.path });
         return { message: `File uploaded successfully`, filePath: file.path };
@@ -103,6 +106,14 @@ __decorate([
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "register", null);
+__decorate([
+    (0, common_1.Get)('/auth/me'),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "getMe", null);
 __decorate([
     (0, common_1.Post)(`upload-file/:userId`),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)(`file`, multer_config_1.multerConfig)),
