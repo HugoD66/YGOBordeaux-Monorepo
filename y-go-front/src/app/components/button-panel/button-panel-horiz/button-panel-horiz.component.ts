@@ -42,9 +42,6 @@ export class ButtonPanelHorizComponent {
     }
     const data = await this.userService.getMe(token!).toPromise();
     this.result = data;
-    console.log('this.result');
-    console.log(this.result);
-    console.log(this.result?.id);
     if (this.result?.id) {
       this.isUserAuthenticated = true;
       this.routerLinkProfile = `users/detail/${this.result?.id}`;

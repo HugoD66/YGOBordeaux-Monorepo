@@ -1,0 +1,9 @@
+.star-rating mat-icon {
+  color: grey;
+  cursor: pointer;
+}
+.star-rating mat-icon.active {
+  color: gold;
+}
+
+/*# sourceMappingURL=star-rating.component.css.map */

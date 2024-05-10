@@ -1,0 +1,9 @@
+.star-rating {
+  mat-icon {
+    color: grey;
+    cursor: pointer;
+    &.active {
+      color: gold;
+    }
+  }
+}

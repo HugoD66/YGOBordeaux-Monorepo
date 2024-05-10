@@ -15,8 +15,8 @@
       <div class="map-clicked">
         <img
           [src]="
-            selectedBar?.pictureList
-              ? 'http://localhost:3000/' + selectedBar?.pictureList?.pictureOne
+            selectedBar.pictureList
+              ? 'http://localhost:3000/' + selectedBar.pictureList.pictureOne
               : 'assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg'
           "
           alt="{{ selectedBar.name }}"
@@ -25,7 +25,7 @@
           <h5>{{ selectedBar.name }}</h5>
           <p>{{ selectedBar.adresse }}</p>
           <div class="star-rating">
-            @for (star of selectedBar?.note | starRating; track star) {
+            @for (star of selectedBar.note | starRating; track star) {
             <span>
               <img
                 [src]="

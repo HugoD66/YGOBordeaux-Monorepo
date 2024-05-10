@@ -37,6 +37,7 @@
   background-color: white;
   border-radius: 90%;
   cursor: pointer;
+  z-index: 1000;
 }
 .detail-user .pictures-name .user-picture .add-picture img {
   width: 50px;
@@ -120,7 +121,7 @@
   margin-top: 3%;
 }
 .detail-user .content-user .bar-comment-rate .comment-rate .comment button {
-  background-color: rgb(168, 68, 72);
+  background-color: rgb(255, 204, 170);
   color: white;
 }
 .detail-user .content-user .bar-comment-rate .comment-rate .comment .comment-unit {
@@ -170,14 +171,14 @@
 }
 .detail-user .content-user .bar-comment-rate .comment-rate .rate button {
   background-color: white;
-  color: rgb(168, 68, 72);
+  color: rgb(255, 204, 170);
   margin-bottom: 4%;
 }
 .detail-user .content-user .bar-comment-rate .comment-rate h2 {
   font-size: 1.8rem;
   width: 100%;
   text-align: center;
-  color: rgb(168, 68, 72);
+  color: rgb(255, 204, 170);
   font-weight: 400;
   margin: auto;
   padding: 8px;
@@ -200,7 +201,7 @@
   font-size: 2.5rem;
   width: 100%;
   text-align: center;
-  color: rgb(168, 68, 72);
+  color: rgb(255, 204, 170);
   font-weight: 600;
   margin: auto;
   padding: 8px;
@@ -223,7 +224,7 @@
 }
 .bar .no-yet-bar button {
   margin-top: 3%;
-  background-color: rgb(168, 68, 72);
+  background-color: rgb(255, 204, 170);
   color: white;
   font-size: 1.2em;
 }

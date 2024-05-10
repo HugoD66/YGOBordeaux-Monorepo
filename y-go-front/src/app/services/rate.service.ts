@@ -14,14 +14,14 @@ export class RateService {
   addRate(rateData: any): Observable<RateModel> {
     const url = `${this.apiUrl}/user-bar-rating`;
     return this.http.post<RateModel>(url, rateData).pipe(
-      tap((response: RateModel) => this.log(response)),
+      //tap((response: RateModel) => this.log(response)),
       catchError((error) => this.handleError(error, {} as RateModel)),
     );
   }
 
   getRateList(): Observable<RateModel[]> {
     return this.http.get<RateModel[]>(`${this.apiUrl}/user-bar-rating`).pipe(
-      tap((response: RateModel[]) => this.log(response)),
+      //tap((response: RateModel[]) => this.log(response)),
       catchError((error) => this.handleError(error, [])),
     );
   }
@@ -30,7 +30,7 @@ export class RateService {
     return this.http
       .get<RateModel>(`${this.apiUrl}/user-bar-rating/${rateId}`)
       .pipe(
-        tap((response: RateModel) => this.log(response)),
+        //tap((response: RateModel) => this.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }
@@ -39,7 +39,7 @@ export class RateService {
     return this.http
       .get<RateModel>(`${this.apiUrl}/user-bar-rating/rates/${barId}`)
       .pipe(
-        tap((response: RateModel) => this.log(response)),
+        //tap((response: RateModel) => this.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }

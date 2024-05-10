@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  computed,
   ElementRef,
   OnInit,
   signal,
@@ -34,6 +35,11 @@ import {
 } from '@angular/forms';
 import { SnackbarService } from '../../../components/snackbar/snackbar.component';
 import { forbidHtmlTagsValidator } from '../../../utils/validation.utils';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { StarRatingComponent } from '../../../components/star-rating/star-rating.component';
+import { StarCountComponent } from '../../../components/star-count/star-count.component';
 
 type PictureListKey =
   | 'pictureOne'
@@ -54,27 +60,30 @@ type PictureListKey =
     ButtonPanelHorizComponent,
     RouterLink,
     MatDividerModule,
-    // BarModule,
     ParticularityTranslatePipe,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    StarRatingComponent,
+    StarCountComponent,
   ],
   standalone: true,
 })
 export class DetailBarComponent implements AfterViewInit, OnInit {
   postForm: FormGroup;
-  public defaultPicutre = `assets/temp/soiree-romantique-verre-vin-roses-table-dans-rue-du-cafe-au-coucher-du-soleil_162585-6880.jpg`;
 
   bar: Observable<BarModel | undefined>;
   map: Map | undefined;
   user: UserModel | undefined;
   hasUserRatedBar: WritableSignal<boolean> = signal(false);
   isUserLogged: WritableSignal<boolean> = signal(false);
-  userRate: WritableSignal<number | undefined> = signal(undefined);
+  userRate = signal<number>(0);
   selectedPicture: string | undefined;
   currentBar: BarModel | undefined;
   mainPicture: string | undefined;
   public apiUrl = environment.apiUrl;
-
+  protected token = localStorage.getItem(`access_token`);
   public rateCount: WritableSignal<number | null | string> = signal(0);
   public comments: WritableSignal<PostModel[]> = signal([]);
 
@@ -121,10 +130,8 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
     if (pictureUrl) {
       let newSelectedPicture;
       if (pictureUrl.startsWith(`data:image`)) {
-        // Si l'image est en base64, utilisez-la directement
         newSelectedPicture = pictureUrl;
       } else {
-        // Sinon, construisez l'URL
         newSelectedPicture = `${this.apiUrl}/` + pictureUrl;
       }
 
@@ -136,9 +143,9 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
 
   getPictureUrl(pictureUrl: string | undefined): string | null {
     if (pictureUrl?.startsWith('data:image')) {
-      return pictureUrl; // Image en base64
+      return pictureUrl;
     } else if (pictureUrl) {
-      return `${this.apiUrl}/${pictureUrl}`; // Image via URL
+      return `${this.apiUrl}/${pictureUrl}`;
     }
     return null; // Aucune image par défaut
   }
@@ -178,46 +185,91 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
             this.rateCount.set(`Pas de participants.`);
           }
         });
-        this.userService.getUser().subscribe((userData) => {
-          this.user = userData;
-          this.isUserLogged.set(!!userData);
-          if (userData && this.currentBar?.id) {
-            this.rateService
-              .getRateByIdBar(this.currentBar.id)
-              .subscribe((rateData) => {
-                if (rateData) {
-                  this.hasUserRatedBar.set(true);
-                  const userSpecificRate = rateData.find(
-                    (rate: RateModel) => rate.user?.id === userData.id,
-                  );
-                  if (userSpecificRate) {
-                    this.userRate.set(userSpecificRate.rate);
+        if (!this.token) {
+          this.isUserLogged.set(false);
+          return;
+        } else {
+          this.userService.getMe(this.token).subscribe((userData) => {
+            this.user = userData;
+            this.isUserLogged.set(!!userData);
+            if (userData && this.currentBar?.id) {
+              this.rateService
+                .getRateByIdBar(this.currentBar.id)
+                .subscribe((rateData) => {
+                  if (rateData) {
+                    this.hasUserRatedBar.update(() => {
+                      return rateData.some(
+                        (rate: RateModel) => rate.user?.id === userData.id,
+                      );
+                    });
+                    rateData.forEach((rate: RateModel) => {
+                      if (rate.user?.id === userData.id) {
+                        this.userRate.set(rate!.rate!);
+                      }
+                    });
+
+                    const userSpecificRate = rateData.find(
+                      (rate: RateModel) => rate.user?.id === userData.id,
+                    );
+                    if (userSpecificRate) {
+                      //this.userRate.set(userSpecificRate.rate);
+                    } else {
+                      //this.userRate.set(undefined);
+                    }
                   } else {
-                    this.userRate.set(undefined);
+                    this.hasUserRatedBar.set(false);
                   }
-                } else {
-                  this.hasUserRatedBar.set(false);
-                }
-              });
-          }
-        });
+                });
+            }
+          });
+        }
       }
     });
   }
 
-  onVote() {}
+  onVote(newRating: number): void {
+    if (!this.isUserLogged()) {
+      this.snackbarService.openSnackBar(
+        'Vous devez être connecté pour voter.',
+        'Fermer',
+      );
+      return;
+    }
+    const rate: RateModel = {
+      rate: newRating,
+      user: this.user!,
+      bar: this.currentBar!,
+    };
+    this.rateService.addRate(rate).subscribe({
+      next: () => {
+        this.snackbarService.openSnackBar(
+          'Votre vote a été enregistré.',
+          'Fermer',
+        );
+        this.refreshRateCount();
+        this.userRate.update(() => newRating);
+        this.hasUserRatedBar.set(true);
+      },
+      error: (err) => {
+        console.error("Erreur lors de l'enregistrement du vote", err);
+        this.snackbarService.openSnackBar(
+          "Erreur lors de l'enregistrement du vote.",
+          'Fermer',
+        );
+      },
+    });
+  }
+
   onPost() {
     let post: PostModel;
     if (this.postForm.valid) {
       post = {
         message: this.postForm.value.message,
         barId: this.currentBar?.id,
+        userId: this.user?.id,
       };
-      console.log('post');
-      console.log(post);
       this.postService.addPost(post).subscribe({
         next: (postResponse: PostModel) => {
-          console.log(`Post enregistré:`, postResponse);
           this.snackbarService.openSnackBar(
             `Le post a bien été enregistré`,
             `Fermer`,
@@ -240,7 +292,6 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
   private getComments(barData) {
     if (barData?.id) {
       this.postService.getPostByIdBar(barData.id).subscribe((comments) => {
-        console.log(comments);
         // @ts-ignore
         if (!comments || comments.length === 0) {
           return this.comments.set([]);
@@ -267,5 +318,14 @@ export class DetailBarComponent implements AfterViewInit, OnInit {
       return 'Le message ne doit pas contenir de balises HTML';
     }
     return '';
+  }
+  private refreshRateCount(): void {
+    if (this.currentBar && this.currentBar.id) {
+      this.barService
+        .getTotalCountVoters(this.currentBar.id)
+        .subscribe((count) => {
+          this.rateCount.set(count || 'Pas de participants.');
+        });
+    }
   }
 }

@@ -13,7 +13,7 @@ export class PictureListService {
   addPictureList(pictureListData: any): Observable<PictureListModel | null> {
     const url = `${this.apiUrl}/picture-list`;
     return this.http.post<PictureListModel>(url, pictureListData).pipe(
-      tap((response: PictureListModel) => this.log(response)),
+      //tap((response: PictureListModel) => this.log(response)),
       catchError((error) => this.handleError(error, {} as PictureListModel)),
     );
   }
@@ -22,7 +22,7 @@ export class PictureListService {
     return this.http
       .get<PictureListModel[]>(`${this.apiUrl}/picture-list`)
       .pipe(
-        tap((response: PictureListModel[]) => this.log(response)),
+        //tap((response: PictureListModel[]) => this.log(response)),
         catchError((error) => this.handleError(error, [])),
       );
   }
@@ -33,7 +33,7 @@ export class PictureListService {
     return this.http
       .get<PictureListModel[]>(`${this.apiUrl}/picture-list/${pictureListId}`)
       .pipe(
-        tap((response: PictureListModel[]) => this.log(response)),
+        //tap((response: PictureListModel[]) => this.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }

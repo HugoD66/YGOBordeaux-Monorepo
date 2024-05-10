@@ -24,13 +24,6 @@ let BarsController = exports.BarsController = class BarsController {
         this.barService = barService;
     }
     async create(req, createBarDto) {
-        console.log(createBarDto);
-        console.log('req.user.id');
-        console.log('req.user.id');
-        console.log('req.user.id');
-        console.log('req.user.id');
-        console.log('req.user.id');
-        console.log(req.user.id);
         const bar = await this.barService.create(createBarDto, req.user.id);
         return bar;
     }

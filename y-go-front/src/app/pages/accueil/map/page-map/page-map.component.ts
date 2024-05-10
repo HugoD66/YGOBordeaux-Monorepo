@@ -1,6 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { BarModel } from '../../../../models/bar.model';
-import { BarService } from '../../../../services/bar.service';
 import { Router } from '@angular/router';
 
 @Component({

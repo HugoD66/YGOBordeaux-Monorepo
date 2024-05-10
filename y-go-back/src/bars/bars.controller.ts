@@ -16,7 +16,6 @@ import { UpdateBarDto } from './dto/update-bar.dto';
 import { ResponseBarDto } from './dto/response-bar.dto';
 import { Public } from '../users/auth/public.decorator';
 import { AuthGuard } from '../users/auth/auth.guard';
-import { request } from 'express';
 
 @Controller(`bars`)
 export class BarsController {
@@ -28,13 +27,6 @@ export class BarsController {
     @Req() req,
     @Body() createBarDto: CreateBarDto,
   ): Promise<ResponseBarDto> {
-    console.log(createBarDto);
-    console.log('req.user.id');
-    console.log('req.user.id');
-    console.log('req.user.id');
-    console.log('req.user.id');
-    console.log('req.user.id');
-    console.log(req.user.id);
     const bar: ResponseBarDto = await this.barService.create(
       createBarDto,
       req.user.id,

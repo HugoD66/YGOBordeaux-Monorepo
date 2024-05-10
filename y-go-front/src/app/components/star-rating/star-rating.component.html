@@ -1,0 +1,10 @@
+<div class="star-rating">
+  <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let idx = index">
+    <mat-icon
+      [class.active]="hoverState >= star"
+      (mouseenter)="onStarEnter(star)"
+      (mouseleave)="onStarLeave()"
+      (click)="onStarClicked(star)"
+    >star</mat-icon>
+  </ng-container>
+</div>

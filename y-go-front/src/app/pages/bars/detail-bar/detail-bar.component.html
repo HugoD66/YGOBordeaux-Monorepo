@@ -3,13 +3,21 @@
   <h1>{{ (bar | async)?.name }}</h1>
   <div class="content-bar-unit">
     <div class="pictures">
-      <div class="pictures-content">
         <img
           class="picture-center"
           [src]="selectedPicture"
           alt="Photo principale du bar"
         />
         <div class="pictures-content-galerie">
+          <img
+            *ngIf="getPictureUrl(currentBar?.pictureList?.pictureOne)"
+            class="pictures-content-galerie-unit"
+            (click)="
+              onSelectPicture(currentBar?.pictureList?.pictureOne, 'pictureTwo')
+            "
+            [src]="getPictureUrl(currentBar?.pictureList?.pictureOne)"
+            alt="Photo du bar 2"
+          />
           <img
             *ngIf="getPictureUrl(currentBar?.pictureList?.pictureTwo)"
             class="pictures-content-galerie-unit"
@@ -45,100 +53,152 @@
           />
         </div>
       </div>
-    </div>
     <mat-divider></mat-divider>
-
     <div class="rate-map">
       <div class="note">
-        <h2>Nombre de votants : {{ rateCount() }}</h2>
-        @for (star of (bar | async)?.note | starRating; track star) {
-        <span class="rate-list">
-          <img
-            class="picture-star-list-data"
-            [src]="
-              star.color === 'yellow'
-                ? '../../../../assets/icons/star-colored.png'
-                : '../../../../assets/icons/star.png'
-            "
-            alt=""
-          />
-        </span>
+        @if(currentBar?.note! === 0) {
+          <p class="no-logged">Il n'y a pas encore de note pour ce bar</p>
+        } @else {
+          <div class="rate-count">
+            <app-star-count class="app-star-count" [rateBar]="currentBar?.note!"></app-star-count>
+            <p class="count-raters">{{ rateCount() }} votants</p>
+          </div>
         }
+
         <div class="voter">
           @if(!isUserLogged()) {
-          <p>Vous devez être connecté pour voter !</p>
-          <button (click)="loggin()">Connexion</button>
+            <div class="content-login-rate">
+              <p class="no-logged">Vous devez être connecté pour voter !</p>
+              <button class="login-button" (click)="loggin()" mat-flat-button>Connexion</button>
+            </div>
           } @else if (!hasUserRatedBar()) {
           <p>Vous n'avez toujours pas voté !</p>
-          <button class="voter-button" (click)="onVote()">Voter</button>
-          } @else { @if (userRate() !== undefined) {
-          <p>La note que vous avez attribué :</p>
-          @for (star of userRate()! | starRating; track star) {
-          <span class="rate-list">
-            <img
-              class="picture-star-list-data"
-              [src]="
-                star.color === 'yellow'
-                  ? '../../../../assets/icons/star-colored.png'
-                  : '../../../../assets/icons/star.png'
-              "
-              alt=""
-            />
-          </span>
-          } } }
+          <app-star-rating (ratingChange)="onVote($event)"></app-star-rating>
+          } @else {
+            @if (userRate() !== undefined) {
+              <div class="given-rate">
+                <p>La note que vous avez attribué</p>
+                 <app-star-count [rateBar]="userRate()"></app-star-count>
+          </div>
+          }
+        }
+        </div>
+        <div class="particularity">
+          <h2>{{ currentBar?.particularities?.length === 1 ? 'Particularité' : 'Particularités' }}</h2>
+          @for( particularity of currentBar?.particularities; track particularity) {
+              <div class="particularity-unit">
+                <p>{{ (particularity| particularityTranslate).translation }}</p>
+                <img [src]="(particularity | particularityTranslate).logo" alt="{{ particularity }}">
+              </div>
+          } @empty {
+              <p>Aucune particularité pour ce bar</p>
+          }
+        </div>
+        <div class="created-by-adress">
+          <p class="adress-bar">{{ (bar | async)?.adresse }}</p>
         </div>
       </div>
-      <h1>CALENDRIERRRR</h1>
-      <div class="mapEmplacement">
-        <div class="map-wrap">
-          <div class="map" #map></div>
-        </div>
-      </div>
+
+
+
+
+
+       <div class="mapEmplacement">
+         <div class="map-wrap">
+           <div class="map" #map></div>
+         </div>
+       </div>
+     </div>
+    <div class="divider"></div>
+    <div class="desc">
+      <p>
+        Créé le {{ (bar | async)?.createdAt | date: "dd/MM/yyyy" }} par
+        {{ (bar | async)?.createdBy?.name }}
+      </p>
+      <p class="description">
+        {{ (bar | async)?.description }}
+      </p>
     </div>
+    <div class="divider"></div>
     <div class="comments">
       @if (this.comments().length === 0) {
-      <h2>Aucun commentaires pour le moment</h2>
-      @if(!isUserLogged()) {
-      <p>Vous devez être connecté pour voter !</p>
-      <button (click)="loggin()">Connexion</button>
-      } @if(isUserLogged()) {
-      <form [formGroup]="postForm" (ngSubmit)="onPost()">
-        <input formControlName="message" type="text" />
-        <button type="submit">Submit</button>
-      </form>
-      } } @if (this.comments().length > 0) {
+        <h2>Aucun commentaires pour le moment</h2>
+        @if(!isUserLogged()) {
+          <p>Vous devez être connecté pour voter !</p>
+          <button (click)="loggin()">Connexion</button>
+        } @else  {
+          <div class="comment-form">
+            <h4>Commenter</h4>
+            <form [formGroup]="postForm" (ngSubmit)="onPost()">
+              <mat-form-field>
+                <textarea matInput class="comment-form-input" placeholder="Question Text" formControlName="message" required></textarea>
+              </mat-form-field>
+              <button class="send-button" type="submit">
+                <mat-icon>
+                  send
+                </mat-icon>
+              </button>
+            </form>
+            @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty
+              || postForm.get('message')?.touched)) {
+              <p class="error">
+                {{ getErrorMessage() }}
+              </p>
+            }
+          </div>
+        }
+      } @if (this.comments().length > 0) {
       <h2>Ils ont commentés</h2>
       <div class="comment-content">
         @for(comment of this.comments(); track comment?.id) {
-        <div class="comment-unit">
-          <div class="comment-unit-content">
-            <p class="comment-unit-content-comment">
-              {{ comment?.message }}
-            </p>
-            <p class="comment-unit-content-date">
-              {{ comment?.createdAt | date: "dd/MM/yyyy" }}
-            </p>
+          <div class="comment-unit">
+            <div class="comment-unit-content">
+              @if(comment.user!.id == user?.id ) {
+                <p class="comment-send">Ecrit par vous !</p>
+              }
+              <p class="comment-unit-content-comment">
+                {{ comment?.message }}
+              </p>
+              <div class="comment-unit-content-infos">
+                <p class="comment-unit-content-date">
+                  <i>{{ comment?.createdAt | date: "dd/MM/yyyy" }}</i>
+                </p>
+                <p class="comment-unit-created-by">
+                  {{ comment?.user?.name  }}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
         }
       </div>
       @if(!isUserLogged()) {
-      <p>Vous devez être connecté pour voter !</p>
-      <button (click)="loggin()">Connexion</button>
-      } @if(isUserLogged()) {
-      <p>Commenter</p>
-      <form [formGroup]="postForm" (ngSubmit)="onPost()">
-        <input formControlName="message" type="text" />
-        <button type="submit">Submit</button>
-        @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty
-        || postForm.get('message')?.touched)) {
-        <p class="error">
-          {{ getErrorMessage() }}
-        </p>
-        }
-      </form>
+        <div class="content-login-comment">
+          <p class="no-logged">Vous devez être connecté pour voter !</p>
+          <button class="login-button" (click)="loggin()" mat-flat-button>Connexion</button>
+        </div>
+      } @else {
+        <div class="comment-form">
+          <h4>Commenter</h4>
+          <form [formGroup]="postForm" (ngSubmit)="onPost()">
+            <mat-form-field>
+              <textarea matInput class="comment-form-input" placeholder="Question Text" formControlName="message" required></textarea>
+            </mat-form-field>
+            <button class="send-button" type="submit">
+              <mat-icon>
+                send
+              </mat-icon>
+            </button>
+          </form>
+          @if (postForm.get('message')?.invalid && (postForm.get('message')?.dirty
+            || postForm.get('message')?.touched)) {
+            <p class="error">
+              {{ getErrorMessage() }}
+            </p>
+          }
+        </div>
       } }
     </div>
+
   </div>
   <app-logo-ygo />
 </div>

@@ -16,23 +16,22 @@ import { CreatePostDto } from './dto/create-post.dto';
 import { PostsService } from './posts.services';
 import { ResponsePostDto } from './dto/response-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { SanitizeGuard } from '../guard/sanitize.guard';
+import { AuthGuard } from '../users/auth/auth.guard';
 
 @Controller(`posts`)
 @ApiTags(`Posts`)
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
-  // @UseGuards(SanitizeGuard)
+  @UseGuards(AuthGuard)
   @Post()
   async create(
     @Body() createPostDto: CreatePostDto,
     @Req() req,
   ): Promise<ResponsePostDto> {
-    console.log(createPostDto);
     const post: ResponsePostDto = await this.postsService.create(
       createPostDto,
-      req.user.sub,
+      req.user.id,
     );
     return post;
   }

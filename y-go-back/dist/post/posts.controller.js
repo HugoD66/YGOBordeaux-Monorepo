@@ -19,13 +19,13 @@ const public_decorator_1 = require("../users/auth/public.decorator");
 const create_post_dto_1 = require("./dto/create-post.dto");
 const posts_services_1 = require("./posts.services");
 const update_post_dto_1 = require("./dto/update-post.dto");
+const auth_guard_1 = require("../users/auth/auth.guard");
 let PostsController = exports.PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
     }
     async create(createPostDto, req) {
-        console.log(createPostDto);
-        const post = await this.postsService.create(createPostDto, req.user.sub);
+        const post = await this.postsService.create(createPostDto, req.user.id);
         return post;
     }
     async findOne(id) {
@@ -69,6 +69,7 @@ let PostsController = exports.PostsController = class PostsController {
     }
 };
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),

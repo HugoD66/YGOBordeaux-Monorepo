@@ -25,7 +25,6 @@ export class BarsService {
   async create(createBarDto: CreateBarDto, userId?: string): Promise<Bar> {
     try {
       let user = await this.usersService.findOne(userId);
-      console.log(user);
       let pictureListEntity = await this.pictureListService.create(
         createBarDto.pictureList,
       );

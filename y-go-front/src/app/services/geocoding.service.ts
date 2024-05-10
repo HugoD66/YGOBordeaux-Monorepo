@@ -11,7 +11,7 @@ export class GeocodingService {
   addGeo(geoData: any): Observable<GeoModel | null> {
     const url = `${environment.apiUrl}/geo?x=${geoData.x}&y=${geoData.y}`;
     return this.http.post<GeoModel>(url, geoData).pipe(
-      tap((response: GeoModel) => this.log(response)),
+      //tap((response: GeoModel) => this.log(response)),
       catchError((error) => this.handleError(error, {} as GeoModel)),
     );
   }
@@ -21,7 +21,7 @@ export class GeocodingService {
       environment.apiUrl
     }/geo/coordinates?address=${encodeURIComponent(address)}`;
     return this.http.get<string>(url).pipe(
-      tap((response: any) => this.log(response)),
+      //tap((response: any) => this.log(response)),
       catchError((error) => this.handleError(error, {})),
     );
   }
@@ -29,7 +29,7 @@ export class GeocodingService {
   getReverseGeocoding(lat: number, lng: number): Observable<any> {
     const url = `${environment.apiUrl}/geo/reverse-geocoding?lat=${lng}&lng=${lat}`;
     return this.http.get(url, { responseType: `text` }).pipe(
-      tap((response: any) => this.log(response)),
+      //tap((response: any) => this.log(response)),
       catchError((error) => this.handleError(error, {})),
     );
   }

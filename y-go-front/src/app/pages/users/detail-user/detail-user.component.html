@@ -1,19 +1,18 @@
 <div class="detail-user">
   <app-button-panel-horiz></app-button-panel-horiz>
-
   <div class="pictures-name">
     <div
       class="header-picture"
       [ngStyle]="{ 'background-image': 'url(' + pictureBackDetailUser + ')' }"
     ></div>
     <div class="user-picture">
-      @if(user?.picture) {
+      @if(user.picture) {
       <img
         class="picture"
         [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
         alt="user picture"
       />
-      } @if(!user?.picture) {
+      } @if(!user.picture) {
       <img
         class="picture"
         src="../../../../assets/pictures/avatar-user.png"
@@ -45,21 +44,18 @@
   <div class="content-user">
     <div class="infos-button-change">
       <div class="infos">
-        <p>{{ user?.email }}</p>
+        <p>{{ user.email }}</p>
         <p class="created-at">
-          Enregistré depuis le : {{ user?.createdAt | date }}
+          Enregistré depuis le : {{ user.createdAt | date }}
         </p>
       </div>
       <div class="button-change">
-        @if(!user?.phone) {
         <button mat-flat-button (click)="completeProfil()">
-          Complétez votre profil
+          Complétez /Modifier votre profil
         </button>
-        } @if(user?.phone) {
-        <button mat-flat-button (click)="updateProfil()">
-          Modifier votre profil
+        <button mat-flat-button (click)="onLogout()">
+          Deconnexion
         </button>
-        }
       </div>
     </div>
     <div class="bar-comment-rate">

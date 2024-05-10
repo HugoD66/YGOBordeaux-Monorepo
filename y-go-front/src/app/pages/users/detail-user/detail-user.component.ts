@@ -49,11 +49,9 @@ export class DetailUserComponent implements OnInit {
           return this.rateService.getRateList();
         }),
         switchMap((rateList: RateModel[]) => {
-          console.log(rateList);
           this.rate = rateList.filter(
             (rate) => rate?.user?.id === this.user.id,
           );
-          console.log(this.rate);
           return this.barService.getBarsList();
         }),
         // @ts-ignore
@@ -67,7 +65,6 @@ export class DetailUserComponent implements OnInit {
         switchMap((posts: PostModel[] | null) => {
           if (!posts) return of([]);
           this.comment = posts;
-          console.log(posts);
           return of([]);
         }),
       )
@@ -77,14 +74,13 @@ export class DetailUserComponent implements OnInit {
   }
 
   goDetailBarFromRate(rate: RateModel): void {
-    console.log(rate);
     this.router.navigate([`/bars/detail/${rate.bar?.id}`]);
   }
 
   goDetailBarFromComment(comment: PostModel): void {
-    console.log(comment);
     this.router.navigate([`/bars/detail/${comment.barId}`]);
   }
+
   onFileSelect(event: Event): void {
     const element = event.currentTarget as HTMLInputElement;
     let file: File | null = element.files ? element.files[0] : null;
@@ -112,5 +108,10 @@ export class DetailUserComponent implements OnInit {
 
   goBarList() {
     this.router.navigate([`/bars`]);
+  }
+
+  onLogout(): void {
+    this.userService.logout();
+    this.router.navigateByUrl(`/`);
   }
 }

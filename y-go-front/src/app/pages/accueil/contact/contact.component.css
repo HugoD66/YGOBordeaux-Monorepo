@@ -291,7 +291,7 @@ section .reseaux-sociaux img:hover {
   transform: scale(1.2);
 }
 section .reseaux-sociaux h2 {
-  color: rgb(168, 68, 72);
+  color: rgb(255, 204, 170);
   font-family: "Montserrat", sans-serif;
 }
 section .divider {

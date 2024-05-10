@@ -16,21 +16,21 @@ export class PostService {
     console.log('postData de post.service.ts');
     console.log(postData);
     return this.http.post<PostModel>(url, postData).pipe(
-      tap((response: PostModel) => this.log(response)),
+      //tap((response: PostModel) => this.log(response)),
       catchError((error) => this.handleError(error, {} as BarModel)),
     );
   }
 
   getPostsList(): Observable<PostModel[]> {
     return this.http.get<PostModel[]>(`${this.apiUrl}/posts`).pipe(
-      tap((response: PostModel[]) => this.log(response)),
+      //tap((response: PostModel[]) => this.log(response)),
       catchError((error) => this.handleError(error, [])),
     );
   }
 
   getPostById(postId: string | null): Observable<PostModel | undefined> {
     return this.http.get<PostModel>(`${this.apiUrl}/posts/${postId}`).pipe(
-      tap((response: PostModel) => this.log(response)),
+      //tap((response: PostModel) => this.log(response)),
       catchError((error) => this.handleError(error, undefined)),
     );
   }
@@ -39,7 +39,7 @@ export class PostService {
     return this.http
       .get<PostModel[]>(`${this.apiUrl}/posts/by-bar/${barId}`)
       .pipe(
-        tap((response: PostModel | null | PostModel[]) => this.log(response)),
+        //tap((response: PostModel | null | PostModel[]) => this.log(response)),
         catchError((error) => this.handleError(error, [])),
       );
   }
@@ -48,7 +48,7 @@ export class PostService {
     return this.http
       .get<PostModel[]>(`${this.apiUrl}/posts/by-user/${userId}`)
       .pipe(
-        tap((response: PostModel | null | PostModel[]) => this.log(response)),
+        //tap((response: PostModel | null | PostModel[]) => this.log(response)),
         catchError((error) => this.handleError(error, [])),
       );
   }

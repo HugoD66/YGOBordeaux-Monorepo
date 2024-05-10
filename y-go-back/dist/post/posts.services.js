@@ -27,8 +27,6 @@ let PostsService = exports.PostsService = class PostsService {
     }
     async create(createPostDto, userId) {
         try {
-            console.log(createPostDto);
-            console.log('createPostDto BACK');
             const user = await this.usersService.findOne(userId);
             const bar = await this.barsService.findOne(createPostDto.barId);
             const post = this.postRepository.create({
@@ -36,7 +34,6 @@ let PostsService = exports.PostsService = class PostsService {
                 user: user,
                 bar: bar,
             });
-            console.log(post);
             return await this.postRepository.save(post);
         }
         catch (error) {
@@ -50,7 +47,10 @@ let PostsService = exports.PostsService = class PostsService {
         return await this.postRepository.find();
     }
     async findAllByBar(barId) {
-        return await this.postRepository.find({ where: { bar: { id: barId } } });
+        return await this.postRepository.find({
+            where: { bar: { id: barId } },
+            relations: ['user'],
+        });
     }
     async findAllByUser(userId) {
         return await this.postRepository.find({ where: { user: { id: userId } } });

@@ -28,21 +28,21 @@ export class BarService {
             throw new Error('Response body is null');
           }
         }),
-        tap((response: BarModel) => this.log(response)),
+        //tap((response: BarModel) => this.log(response)),
         catchError((error) => this.handleError(error, {} as BarModel)),
       );
   }
 
   getBarsList(): Observable<BarModel[]> {
     return this.http.get<BarModel[]>(`${this.apiUrl}/bars`).pipe(
-      tap((response: BarModel[]) => this.log(response)),
+      //tap((response: BarModel[]) => this.log(response)),
       catchError((error) => this.handleError(error, [])),
     );
   }
 
   getBarById(barId: string | null): Observable<BarModel | undefined> {
     return this.http.get<BarModel>(`${this.apiUrl}/bars/${barId}`).pipe(
-      tap((response: BarModel) => this.log(response)),
+      //tap((response: BarModel) => this.log(response)),
       catchError((error) => this.handleError(error, undefined)),
     );
   }
@@ -52,7 +52,7 @@ export class BarService {
       .get<number>(`${this.apiUrl}/user-bar-rating/${barId}/count-voters`)
       .pipe(
         // return this.http.get<number>(`${this.apiUrl}/${barId}/count`).pipe(
-        tap((response: number) => this.log(response)),
+        //tap((response: number) => this.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }

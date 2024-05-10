@@ -23,14 +23,14 @@ export class UserService {
         headers: new HttpHeaders().set('Authorization', 'Bearer ' + token),
       })
       .pipe(
-        tap((response: UserModel) => this.log(response)),
+        //tap((response: UserModel) => this.log(response)),
         catchError((error) => this.handleError(error, [])),
       );
   }
 
   getUsersList(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(`${this.apiUrl}/users`).pipe(
-      tap((response: UserModel[]) => this.log(response)),
+      //tap((response: UserModel[]) => this.log(response)),
       catchError((error) => this.handleError(error, [])),
     );
   }
@@ -42,10 +42,10 @@ export class UserService {
       `Bearer ${accessToken}`,
     );
     const options = { headers: headers };
-    return this.http.get<UserModel>(`${this.apiUrl}/users/me`, options).pipe(
-      tap((response: UserModel) => this.log(response)),
-      //catchError((error) => this.handleError(error, undefined)),
-    );
+    return this.http
+      .get<UserModel>(`${this.apiUrl}/users/me`, options)
+      .pipe //tap((response: UserModel) => this.log(response))
+      ();
   }
 
   logout(): Observable<any> {
@@ -55,9 +55,7 @@ export class UserService {
     });
     const options = { headers: headers };
     return this.http.post(`${this.apiUrl}/logout`, {}, options).pipe(
-      tap(() => {
-        localStorage.removeItem(`access_token`);
-      }),
+      tap(() => {}),
       catchError((error) => this.handleError(error, undefined)),
     );
   }
@@ -75,7 +73,7 @@ export class UserService {
     return this.http
       .post(`${this.apiUrl}/users/upload-file/${userId}`, formData, options)
       .pipe(
-        tap((response) => console.log(response)),
+        //tap((response) => console.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }
@@ -95,7 +93,7 @@ export class UserService {
     return this.http
       .patch(`${this.apiUrl}/users/change-password`, changePasswordModel)
       .pipe(
-        tap((response) => console.log(response)),
+        //tap((response) => console.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
   }

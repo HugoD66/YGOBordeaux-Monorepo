@@ -109,25 +109,14 @@
   flex-direction: column;
   height: 100%;
 }
-.mapContent
-  .explainMap
-  .explain
-  .map-clicked
-  .map-clicked-details
-  .star-rating {
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .star-rating {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 80%;
 }
-.mapContent
-  .explainMap
-  .explain
-  .map-clicked
-  .map-clicked-details
-  .star-rating
-  img {
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .star-rating img {
   width: 80%;
   height: 80%;
   object-fit: cover;
@@ -172,12 +161,7 @@
     font-size: 0.8rem;
   }
 }
-.mapContent
-  .explainMap
-  .explain
-  .map-clicked
-  .map-clicked-details
-  .button-detail {
+.mapContent .explainMap .explain .map-clicked .map-clicked-details .button-detail {
   border-radius: 10px;
   font-size: 0.9rem;
   border: none;

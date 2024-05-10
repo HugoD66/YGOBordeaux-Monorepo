@@ -89,7 +89,6 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     }
     this.userService.getMe(token!).subscribe((user) => {
       this.user.set(user);
-      console.log(`User:`, user);
     });
   }
 
@@ -122,11 +121,8 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       barData.particularities = this.particularitiesArray
         .filter((particularity) => this.barForm.get(particularity.key)?.value)
         .map((particularity) => particularity.key);
-
-      console.log(barData);
       this.barService.addBar(barData).subscribe({
         next: (barResponse: BarModel) => {
-          console.log(`Bar enregistré:`, barResponse);
           this.snackbarService.openSnackBar(
             `Le bar ${barResponse.name} a bien été enregistré`,
             `Fermer`,
@@ -172,7 +168,6 @@ export class AddBarComponent implements OnInit, AfterViewInit {
     delete formData.pictureTwo;
     delete formData.pictureThree;
     delete formData.pictureFour;
-    console.log(formData);
     formData.createdBy = this.user();
 
     return formData;
@@ -180,10 +175,9 @@ export class AddBarComponent implements OnInit, AfterViewInit {
 
   private subscribeToParticularityChanges() {
     this.particularitiesArray.forEach((particularity) => {
-      this.barForm.get(particularity.key)?.valueChanges.subscribe((value) => {
-        console.log(particularity.key, value);
-        // Autres actions en fonction de la valeur
-      });
+      this.barForm
+        .get(particularity.key)
+        ?.valueChanges.subscribe((value) => {});
     });
   }
 }
