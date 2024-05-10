@@ -14,7 +14,38 @@
       alt=""
       class="pres-picture"
     />
+    <div class="content-bottom-pres">
+      <p class="content-pres-promo">
+        Rejoignez notre communauté et participez à l'aventure <br />
+        Votre contribution fait toute la différence !
+      </p>
+      <div class="content-buttons">
+
+
+
+        @if(isAuthenticated()) {
+          <button mat-button (click)="onLogout()" class="button-custom">
+            Déconnexion
+          </button>
+          <button
+            mat-button
+            (click)="navigateToProfile()"
+            class="button-custom"
+          >
+            Votre compte
+          </button>
+        } @else {
+          <button mat-button routerLink="login" class="button-custom">
+            Se connecter
+          </button>
+          <button mat-button routerLink="register" class="button-custom">
+            Nous rejoindre
+          </button>
+        }
+      </div>
+    </div>
+
     <div class="gradient"></div>
   </div>
-  <app-accueil-nav [user]="user"></app-accueil-nav>
+ <!-- <app-accueil-nav [user]="user"></app-accueil-nav>-->
 </div>

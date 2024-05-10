@@ -1,4 +1,13 @@
 /* Colors */
+.content-pres-bottom {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  background-color: #888888;
+  z-index: 1000;
+  bottom: 0;
+}
+
 .accueil-nav {
   position: absolute;
   width: 42%;

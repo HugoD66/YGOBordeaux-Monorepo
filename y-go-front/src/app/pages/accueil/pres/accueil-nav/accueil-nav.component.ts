@@ -41,40 +41,11 @@ export class AccueilNavComponent implements OnChanges {
   isAuthenticated = false;
   routerLinkProfile: string = ``;
   @Input() user!: UserModel | undefined;
-  asyncTabs: Observable<PresentationTab[]>;
-  firstLabel = `../../../../../assets/icons/wine-count.png`;
-  secondLabel = `../../../../../assets/icons/student.png`;
-  thirdLabel = `../../../../../assets/icons/register.png`;
 
   constructor(
     private userService: UserService,
     private router: Router,
-  ) {
-    this.asyncTabs = new Observable((observer: Observer<PresentationTab[]>) => {
-      setTimeout(() => {
-        observer.next([
-          {
-            label: `Ygo`,
-            firstTab: true,
-            secondTab: false,
-            thirdTab: false,
-          },
-          {
-            label: `Ynov`,
-            firstTab: false,
-            secondTab: true,
-            thirdTab: false,
-          },
-          {
-            label: `Rejoignez-nous`,
-            firstTab: false,
-            secondTab: false,
-            thirdTab: true,
-          },
-        ]);
-      }, 500);
-    });
-  }
+  ) {}
 
   ngOnChanges(): void {
     if (this.user) {

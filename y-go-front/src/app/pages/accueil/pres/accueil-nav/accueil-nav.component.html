@@ -1,3 +1,32 @@
+<div class="content-pres-bottom">
+  <p class="tab-text text-thirdh">
+    Rejoignez notre communauté et participez à l'aventure <br />
+    Votre contribution fait toute la différence !
+  </p>
+  <div class="tab-buttons">
+    @if (!isAuthenticated) {
+      <button mat-button routerLink="login" class="button-custom">
+        Se connecter
+      </button>
+      <button mat-button routerLink="register" class="button-custom">
+        Nous rejoindre
+      </button>
+    } @if (isAuthenticated) {
+    <button mat-button (click)="onLogout()" class="button-custom">
+      Déconnexion
+    </button>
+    <button
+      mat-button
+      (click)="navigateToProfile()"
+      class="button-custom"
+    >
+      Votre compte
+    </button>
+  }
+  </div>
+</div>
+
+<!--
 <div class="accueil-nav">
   @if ((asyncTabs | async) === null) {
   <div class="loading">
@@ -15,11 +44,7 @@
         {{ tab.label }}
       </ng-template>
       <div class="tab-content">
-        <p class="tab-text text-one">
-          Découvrez Bordeaux sous un nouveau jour avec notre application :
-          explorez une sélection variée de bars et découvrez tout ce qu'ils ont
-          à offrir, du confort de votre poche !
-        </p>
+
         <video class="tab-video" autoplay loop muted>
           <source src="./assets/pictures/accueil/video.mp4" type="video/mp4" />
         </video>
@@ -80,3 +105,4 @@
     }
   </mat-tab-group>
 </div>
+-->
