@@ -8,13 +8,22 @@ import { BarService } from '../../../services/bar.service';
 
 import { RateModel } from '../../../models/rate.model';
 import { RateService } from '../../../services/rate.service';
+import { StarCountComponent } from '../../../components/star-count/star-count.component';
+import { Router } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: `app-unit-user`,
   templateUrl: `./unit-user.component.html`,
   styleUrls: [`./unit-user.component.scss`],
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatExpansionModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule,
+    StarCountComponent,
+    MatListModule,
+  ],
 })
 export class UnitUserComponent implements OnInit {
   @Input() user: UserModel | undefined;
@@ -24,7 +33,7 @@ export class UnitUserComponent implements OnInit {
 
   constructor(
     private barService: BarService,
-
+    private router: Router,
     private rateService: RateService,
   ) {}
 
@@ -46,5 +55,9 @@ export class UnitUserComponent implements OnInit {
     return (
       this.rateList?.filter((rate) => rate.user?.id === this.user?.id) || []
     );
+  }
+
+  onDetailBar(id: string | undefined) {
+    this.router.navigate([`/bars/detail/${id}`]);
   }
 }

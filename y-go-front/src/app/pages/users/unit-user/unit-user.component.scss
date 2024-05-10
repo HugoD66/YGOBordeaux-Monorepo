@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  width: 100%;
   .picture-card {
     margin: 3%;
     width: 180px;
@@ -13,18 +14,35 @@
     }
   }
   .content-title-accorderon {
-    h2 {
+
+    width: 100%;
+    mat-panel-description {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0;
       text-align: end;
+      padding: 5px;
     }
-    .header-user-unit {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      width: 300px;
-      height: 100%;
+    .title-list {
+      width: 100%;
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 600;
+
+    }
+    .redirect-detail-bar {
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+    }
+    .rate-user {
+      margin: auto;
     }
   }
+}
+.info-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }

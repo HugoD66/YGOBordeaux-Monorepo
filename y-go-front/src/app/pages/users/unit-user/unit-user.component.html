@@ -10,39 +10,41 @@
     alt="Photo du bar"
   />
   <div class="content-title-accorderon">
-    <h2>{{ user?.name }}</h2>
     <mat-accordion>
       <mat-expansion-panel
         (opened)="panelOpenState = true"
         (closed)="panelOpenState = false"
       >
         <mat-expansion-panel-header>
-          <mat-panel-description> Plus d'infos </mat-panel-description>
+          <mat-panel-description> {{ user?.name }} </mat-panel-description>
         </mat-expansion-panel-header>
         @if (getBarsCreatedByUser().length === 0) {
         <p>Aucuns bars créé</p>
         } @if (getBarsCreatedByUser().length === 1) {
-        <p>Bar créé :</p>
+        <p class="title-list">Bar créé</p>
         } @if (getBarsCreatedByUser().length > 1) {
-        <p>Bars créés :</p>
+        <p class="title-list">Bars créés</p>
         } @if (getBarsCreatedByUser().length > 0) {
-        <ul>
           @for (bar of getBarsCreatedByUser(); track bar) {
-          <li>{{ bar.name }}</li>
+          <p (click)="onDetailBar(bar.id)" class="redirect-detail-bar">{{ bar.name }}</p>
           }
-        </ul>
-        } @if (getBarsCreatedByUser().length === 0) {
-        <p>Aucuns bars notés</p>
-        } @if (getBarsRatesByUser().length === 1) {
-        <p>Bar noté :</p>
+        }
+        @if (getBarsRatesByUser().length === 1) {
+        <p class="title-list">Bar noté</p>
         } @if (getBarsRatesByUser().length > 1) {
-        <p>Bars notés :</p>
+        <p class="title-list">Bars notés</p>
         } @if (getBarsRatesByUser().length > 0) {
-        <ul>
           @for (rate of getBarsRatesByUser(); track rate) {
-          <li>{{ rate.rate }} {{ rate.bar?.name }}</li>
+          <p (click)="onDetailBar(rate.bar?.id)" class="redirect-detail-bar">
+            {{ rate.bar?.name }}
+          </p>
+            <div class="info-rate">
+              <app-star-count [rateBar]="rate.rate!" class="rate-user"></app-star-count> <!--TODO rate de l'utilisateur-->
+            </div>
+            <mat-divider />
+          } @empty {
+            <p>Aucuns bars notés</p>
           }
-        </ul>
         }
       </mat-expansion-panel>
     </mat-accordion>
