@@ -114,7 +114,7 @@ export class DetailUserComponent implements OnInit {
     this.userService.getMe(token!).subscribe((user) => {
       this.user = user;
     });
-
+    this.isUpdateBlockEnable.set(false);
     /* this.userService
       .getMe(token!)
       .pipe(

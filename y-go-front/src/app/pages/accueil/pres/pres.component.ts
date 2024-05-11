@@ -36,11 +36,8 @@ export class PresComponent implements OnInit {
     effect(
       () => {
         if (this.user()?.id !== undefined) {
-          console.log(this.user()?.id);
-          console.log('coucoulogin');
           this.isAuthenticated.update(() => true);
           this.routerLinkProfile = `users/detail/${this.user()!.id}`;
-          console.log(this.routerLinkProfile);
         }
       },
       { allowSignalWrites: true },
@@ -75,8 +72,6 @@ export class PresComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.user()) {
-      console.log(this.user()!.id);
-      console.log('coucoulogin');
       this.isAuthenticated.set(true);
       this.routerLinkProfile = `users/detail/${this.user()!.id}`;
     } else {
@@ -94,7 +89,6 @@ export class PresComponent implements OnInit {
   onLogout(): void {
     this.userService.logout();
     localStorage.removeItem(`access_token`);
-    console.log(localStorage.getItem(`access_token`));
     this.isAuthenticated.set(false);
   }
 }

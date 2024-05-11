@@ -83,7 +83,7 @@ export class AddBarComponent implements OnInit, AfterViewInit {
       this.barForm.patchValue({ adresse: address });
     });
     this.subscribeToParticularityChanges();
-    const token = localStorage.getItem(`authToken`);
+    const token = localStorage.getItem(`access_token`);
     if (!token) {
       this.router.navigate([`/login`]);
     }
