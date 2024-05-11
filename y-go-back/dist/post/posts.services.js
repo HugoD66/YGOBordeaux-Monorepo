@@ -41,19 +41,25 @@ let PostsService = exports.PostsService = class PostsService {
         }
     }
     async findOne(id) {
-        return await this.postRepository.findOne({ where: { id } });
+        return await this.postRepository.findOne({
+            where: { id },
+            relations: ['bar'],
+        });
     }
     async findAll() {
-        return await this.postRepository.find();
+        return await this.postRepository.find({ relations: ['bar'] });
     }
     async findAllByBar(barId) {
         return await this.postRepository.find({
             where: { bar: { id: barId } },
-            relations: ['user'],
+            relations: ['user', 'bar'],
         });
     }
     async findAllByUser(userId) {
-        return await this.postRepository.find({ where: { user: { id: userId } } });
+        return await this.postRepository.find({
+            where: { user: { id: userId } },
+            relations: ['bar'],
+        });
     }
     async update(id, updatePostDto) {
         const post = await this.postRepository.preload({

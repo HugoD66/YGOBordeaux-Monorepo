@@ -78,7 +78,7 @@ export class DetailUserComponent implements OnInit {
   }
 
   goDetailBarFromComment(comment: PostModel): void {
-    this.router.navigate([`/bars/detail/${comment.barId}`]);
+    this.router.navigate([`/bars/detail/${comment.bar?.id}`]);
   }
 
   onFileSelect(event: Event): void {
@@ -108,7 +108,19 @@ export class DetailUserComponent implements OnInit {
     this.router.navigateByUrl(`/`);
   }
 
-  openUpdateBlock() {
-    this.isUpdateBlockEnable.set(true);
+  onUpdateUser() {
+    const token = localStorage.getItem(`access_token`);
+
+    this.userService.getMe(token!).subscribe((user) => {
+      this.user = user;
+    });
+
+    /* this.userService
+      .getMe(token!)
+      .pipe(
+        switchMap((user: UserModel) => {
+          this.user = user;
+          return this.rateService.getRateList();
+        }),*/
   }
 }

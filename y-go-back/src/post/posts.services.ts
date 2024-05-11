@@ -36,11 +36,14 @@ export class PostsService {
   }
 
   async findOne(id: string): Promise<ResponsePostDto> {
-    return await this.postRepository.findOne({ where: { id } });
+    return await this.postRepository.findOne({
+      where: { id },
+      relations: ['bar'],
+    });
   }
 
   async findAll(): Promise<ResponsePostDto[]> {
-    return await this.postRepository.find();
+    return await this.postRepository.find({ relations: ['bar'] });
   }
 
   async findAllByBar(
@@ -48,14 +51,17 @@ export class PostsService {
   ): Promise<ResponsePostDto[] | ResponsePostDto | null> {
     return await this.postRepository.find({
       where: { bar: { id: barId } },
-      relations: ['user'],
+      relations: ['user', 'bar'],
     });
   }
 
   async findAllByUser(
     userId: string,
   ): Promise<ResponsePostDto[] | ResponsePostDto | null> {
-    return await this.postRepository.find({ where: { user: { id: userId } } });
+    return await this.postRepository.find({
+      where: { user: { id: userId } },
+      relations: ['bar'],
+    });
   }
   async update(id: string, updatePostDto: UpdatePostDto): Promise<Post> {
     const post = await this.postRepository.preload({

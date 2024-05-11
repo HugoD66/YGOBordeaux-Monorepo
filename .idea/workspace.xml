@@ -6,17 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0cac88fd-af62-4b7b-a78f-38aa3dfbb061" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-back/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/users/users.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/accueil/pres/pres.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/post/posts.services.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-back/src/post/posts.services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-back/src/post/posts.services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/detail-user/detail-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/user.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/y-go-front/src/app/pages/users/update-user/update-user.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +120,7 @@
       <workItem from="1715272344157" duration="3008000" />
       <workItem from="1715333856909" duration="3983000" />
       <workItem from="1715350571187" duration="5213000" />
-      <workItem from="1715416206353" duration="1958000" />
+      <workItem from="1715416206353" duration="4428000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,12 @@
-import { Component, Input, input, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { ButtonPanelHorizComponent } from '../../../components/button-panel/button-panel-horiz/button-panel-horiz.component';
 import { LogoYGoComponent } from '../../../components/logo-ygo/logo-ygo.component';
 import {
@@ -28,6 +36,8 @@ import { UserService } from '../../../services/user.service';
 export class UpdateUserComponent {
   @Input() user: UserModel | null = null;
   public errorMessage: WritableSignal<string> = signal('');
+  @Output() userUpdated = new EventEmitter();
+
   updateForm = new FormGroup({
     email: new FormControl('', {
       validators: [Validators.required, Validators.email],
@@ -38,7 +48,6 @@ export class UpdateUserComponent {
 
   constructor(private userService: UserService) {}
   onSubmit() {
-    console.log(this.updateForm.value);
     const email = this.updateForm.value.email;
     const name = this.updateForm.value.name;
     if (this.updateForm.valid && email != null && name != null) {
@@ -50,10 +59,9 @@ export class UpdateUserComponent {
       this.userService.updateUser(updatedUser).subscribe({
         next: () => {
           this.errorMessage.set('');
-          //this.goLogin();
+          this.userUpdated.emit();
         },
         error: (error) => {
-          console.log(error);
           this.errorMessage.set(
             error || "Une erreur est survenue lors de l'inscription.",
           );

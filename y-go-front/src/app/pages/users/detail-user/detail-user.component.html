@@ -78,7 +78,11 @@
       </div>
     </div>
     @if(isUpdateBlockEnable()) {
-      <app-update-user [user]="user" />
+      <app-update-user
+        [user]="user"
+        (userUpdated)="onUpdateUser()"
+
+      />
     }
     <div class="bar-comment-rate">
       <div class="comment-rate">

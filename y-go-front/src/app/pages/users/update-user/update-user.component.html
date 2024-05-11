@@ -7,9 +7,15 @@
     </mat-form-field>
     <mat-form-field class="form-field" appearance="fill">
       <mat-label>Nom</mat-label>
-      <input class="form-control" matInput formControlName="name" value="{{ user?.email }}"/>
+      <input class="form-control" matInput formControlName="name" value="{{ user?.name }}"/>
     </mat-form-field>
     <button type="submit" mat-flat-button>Modifier</button>
   </form>
+
 </div>
+@if (errorMessage()) {
+  <div class="error-message">
+    {{ errorMessage() }}
+  </div>
+}
 <app-logo-ygo />
