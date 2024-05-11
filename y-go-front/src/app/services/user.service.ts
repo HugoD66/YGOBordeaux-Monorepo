@@ -85,17 +85,37 @@ export class UserService {
   }
 
   changePasswordOnLoginScreen(changePasswordModel: ChangePasswordModel) {
-    // const accessToken = localStorage.getItem(`access_token`);
-    // const headers = new HttpHeaders({
-    //  Authorization: `Bearer ${accessToken}`,
-    // });
-    // const options = { headers: headers };
     return this.http
       .patch(`${this.apiUrl}/users/change-password`, changePasswordModel)
       .pipe(
         //tap((response) => console.log(response)),
         catchError((error) => this.handleError(error, undefined)),
       );
+  }
+
+  /*  updateUser(user: UserModel): Observable<UserModel> {
+    const accessToken = localStorage.getItem(`access_token`);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`,
+    });
+    const options = { headers: headers };
+    return this.http
+      .patch<UserModel>(`${this.apiUrl}/users/me`, user, options)
+      .pipe(
+        //tap((response: UserModel) => this.log(response)),
+        catchError((error) => this.handleError(error, undefined)),
+      );
+  }*/
+
+  updateUser(user: Partial<UserModel>): Observable<UserModel> {
+    const accessToken = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`,
+    });
+    const options = { headers: headers };
+    return this.http
+      .patch<UserModel>(`${this.apiUrl}/users/${user.id}`, user, options)
+      .pipe(catchError((error) => this.handleError(error, undefined)));
   }
 
   private log(response: UserModel[] | UserModel | undefined | Object) {

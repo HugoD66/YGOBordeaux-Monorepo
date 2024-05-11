@@ -10,6 +10,7 @@ import { UnitUserComponent } from './unit-user/unit-user.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [UsersComponent, DetailUserComponent],
@@ -23,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    UpdateUserComponent,
   ],
 })
 export class UserModule {}

@@ -1,0 +1,22 @@
+.update-user-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    width: 100%;
+
+    mat-form-field {
+      width: 50%;
+      margin: 10px;
+      @media screen and (max-width: 768px) {
+        width: 80%;
+      }
+    }
+  }
+}

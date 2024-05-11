@@ -22,7 +22,7 @@ export class DetailUserComponent implements OnInit {
   public bar: BarModel[] | undefined;
   public comment: PostModel[] | undefined;
   public comments: WritableSignal<PostModel[]> = signal([]);
-
+  public isUpdateBlockEnable: WritableSignal<boolean> = signal(false);
   currentTime = new Date().getTime();
 
   public apiUrl = environment.apiUrl;
@@ -94,14 +94,6 @@ export class DetailUserComponent implements OnInit {
     }
   }
 
-  completeProfil(): void {
-    console.log(`complete profil`);
-    // this.router.navigate([`/users/update-profile`]);
-  }
-  updateProfil() {
-    console.log(`update profil`);
-    // this.router.navigate([`/users/update-profile`]);
-  }
   goAddBar() {
     this.router.navigate([`/bars/add-bar`]);
   }
@@ -112,6 +104,11 @@ export class DetailUserComponent implements OnInit {
 
   onLogout(): void {
     this.userService.logout();
+    localStorage.removeItem(`access_token`);
     this.router.navigateByUrl(`/`);
+  }
+
+  openUpdateBlock() {
+    this.isUpdateBlockEnable.set(true);
   }
 }

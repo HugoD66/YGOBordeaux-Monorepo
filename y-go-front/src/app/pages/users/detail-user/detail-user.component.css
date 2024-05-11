@@ -77,8 +77,8 @@
   }
 }
 .detail-user .content-user .infos-button-change .infos p {
-  font-size: 1.1rem;
   margin: 0;
+  font-weight: 400;
   padding: 8px;
   position: relative;
 }
@@ -86,6 +86,15 @@
   .detail-user .content-user .infos-button-change .infos p {
     text-align: center;
   }
+}
+.detail-user .content-user .infos-button-change .button-change {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-user .content-user .infos-button-change .button-change button {
+  margin: 10px;
 }
 .detail-user .content-user .bar-comment-rate .comment-rate {
   width: 100%;

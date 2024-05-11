@@ -103,7 +103,6 @@ export class UsersController {
     return;
   }
 
-  //TODO DELETE ?
   @Get(`me`)
   async getProfile(@Req() req): Promise<UserResponseDto> {
     try {
@@ -133,6 +132,7 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
+  @UseGuards(AuthGuard)
   @Patch(`:id`)
   async update(@Param(`id`) id: string, @Body() user: User): Promise<any> {
     return this.usersService.update(id, user);

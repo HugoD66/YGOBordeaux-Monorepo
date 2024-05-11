@@ -1,0 +1,25 @@
+.update-user-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+.update-user-content form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+  width: 100%;
+}
+.update-user-content form mat-form-field {
+  width: 50%;
+  margin: 10px;
+}
+@media screen and (max-width: 768px) {
+  .update-user-content form mat-form-field {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=update-user.component.css.map */

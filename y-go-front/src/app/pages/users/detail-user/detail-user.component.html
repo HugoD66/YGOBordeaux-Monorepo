@@ -12,6 +12,21 @@
         [src]="apiUrl + '/' + user.picture + '?time=' + currentTime"
         alt="user picture"
       />
+        @if(isUpdateBlockEnable()) {
+          <span class="add-picture">
+        <form>
+          <label for="file-update" class="custom-file-upload">
+            <img src="assets/icons/picture-add.png" alt="Add" />
+          </label>
+          <input
+            id="file-update"
+            type="file"
+            (change)="onFileSelect($event)"
+            style="display: none"
+          />
+        </form>
+      </span>
+        }
       } @if(!user.picture) {
       <img
         class="picture"
@@ -29,7 +44,6 @@
             (change)="onFileSelect($event)"
             style="display: none"
           />
-          <!-- style="display: none" Test avec hidden ! -->
         </form>
       </span>
       }
@@ -40,24 +54,32 @@
       <mat-divider />
     </div>
   </div>
-
   <div class="content-user">
     <div class="infos-button-change">
       <div class="infos">
         <p>{{ user.email }}</p>
         <p class="created-at">
-          Enregistré depuis le : {{ user.createdAt | date }}
+          Enregistré depuis le {{ user.createdAt | date: 'dd/MM/yyyy' }}
         </p>
       </div>
       <div class="button-change">
-        <button mat-flat-button (click)="completeProfil()">
-          Complétez /Modifier votre profil
+        @if (!isUpdateBlockEnable()) {
+        <button mat-flat-button (click)="isUpdateBlockEnable.set(true)">
+          Modifier
         </button>
+        } @else {
+        <button mat-flat-button (click)="isUpdateBlockEnable.set(false)">
+          Annuler
+        </button>
+        }
         <button mat-flat-button (click)="onLogout()">
           Deconnexion
         </button>
       </div>
     </div>
+    @if(isUpdateBlockEnable()) {
+      <app-update-user [user]="user" />
+    }
     <div class="bar-comment-rate">
       <div class="comment-rate">
         <div class="rate">

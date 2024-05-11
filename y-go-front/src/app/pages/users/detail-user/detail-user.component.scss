@@ -72,8 +72,8 @@
       }
       .infos {
         p {
-          font-size: 1.1rem;
           margin: 0;
+          font-weight: 400;
           padding: 8px;
           position: relative;
           @media screen and (max-width: 768px) {
@@ -84,6 +84,14 @@
         }
       }
       .button-change {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        button {
+          margin: 10px;
+        }
       }
     }
     .bar-comment-rate {

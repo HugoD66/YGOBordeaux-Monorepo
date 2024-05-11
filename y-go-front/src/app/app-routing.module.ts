@@ -10,6 +10,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { AddBarComponent } from './pages/bars/add-bar/add-bar.component';
 import { DetailUserComponent } from './pages/users/detail-user/detail-user.component';
 import { ForgotPasswordComponent } from './pages/security/forgot-password/forgot-password.component';
+import { UpdateUserComponent } from './pages/users/update-user/update-user.component';
 
 const routes: Routes = [
   { path: `login`, component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
     children: [
       { path: ``, component: UsersComponent },
       { path: `detail/:id`, component: DetailUserComponent },
+      //{ path: `update-profile/:id`, component: UpdateUserComponent },
     ],
   },
   { path: ``, component: AccueilComponent },

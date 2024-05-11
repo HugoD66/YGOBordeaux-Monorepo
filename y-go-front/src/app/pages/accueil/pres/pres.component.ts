@@ -92,7 +92,6 @@ export class PresComponent implements OnInit {
   }
 
   onLogout(): void {
-    console.log('coucoulogout');
     this.userService.logout();
     localStorage.removeItem(`access_token`);
     console.log(localStorage.getItem(`access_token`));

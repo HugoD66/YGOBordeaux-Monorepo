@@ -1,0 +1,15 @@
+<div class="update-user-content">
+  <app-button-panel-horiz></app-button-panel-horiz>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input class="form-control" matInput formControlName="email" value="{{ user?.email }}"/>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input class="form-control" matInput formControlName="name" value="{{ user?.email }}"/>
+    </mat-form-field>
+    <button type="submit" mat-flat-button>Modifier</button>
+  </form>
+</div>
+<app-logo-ygo />
